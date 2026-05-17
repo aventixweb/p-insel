@@ -1,0 +1,12 @@
+# Cache & temp files
+thumb_*.jpeg
+thumb_*.jpg
+cache_*.jpeg
+cache_*.jpg
+*.DS_Store
+.DS_Store
+serve.py
+design-review/
+
+# Node (falls später)
+node_modules/

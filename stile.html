@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stile & Techniken · p-insel Tattoos · Pia Insel</title>
+  <meta name="description" content="Tattoo-Stile bei p-insel Bad Lippspringe: Realismus, Tierportraits, Feineline, Ornamental, Surrealismus & Farbe. Finde deinen perfekten Stil.">
+  <meta property="og:title" content="Stile & Techniken · p-insel Tattoos Bad Lippspringe">
+  <meta property="og:description" content="Tattoo-Stile bei p-insel Bad Lippspringe: Realismus, Tierportraits, Feineline, Ornamental, Surrealismus & Farbe.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.p-insel.de/stile.html">
+  <meta property="og:image" content="https://www.p-insel.de/img/og-image.jpg">
+  <link rel="canonical" href="https://www.p-insel.de/stile.html">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .style-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4.5rem;
+      align-items: center;
+      padding: 4.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .style-detail:last-child { border-bottom: none; }
+    .style-detail.reverse { direction: rtl; }
+    .style-detail.reverse > * { direction: ltr; }
+    .style-detail-img {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--bg-surface);
+    }
+    .style-detail-img-inner {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: .5rem;
+      background: linear-gradient(135deg, var(--bg-surface), var(--bg-raised));
+    }
+    .style-detail-img-inner span {
+      font-size: .68rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .style-num {
+      font-family: var(--font-h);
+      font-size: clamp(5rem, 12vw, 9rem);
+      font-weight: 900;
+      color: var(--bg-raised);
+      line-height: 1;
+      margin-bottom: -.5rem;
+      letter-spacing: -.02em;
+    }
+    @media (max-width: 900px) {
+      .style-detail { grid-template-columns: 1fr; gap: 2.5rem; }
+      .style-detail.reverse { direction: ltr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="img/logo.png" alt="p-insel Tattoos" class="nav-logo-img"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="kuenstlerin.html">Über mich</a></li>
+      <li><a href="stile.html" class="active">Stile</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <a href="kontakt.html" class="nav-cta">Termin anfragen</a>
+    <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div id="drawer-overlay"></div>
+<div id="mobile-drawer">
+  <div class="drawer-header">
+    <img src="img/logo.png" alt="p-insel Tattoos" class="drawer-logo-img">
+    <button class="drawer-close" id="drawer-close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="kuenstlerin.html">Über mich</a>
+    <a href="stile.html" class="active">Stile & Techniken</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a href="anfahrt.html">Anfahrt</a>
+  </nav>
+  <div class="drawer-footer"><a href="kontakt.html" class="drawer-cta-link">Termin anfragen</a></div>
+</div>
+
+<header class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('img/tattoo/hund-mandala-oberschenkel.jpeg'); background-position: center 30%;"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="container">
+    <div class="page-hero-eyebrow">Was ich mache</div>
+    <h1>Stile & <span>Techniken</span></h1>
+    <p>Jeder Mensch ist einzigartig – sein Tattoo auch. Hier findest du einen Überblick über meine Spezialisierungen.</p>
+  </div>
+</header>
+<div class="container">
+  <nav class="breadcrumb">
+    <a href="index.html">Home</a><span class="bc-sep">›</span><span class="bc-current">Stile & Techniken</span>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Stil 1: Realismus & Tierportraits -->
+    <div class="style-detail" id="realismus">
+      <div class="style-detail-img reveal">
+        <img src="img/tattoo/hund-portrait-sw.jpeg" alt="Hund Portrait Schwarz-Weiß Realismus Tattoo" style="width:100%;height:100%;object-fit:cover;border-radius:4px;">
+      </div>
+      <div>
+        <div class="style-num reveal">01</div>
+        <div class="section-eyebrow reveal" data-delay="1">Spezialisierung</div>
+        <h2 class="section-title reveal" data-delay="1">Realismus &amp;<br><span>Tierportraits</span></h2>
+        <p class="section-desc reveal" data-delay="2">
+          Das Herzstück meiner Arbeit. Fotorealistische Darstellungen mit atemberaubender Detailgenauigkeit – vom zarten Blick eines Hundes bis zum majestätischen Adler im Flug. Jeder Strich, jede Schattierung ist durchdacht.
+        </p>
+        <p class="section-desc reveal" data-delay="2" style="margin-top:.8rem;">
+          Dein Tier – dein Begleiter, dein bestes Freund, das Tier das dein Herz gestohlen hat – für immer auf deiner Haut. Realistisch und voller Charakter.
+        </p>
+        <div class="about-tags reveal" data-delay="3">
+          <span class="tag">Hundeportraits</span>
+          <span class="tag">Katzenportraits</span>
+          <span class="tag">Vögel</span>
+          <span class="tag">Wildtiere</span>
+          <span class="tag">SW & Farbe</span>
+        </div>
+        <div class="reveal" data-delay="4" style="margin-top:1.5rem;">
+          <a href="kontakt.html" class="btn btn-gold">Termin anfragen</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stil 2: Florales Feineline -->
+    <div class="style-detail reverse" id="feineline">
+      <div class="style-detail-img reveal">
+        <img src="img/tattoo/rose-mandala-schulter.jpg" alt="Rose Mandala Schulter Feineline Tattoo" style="width:100%;height:100%;object-fit:cover;border-radius:4px;">
+      </div>
+      <div>
+        <div class="style-num reveal">02</div>
+        <div class="section-eyebrow reveal" data-delay="1">Spezialisierung</div>
+        <h2 class="section-title reveal" data-delay="1">Florales<br><span>Feineline</span></h2>
+        <p class="section-desc reveal" data-delay="2">
+          Hauchzarte Linienarbeiten, die wie mit einem Federkiel gezeichnet wirken. Botanik, Blüten, Ranken – filigran und zeitlos elegant. Als eigenständiges Motiv oder als dekorative Rahmung für ein realistisches Portrait.
+        </p>
+        <p class="section-desc reveal" data-delay="2" style="margin-top:.8rem;">
+          Feineline ist Geduld und Präzision. Jede Linie muss sitzen – kein Zurück, kein Korrigieren. Das ist die Magie daran.
+        </p>
+        <div class="about-tags reveal" data-delay="3">
+          <span class="tag">Botanik</span>
+          <span class="tag">Blüten</span>
+          <span class="tag">Ranken</span>
+          <span class="tag">Rahmung</span>
+          <span class="tag">Fineline</span>
+        </div>
+        <div class="reveal" data-delay="4" style="margin-top:1.5rem;">
+          <a href="kontakt.html" class="btn btn-gold">Termin anfragen</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stil 3: Ornamental -->
+    <div class="style-detail" id="ornamental">
+      <div class="style-detail-img reveal">
+        <img src="img/tattoo/mandala-blumen-schulter.jpg" alt="Mandala Blumen Schulter Ornamental Tattoo" style="width:100%;height:100%;object-fit:cover;border-radius:4px;">
+      </div>
+      <div>
+        <div class="style-num reveal">03</div>
+        <div class="section-eyebrow reveal" data-delay="1">Spezialisierung</div>
+        <h2 class="section-title reveal" data-delay="1"><span>Ornamental</span><br>& Geometrisch</h2>
+        <p class="section-desc reveal" data-delay="2">
+          Symmetrie trifft Eleganz. Ornamentale Muster, die sich perfekt an den Körper anpassen und eine starke visuelle Wirkung entfalten. Mandala-inspiriert, geometrisch, architektonisch.
+        </p>
+        <div class="about-tags reveal" data-delay="3">
+          <span class="tag">Mandala</span>
+          <span class="tag">Geometrisch</span>
+          <span class="tag">Symmetrie</span>
+          <span class="tag">Dotwork</span>
+        </div>
+        <div class="reveal" data-delay="4" style="margin-top:1.5rem;">
+          <a href="kontakt.html" class="btn btn-gold">Termin anfragen</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stil 4: Surrealismus -->
+    <div class="style-detail reverse" id="surrealismus">
+      <div class="style-detail-img reveal">
+        <img src="img/tattoo/fledermaus-farbe-oberschenkel.jpeg" alt="Fledermaus bunt Surrealismus Farbe Tattoo" style="width:100%;height:100%;object-fit:cover;border-radius:4px;">
+      </div>
+      <div>
+        <div class="style-num reveal">04</div>
+        <div class="section-eyebrow reveal" data-delay="1">Spezialisierung</div>
+        <h2 class="section-title reveal" data-delay="1"><span>Surrealismus</span><br>& Farbe</h2>
+        <p class="section-desc reveal" data-delay="2">
+          Hier lebt das Unerwartete. Surreale Welten, unmögliche Kombinationen, Träume auf Haut. Mit satten Farben und hohem Kontrast entsteht etwas, das du nirgendwo sonst findest.
+        </p>
+        <p class="section-desc reveal" data-delay="2" style="margin-top:.8rem;">
+          Und natürlich: Dinosaurier. Immer. ☀️
+        </p>
+        <div class="about-tags reveal" data-delay="3">
+          <span class="tag">Surrealismus</span>
+          <span class="tag">Farbe</span>
+          <span class="tag">Hoher Kontrast</span>
+          <span class="tag">Dinosaurier</span>
+          <span class="tag">Einzigartig</span>
+        </div>
+        <div class="reveal" data-delay="4" style="margin-top:1.5rem;">
+          <a href="kontakt.html" class="btn btn-gold">Termin anfragen</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-dark">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start;" class="why-grid">
+      <div>
+        <div class="section-eyebrow reveal">Häufige Fragen</div>
+        <h2 class="section-title reveal" data-delay="1">Alles was du<br>wissen <span>musst</span></h2>
+        <p class="section-desc reveal" data-delay="2">Fragen zum Ablauf, zur Pflege oder zu den Stilen? Hier findest du Antworten.</p>
+      </div>
+      <div class="faq-list reveal" data-delay="1">
+        <div class="faq-item">
+          <button class="faq-question">
+            Wie lange dauert ein Tattoo-Termin?
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer">Das hängt von Größe und Komplexität ab. Kleine Motive: 1–2 Stunden. Große Projekte (z.B. Halbarm) können mehrere Sessions brauchen. In der Beratung schätzen wir den Zeitaufwand gemeinsam ein.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Wie bereite ich mich auf den Termin vor?
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer">Gut essen, ausreichend trinken, ausgeschlafen kommen. Bequeme Kleidung tragen, die die Tattoo-Stelle gut zugänglich macht. Keinen Alkohol in den 24h vorher.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Kann ich mein eigenes Motiv mitbringen?
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer">Absolut! Referenzbilder sind super hilfreich. Das Design wird aber immer gemeinsam entwickelt und angepasst – ich möchte, dass es perfekt zu dir und deiner Körperstelle passt.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Wie pflege ich mein neues Tattoo?
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer">Nach dem Termin bekommst du eine detaillierte Nachsorgeanleitung. Generell: sauber halten, eincremen, Sonne & Wasser in den ersten Wochen meiden. Bei Fragen bin ich immer erreichbar.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Muss ich eine Anzahlung leisten?
+            <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-answer">Ja, bei der Terminvereinbarung wird eine Anzahlung fällig, die beim finalen Termin angerechnet wird. Das schützt beide Seiten und sichert deinen Termin.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2 class="reveal" style="font-family:var(--font-h);font-size:clamp(2.2rem,5vw,4rem);font-weight:900;text-transform:uppercase;color:var(--text);line-height:1;margin-bottom:.8rem;">
+      Welcher Stil ist <span style="color:var(--accent);">deiner</span>?
+    </h2>
+    <p class="reveal" data-delay="1" style="font-size:1rem;color:var(--text-mid);max-width:440px;margin:0 auto 2rem;line-height:1.75;">
+      Ich berate dich gerne – kostenlos und ohne Druck. Schick mir einfach deine Idee.
+    </p>
+    <div class="cta-band-actions reveal" data-delay="2">
+      <a href="kontakt.html" class="btn btn-gold">Beratung anfragen</a>
+      <a href="portfolio.html" class="btn btn-outline">Inspiration im Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-main"><div class="container"><div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="footer-logo-text"><img src="img/logo.png" alt="p-insel Tattoos" style="height:38px;width:auto;filter:drop-shadow(0 1px 4px rgba(0,0,0,.5));"></a><p>Tattoo Studio in Bad Lippspringe. Pia Insel – Tätowiererin & Malerin seit 2015.</p></div>
+    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Startseite</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="kuenstlerin.html">Über mich</a></li><li><a href="stile.html">Stile</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
+    <div class="footer-col"><h4>Stile</h4><ul><li><a href="#realismus">Realismus</a></li><li><a href="#feineline">Feineline</a></li><li><a href="#ornamental">Ornamental</a></li><li><a href="#surrealismus">Surrealismus</a></li></ul></div>
+    <div class="footer-col"><h4>Kontakt</h4><address>Detmolder Strasse 119<br>33175 Bad Lippspringe<br><br><a href="mailto:terminwunsch123@p-insel.de" style="color:var(--accent);text-decoration:none;">terminwunsch123@p-insel.de</a></address></div>
+  </div></div></div>
+  <div class="footer-bottom"><div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;width:100%;"><p>© 2025 p-insel Tattoos · Pia Insel</p><div class="footer-bottom-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></div></div>
+</footer>
+<div id="float-cta"><a href="kontakt.html" class="float-cta-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Termin anfragen</a></div>
+
+<script>
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50);},{passive:true});
+  const hb=document.getElementById('hamburger'),dr=document.getElementById('mobile-drawer'),ov=document.getElementById('drawer-overlay'),cb=document.getElementById('drawer-close');
+  const open=()=>{dr.classList.add('open');ov.classList.add('open');hb.classList.add('open');document.body.style.overflow='hidden';};
+  const close=()=>{dr.classList.remove('open');ov.classList.remove('open');hb.classList.remove('open');document.body.style.overflow='';};
+  hb.addEventListener('click',()=>dr.classList.contains('open')?close():open());
+  cb.addEventListener('click',close);ov.addEventListener('click',close);
+  dr.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+  const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}}),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const fc=document.getElementById('float-cta');
+  window.addEventListener('scroll',()=>{fc.classList.toggle('visible',window.scrollY>350);},{passive:true});
+  document.querySelectorAll('.faq-question').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const item=btn.parentElement;
+      const wasOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 – Seite nicht gefunden · p-insel Tattoos</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="img/logo.png" alt="p-insel Tattoos" class="nav-logo-img"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="kuenstlerin.html">Über mich</a></li>
+      <li><a href="stile.html">Stile</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <a href="kontakt.html" class="nav-cta">Termin anfragen</a>
+    <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div id="drawer-overlay"></div>
+<div id="mobile-drawer">
+  <div class="drawer-header">
+    <img src="img/logo.png" alt="p-insel Tattoos" class="drawer-logo-img">
+    <button class="drawer-close" id="drawer-close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="index.html">Home</a><a href="portfolio.html">Portfolio</a><a href="kuenstlerin.html">Über mich</a><a href="stile.html">Stile</a><a href="kontakt.html">Kontakt</a>
+  </nav>
+  <div class="drawer-footer"><a href="kontakt.html" class="drawer-cta-link">Termin anfragen</a></div>
+</div>
+
+<main class="error-page">
+  <div>
+    <h1>404</h1>
+    <h2>Seite nicht gefunden</h2>
+    <p>Diese Seite existiert nicht – oder wurde verschoben. Vielleicht bist du auf der Suche nach etwas Besonderem?</p>
+    <div style="display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;">
+      <a href="index.html" class="btn btn-gold">Zur Startseite</a>
+      <a href="portfolio.html" class="btn btn-outline">Portfolio ansehen</a>
+    </div>
+  </div>
+</main>
+
+<script>
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50);},{passive:true});
+  const hb=document.getElementById('hamburger'),dr=document.getElementById('mobile-drawer'),ov=document.getElementById('drawer-overlay'),cb=document.getElementById('drawer-close');
+  const open=()=>{dr.classList.add('open');ov.classList.add('open');hb.classList.add('open');document.body.style.overflow='hidden';};
+  const close=()=>{dr.classList.remove('open');ov.classList.remove('open');hb.classList.remove('open');document.body.style.overflow='';};
+  hb.addEventListener('click',()=>dr.classList.contains('open')?close():open());
+  cb.addEventListener('click',close);ov.addEventListener('click',close);
+  dr.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+</script>
+</body>
+</html>
