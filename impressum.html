@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<nav id="nav">
+<nav id="nav" role="navigation" aria-label="Hauptnavigation">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="img/logo.png" alt="p-insel Tattoos" class="nav-logo-img"></a>
     <ul class="nav-links">
@@ -22,11 +22,11 @@
     <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<div id="drawer-overlay"></div>
-<div id="mobile-drawer">
+<div id="drawer-overlay" aria-hidden="true"></div>
+<div id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation">
   <div class="drawer-header">
     <img src="img/logo.png" alt="p-insel Tattoos" class="drawer-logo-img">
-    <button class="drawer-close" id="drawer-close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <button class="drawer-close" id="drawer-close" aria-label="Menü schließen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
   </div>
   <nav class="drawer-nav">
     <a href="index.html">Home</a><a href="portfolio.html">Portfolio</a><a href="kuenstlerin.html">Über mich</a><a href="stile.html">Stile</a><a href="kontakt.html">Kontakt</a>
@@ -41,7 +41,8 @@
   <p>
     Pia Insel<br>
     p-insel<br>
-    33175 Paderborn<br>
+    Detmolder Strasse 119<br>
+    33175 Bad Lippspringe<br>
     Deutschland
   </p>
 
@@ -63,7 +64,8 @@
   <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
   <p>
     Pia Insel<br>
-    33175 Paderborn
+    Detmolder Strasse 119<br>
+    33175 Bad Lippspringe
   </p>
 
   <h2>Haftungsausschluss</h2>
