@@ -10,3 +10,8 @@ design-review/
 
 # Node (falls später)
 node_modules/
+
+# IDE & tools
+.claude/
+.gstack/
+logo.png
