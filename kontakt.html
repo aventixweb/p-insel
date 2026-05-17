@@ -126,7 +126,7 @@
 
       <!-- Form -->
       <div class="reveal" data-delay="1">
-        <form class="form-grid" id="contact-form" enctype="multipart/form-data" novalidate>
+        <form class="form-grid" id="contact-form" novalidate>
           <div class="form-row">
             <div class="form-field">
               <label class="form-label" for="name">Name *</label>
@@ -179,23 +179,16 @@
           </div>
 
           <div class="form-field">
-            <label class="form-label" for="tattoo-bilder">Referenzbilder / Ideen <span style="color:var(--text-dim); font-weight:400;">(optional)</span></label>
-            <div class="file-upload-wrap" id="file-upload-wrap">
-              <input
-                type="file"
-                id="tattoo-bilder"
-                name="tattoo-bilder"
-                accept="image/*,.pdf"
-                multiple
-                class="file-input-hidden"
-                onchange="handleFileSelect(this)"
-              >
-              <label for="tattoo-bilder" class="file-upload-label">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                <span class="file-upload-text">Bilder hierher ziehen oder <strong>auswählen</strong></span>
-                <span class="file-upload-hint">JPG, PNG, PDF · Max. 10 MB pro Datei · Mehrere Bilder möglich</span>
-              </label>
-              <div id="file-preview" class="file-preview-list"></div>
+            <div class="referenz-hinweis">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0;margin-top:2px;color:var(--accent)"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <div>
+                <strong>Referenzbilder?</strong><br>
+                Schick deine Inspirationsbilder einfach per
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">Instagram DM</a>
+                oder direkt per E-Mail an
+                <a href="mailto:terminwunsch123@p-insel.de" style="color:var(--accent);">terminwunsch123@p-insel.de</a> —
+                am besten zusammen mit einer kurzen Erwähnung deines Namens aus dem Formular.
+              </div>
             </div>
           </div>
 
@@ -247,61 +240,32 @@
   const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}}),{threshold:0.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  /* File upload handler */
-  function handleFileSelect(input) {
-    const preview = document.getElementById('file-preview');
-    const wrap = document.getElementById('file-upload-wrap');
-    preview.innerHTML = '';
-    if (input.files.length === 0) return;
-    wrap.classList.add('has-files');
-    Array.from(input.files).forEach(file => {
-      const item = document.createElement('div');
-      item.className = 'file-preview-item';
-      const icon = file.type.startsWith('image/')
-        ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>'
-        : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
-      item.innerHTML = `${icon}<span>${file.name}</span><span class="file-size">${(file.size/1024/1024).toFixed(1)} MB</span>`;
-      preview.appendChild(item);
-    });
-  }
-
-  /* Drag & drop */
-  const uploadWrap = document.getElementById('file-upload-wrap');
-  if (uploadWrap) {
-    uploadWrap.addEventListener('dragover', e => { e.preventDefault(); uploadWrap.classList.add('drag-over'); });
-    uploadWrap.addEventListener('dragleave', () => uploadWrap.classList.remove('drag-over'));
-    uploadWrap.addEventListener('drop', e => {
-      e.preventDefault();
-      uploadWrap.classList.remove('drag-over');
-      const input = document.getElementById('tattoo-bilder');
-      input.files = e.dataTransfer.files;
-      handleFileSelect(input);
-    });
-  }
-
-  /* Form demo submission (no backend – mailto fallback) */
+  /* Form submission — mailto fallback */
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const name  = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const idee  = document.getElementById('idee').value.trim();
     const dsgvo = document.getElementById('dsgvo').checked;
+    const groesse   = document.getElementById('groesse')?.value.trim() || '';
+    const position  = document.getElementById('position')?.value.trim() || '';
+    const wunschtermin = document.getElementById('wunschtermin')?.value.trim() || '';
     if (!name || !email || !idee || !dsgvo) {
       alert('Bitte fülle alle Pflichtfelder aus und stimme der Datenschutzerklärung zu.');
       return;
     }
-    /* Collect file names if any */
-    const fileInput = document.getElementById('tattoo-bilder');
-    let fileInfo = '';
-    if (fileInput && fileInput.files.length > 0) {
-      const names = Array.from(fileInput.files).map(f => f.name).join(', ');
-      fileInfo = '\n\nReferenzbilder (bitte separat als Anhang senden):\n' + names;
-    }
-    /* Mailto fallback */
+    const lines = [
+      'Name: ' + name,
+      'Email: ' + email,
+      groesse    ? 'Größe: ' + groesse : '',
+      position   ? 'Position: ' + position : '',
+      wunschtermin ? 'Wunschtermin: ' + wunschtermin : '',
+      '',
+      'Idee:',
+      idee,
+    ].filter(Boolean).join('\n');
     const subject = encodeURIComponent('Terminanfrage von ' + name);
-    const body    = encodeURIComponent(
-      'Name: ' + name + '\nEmail: ' + email + '\n\nIdee:\n' + idee + fileInfo
-    );
+    const body    = encodeURIComponent(lines);
     window.location.href = 'mailto:terminwunsch123@p-insel.de?subject=' + subject + '&body=' + body;
     document.getElementById('contact-form').style.display = 'none';
     document.getElementById('form-success').style.display = 'block';
