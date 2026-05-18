@@ -1095,7 +1095,7 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
 
 /* ── RESPONSIVE dark hero ── */
 @media (max-width: 900px) {
-  .hero-fb-inner { flex-direction: column; justify-content: flex-end; padding-bottom: 5.5rem; gap: 2rem; }
+  .hero-fb-inner { flex-direction: column; justify-content: flex-end; padding-top: calc(var(--nav-h) + 1.5rem); padding-bottom: 5.5rem; gap: 2rem; }
   .hero-fb-right { width: 100%; }
   .hero-work-panel { flex-direction: row; align-items: center; }
   .hero-work-img-wrap { width: 100px; height: 130px; aspect-ratio: unset; flex-shrink: 0; }
