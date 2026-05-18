@@ -247,6 +247,12 @@ body.has-dark-hero { padding-top: 0; }
   cursor: pointer;
   margin-left: auto;
   padding: .5rem;
+  background: none;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .hamburger span {
   display: block; width: 26px; height: 2.5px;
@@ -678,6 +684,7 @@ body.has-dark-hero .hamburger span {
   .parallax-bg {
     inset: 0;
     transform: none !important;
+    will-change: auto;
     background-attachment: scroll;
     background-size: cover;
     background-position: center;
@@ -1095,6 +1102,11 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
 
 /* ── RESPONSIVE dark hero ── */
 @media (max-width: 900px) {
+  /* iOS: height:100vh mit overflow:hidden friert das Bild ein → min-height nutzen */
+  .home-hero.hero-dark-fullbleed {
+    height: auto;
+    min-height: 100svh;
+  }
   .hero-fb-inner { flex-direction: column; justify-content: flex-end; padding-top: calc(var(--nav-h) + 1.5rem); padding-bottom: 5.5rem; gap: 2rem; }
   .hero-fb-right { width: 100%; }
   .hero-work-panel { flex-direction: row; align-items: center; }
@@ -1109,6 +1121,7 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
   .hero-fb-right { display: none; }
   .hero-meta-strip { display: grid; grid-template-columns: 1fr 1fr; }
   .hero-meta-sep { display: none; }
+  .scroll-indicator { display: none; }
 }
 
 /* ========================================================
