@@ -281,6 +281,7 @@ body.has-dark-hero .hamburger span {
   position: fixed;
   inset: 0;
   width: 100%;
+  overscroll-behavior: contain;
   background: rgba(8,8,8,.97);
   -webkit-backdrop-filter: blur(24px);
   backdrop-filter: blur(24px);
@@ -1275,19 +1276,7 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
    FILE UPLOAD — Kontaktformular
    ======================================================== */
 /* Referenzbilder-Hinweis im Kontaktformular */
-.referenz-hinweis {
-  display: flex;
-  gap: .75rem;
-  align-items: flex-start;
-  padding: 1rem 1.2rem;
-  background: var(--accent-dim2);
-  border: 1px solid rgba(255,45,120,.2);
-  border-radius: 8px;
-  font-size: .88rem;
-  color: var(--text-mid);
-  line-height: 1.6;
-}
-.referenz-hinweis strong { color: var(--text); }
+/* .referenz-hinweis — ersetzt durch echtes File-Upload-Feld */
 
 /* ========================================================
    ABOUT SPLIT (Homepage teaser)
@@ -1988,6 +1977,56 @@ a.contact-value:hover { color: var(--accent); }
 .form-select { cursor: pointer; color: var(--text); }
 .form-select option { background: var(--bg-surface); color: var(--text); }
 .form-textarea { resize: vertical; min-height: 120px; }
+
+/* File Upload */
+.file-upload-area {
+  display: block;
+  border: 1.5px dashed var(--border);
+  border-radius: 6px;
+  background: var(--bg-surface);
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+  overflow: hidden;
+  min-height: 100px;
+}
+.file-upload-area:hover { border-color: var(--accent); background: var(--accent-dim2); }
+.file-input { display: none; }
+.file-upload-ui {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: .4rem; padding: 1.8rem 1rem; text-align: center;
+}
+.file-upload-text { font-size: .88rem; color: var(--text-mid); }
+.file-upload-hint { font-size: .72rem; color: var(--text-dim); letter-spacing: .04em; }
+.file-list { padding: .6rem .8rem; display: flex; flex-direction: column; gap: .35rem; }
+.file-chip {
+  display: flex; align-items: center; gap: .5rem;
+  font-size: .78rem; color: var(--text-mid);
+}
+.file-chip svg { color: var(--accent); flex-shrink: 0; }
+.file-size { color: var(--text-dim); }
+
+/* PDF Download Button */
+.pdf-download-btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .65rem 1.2rem;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  font-size: .78rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.pdf-download-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim2);
+}
+
+/* Spinner keyframe */
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* ========================================================
    MAP

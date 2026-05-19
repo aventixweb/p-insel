@@ -440,8 +440,8 @@
   const drawer    = document.getElementById('mobile-drawer');
   const overlay   = document.getElementById('drawer-overlay');
   const closeBtn  = document.getElementById('drawer-close');
-  const open  = () => { drawer.classList.add('open'); overlay.classList.add('open'); hamburger.classList.add('open'); document.body.style.overflow='hidden'; };
-  const close = () => { drawer.classList.remove('open'); overlay.classList.remove('open'); hamburger.classList.remove('open'); document.body.style.overflow=''; };
+  const open  = () => { const y=window.scrollY; drawer.classList.add('open'); overlay.classList.add('open'); hamburger.classList.add('open'); document.body.style.overflow='hidden'; document.body.style.position='fixed'; document.body.style.top=`-${y}px`; document.body.style.width='100%'; drawer._savedScroll=y; };
+  const close = () => { const y=drawer._savedScroll||0; drawer.classList.remove('open'); overlay.classList.remove('open'); hamburger.classList.remove('open'); document.body.style.overflow=''; document.body.style.position=''; document.body.style.top=''; document.body.style.width=''; window.scrollTo(0,y); };
   hamburger.addEventListener('click', () => drawer.classList.contains('open') ? close() : open());
   closeBtn.addEventListener('click', close);
   overlay.addEventListener('click', close);

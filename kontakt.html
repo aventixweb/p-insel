@@ -117,7 +117,7 @@
           </div>
           <div>
             <div class="contact-label">Instagram</div>
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="contact-value">@p_insel_tattoo</a>
+            <a href="https://www.instagram.com/pia_insel_tattoos" target="_blank" rel="noopener" class="contact-value">@pia_insel_tattoos</a>
           </div>
         </div>
 
@@ -127,11 +127,28 @@
             Bitte beschreibe deine Tattoo-Idee so genau wie möglich. Referenzbilder und Angaben zur gewünschten Körperstelle helfen enorm. Ich antworte meist innerhalb von 1–2 Werktagen.
           </p>
         </div>
+
+        <div class="reveal" data-delay="6" style="padding:1.5rem;background:var(--bg-surface);border:1px solid var(--border);border-radius:6px;">
+          <div style="font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-mid);margin-bottom:.6rem;">Tattoo-Pflege</div>
+          <p style="font-size:.88rem;line-height:1.7;color:var(--text-mid);margin-bottom:1rem;">
+            Lade dir die Pflegehinweise als PDF herunter — für nach dem Termin.
+          </p>
+          <a href="!Pflegehinweise.pdf" download="p-insel-Pflegehinweise.pdf" class="pdf-download-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Pflegehinweise herunterladen
+          </a>
+        </div>
       </div>
 
       <!-- Form -->
       <div class="reveal" data-delay="1">
-        <form class="form-grid" id="contact-form" novalidate>
+        <form class="form-grid" id="contact-form" novalidate enctype="multipart/form-data">
+          <!-- Web3Forms hidden fields -->
+          <input type="hidden" name="access_key" value="DEIN_WEB3FORMS_KEY">
+          <input type="hidden" name="subject" value="Neue Terminanfrage — p-insel Tattoos">
+          <input type="hidden" name="from_name" value="p-insel Kontaktformular">
+          <input type="hidden" name="replyto" id="replyto-field" value="">
+          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
           <div class="form-row">
             <div class="form-field">
               <label class="form-label" for="name">Name *</label>
@@ -184,17 +201,16 @@
           </div>
 
           <div class="form-field">
-            <div class="referenz-hinweis">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0;margin-top:2px;color:var(--accent)"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <div>
-                <strong>Referenzbilder?</strong><br>
-                Schick deine Inspirationsbilder einfach per
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">Instagram DM</a>
-                oder direkt per E-Mail an
-                <a href="mailto:terminwunsch123@p-insel.de" style="color:var(--accent);">terminwunsch123@p-insel.de</a> —
-                am besten zusammen mit einer kurzen Erwähnung deines Namens aus dem Formular.
+            <label class="form-label" for="referenzbilder">Referenzbilder (optional)</label>
+            <label class="file-upload-area" id="file-upload-area" for="referenzbilder">
+              <input type="file" id="referenzbilder" name="referenzbilder" accept="image/*" multiple class="file-input">
+              <div class="file-upload-ui" id="file-upload-ui">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span class="file-upload-text">Bilder hier ablegen oder <span style="color:var(--accent)">klicken</span></span>
+                <span class="file-upload-hint">JPG, PNG, HEIC — max. 5 MB pro Datei</span>
               </div>
-            </div>
+              <div class="file-list" id="file-list"></div>
+            </label>
           </div>
 
           <div style="display:flex;align-items:flex-start;gap:.75rem;padding:.4rem 0;">
@@ -204,9 +220,10 @@
             </label>
           </div>
 
-          <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;padding:1rem;font-size:.95rem;">
-            Anfrage absenden
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <button type="submit" id="submit-btn" class="btn btn-gold" style="width:100%;justify-content:center;padding:1rem;font-size:.95rem;">
+            <span id="submit-label">Anfrage absenden</span>
+            <svg id="submit-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg id="submit-spinner" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;animation:spin .8s linear infinite"><path d="M12 2a10 10 0 0 1 10 10"/></svg>
           </button>
 
           <p style="font-size:.78rem;color:var(--text-dim);text-align:center;">* Pflichtfelder · Keine Weitergabe deiner Daten an Dritte</p>
@@ -237,43 +254,70 @@
   const nav=document.getElementById('nav');
   window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50);},{passive:true});
   const hb=document.getElementById('hamburger'),dr=document.getElementById('mobile-drawer'),ov=document.getElementById('drawer-overlay'),cb=document.getElementById('drawer-close');
-  const open=()=>{dr.classList.add('open');ov.classList.add('open');hb.classList.add('open');document.body.style.overflow='hidden';};
-  const close=()=>{dr.classList.remove('open');ov.classList.remove('open');hb.classList.remove('open');document.body.style.overflow='';};
+  const open=()=>{const y=window.scrollY;dr.classList.add('open');ov.classList.add('open');hb.classList.add('open');document.body.style.overflow='hidden';document.body.style.position='fixed';document.body.style.top=\`-\${y}px\`;document.body.style.width='100%';dr._savedScroll=y;};
+  const close=()=>{const y=dr._savedScroll||0;dr.classList.remove('open');ov.classList.remove('open');hb.classList.remove('open');document.body.style.overflow='';document.body.style.position='';document.body.style.top='';document.body.style.width='';window.scrollTo(0,y);};
   hb.addEventListener('click',()=>dr.classList.contains('open')?close():open());
   cb.addEventListener('click',close);ov.addEventListener('click',close);
   dr.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
   const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}}),{threshold:0.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  /* Form submission — mailto fallback */
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
+  /* File upload preview */
+  const fileInput = document.getElementById('referenzbilder');
+  const fileList  = document.getElementById('file-list');
+  const uploadUI  = document.getElementById('file-upload-ui');
+  if (fileInput) {
+    fileInput.addEventListener('change', () => {
+      const files = Array.from(fileInput.files);
+      if (files.length === 0) { fileList.innerHTML = ''; uploadUI.style.display = 'flex'; return; }
+      uploadUI.style.display = 'none';
+      fileList.innerHTML = files.map(f =>
+        `<div class="file-chip">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>${f.name}</span>
+          <span class="file-size">(${(f.size/1024/1024).toFixed(1)} MB)</span>
+        </div>`
+      ).join('');
+    });
+  }
+
+  /* Form submission — Web3Forms */
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     const name  = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const idee  = document.getElementById('idee').value.trim();
     const dsgvo = document.getElementById('dsgvo').checked;
-    const groesse   = document.getElementById('groesse')?.value.trim() || '';
-    const position  = document.getElementById('position')?.value.trim() || '';
-    const wunschtermin = document.getElementById('wunschtermin')?.value.trim() || '';
     if (!name || !email || !idee || !dsgvo) {
       alert('Bitte fülle alle Pflichtfelder aus und stimme der Datenschutzerklärung zu.');
       return;
     }
-    const lines = [
-      'Name: ' + name,
-      'Email: ' + email,
-      groesse    ? 'Größe: ' + groesse : '',
-      position   ? 'Position: ' + position : '',
-      wunschtermin ? 'Wunschtermin: ' + wunschtermin : '',
-      '',
-      'Idee:',
-      idee,
-    ].filter(Boolean).join('\n');
-    const subject = encodeURIComponent('Terminanfrage von ' + name);
-    const body    = encodeURIComponent(lines);
-    window.location.href = 'mailto:terminwunsch123@p-insel.de?subject=' + subject + '&body=' + body;
-    document.getElementById('contact-form').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
+    /* replyto = sender email so Pia can reply directly */
+    document.getElementById('replyto-field').value = email;
+    const btn     = document.getElementById('submit-btn');
+    const label   = document.getElementById('submit-label');
+    const arrow   = document.getElementById('submit-arrow');
+    const spinner = document.getElementById('submit-spinner');
+    btn.disabled = true;
+    label.textContent = 'Wird gesendet…';
+    arrow.style.display = 'none';
+    spinner.style.display = 'inline';
+    try {
+      const res  = await fetch('https://api.web3forms.com/submit', { method:'POST', body: new FormData(this) });
+      const data = await res.json();
+      if (data.success) {
+        this.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        btn.disabled = false; label.textContent = 'Anfrage absenden';
+        arrow.style.display = 'inline'; spinner.style.display = 'none';
+        alert('Fehler beim Senden. Bitte schreib direkt an terminwunsch123@p-insel.de');
+      }
+    } catch {
+      btn.disabled = false; label.textContent = 'Anfrage absenden';
+      arrow.style.display = 'inline'; spinner.style.display = 'none';
+      alert('Verbindungsfehler. Bitte versuche es erneut.');
+    }
   });
   const _mob=window.matchMedia('(max-width:900px)').matches;
   const heroBg=document.querySelector('.page-hero-bg');

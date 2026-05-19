@@ -286,8 +286,8 @@
   const nav=document.getElementById('nav');
   window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50);},{passive:true});
   const hb=document.getElementById('hamburger'),dr=document.getElementById('mobile-drawer'),ov=document.getElementById('drawer-overlay'),cb=document.getElementById('drawer-close');
-  const open=()=>{dr.classList.add('open');ov.classList.add('open');hb.classList.add('open');document.body.style.overflow='hidden';};
-  const close=()=>{dr.classList.remove('open');ov.classList.remove('open');hb.classList.remove('open');document.body.style.overflow='';};
+  const open=()=>{const y=window.scrollY;dr.classList.add('open');ov.classList.add('open');hb.classList.add('open');document.body.style.overflow='hidden';document.body.style.position='fixed';document.body.style.top=\`-\${y}px\`;document.body.style.width='100%';dr._savedScroll=y;};
+  const close=()=>{const y=dr._savedScroll||0;dr.classList.remove('open');ov.classList.remove('open');hb.classList.remove('open');document.body.style.overflow='';document.body.style.position='';document.body.style.top='';document.body.style.width='';window.scrollTo(0,y);};
   hb.addEventListener('click',()=>dr.classList.contains('open')?close():open());
   cb.addEventListener('click',close);ov.addEventListener('click',close);
   dr.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
