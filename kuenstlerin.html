@@ -289,10 +289,14 @@
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   const fc=document.getElementById('float-cta');
   window.addEventListener('scroll',()=>{fc.classList.toggle('visible',window.scrollY>350);},{passive:true});
-  // Parallax (disabled on mobile/touch to prevent JS/CSS conflict)
+  const _mob=window.matchMedia('(max-width:900px)').matches;
   const pBgs=document.querySelectorAll('.parallax-bg');
-  const _isMobile=window.matchMedia('(max-width:768px),(hover:none)').matches;
-  function updP(){if(_isMobile)return;pBgs.forEach(bg=>{const s=bg.parentElement,r=s.getBoundingClientRect(),sp=parseFloat(bg.dataset.speed)||0.15;bg.style.transform=`translateY(${r.top*sp}px)`;});}
+  const heroBg=document.querySelector('.page-hero-bg');
+  const pageHero=document.querySelector('.page-hero');
+  function updP(){
+    pBgs.forEach(bg=>{const s=bg.parentElement,r=s.getBoundingClientRect(),sp=parseFloat(bg.dataset.speed)||0.15;bg.style.transform=`translateY(${r.top*(_mob?sp*0.65:sp)}px)`;});
+    if(heroBg&&_mob&&pageHero){const r=pageHero.getBoundingClientRect();heroBg.style.transform=`translateY(${r.top*0.35}px)`;}
+  }
   window.addEventListener('scroll',updP,{passive:true});updP();
 </script>
 </body>

@@ -860,7 +860,7 @@
         const rect = section.getBoundingClientRect();
         const speed = parseFloat(bg.dataset.speed) || 0.15;
         /* Mobile: halbe Geschwindigkeit, kein will-change → kein iOS-Compositing-Bug */
-        bg.style.transform = `translateY(${rect.top * (_mob ? speed * 0.4 : speed)}px)`;
+        bg.style.transform = `translateY(${rect.top * (_mob ? speed * 0.65 : speed)}px)`;
       });
     }
     window.addEventListener('scroll', updateParallax, { passive: true });

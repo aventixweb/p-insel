@@ -463,6 +463,10 @@
       });
     });
   });
+  const _mob=window.matchMedia('(max-width:900px)').matches;
+  const heroBg=document.querySelector('.page-hero-bg');
+  const pageHero=document.querySelector('.page-hero');
+  if(heroBg&&_mob&&pageHero){function updH(){const r=pageHero.getBoundingClientRect();heroBg.style.transform=`translateY(${r.top*0.35}px)`;}window.addEventListener('scroll',updH,{passive:true});updH();}
 </script>
 </body>
 </html>
