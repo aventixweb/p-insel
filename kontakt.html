@@ -77,16 +77,6 @@
           <h2 class="section-title" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">Kontakt &amp;<br><span>Infos</span></h2>
         </div>
 
-        <div class="contact-detail-item reveal" data-delay="1">
-          <div class="contact-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div>
-            <div class="contact-label">E-Mail</div>
-            <a href="mailto:terminwunsch123@p-insel.de" class="contact-value">terminwunsch123@p-insel.de</a>
-          </div>
-        </div>
-
         <div class="contact-detail-item reveal" data-delay="2">
           <div class="contact-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -103,17 +93,13 @@
           </div>
           <div>
             <div class="contact-label">Öffnungszeiten</div>
-            <div class="hours-table">
-              <div class="hours-row"><span>Dienstag – Freitag</span><span>14:00 – 19:00 Uhr</span></div>
-              <div class="hours-row"><span>Samstag</span><span>10:00 – 13:00 Uhr</span></div>
-              <div class="hours-row"><span>Sonntag & Montag</span><span>Geschlossen</span></div>
-            </div>
+            <span class="contact-value">Nach Vereinbarung</span>
           </div>
         </div>
 
         <div class="contact-detail-item reveal" data-delay="4">
           <div class="contact-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
           </div>
           <div>
             <div class="contact-label">Instagram</div>
@@ -121,15 +107,19 @@
           </div>
         </div>
 
-        <div class="reveal" data-delay="5" style="padding:1.5rem;background:var(--accent-dim);border:1px solid rgba(200,169,110,.2);border-radius:6px;">
-          <div style="font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;">Hinweis zur Anfrage</div>
-          <p style="font-size:.88rem;line-height:1.7;color:var(--text-mid);">
-            Bitte beschreibe deine Tattoo-Idee so genau wie möglich. Referenzbilder und Angaben zur gewünschten Körperstelle helfen enorm. Ich antworte meist innerhalb von 1–2 Werktagen.
-          </p>
+        <div class="contact-detail-item reveal" data-delay="5">
+          <div class="contact-icon">
+            <!-- Facebook "f" glyph – white, per Meta brand guidelines -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Facebook</div>
+            <a href="https://www.facebook.com/PiaInselTattoo" target="_blank" rel="noopener" class="contact-value">Pia Insel Tattoo</a>
+          </div>
         </div>
 
-        <div class="reveal" data-delay="6" style="padding:1.5rem;background:var(--bg-surface);border:1px solid var(--border);border-radius:6px;">
-          <div style="font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-mid);margin-bottom:.6rem;">Tattoo-Pflege</div>
+        <div class="reveal" data-delay="6" style="padding:1.5rem;background:var(--accent-dim);border:1px solid rgba(255,45,120,.25);border-radius:6px;">
+          <div style="font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;">Tattoo-Pflege</div>
           <p style="font-size:.88rem;line-height:1.7;color:var(--text-mid);margin-bottom:1rem;">
             Lade dir die Pflegehinweise als PDF herunter — für nach dem Termin.
           </p>
@@ -164,12 +154,9 @@
             <label class="form-label" for="stil">Tattoo-Stil</label>
             <select class="form-select" id="stil" name="stil">
               <option value="">– Bitte wählen –</option>
-              <option value="realismus">Realismus / Tierportrait</option>
-              <option value="feineline">Florales Feineline</option>
-              <option value="ornamental">Ornamental / Geometrisch</option>
-              <option value="surrealismus">Surrealismus / Farbe</option>
-              <option value="mix">Kombination / Mix</option>
-              <option value="offen">Offen für Vorschläge</option>
+              <option value="bunt">Bunt / Farbig</option>
+              <option value="sw">Schwarz-Weiß</option>
+              <option value="coverup">Cover-Up</option>
             </select>
           </div>
 
@@ -178,10 +165,11 @@
               <label class="form-label" for="groesse">Ungefähre Größe</label>
               <select class="form-select" id="groesse" name="groesse">
                 <option value="">– Bitte wählen –</option>
-                <option value="klein">Klein (5–10 cm)</option>
-                <option value="mittel">Mittel (10–20 cm)</option>
-                <option value="gross">Groß (20–30 cm)</option>
-                <option value="xl">Sehr groß / Sleeve</option>
+                <option value="dina5">DIN A5 (ca. Handfläche)</option>
+                <option value="dina4">DIN A4 (ca. Unterarm)</option>
+                <option value="arm">Ganzer Arm / Sleeve</option>
+                <option value="bein">Ganzes Bein</option>
+                <option value="ruecken">Ganzer Rücken</option>
               </select>
             </div>
             <div class="form-field">
@@ -195,9 +183,12 @@
             <textarea class="form-textarea" id="idee" name="idee" rows="5" placeholder="Beschreibe deine Tattoo-Idee so genau wie möglich. Was soll es darstellen? Welche Stimmung? Hast du Referenzbilder?" required></textarea>
           </div>
 
-          <div class="form-field">
-            <label class="form-label" for="wunschtermin">Wunschtermin (optional)</label>
-            <input class="form-input" type="text" id="wunschtermin" name="wunschtermin" placeholder="z.B. März 2025, Samstags bevorzugt">
+          <div class="form-field" id="booking-field">
+            <label class="form-label">Buchungsfenster</label>
+            <div class="booking-status" id="booking-status">
+              <!-- JS befüllt diesen Block -->
+            </div>
+            <input type="hidden" name="wunschtermin" id="wunschtermin-hidden">
           </div>
 
           <div class="form-field">
@@ -281,6 +272,100 @@
     });
   }
 
+  /* ── QUARTALS-BUCHUNGSSYSTEM ── */
+  const BOOKING_WINDOWS = [
+    { label: 'Frühling 2026', open: '2026-02-01', close: '2026-02-28', for: 'April – Mai 2026' },
+    { label: 'Sommer 2026',   open: '2026-05-01', close: '2026-05-31', for: 'Juli – August 2026' },
+    { label: 'Herbst 2026',   open: '2026-08-01', close: '2026-08-31', for: 'Oktober – November 2026' },
+    { label: 'Winter 2026',   open: '2026-11-01', close: '2026-11-30', for: 'Januar – Februar 2027' },
+  ];
+
+  function getBookingState() {
+    const now = new Date();
+    for (const w of BOOKING_WINDOWS) {
+      const o = new Date(w.open + 'T00:00:00');
+      const c = new Date(w.close + 'T23:59:59');
+      if (now >= o && now <= c) return { status: 'open', window: w };
+    }
+    // Find next upcoming window
+    const future = BOOKING_WINDOWS
+      .map(w => ({ window: w, opens: new Date(w.open + 'T00:00:00') }))
+      .filter(x => x.opens > now)
+      .sort((a, b) => a.opens - b.opens);
+    return { status: 'closed', next: future[0] || null };
+  }
+
+  function formatCountdown(ms) {
+    if (ms <= 0) return { d: 0, h: 0, m: 0 };
+    const totalSec = Math.floor(ms / 1000);
+    const d = Math.floor(totalSec / 86400);
+    const h = Math.floor((totalSec % 86400) / 3600);
+    const m = Math.floor((totalSec % 3600) / 60);
+    return { d, h, m };
+  }
+
+  function renderBooking() {
+    const state = getBookingState();
+    const statusEl = document.getElementById('booking-status');
+    const submitBtn = document.getElementById('submit-btn');
+    if (!statusEl) return;
+
+    if (state.status === 'open') {
+      const w = state.window;
+      const closesMs = new Date(w.close + 'T23:59:59') - new Date();
+      const { d } = formatCountdown(closesMs);
+      document.getElementById('wunschtermin-hidden').value = w.label + ' — Termine: ' + w.for;
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = '';
+      statusEl.innerHTML = `
+        <div class="booking-open">
+          <div class="booking-header">
+            <span class="booking-dot open"></span>
+            <span class="booking-badge-open">OFFEN</span>
+          </div>
+          <div class="booking-info">
+            <strong>${w.label}</strong> — Termine: ${w.for}
+          </div>
+          <div class="booking-closes">Buchungsfenster schließt in <strong>${d} Tag${d !== 1 ? 'en' : ''}</strong></div>
+        </div>`;
+    } else {
+      const next = state.next;
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.45';
+      document.getElementById('wunschtermin-hidden').value = '';
+
+      let countdownHtml = '';
+      let nextLabel = '';
+      if (next) {
+        const ms = next.opens - new Date();
+        const { d, h, m } = formatCountdown(ms);
+        nextLabel = next.window.label;
+        countdownHtml = `
+          <div class="booking-countdown-label">Öffnet in</div>
+          <div class="booking-countdown">
+            <div class="booking-count-unit"><div class="booking-count-num">${String(d).padStart(2,'0')}</div><div class="booking-count-label">Tage</div></div>
+            <div class="booking-count-sep">:</div>
+            <div class="booking-count-unit"><div class="booking-count-num">${String(h).padStart(2,'0')}</div><div class="booking-count-label">Std</div></div>
+            <div class="booking-count-sep">:</div>
+            <div class="booking-count-unit"><div class="booking-count-num">${String(m).padStart(2,'0')}</div><div class="booking-count-label">Min</div></div>
+          </div>`;
+      }
+      statusEl.innerHTML = `
+        <div class="booking-closed">
+          <div class="booking-header">
+            <span class="booking-dot closed"></span>
+            <span class="booking-badge-closed">GESCHLOSSEN</span>
+          </div>
+          <div class="booking-info">Anfragen sind aktuell nicht möglich.</div>
+          ${next ? `<div class="booking-next">Nächstes Fenster: <strong>${nextLabel}</strong></div>` : ''}
+          ${countdownHtml}
+        </div>`;
+    }
+  }
+
+  renderBooking();
+  setInterval(renderBooking, 30000); // aktualisiert alle 30 Sekunden
+
   /* Form submission — Web3Forms */
   document.getElementById('contact-form').addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -290,6 +375,10 @@
     const dsgvo = document.getElementById('dsgvo').checked;
     if (!name || !email || !idee || !dsgvo) {
       alert('Bitte fülle alle Pflichtfelder aus und stimme der Datenschutzerklärung zu.');
+      return;
+    }
+    if (getBookingState().status === 'closed') {
+      alert('Buchungsanfragen sind aktuell geschlossen. Bitte warte auf das nächste Buchungsfenster.');
       return;
     }
     /* replyto = sender email so Pia can reply directly */

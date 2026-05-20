@@ -750,8 +750,8 @@ footer .footer-col address { color: #a0998f; }
 footer .footer-col address strong { color: #f0ede8; }
 footer .footer-hours-row { color: #6b655d; }
 footer .footer-hours-row span:last-child { color: #a0998f; }
-footer .footer-social a { border-color: #2a2a2a; color: #6b655d; }
-footer .footer-social a:hover { border-color: var(--accent); color: var(--accent); background: rgba(255,45,120,.1); }
+footer .footer-social a { border-color: #2a2a2a; }
+footer .footer-social a:hover { border-color: var(--accent); background: rgba(255,45,120,.1); }
 footer .footer-bottom { border-top-color: #2a2a2a; }
 footer .footer-bottom p { color: #6b655d; }
 footer .footer-bottom-links a { color: #6b655d; }
@@ -797,8 +797,8 @@ footer .divider { border-top-color: #2a2a2a; }
 }
 .footer-social a:hover {
   border-color: var(--accent);
-  color: var(--accent);
   background: var(--accent-dim);
+  /* color intentionally NOT changed — icons stay white per Meta brand guidelines */
 }
 .footer-col h4 {
   font-size: .68rem;
@@ -993,10 +993,47 @@ footer .divider { border-top-color: #2a2a2a; }
   background: rgba(255,255,255,.08);
 }
 
-/* Right: featured work panel */
+/* Right: featured work panel (legacy) */
 .hero-fb-right {
   flex-shrink: 0;
   width: min(340px, 38vw);
+}
+
+/* Right: Logo panel */
+.hero-logo-panel {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(380px, 42vw);
+}
+.hero-logo-large {
+  width: 100%;
+  height: auto;
+  max-width: 380px;
+  filter: drop-shadow(0 8px 40px rgba(0,0,0,.7));
+  /* Logo is black-on-transparent; slight brightness lift so oval reads on dark bg */
+  filter: drop-shadow(0 8px 40px rgba(0,0,0,.8)) brightness(1.08);
+}
+
+/* Hero quote band */
+.hero-quote-band {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 2rem var(--container-pad) 0;
+  text-align: center;
+}
+.hero-quote-text {
+  font-family: var(--font-h);
+  font-size: clamp(1.1rem, 2.4vw, 1.75rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: rgba(255,255,255,.55);
+  line-height: 1.4;
+  max-width: 820px;
+  margin: 0 auto;
 }
 .hero-work-panel {
   display: flex;
@@ -1155,11 +1192,15 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
   .hero-work-dots { display: none; }
   .hero-meta-strip { overflow-x: auto; }
   .hero-meta-item { min-width: 90px; }
+  .hero-logo-panel { width: min(220px, 55vw); }
+  .hero-quote-band { padding: 1.5rem var(--container-pad) 0; }
+  .hero-quote-text { font-size: clamp(1rem, 3vw, 1.3rem); }
 }
 @media (max-width: 600px) {
   .hero-wm { font-size: 35vw; }
   .hero-fb-h1 { font-size: clamp(3rem, 12vw, 5rem); }
   .hero-fb-right { display: none; }
+  .hero-logo-panel { display: none; }
   .hero-meta-strip { display: grid; grid-template-columns: 1fr 1fr; }
   .hero-meta-sep { display: none; }
   .scroll-indicator { display: none; }
@@ -2027,6 +2068,63 @@ a.contact-value:hover { color: var(--accent); }
 
 /* Spinner keyframe */
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── BOOKING WIDGET ── */
+.booking-status { margin-top: .25rem; }
+.booking-open, .booking-closed {
+  padding: 1.1rem 1.25rem;
+  border-radius: 6px;
+  border: 1px solid;
+}
+.booking-open  { border-color: var(--accent); background: var(--accent-dim); }
+.booking-closed { border-color: var(--border); background: var(--bg-surface); opacity: .85; }
+.booking-header {
+  display: flex; align-items: center; gap: .55rem;
+  margin-bottom: .6rem;
+}
+.booking-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+.booking-dot.open   { background: var(--accent); animation: bookingPulse 1.5s ease-in-out infinite; }
+.booking-dot.closed { background: var(--text-dim); }
+@keyframes bookingPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,45,120,.5); }
+  50%       { box-shadow: 0 0 0 6px rgba(255,45,120,0); }
+}
+.booking-badge-open {
+  font-family: var(--font-h); font-size: .72rem; font-weight: 800;
+  letter-spacing: .15em; color: var(--accent);
+}
+.booking-badge-closed {
+  font-family: var(--font-h); font-size: .72rem; font-weight: 800;
+  letter-spacing: .15em; color: var(--text-dim);
+}
+.booking-info {
+  font-size: .88rem; color: var(--text); margin-bottom: .4rem; line-height: 1.5;
+}
+.booking-closes, .booking-next {
+  font-size: .78rem; color: var(--text-mid); margin-bottom: .6rem;
+}
+.booking-countdown-label {
+  font-size: .72rem; color: var(--text-dim); text-transform: uppercase;
+  letter-spacing: .12em; margin-bottom: .5rem;
+}
+.booking-countdown {
+  display: flex; align-items: center; gap: .5rem;
+}
+.booking-count-unit { text-align: center; }
+.booking-count-num {
+  font-family: var(--font-h); font-size: 1.9rem; font-weight: 900;
+  color: var(--text); line-height: 1;
+}
+.booking-count-label {
+  font-size: .65rem; color: var(--text-dim); letter-spacing: .1em;
+  text-transform: uppercase; margin-top: .2rem;
+}
+.booking-count-sep {
+  font-family: var(--font-h); font-size: 1.6rem; font-weight: 700;
+  color: var(--text-dim); margin-bottom: .8rem;
+}
 
 /* ========================================================
    MAP
