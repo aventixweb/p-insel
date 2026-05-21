@@ -898,17 +898,17 @@ footer .divider { border-top-color: #2a2a2a; }
 .hero-photo-bg img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: 38% 60%;
   display: block;
 }
 .hero-photo-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(
     105deg,
-    rgba(0,0,0,.88) 0%,
-    rgba(0,0,0,.65) 45%,
-    rgba(0,0,0,.3) 75%,
-    rgba(0,0,0,.55) 100%
+    rgba(0,0,0,.85) 0%,
+    rgba(0,0,0,.60) 40%,
+    rgba(0,0,0,.15) 68%,
+    rgba(0,0,0,.25) 100%
   );
 }
 
