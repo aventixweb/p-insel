@@ -1005,13 +1005,12 @@ footer .divider { border-top-color: #2a2a2a; }
   display: flex;
   align-items: center;
   justify-content: center;
-  width: min(380px, 42vw);
+  width: min(480px, 48vw);
 }
 .hero-logo-large {
   width: 100%;
   height: auto;
-  max-width: 380px;
-  filter: drop-shadow(0 8px 40px rgba(0,0,0,.7));
+  max-width: 480px;
   /* Logo is black-on-transparent; slight brightness lift so oval reads on dark bg */
   filter: drop-shadow(0 8px 40px rgba(0,0,0,.8)) brightness(1.08);
 }
@@ -1197,7 +1196,7 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
   .hero-work-dots { display: none; }
   .hero-meta-strip { overflow-x: auto; }
   .hero-meta-item { min-width: 90px; }
-  .hero-logo-panel { width: min(220px, 55vw); }
+  .hero-logo-panel { width: min(280px, 55vw); }
   .hero-quote-band { padding: 1.5rem var(--container-pad) 0; }
   .hero-quote-text { font-size: clamp(1rem, 3vw, 1.3rem); }
 }
