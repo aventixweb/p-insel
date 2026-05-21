@@ -768,6 +768,7 @@
 
   /* ── Hero H1 Scramble Reveal ── */
   function scrambleText(el, duration = 900) {
+    const finalHTML = el.innerHTML;          // save original markup (keeps <em> pink)
     const finalText = el.innerText;
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#@!?.·';
     const totalFrames = Math.round(duration / 16);
@@ -776,7 +777,7 @@
     const plain = finalText.replace(/\n/g, '');
 
     function finish() {
-      el.innerHTML = finalText.replace(/\n/g, '<br>');
+      el.innerHTML = finalHTML;              // restore original HTML with <em> intact
     }
 
     function tick() {
