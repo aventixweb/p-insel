@@ -917,19 +917,21 @@ footer .divider { border-top-color: #2a2a2a; }
   flex: 0 0 auto;
   display: flex;
   align-items: center;
+  justify-content: center;
   max-width: var(--max-w);
   width: 100%;
   margin: 0 auto;
   padding: 2rem 2rem 2rem;
   position: relative;
   z-index: 2;
-  gap: 3rem;
+  gap: 4rem;
 }
 
 /* Left text content */
 .hero-fb-left {
-  flex: 1;
+  flex: 0 0 auto;
   min-width: 0;
+  max-width: 480px;
 }
 .hero-fb-eyebrow {
   display: inline-flex;
@@ -1005,12 +1007,12 @@ footer .divider { border-top-color: #2a2a2a; }
   display: flex;
   align-items: center;
   justify-content: center;
-  width: min(480px, 48vw);
+  width: min(520px, 50vw);
 }
 .hero-logo-large {
   width: 100%;
   height: auto;
-  max-width: 480px;
+  max-width: 520px;
   /* Logo is black-on-transparent; slight brightness lift so oval reads on dark bg */
   filter: drop-shadow(0 8px 40px rgba(0,0,0,.8)) brightness(1.08);
 }
