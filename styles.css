@@ -2481,3 +2481,152 @@ a.contact-value:hover { color: var(--accent); }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .stat-num { font-size: 2.2rem; }
 }
+
+/* ========================================================
+   LIGHTBOX
+   ======================================================== */
+.lb-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(0,0,0,.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+.lb-overlay.lb-open {
+  opacity: 1;
+  pointer-events: all;
+}
+.lb-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 4rem 5rem;
+}
+.lb-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 24px 80px rgba(0,0,0,.8);
+  transition: opacity .2s ease;
+  display: block;
+}
+.lb-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.2);
+  background: rgba(0,0,0,.5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+  z-index: 1;
+  flex-shrink: 0;
+}
+.lb-btn:hover { border-color: var(--accent); background: var(--accent-dim); }
+.lb-prev { left: 1rem; }
+.lb-next { right: 1rem; }
+.lb-close {
+  position: absolute;
+  top: 1.2rem; right: 1.4rem;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.2);
+  background: rgba(0,0,0,.5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+  z-index: 2;
+}
+.lb-close:hover { border-color: var(--accent); background: var(--accent-dim); }
+.lb-counter {
+  position: absolute;
+  bottom: 1.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-h);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: rgba(255,255,255,.45);
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.lb-caption {
+  position: absolute;
+  bottom: 2.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: .8rem;
+  color: rgba(255,255,255,.5);
+  white-space: nowrap;
+  pointer-events: none;
+  max-width: 90vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 600px) {
+  .lb-inner { padding: 3.5rem 3.5rem 4rem; }
+  .lb-prev { left: .4rem; }
+  .lb-next { right: .4rem; }
+  .lb-btn { width: 40px; height: 40px; }
+}
+
+/* ========================================================
+   PDF DOWNLOAD CARD
+   ======================================================== */
+.pdf-download-card {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 1.4rem;
+  background: var(--accent-dim);
+  border: 1px solid rgba(255,45,120,.25);
+  border-radius: 8px;
+  margin-top: 1.2rem;
+  text-decoration: none;
+  transition: background .2s, border-color .2s, transform .2s;
+}
+.pdf-download-card:hover {
+  background: rgba(255,45,120,.18);
+  border-color: rgba(255,45,120,.5);
+  transform: translateY(-2px);
+}
+.pdf-icon {
+  width: 44px; height: 44px;
+  background: var(--accent);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.pdf-text strong {
+  display: block;
+  font-family: var(--font-h);
+  font-weight: 700;
+  font-size: .95rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.pdf-text span {
+  font-size: .8rem;
+  color: var(--text-mid);
+}

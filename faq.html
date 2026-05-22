@@ -9,113 +9,265 @@
   <meta property="og:description" content="Häufige Fragen zu Tattoos bei p-insel in Bad Lippspringe – Kosten, Vorbereitung, Ablauf und Pflege.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.p-insel.de/faq.html">
-  <meta property="og:image" content="https://www.p-insel.de/img/tattoo/panther-cta.jpg">
+  <meta property="og:image" content="https://www.p-insel.de/img/pia-flamingo-atelier.jpeg">
   <link rel="canonical" href="https://www.p-insel.de/faq.html">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* ── FAQ page specific ── */
-    .price-category { margin-bottom: 3.5rem; }
-    .price-category-header {
+    /* ── FAQ Hero ── */
+    .faq-hero {
+      position: relative;
+      min-height: 60vh;
       display: flex;
-      align-items: baseline;
-      gap: 1.2rem;
-      margin-bottom: 1.2rem;
-      flex-wrap: wrap;
+      align-items: flex-end;
+      overflow: hidden;
     }
-    .price-category-title {
-      font-family: var(--font-h);
-      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--text);
+    .faq-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: #0a0a0a;
     }
-    .price-badge {
-      font-family: var(--font-h);
-      font-size: .85rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      color: var(--accent);
-      background: var(--accent-dim);
-      border: 1px solid rgba(255,45,120,.25);
-      border-radius: 4px;
-      padding: .2rem .7rem;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-    .price-grid-5 {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 6px;
-    }
-    .price-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
-    }
-    .price-img {
-      aspect-ratio: 1 / 1;
-      width: 100%;
+    .faq-hero-bg img {
+      width: 100%; height: 100%;
       object-fit: cover;
-      border-radius: 4px;
+      object-position: center 30%;
       display: block;
-      transition: transform .35s var(--ease), box-shadow .35s;
     }
-    .price-img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 32px rgba(0,0,0,.55);
+    .faq-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(0,0,0,.90) 0%,
+        rgba(0,0,0,.65) 50%,
+        rgba(0,0,0,.30) 100%
+      );
     }
-    .price-img-coverup {
-      aspect-ratio: 1 / 1;
+    .faq-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: calc(var(--nav-h) + 3rem) 0 4rem;
+      width: 100%;
     }
-    .price-divider {
-      border: none;
+    .faq-hero-eyebrow {
+      font-family: var(--font-h);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .8rem;
+    }
+    .faq-hero-h1 {
+      font-family: var(--font-h);
+      font-size: clamp(3.2rem, 9vw, 7.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .01em;
+      line-height: .92;
+      color: var(--text);
+      margin: 0 0 1.5rem;
+    }
+    .faq-hero-h1 em { color: var(--accent); font-style: normal; }
+    .faq-hero-sub {
+      font-size: clamp(.9rem, 1.5vw, 1.05rem);
+      color: rgba(255,255,255,.6);
+      max-width: 540px;
+      line-height: 1.65;
+    }
+
+    /* ── FAQ accordion (redesigned) ── */
+    .faq-section {
+      padding: 5rem 0;
+    }
+    .faq-block {
       border-top: 1px solid var(--border);
-      margin: 3rem 0;
     }
-    .faq-main-title {
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    .faq-block:last-child {
+      border-bottom: 1px solid var(--border);
     }
-    /* Override max-height for long answers */
-    .faq-item.open .faq-answer { max-height: 1800px; padding-bottom: 1.4rem; }
-    .faq-answer ul {
+    .faq-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.6rem 0;
+      cursor: pointer;
+      background: none;
+      border: none;
+      text-align: left;
+      width: 100%;
+      transition: color .2s;
+    }
+    .faq-trigger:hover .faq-trigger-text { color: var(--accent); }
+    .faq-trigger-num {
+      font-family: var(--font-h);
+      font-size: .7rem;
+      font-weight: 900;
+      letter-spacing: .18em;
+      color: var(--accent);
+      text-transform: uppercase;
+      flex-shrink: 0;
+      width: 2rem;
+    }
+    .faq-trigger-text {
+      flex: 1;
+      font-family: var(--font-h);
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--text);
+      transition: color .2s;
+    }
+    .faq-toggle-icon {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: border-color .25s, transform .35s, background .25s;
+      color: var(--text-mid);
+    }
+    .faq-block.open .faq-toggle-icon {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+      color: var(--accent);
+      transform: rotate(45deg);
+    }
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .45s cubic-bezier(.4,0,.2,1), padding .35s;
+    }
+    .faq-block.open .faq-body { max-height: 2400px; padding-bottom: 2rem; }
+    .faq-body-inner {
+      padding-left: 3.5rem;
+      font-size: .93rem;
+      line-height: 1.85;
+      color: var(--text-mid);
+    }
+    .faq-body-inner p + p { margin-top: .8rem; }
+    .faq-body-inner strong { color: var(--text); font-weight: 600; }
+    .faq-body-inner a { color: var(--accent); text-decoration: none; }
+    .faq-body-inner a:hover { text-decoration: underline; }
+    .faq-body-inner ul {
       list-style: none;
       padding: 0;
-      margin: .6rem 0 0;
+      margin: .8rem 0 0;
       display: flex;
       flex-direction: column;
-      gap: .4rem;
+      gap: .45rem;
     }
-    .faq-answer ul li::before {
-      content: '·';
-      color: var(--accent);
-      font-weight: 900;
-      margin-right: .5rem;
+    .faq-body-inner ul li {
+      padding-left: 1.2rem;
+      position: relative;
     }
-    .faq-answer a {
-      color: var(--accent);
-      text-decoration: none;
+    .faq-body-inner ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: .65em;
+      width: 5px; height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
     }
-    .faq-answer a:hover { text-decoration: underline; }
-    .faq-answer strong { color: var(--text); font-weight: 600; }
-    .faq-question-text {
+
+    /* ── Price grids (inside FAQ answer) ── */
+    .price-section { margin-top: 2rem; display: flex; flex-direction: column; gap: 2rem; }
+    .price-cat { }
+    .price-cat-head {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      margin-bottom: .8rem;
+      flex-wrap: wrap;
+    }
+    .price-cat-name {
       font-family: var(--font-h);
-      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-size: .8rem;
       font-weight: 700;
-      letter-spacing: .04em;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+    }
+    .price-pill {
+      font-family: var(--font-h);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(255,45,120,.2);
+      border-radius: 100px;
+      padding: .15rem .65rem;
       text-transform: uppercase;
     }
-    @media (max-width: 640px) {
-      .price-grid-5 { grid-template-columns: repeat(3, 1fr); }
-      .price-grid-3 { grid-template-columns: 1fr 1fr; }
+    .price-imgs-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 5px;
     }
-    @media (max-width: 400px) {
-      .price-grid-5 { grid-template-columns: repeat(2, 1fr); }
-      .price-grid-3 { grid-template-columns: 1fr; }
+    .price-imgs-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+    }
+    .lb-thumb {
+      display: block;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      border-radius: 4px;
+      cursor: zoom-in;
+      position: relative;
+    }
+    .lb-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .45s cubic-bezier(.4,0,.2,1);
+      display: block;
+    }
+    .lb-thumb:hover img { transform: scale(1.07); }
+    .lb-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,45,120,.0);
+      transition: background .3s;
+      border-radius: 4px;
+    }
+    .lb-thumb:hover::after { background: rgba(255,45,120,.08); }
+
+    @media (max-width: 600px) {
+      .price-imgs-5 { grid-template-columns: repeat(3, 1fr); }
+      .price-imgs-3 { grid-template-columns: repeat(2, 1fr); }
+      .faq-body-inner { padding-left: 0; }
+      .faq-hero { min-height: 55vh; }
+    }
+    @media (max-width: 380px) {
+      .price-imgs-5 { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
+
+<!-- ── LIGHTBOX ── -->
+<div class="lb-overlay" id="lb" role="dialog" aria-modal="true" aria-label="Bildansicht">
+  <div class="lb-inner">
+    <button class="lb-close" id="lb-close" aria-label="Schließen">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <button class="lb-btn lb-prev" id="lb-prev" aria-label="Vorheriges Bild">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <img class="lb-img" id="lb-img" src="" alt="">
+    <button class="lb-btn lb-next" id="lb-next" aria-label="Nächstes Bild">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div class="lb-caption" id="lb-caption"></div>
+    <div class="lb-counter" id="lb-counter"></div>
+  </div>
+</div>
 
 <nav id="nav" role="navigation" aria-label="Hauptnavigation">
   <div class="nav-inner">
@@ -155,184 +307,181 @@
   </div>
 </div>
 
-<header class="page-hero">
-  <div class="page-hero-bg" style="background-image:url('img/tattoo/leopard-rosen-arm.jpeg'); background-position: center 40%;"></div>
-  <div class="container">
-    <div class="page-hero-eyebrow">p-insel Tattoos</div>
-    <h1>Häufige <span>Fragen</span></h1>
-    <p>Alles was du wissen musst — Vorbereitung, Ablauf, Kosten und Pflege.</p>
+<!-- ── HERO ── -->
+<header class="faq-hero">
+  <div class="faq-hero-bg">
+    <img src="img/pia-flamingo-atelier.jpeg" alt="Pia Insel in ihrem Tattoo Atelier" fetchpriority="high">
+  </div>
+  <div class="faq-hero-overlay"></div>
+  <div class="faq-hero-content">
+    <div class="container">
+      <div class="faq-hero-eyebrow">Häufige Fragen</div>
+      <h1 class="faq-hero-h1">Alles was du<br><em>wissen musst</em></h1>
+      <p class="faq-hero-sub">Fragen zur Vorbereitung und dem Ablauf? Hier findest du Antworten.</p>
+    </div>
   </div>
 </header>
+
 <div class="container">
   <nav class="breadcrumb">
     <a href="index.html">Home</a><span class="bc-sep">›</span><span class="bc-current">FAQ</span>
   </nav>
 </div>
 
-<!-- ── PREISBEISPIELE ── -->
-<section class="section">
-  <div class="container">
-    <div class="section-eyebrow reveal">Was kostet mein Tattoo?</div>
-    <h2 class="section-title reveal faq-main-title" data-delay="1">
-      Kostenbeispiele <span>auf einen Blick</span>
-    </h2>
-    <p class="section-desc reveal" data-delay="2" style="max-width:680px;margin-bottom:3rem;">
-      Jedes Tattoo ist individuell. Die folgenden Beispiele geben dir eine realistische Orientierung — abgestimmt auf Stil, Größe und Komplexität.
-    </p>
+<!-- ── FAQ ── -->
+<section class="faq-section">
+  <div class="container" style="max-width:860px;">
 
-    <!-- Bunte Tattoos -->
-    <div class="price-category reveal" data-delay="1">
-      <div class="price-category-header">
-        <span class="price-category-title">Bunte Tattoos</span>
-        <span class="price-badge">1.000 € – 1.200 €</span>
-      </div>
-      <div class="price-grid-5">
-        <img src="img/faq/bunt-astronaut.png"          alt="Buntes Tattoo Beispiel – Astronaut Katze"     class="price-img" loading="lazy">
-        <img src="img/faq/bunt-vogel-blumen.jpg"       alt="Buntes Tattoo Beispiel – Vogel mit Blumen"    class="price-img" loading="lazy">
-        <img src="img/faq/bunt-blumen-oberschenkel.jpeg" alt="Buntes Tattoo Beispiel – Blumen Oberschenkel" class="price-img" loading="lazy">
-        <img src="img/faq/bunt-hund-portrait.jpeg"     alt="Buntes Tattoo Beispiel – Hundeportrait"       class="price-img" loading="lazy">
-        <img src="img/faq/bunt-schlange-farn.jpeg"     alt="Buntes Tattoo Beispiel – Schlange Farn"       class="price-img" loading="lazy">
-      </div>
-    </div>
+    <!-- 01 Kosten -->
+    <div class="faq-block reveal" data-delay="1">
+      <button class="faq-trigger" aria-expanded="false">
+        <span class="faq-trigger-num">01</span>
+        <span class="faq-trigger-text">Was kostet ein Tattoo von Pia Insel?</span>
+        <span class="faq-toggle-icon" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+        </span>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          <p>Jedes Tattoo ist unterschiedlich und hängt von einigen Faktoren ab: welche Körperstelle tätowiert wird, wie groß es ist und ob es sehr bunt oder nicht bunt werden soll.</p>
+          <p>Vor allem der Unterschied zwischen einem neuen Tattoowunsch und einem <strong>Cover-up</strong> (ein altes Tattoo überstechen) ist nicht zu unterschätzen. Ein Cover-up hat dementsprechend einen Mehraufwand.</p>
 
-    <hr class="price-divider">
-
-    <!-- Cover-up -->
-    <div class="price-category reveal" data-delay="1">
-      <div class="price-category-header">
-        <span class="price-category-title">Cover-up Arbeiten</span>
-        <span class="price-badge">1.200 € – 1.600 €</span>
-      </div>
-      <div class="price-grid-3">
-        <img src="img/faq/coverup-sonnenblume.jpg"   alt="Cover-up Beispiel – Sonnenblume vorher nachher"   class="price-img price-img-coverup" loading="lazy">
-        <img src="img/faq/coverup-kolibri.jpg"       alt="Cover-up Beispiel – Kolibri vorher nachher"       class="price-img price-img-coverup" loading="lazy">
-        <img src="img/faq/coverup-schildkroete.jpg"  alt="Cover-up Beispiel – Schildkröte vorher nachher"   class="price-img price-img-coverup" loading="lazy">
-      </div>
-    </div>
-
-    <hr class="price-divider">
-
-    <!-- Schwarzweiß -->
-    <div class="price-category reveal" data-delay="1">
-      <div class="price-category-header">
-        <span class="price-category-title">Schwarzweiß­arbeiten</span>
-        <span class="price-badge">800 € – 1.000 €</span>
-      </div>
-      <div class="price-grid-5">
-        <img src="img/faq/sw-charakter-hut.jpeg"      alt="SW Tattoo Beispiel – Charakter mit Hut"         class="price-img" loading="lazy">
-        <img src="img/faq/sw-neptun-portrait.jpeg"    alt="SW Tattoo Beispiel – Neptun Portrait"           class="price-img" loading="lazy">
-        <img src="img/faq/sw-tiger-blumen.jpeg"       alt="SW Tattoo Beispiel – Tiger mit Blumen"          class="price-img" loading="lazy">
-        <img src="img/faq/sw-sleeve.jpeg"             alt="SW Tattoo Beispiel – Full Sleeve"               class="price-img" loading="lazy">
-        <img src="img/faq/sw-loewe-architektur.jpeg"  alt="SW Tattoo Beispiel – Löwe Architektur"          class="price-img" loading="lazy">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── FAQ ACCORDION ── -->
-<section class="section" style="background:var(--bg-soft);">
-  <div class="container">
-    <div class="section-eyebrow reveal">Deine Fragen</div>
-    <h2 class="section-title reveal faq-main-title" data-delay="1">
-      Alles was du <span>wissen musst</span>
-    </h2>
-
-    <div class="faq-list" style="margin-top:2.5rem;max-width:860px;">
-
-      <!-- FAQ 1 -->
-      <div class="faq-item reveal" data-delay="1">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text">Was kostet ein Tattoo von Pia Insel?</span>
-          <span class="faq-icon" aria-hidden="true">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
-          </span>
-        </button>
-        <div class="faq-answer">
-          <p>Jedes Tattoo ist unterschiedlich und hängt von einigen Faktoren ab: welche Körperstelle tätowiert wird, wie groß es ist und ob es sehr bunt oder schwarz-weiß werden soll.</p>
-          <p style="margin-top:.8rem;">Vor allem der Unterschied zwischen einem neuen Tattoowunsch und einem <strong>Cover-up</strong> (ein altes Tattoo überstechen) ist nicht zu unterschätzen — ein Cover-up hat dementsprechend einen Mehraufwand.</p>
-          <p style="margin-top:.8rem;">Die Preisbeispiele oberhalb geben dir eine realistische Orientierung.</p>
+          <!-- Preisbeispiele -->
+          <div class="price-section">
+            <div class="price-cat">
+              <div class="price-cat-head">
+                <span class="price-cat-name">Bunte Tattoos</span>
+                <span class="price-pill">1.000 – 1.200 €</span>
+              </div>
+              <div class="price-imgs-5" data-lb-group="bunt">
+                <div class="lb-thumb" data-lb-src="img/faq/bunt-astronaut.png" data-lb-alt="Buntes Tattoo – Astronaut Katze"><img src="img/faq/bunt-astronaut.png" alt="Buntes Tattoo – Astronaut Katze" loading="lazy"></div>
+                <div class="lb-thumb" data-lb-src="img/faq/bunt-vogel-blumen.jpg" data-lb-alt="Buntes Tattoo – Vogel mit Blumen"><img src="img/faq/bunt-vogel-blumen.jpg" alt="Buntes Tattoo – Vogel mit Blumen" loading="lazy"></div>
+                <div class="lb-thumb" data-lb-src="img/faq/bunt-blumen-oberschenkel.jpeg" data-lb-alt="Buntes Tattoo – Blumen Oberschenkel"><img src="img/faq/bunt-blumen-oberschenkel.jpeg" alt="Buntes Tattoo – Blumen Oberschenkel" loading="lazy"></div>
+                <div class="lb-thumb" data-lb-src="img/faq/bunt-hund-portrait.jpeg" data-lb-alt="Buntes Tattoo – Hundeportrait"><img src="img/faq/bunt-hund-portrait.jpeg" alt="Buntes Tattoo – Hundeportrait" loading="lazy"></div>
+                <div class="lb-thumb" data-lb-src="img/faq/bunt-schlange-farn.jpeg" data-lb-alt="Buntes Tattoo – Schlange & Farn"><img src="img/faq/bunt-schlange-farn.jpeg" alt="Buntes Tattoo – Schlange & Farn" loading="lazy"></div>
+              </div>
+            </div>
+            <div class="price-cat">
+              <div class="price-cat-head">
+                <span class="price-cat-name">Cover-up Arbeiten</span>
+                <span class="price-pill">1.200 – 1.600 €</span>
+              </div>
+              <div class="price-imgs-3" data-lb-group="coverup">
+                <div class="lb-thumb" data-lb-src="img/faq/coverup-sonnenblume.jpg" data-lb-alt="Cover-up – Sonnenblume vorher/nachher"><img src="img/faq/coverup-sonnenblume.jpg" alt="Cover-up – Sonnenblume vorher/nachher" loading="lazy"></div>
+                <div class="lb-thumb" data-lb-src="img/faq/coverup-kolibri.jpg" data-lb-alt="Cover-up – Kolibri vorher/nachher"><img src="img/faq/coverup-kolibri.jpg" alt="Cover-up – Kolibri vorher/nachher" loading="lazy"></div>
+                <div class="lb-thumb" data-lb-src="img/faq/coverup-schildkroete.jpg" data-lb-alt="Cover-up – Schildkröte vorher/nachher"><img src="img/faq/coverup-schildkroete.jpg" alt="Cover-up – Schildkröte vorher/nachher" loading="lazy"></div>
+              </div>
+            </div>
+            <div class="price-cat">
+              <div class="price-cat-head">
+                <span class="price-cat-name">Schwarzweiß­arbeiten</span>
+                <span class="price-pill">800 – 1.000 €</span>
+              </div>
+              <div class="price-imgs-5" data-lb-group="sw">
+                <div class="lb-thumb" data-lb-src="img/faq/sw-charakter-hut.jpeg" data-lb-alt="SW Tattoo – Charakter mit Hut"><img src="img/faq/sw-charakter-hut.jpeg" alt="SW Tattoo – Charakter mit Hut" loading="lazy"></div>
+                <div class="lb-thumb" data-lb-src="img/faq/sw-neptun-portrait.jpeg" data-lb-alt="SW Tattoo – Neptun Portrait"><img src="img/faq/sw-neptun-portrait.jpeg" alt="SW Tattoo – Neptun Portrait" loading="lazy"></div>
+                <div class="lb-thumb" data-lb-src="img/faq/sw-tiger-blumen.jpeg" data-lb-alt="SW Tattoo – Tiger mit Blumen"><img src="img/faq/sw-tiger-blumen.jpeg" alt="SW Tattoo – Tiger mit Blumen" loading="lazy"></div>
+                <div class="lb-thumb" data-lb-src="img/faq/sw-sleeve.jpeg" data-lb-alt="SW Tattoo – Full Sleeve"><img src="img/faq/sw-sleeve.jpeg" alt="SW Tattoo – Full Sleeve" loading="lazy"></div>
+                <div class="lb-thumb" data-lb-src="img/faq/sw-loewe-architektur.jpeg" data-lb-alt="SW Tattoo – Löwe & Architektur"><img src="img/faq/sw-loewe-architektur.jpeg" alt="SW Tattoo – Löwe & Architektur" loading="lazy"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
 
-      <!-- FAQ 2 -->
-      <div class="faq-item reveal" data-delay="2">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text">Lehnst du auch etwas ab?</span>
-          <span class="faq-icon" aria-hidden="true">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
-          </span>
-        </button>
-        <div class="faq-answer">
-          <p>Ja. Ich nehme nur Projekte an, die meinem Stil entsprechen. Kommst du mit einer Pinterest-Vorlage und sagst „ich will genau das" — wird das nicht passieren. <strong>Inspiration dürfen wir uns holen, aber wir betreiben keinen Kunstraub!</strong></p>
-          <p style="margin-top:.8rem;">Ich behalte mir vor, einzelne Schriften, Symbole und alle Motive, die mir keinen kreativen Freiraum geben, abzulehnen.</p>
-          <p style="margin-top:.8rem;">Auch bestimmte Körperstellen tätowiere ich nicht: <strong>Finger, hinter dem Ohr</strong> oder alles, was unterhalb des Fußknöchels ist.</p>
+    <!-- 02 Ablehnung -->
+    <div class="faq-block reveal" data-delay="1">
+      <button class="faq-trigger" aria-expanded="false">
+        <span class="faq-trigger-num">02</span>
+        <span class="faq-trigger-text">Lehnst du auch etwas ab?</span>
+        <span class="faq-toggle-icon" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+        </span>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          <p>Ich nehme nur Projekte an, die meinem Stil entsprechen. Also kommst du mit einer Pinterest-Vorlage und sagst: „ich will genau das" — wird das nicht passieren. <strong>Inspiration dürfen wir uns holen, aber wir betreiben keinen Kunstraub!</strong></p>
+          <p>Ich behalte mir vor, einzelne Schriften, Symbole und alle Motive, die mir keinen kreativen Freiraum geben, abzulehnen. Auch Stellen wie <strong>Finger, hinter dem Ohr</strong> oder alles unterhalb des Fußknöchels tätowiere ich nicht.</p>
         </div>
       </div>
+    </div>
 
-      <!-- FAQ 3 -->
-      <div class="faq-item reveal" data-delay="3">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text">Wie finde ich heraus, ob du meinen Cover-up Wunsch erfüllen kannst?</span>
-          <span class="faq-icon" aria-hidden="true">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
-          </span>
-        </button>
-        <div class="faq-answer">
-          <p>Für solche besonderen Fälle biete ich außerhalb der Terminvergabe <strong>online Beratungen</strong> an — nur die Beratung, der Termin folgt erst zur Quartalsvergabe.</p>
-          <p style="margin-top:.8rem;">Schreib mir dazu eine E-Mail mit:</p>
+    <!-- 03 Cover-up Beratung -->
+    <div class="faq-block reveal" data-delay="1">
+      <button class="faq-trigger" aria-expanded="false">
+        <span class="faq-trigger-num">03</span>
+        <span class="faq-trigger-text">Wie finde ich heraus, ob du meinen Cover-up Wunsch erfüllst?</span>
+        <span class="faq-toggle-icon" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+        </span>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          <p>Für solche besonderen Fälle biete ich außerhalb der Terminvergabe <strong>Online-Beratungen</strong> an. Nur die Beratung — der Termin folgt erst zur Quartalsvergabe.</p>
+          <p>Schreib mir dazu bitte eine E-Mail mit:</p>
           <ul>
             <li>einem Foto deines vorhandenen Tattoos</li>
-            <li>Bildern deiner Idee</li>
+            <li>Bilder deiner Idee</li>
             <li>einer kurzen Info, wie du es dir vorstellst</li>
           </ul>
           <p style="margin-top:.8rem;">Mail: <a href="mailto:terminwunsch123@p-insel.de">terminwunsch123@p-insel.de</a></p>
         </div>
       </div>
+    </div>
 
-      <!-- FAQ 4 -->
-      <div class="faq-item reveal" data-delay="1">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text">Wie lange dauert ein Tattoo-Termin?</span>
-          <span class="faq-icon" aria-hidden="true">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
-          </span>
-        </button>
-        <div class="faq-answer">
+    <!-- 04 Dauer -->
+    <div class="faq-block reveal" data-delay="1">
+      <button class="faq-trigger" aria-expanded="false">
+        <span class="faq-trigger-num">04</span>
+        <span class="faq-trigger-text">Wie lange dauert ein Tattoo-Termin?</span>
+        <span class="faq-toggle-icon" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+        </span>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">
           <p>Für eine Tagessitzung planst du einen Aufenthalt von ca. <strong>6 Stunden</strong> — stressfreie Me-Time, ohne Unterbrechungen, damit ich mich voll und ganz auf deinen Tattootraum konzentrieren kann.</p>
-          <p style="margin-top:.8rem;">Als Orientierung: Für einen kompletten Arm (Sleeve) brauche ich ca. <strong>4–6 Termine</strong>. Pro Tagestermin schaffe ich ca. eine <strong>DIN-A4-große Fläche</strong>.</p>
+          <p>Ein Beispiel: Für einen kompletten Arm (Sleeve) brauche ich ca. <strong>4–6 Termine</strong>. Pro Tagestermin schaffe ich ca. eine <strong>DIN-A4-große Fläche</strong> als Orientierung.</p>
         </div>
       </div>
+    </div>
 
-      <!-- FAQ 5 -->
-      <div class="faq-item reveal" data-delay="2">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text">Wie zahle ich?</span>
-          <span class="faq-icon" aria-hidden="true">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
-          </span>
-        </button>
-        <div class="faq-answer">
+    <!-- 05 Zahlung -->
+    <div class="faq-block reveal" data-delay="1">
+      <button class="faq-trigger" aria-expanded="false">
+        <span class="faq-trigger-num">05</span>
+        <span class="faq-trigger-text">Wie zahle ich?</span>
+        <span class="faq-toggle-icon" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+        </span>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">
           <p>Es kann <strong>bar</strong> oder per <strong>Sofortüberweisung (Online-Banking)</strong> gezahlt werden. Ratenzahlung wird nicht akzeptiert.</p>
-          <p style="margin-top:.8rem;">Bezahlt wird am Ende jeden Termins. Brichst du deine Sitzung ungeplant ab, hast du keinen Anspruch auf einen reduzierten Preis.</p>
+          <p>Bezahlt wird am Ende jeden Termins. Brichst du deine Sitzung ungeplant ab, hast du keinen Anspruch auf einen reduzierten Preis.</p>
         </div>
       </div>
+    </div>
 
-      <!-- FAQ 6 -->
-      <div class="faq-item reveal" data-delay="3">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text">Wie bereite ich mich auf den Termin vor?</span>
-          <span class="faq-icon" aria-hidden="true">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
-          </span>
-        </button>
-        <div class="faq-answer">
+    <!-- 06 Vorbereitung -->
+    <div class="faq-block reveal" data-delay="1">
+      <button class="faq-trigger" aria-expanded="false">
+        <span class="faq-trigger-num">06</span>
+        <span class="faq-trigger-text">Wie bereite ich mich auf den Termin vor?</span>
+        <span class="faq-toggle-icon" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+        </span>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">
           <ul>
             <li>Freu dich drauf!</li>
             <li>Komme ausgeruht und stressfrei zu deinem Termin</li>
-            <li>Gönn dir vorher etwas Leckeres und Gesundes — nichts zu Schweres</li>
-            <li>Bring bei längeren Sitzungen einen Snack mit</li>
-            <li>Trage dunkle, bequeme Kleidung, die zur Körperstelle passt (z.B. Hoody, den man von vorne anziehen kann)</li>
-            <li>Das Atelier ist eine <strong>schuhfreie Zone</strong> — dicke Socken oder Puschen mitbringen</li>
+            <li>Gönn dir vorher etwas Leckeres und Gesundes — nichts Schweres</li>
+            <li>Bring bei längeren Sitzungen gerne einen Snack mit</li>
+            <li>Trage dunkle, bequeme Kleidung — z.B. einen Hoody, den man von vorne anziehen kann, bei rückenfreien Motiven</li>
+            <li><strong>Das Atelier ist eine schuhfreie Zone</strong> — dicke Socken oder Puschen mitbringen</li>
             <li>Bring ein Handtuch mit</li>
             <li>Bei Nervosität: Kopfhörer und Lieblingsmusik einpacken</li>
             <li>Vertraue auf deine Künstlerin</li>
@@ -340,22 +489,35 @@
           </ul>
         </div>
       </div>
+    </div>
 
-      <!-- FAQ 7 -->
-      <div class="faq-item reveal" data-delay="1">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text">Wie pflege ich mein neues Tattoo?</span>
-          <span class="faq-icon" aria-hidden="true">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
-          </span>
-        </button>
-        <div class="faq-answer">
-          <p>Nach dem Termin erkläre ich dir alles Wichtige zur Wundversorgung. Ab diesem Moment bist du alleine für die Versorgung und Abheilung verantwortlich.</p>
-          <p style="margin-top:.8rem;">Eine ausführliche Pflegeanleitung als PDF findest du im Kontaktformular — dort kannst du sie direkt herunterladen.</p>
+    <!-- 07 Pflege -->
+    <div class="faq-block reveal" data-delay="1">
+      <button class="faq-trigger" aria-expanded="false">
+        <span class="faq-trigger-num">07</span>
+        <span class="faq-trigger-text">Wie pflege ich mein neues Tattoo?</span>
+        <span class="faq-toggle-icon" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+        </span>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          <p>Hast du endlich dein lang ersehntes Tattoo, erkläre ich dir alles Wichtige zur Wundversorgung. Ab diesem Moment bist du alleine für die Versorgung und Abheilung verantwortlich.</p>
+          <p>Die vollständige Pflegeanleitung kannst du hier als PDF herunterladen:</p>
+          <a href="pflege.html" target="_blank" class="pdf-download-card">
+            <div class="pdf-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+            </div>
+            <div class="pdf-text">
+              <strong>Pflegeanleitung herunterladen</strong>
+              <span>PDF · Tattoo Nachsorge von Pia Insel</span>
+            </div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:auto;flex-shrink:0;color:var(--accent);"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
       </div>
+    </div>
 
-    </div><!-- /.faq-list -->
   </div>
 </section>
 
@@ -389,33 +551,104 @@
 </footer>
 
 <script>
+  /* ── Nav ── */
   const nav=document.getElementById('nav');
   window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50);},{passive:true});
   const hb=document.getElementById('hamburger'),dr=document.getElementById('mobile-drawer'),ov=document.getElementById('drawer-overlay'),cb=document.getElementById('drawer-close');
-  const open=()=>{const y=window.scrollY;dr.classList.add('open');ov.classList.add('open');hb.classList.add('open');document.body.style.overflow='hidden';document.body.style.position='fixed';document.body.style.top=`-${y}px`;document.body.style.width='100%';dr._savedScroll=y;};
-  const close=()=>{const y=dr._savedScroll||0;dr.classList.remove('open');ov.classList.remove('open');hb.classList.remove('open');document.body.style.overflow='';document.body.style.position='';document.body.style.top='';document.body.style.width='';window.scrollTo(0,y);};
-  hb.addEventListener('click',()=>dr.classList.contains('open')?close():open());
-  cb.addEventListener('click',close);ov.addEventListener('click',close);
-  dr.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
-  // FAQ Accordion
-  document.querySelectorAll('.faq-question').forEach(btn => {
+  const openDrawer=()=>{const y=window.scrollY;dr.classList.add('open');ov.classList.add('open');hb.classList.add('open');document.body.style.overflow='hidden';document.body.style.position='fixed';document.body.style.top=`-${y}px`;document.body.style.width='100%';dr._savedScroll=y;};
+  const closeDrawer=()=>{const y=dr._savedScroll||0;dr.classList.remove('open');ov.classList.remove('open');hb.classList.remove('open');document.body.style.overflow='';document.body.style.position='';document.body.style.top='';document.body.style.width='';window.scrollTo(0,y);};
+  hb.addEventListener('click',()=>dr.classList.contains('open')?closeDrawer():openDrawer());
+  cb.addEventListener('click',closeDrawer);ov.addEventListener('click',closeDrawer);
+  dr.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeDrawer));
+
+  /* ── FAQ Accordion ── */
+  document.querySelectorAll('.faq-trigger').forEach(btn => {
     btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      // Close all
-      document.querySelectorAll('.faq-item.open').forEach(i => {
-        i.classList.remove('open');
-        i.querySelector('.faq-question').setAttribute('aria-expanded','false');
+      const block = btn.closest('.faq-block');
+      const isOpen = block.classList.contains('open');
+      document.querySelectorAll('.faq-block.open').forEach(b => {
+        b.classList.remove('open');
+        b.querySelector('.faq-trigger').setAttribute('aria-expanded','false');
       });
-      // Toggle clicked
       if (!isOpen) {
-        item.classList.add('open');
+        block.classList.add('open');
         btn.setAttribute('aria-expanded','true');
       }
     });
   });
-  // Scroll reveal
-  const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}}),{threshold:0.1});
+
+  /* ── Lightbox ── */
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lb-img');
+  const lbCaption = document.getElementById('lb-caption');
+  const lbCounter = document.getElementById('lb-counter');
+  let lbImages = [];
+  let lbIndex = 0;
+
+  function collectImages() {
+    lbImages = Array.from(document.querySelectorAll('.lb-thumb'));
+  }
+
+  function openLb(thumb) {
+    collectImages();
+    lbIndex = lbImages.indexOf(thumb);
+    showLbImage();
+    lb.classList.add('lb-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    lb.classList.remove('lb-open');
+    document.body.style.overflow = '';
+  }
+
+  function showLbImage() {
+    const thumb = lbImages[lbIndex];
+    lbImg.style.opacity = '0';
+    setTimeout(() => {
+      lbImg.src = thumb.dataset.lbSrc;
+      lbImg.alt = thumb.dataset.lbAlt || '';
+      lbCaption.textContent = thumb.dataset.lbAlt || '';
+      lbCounter.textContent = `${lbIndex + 1} / ${lbImages.length}`;
+      lbImg.style.opacity = '1';
+    }, 120);
+    document.getElementById('lb-prev').style.opacity = lbImages.length > 1 ? '1' : '0.3';
+    document.getElementById('lb-next').style.opacity = lbImages.length > 1 ? '1' : '0.3';
+  }
+
+  document.querySelectorAll('.lb-thumb').forEach(t => {
+    t.addEventListener('click', () => openLb(t));
+  });
+  document.getElementById('lb-close').addEventListener('click', closeLb);
+  document.getElementById('lb-prev').addEventListener('click', () => {
+    lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
+    showLbImage();
+  });
+  document.getElementById('lb-next').addEventListener('click', () => {
+    lbIndex = (lbIndex + 1) % lbImages.length;
+    showLbImage();
+  });
+  lb.addEventListener('click', e => { if (e.target === lb || e.target === lb.querySelector('.lb-inner')) closeLb(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('lb-open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; showLbImage(); }
+    if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbImages.length; showLbImage(); }
+  });
+  // Touch swipe
+  let touchStartX = 0;
+  lb.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0) { lbIndex = (lbIndex + 1) % lbImages.length; }
+      else { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; }
+      showLbImage();
+    }
+  }, { passive: true });
+
+  /* ── Scroll reveal ── */
+  const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}}),{threshold:0.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 </body>
