@@ -804,6 +804,14 @@
       heroH1.style.transition = 'opacity .6s ease';
       heroH1.style.opacity = '1';
     } else {
+      // Höhe VORHER einfrieren: H1 kurz sichtbar messen, dann min-height setzen
+      // → verhindert dass das Logo während der Scramble-Animation mitwackelt
+      heroH1.style.visibility = 'hidden';
+      heroH1.style.opacity = '1';
+      const lockedHeight = heroH1.offsetHeight;
+      heroH1.style.minHeight = lockedHeight + 'px';
+      heroH1.style.visibility = '';
+      heroH1.style.opacity = '0';
       setTimeout(() => scrambleText(heroH1, 900), 300);
     }
   }
