@@ -176,7 +176,7 @@ body.has-dark-hero { padding-top: 0; }
 }
 .nav-logo span { color: var(--accent); }
 .nav-logo-img {
-  height: 54px;
+  height: 72px;
   width: auto;
   display: block;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,.7));
@@ -184,7 +184,7 @@ body.has-dark-hero { padding-top: 0; }
 }
 .nav-logo:hover .nav-logo-img { opacity: .8; }
 .drawer-logo-img {
-  height: 52px;
+  height: 64px;
   width: auto;
   display: block;
   filter: drop-shadow(0 1px 5px rgba(0,0,0,.6));
@@ -306,7 +306,7 @@ body.has-dark-hero .hamburger span {
   padding: 1.4rem 1.8rem;
   flex-shrink: 0;
 }
-.drawer-logo-img { height: 36px; width: auto; filter: brightness(0) invert(1); }
+.drawer-logo-img { height: 64px; width: auto; filter: brightness(0) invert(1); }
 .drawer-close {
   width: 44px; height: 44px;
   background: none;
