@@ -1042,15 +1042,18 @@ footer .divider { border-top-color: #2a2a2a; }
 .hero-quote-text {
   flex: 0 0 100%;
   text-align: center;
-  padding: 0.5rem 1rem 1.5rem;
+  padding: 2.5rem 1rem 2rem;
   font-family: var(--font-h);
-  font-size: clamp(1rem, 2.2vw, 1.8rem);
-  font-weight: 600;
+  font-size: clamp(1.1rem, 2.4vw, 2rem);
+  font-weight: 700;
   font-style: italic;
   text-transform: uppercase;
-  letter-spacing: .07em;
-  color: rgba(255,255,255,.62);
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.92);
   line-height: 1.4;
+  text-shadow: 0 2px 20px rgba(0,0,0,.6);
+  border-top: 1px solid rgba(255,255,255,.12);
+  margin-top: 2rem;
 }
 .hero-work-panel {
   display: flex;
@@ -1382,6 +1385,29 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
   border-radius: 4px;
   pointer-events: none;
   z-index: -1;
+}
+
+.about-quote {
+  margin: 1.8rem 0 0;
+  padding: 1.4rem 1.6rem;
+  border-left: 3px solid var(--accent);
+  background: rgba(255,45,120,.05);
+  border-radius: 0 4px 4px 0;
+}
+.about-quote p {
+  font-size: .94rem;
+  line-height: 1.85;
+  color: var(--text-mid);
+  font-style: italic;
+  margin: 0 0 .7rem;
+}
+.about-quote cite {
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-style: normal;
 }
 
 .about-tags {
