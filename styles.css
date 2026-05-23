@@ -913,6 +913,12 @@ footer .divider { border-top-color: #2a2a2a; }
   );
 }
 
+/* Hero-Elemente: kein Translatey — Logo soll nicht springen.
+   Nur Opacity-Fade, kein vertikaler Versatz. */
+.home-hero .reveal {
+  transform: none !important;
+}
+
 /* Inner layout */
 .hero-fb-inner {
   flex: 0 0 auto;
@@ -923,7 +929,8 @@ footer .divider { border-top-color: #2a2a2a; }
   max-width: var(--max-w);
   width: 100%;
   margin: 0 auto;
-  padding: 2rem 2rem 0;
+  /* Muss die fixe Nav (--nav-h = 80px) freischießen */
+  padding: calc(var(--nav-h) + 3rem) 2rem 0;
   position: relative;
   z-index: 2;
   column-gap: 4rem;
@@ -962,6 +969,8 @@ footer .divider { border-top-color: #2a2a2a; }
   color: #ffffff;
   margin-bottom: 1.5rem;
   letter-spacing: -.01em;
+  /* Scramble mutiert innerHTML jedes Frame — isolieren damit Siblings nicht repainen */
+  contain: layout style;
 }
 .hero-fb-h1 em {
   color: var(--accent);

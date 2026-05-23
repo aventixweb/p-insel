@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio · p-insel Tattoos · Pia Insel</title>
-  <meta name="description" content="Portfolio von Pia Insel – Tattoo Studio Bad Lippspringe. Realismus, Feineline, Surrealismus & Farbe. Jedes Tattoo ein Unikat. Alle Arbeiten ansehen.">
-  <meta property="og:title" content="Portfolio · p-insel Tattoos Bad Lippspringe">
-  <meta property="og:description" content="Portfolio von Pia Insel – Tattoo Studio Bad Lippspringe. Realismus, Feineline, Surrealismus & Farbe. Jedes Tattoo ein Unikat.">
+  <title>Portfolio & Stile · p-insel Tattoos · Pia Insel</title>
+  <meta name="description" content="Portfolio & Stile von Pia Insel – Tattoo Studio Bad Lippspringe. Realismus, Feineline, Ornamental, Surrealismus & mehr. Jedes Tattoo ein Unikat.">
+  <meta property="og:title" content="Portfolio & Stile · p-insel Tattoos Bad Lippspringe">
+  <meta property="og:description" content="Portfolio & Stile von Pia Insel – Tattoo Studio Bad Lippspringe. Realismus, Feineline, Surrealismus & Farbe.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.p-insel.de/portfolio.html">
   <meta property="og:image" content="https://www.p-insel.de/img/tattoo/panther-cta.jpg">
   <link rel="canonical" href="https://www.p-insel.de/portfolio.html">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Portfolio-page specific */
+    /* ── Portfolio Grid ── */
     .filter-bar {
       display: flex;
       align-items: center;
@@ -36,11 +36,7 @@
       transition: background .2s, border-color .2s, color .2s;
     }
     .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .filter-btn.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: var(--bg);
-    }
+    .filter-btn.active { background: var(--accent); border-color: var(--accent); color: var(--bg); }
     .portfolio-full-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -57,51 +53,17 @@
     }
     .pf-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
     .pf-item.tall { grid-row: span 2; aspect-ratio: 1/2; }
-    .pf-item img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform .5s var(--ease);
-      display: block;
-    }
+    .pf-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); display: block; }
     .pf-item:hover img { transform: scale(1.06); }
     .pf-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(0,0,0,.9) 0%, transparent 55%);
-      opacity: 0;
-      transition: opacity .3s;
-      display: flex; align-items: flex-end;
-      padding: 1.2rem;
+      opacity: 0; transition: opacity .3s;
+      display: flex; align-items: flex-end; padding: 1.2rem;
     }
     .pf-item:hover .pf-overlay { opacity: 1; }
-    .pf-info {}
-    .pf-tag {
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      display: block;
-      margin-bottom: .2rem;
-    }
-    .pf-name {
-      font-family: var(--font-h);
-      font-size: 1.05rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--text);
-    }
-    .pf-placeholder {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: .5rem;
-      background: linear-gradient(135deg, var(--bg-surface), var(--bg-raised));
-    }
-    .pf-placeholder span {
-      font-size: .65rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-    }
+    .pf-tag { font-size: .65rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: .2rem; }
+    .pf-name { font-family: var(--font-h); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; color: var(--text); }
     @media (max-width: 768px) {
       .portfolio-full-grid { grid-template-columns: repeat(2, 1fr); }
       .pf-item.wide { grid-column: span 1; aspect-ratio: 1; }
@@ -109,6 +71,109 @@
     }
     @media (max-width: 480px) {
       .portfolio-full-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Stile Section ── */
+    .style-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4.5rem;
+      align-items: center;
+      padding: 4.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .style-detail:last-child { border-bottom: none; }
+    .style-detail.reverse { direction: rtl; }
+    .style-detail.reverse > * { direction: ltr; }
+    .style-detail-img {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--bg-surface);
+    }
+    .style-num {
+      font-family: var(--font-h);
+      font-size: clamp(5rem, 12vw, 9rem);
+      font-weight: 900;
+      color: var(--bg-raised);
+      line-height: 1;
+      margin-bottom: -.5rem;
+      letter-spacing: -.02em;
+    }
+    @media (max-width: 900px) {
+      .style-detail { grid-template-columns: 1fr; gap: 2.5rem; }
+      .style-detail.reverse { direction: ltr; }
+    }
+
+    /* ── Quote Band ── */
+    .quote-band {
+      background: var(--bg-soft);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 0;
+      text-align: center;
+    }
+    .quote-band-text {
+      font-family: var(--font-h);
+      font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      line-height: 1.25;
+      color: var(--text);
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .quote-band-text em { color: var(--accent); font-style: normal; }
+
+    /* ── Prozess ── */
+    .prozess-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      counter-reset: step;
+    }
+    .prozess-step {
+      position: relative;
+      padding: 2rem 1.5rem;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    .prozess-step::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      display: block;
+      font-family: var(--font-h);
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--accent);
+      opacity: .25;
+      line-height: 1;
+      margin-bottom: .8rem;
+    }
+    .prozess-step h4 {
+      font-family: var(--font-h);
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--text);
+      margin: 0 0 .6rem;
+    }
+    .prozess-step p {
+      font-size: .85rem;
+      line-height: 1.75;
+      color: var(--text-mid);
+      margin: 0;
+    }
+    @media (max-width: 900px) {
+      .prozess-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .prozess-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -139,7 +204,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="portfolio.html" class="active">Portfolio</a></li>
       <li><a href="kuenstlerin.html">Über mich</a></li>
-      <li><a href="stile.html">Stile</a></li>
+      <li><a href="portfolio.html#stile">Stile</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
@@ -162,7 +227,7 @@
     <a href="index.html">Home</a>
     <a href="portfolio.html" class="active">Portfolio</a>
     <a href="kuenstlerin.html">Über mich</a>
-    <a href="stile.html">Stile & Techniken</a>
+    <a href="portfolio.html#stile">Stile & Techniken</a>
     <a href="faq.html">FAQ</a>
     <a href="kontakt.html">Kontakt</a>
   </nav>
@@ -175,29 +240,37 @@
   </div>
 </div>
 
-<!-- PAGE HERO -->
+<!-- ══════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════ -->
 <header class="page-hero">
   <div class="page-hero-bg" style="background-image:url('img/tattoo/leopard-rosen-arm.jpeg'); background-position: center 35%;"></div>
   <div class="page-hero-overlay"></div>
   <div class="container">
-    <div class="page-hero-eyebrow">p-insel Tattoos</div>
-    <h1>Portfolio &<br><span>Arbeiten</span></h1>
-    <p>Eine Auswahl aus den Arbeiten von Pia Insel – Tierportraits, Feineline, Surrealismus und mehr. Jedes Bild ein Unikat.</p>
+    <div class="page-hero-eyebrow">p-insel Tattoos · Pia Insel</div>
+    <h1>Portfolio &<br><span>Stile</span></h1>
+    <p>Jeder Mensch ist einzigartig – sein Tattoo auch.<br>Hier findest du einen Überblick über meine Arbeiten und Spezialisierungen.</p>
   </div>
 </header>
 
-<!-- BREADCRUMB -->
 <div class="container">
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="index.html">Home</a>
     <span class="bc-sep">›</span>
-    <span class="bc-current">Portfolio</span>
+    <span class="bc-current">Portfolio & Stile</span>
   </nav>
 </div>
 
-<!-- PORTFOLIO GRID -->
-<section class="section">
+<!-- ══════════════════════════════════════════
+     GALERIE
+     ══════════════════════════════════════════ -->
+<section class="section" id="galerie">
   <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div class="section-eyebrow reveal" style="justify-content:center;">Galerie</div>
+      <h2 class="section-title reveal" data-delay="1">Ausgewählte<br><span>Arbeiten</span></h2>
+    </div>
+
     <!-- Filter Bar -->
     <div class="filter-bar">
       <button class="filter-btn active" data-filter="all">Alle</button>
@@ -210,208 +283,300 @@
     </div>
 
     <div class="portfolio-full-grid">
-      <!-- Alle Bildslots: img/portfolio-X.jpg einsetzen wenn Bilder von Pia kommen -->
-      <!-- Item 1: Wide -->
+
       <div class="pf-item wide reveal" data-category="tierportrait realismus farbe">
         <img src="img/tattoo/leopard-rosen-arm.jpeg" alt="Leopard mit Rosen — Arm — Farb-Realismus Tattoo">
-        <div class="pf-overlay">
-          <div class="pf-info">
-            <span class="pf-tag">Realismus · Farbe</span>
-            <div class="pf-name">Leopard & Rosen</div>
-          </div>
-        </div>
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag">Realismus · Farbe</span><div class="pf-name">Leopard & Rosen</div></div></div>
       </div>
 
-      <!-- Item 2 -->
       <div class="pf-item reveal" data-delay="1" data-category="tierportrait feineline">
         <img src="img/tattoo/hund-blumen-oberschenkel.jpeg" alt="Hund mit Blumen — Oberschenkel Tattoo">
-        <div class="pf-overlay">
-          <div class="pf-info">
-            <span class="pf-tag">Tierportrait · Feineline</span>
-            <div class="pf-name">Hund & Blumen</div>
-          </div>
-        </div>
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag">Tierportrait · Feineline</span><div class="pf-name">Hund & Blumen</div></div></div>
       </div>
 
-      <!-- Item 3 -->
       <div class="pf-item reveal" data-delay="2" data-category="tierportrait feineline">
         <img src="img/tattoo/katze-pflanzen-arm.jpeg" alt="Katze mit Pflanzen — Arm Tattoo">
-        <div class="pf-overlay">
-          <div class="pf-info">
-            <span class="pf-tag">Tierportrait · Feineline</span>
-            <div class="pf-name">Katze & Pflanzen</div>
-          </div>
-        </div>
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag">Tierportrait · Feineline</span><div class="pf-name">Katze & Pflanzen</div></div></div>
       </div>
 
-      <!-- Item 4: Tall -->
       <div class="pf-item tall reveal" data-delay="1" data-category="tierportrait realismus">
         <img src="img/tattoo/hund-portrait-sw.jpeg" alt="Hund Portrait Schwarz-Weiß Tattoo">
-        <div class="pf-overlay">
-          <div class="pf-info">
-            <span class="pf-tag">Realismus · S&W</span>
-            <div class="pf-name">Hundeportrait</div>
-          </div>
-        </div>
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag">Realismus · S&W</span><div class="pf-name">Hundeportrait</div></div></div>
       </div>
 
-      <!-- Item 5 -->
       <div class="pf-item reveal" data-delay="2" data-category="ornamental feineline">
         <img src="img/tattoo/mandala-blumen-schulter.jpg" alt="Mandala Blumen Schulter Tattoo">
-        <div class="pf-overlay">
-          <div class="pf-info">
-            <span class="pf-tag">Ornamental · Feineline</span>
-            <div class="pf-name">Mandala & Blumen</div>
-          </div>
-        </div>
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag">Ornamental · Feineline</span><div class="pf-name">Mandala & Blumen</div></div></div>
       </div>
 
-      <!-- Item 6 -->
       <div class="pf-item reveal" data-delay="3" data-category="farbe surrealismus">
         <img src="img/tattoo/fledermaus-farbe-oberschenkel.jpeg" alt="Fledermaus bunt Oberschenkel Tattoo">
-        <div class="pf-overlay">
-          <div class="pf-info">
-            <span class="pf-tag">Farbe · Surrealismus</span>
-            <div class="pf-name">Fledermaus</div>
-          </div>
-        </div>
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag">Farbe · Surrealismus</span><div class="pf-name">Fledermaus</div></div></div>
       </div>
 
-      <!-- Item 7 -->
       <div class="pf-item reveal" data-delay="1" data-category="tierportrait realismus">
         <img src="img/tattoo/eule-elefant-oberschenkel.jpeg" alt="Eule und Elefant Oberschenkel Tattoo">
-        <div class="pf-overlay">
-          <div class="pf-info">
-            <span class="pf-tag">Tierportrait</span>
-            <div class="pf-name">Eule & Elefant</div>
-          </div>
-        </div>
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag">Tierportrait</span><div class="pf-name">Eule & Elefant</div></div></div>
       </div>
 
-      <!-- Item 8 -->
       <div class="pf-item reveal" data-delay="2" data-category="realismus">
         <img src="img/tattoo/schlange-realismus-arm.jpeg" alt="Schlange Realismus Arm Tattoo">
-        <div class="pf-overlay">
-          <div class="pf-info">
-            <span class="pf-tag">Realismus</span>
-            <div class="pf-name">Schlange</div>
-          </div>
-        </div>
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag">Realismus</span><div class="pf-name">Schlange</div></div></div>
       </div>
 
-      <!-- Item 9 -->
       <div class="pf-item reveal" data-delay="3" data-category="ornamental feineline">
         <img src="img/tattoo/rose-mandala-schulter.jpg" alt="Rose Mandala Schulter Tattoo">
-        <div class="pf-overlay">
-          <div class="pf-info">
-            <span class="pf-tag">Ornamental · Feineline</span>
-            <div class="pf-name">Rose & Mandala</div>
-          </div>
-        </div>
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag">Ornamental · Feineline</span><div class="pf-name">Rose & Mandala</div></div></div>
       </div>
 
-      <!-- Item 10 -->
       <div class="pf-item reveal" data-delay="1" data-category="tierportrait feineline">
         <img src="img/tattoo/vogel-blumen-arm.jpg" alt="Vogel mit Blumen Arm Tattoo">
-        <div class="pf-overlay">
-          <div class="pf-info">
-            <span class="pf-tag">Tierportrait · Feineline</span>
-            <div class="pf-name">Vogel & Blumen</div>
-          </div>
-        </div>
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag">Tierportrait · Feineline</span><div class="pf-name">Vogel & Blumen</div></div></div>
       </div>
 
-      <!-- Item 11 -->
       <div class="pf-item reveal" data-delay="2" data-category="tierportrait ornamental">
         <img src="img/tattoo/hund-mandala-oberschenkel.jpeg" alt="Hund mit Mandala Oberschenkel Tattoo">
-        <div class="pf-overlay">
-          <div class="pf-info">
-            <span class="pf-tag">Tierportrait · Ornamental</span>
-            <div class="pf-name">Hund & Mandala</div>
-          </div>
-        </div>
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag">Tierportrait · Ornamental</span><div class="pf-name">Hund & Mandala</div></div></div>
       </div>
 
-      <!-- Item 12 -->
       <div class="pf-item reveal" data-delay="3" data-category="tierportrait feineline">
         <img src="img/tattoo/eule-blumen-oberschenkel.jpg" alt="Eule mit Blumen Oberschenkel Tattoo">
-        <div class="pf-overlay">
-          <div class="pf-info">
-            <span class="pf-tag">Tierportrait · Feineline</span>
-            <div class="pf-name">Eule & Blumen</div>
-          </div>
-        </div>
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag">Tierportrait · Feineline</span><div class="pf-name">Eule & Blumen</div></div></div>
       </div>
 
-      <!-- Item 13 -->
       <div class="pf-item reveal" data-delay="1" data-category="feineline ornamental">
         <img src="img/tattoo/heissluftballon-blumen-arm.jpg" alt="Heißluftballon mit Blumen Arm Tattoo">
-        <div class="pf-overlay">
-          <div class="pf-info">
-            <span class="pf-tag">Feineline</span>
-            <div class="pf-name">Ballon & Blumen</div>
-          </div>
-        </div>
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag">Feineline</span><div class="pf-name">Ballon & Blumen</div></div></div>
       </div>
 
-      <!-- Item 14 -->
       <div class="pf-item reveal" data-delay="2" data-category="realismus">
         <img src="img/tattoo/kolibri-coverup-vorher-nachher.jpeg" alt="Kolibri Cover-Up Tattoo">
-        <div class="pf-overlay">
-          <div class="pf-info">
-            <span class="pf-tag">Cover-Up · Realismus</span>
-            <div class="pf-name">Kolibri Cover-Up</div>
-          </div>
-        </div>
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag">Cover-Up · Realismus</span><div class="pf-name">Kolibri Cover-Up</div></div></div>
       </div>
 
-      <!-- Item 15 -->
       <div class="pf-item reveal" data-delay="3" data-category="realismus">
         <img src="img/tattoo/schildkroete-neptun-sw.jpg" alt="Schildkröte und Neptun S&W Tattoo">
-        <div class="pf-overlay">
-          <div class="pf-info">
-            <span class="pf-tag">Realismus · S&W</span>
-            <div class="pf-name">Schildkröte & Neptun</div>
-          </div>
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag">Realismus · S&W</span><div class="pf-name">Schildkröte & Neptun</div></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     STILE & TECHNIKEN
+     ══════════════════════════════════════════ -->
+<section class="section section-dark" id="stile">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:4rem;">
+      <div class="section-eyebrow reveal" style="justify-content:center;">Spezialisierungen</div>
+      <h2 class="section-title reveal" data-delay="1">Stile &<br><span>Techniken</span></h2>
+      <p class="section-desc reveal" data-delay="2" style="max-width:520px;margin:1rem auto 0;">
+        Hier entstehen Motive mit Charakter – bunte florale Designs, surreale Ideen, präzise Handwerkskunst. Cover-Ups verwandeln Altes in etwas völlig Neues. Auch im Black & Grey steht Individualität im Mittelpunkt.
+      </p>
+    </div>
+
+    <!-- Stil 01: Realismus & Tierportraits -->
+    <div class="style-detail" id="realismus">
+      <div class="style-detail-img reveal">
+        <img src="img/tattoo/hund-portrait-sw.jpeg" alt="Hund Portrait Schwarz-Weiß Realismus Tattoo" style="width:100%;height:100%;object-fit:cover;border-radius:4px;">
+      </div>
+      <div>
+        <div class="style-num reveal">01</div>
+        <div class="section-eyebrow reveal" data-delay="1">Spezialisierung</div>
+        <h2 class="section-title reveal" data-delay="1">Realismus &<br><span>Tierportraits</span></h2>
+        <p class="section-desc reveal" data-delay="2">
+          Das Herzstück meiner Arbeit. Fotorealistische Darstellungen mit atemberaubender Detailgenauigkeit – vom zarten Blick eines Hundes bis zum majestätischen Adler im Flug. Dein Tier – dein Begleiter, dein bestes Freund – für immer auf deiner Haut.
+        </p>
+        <div class="about-tags reveal" data-delay="3">
+          <span class="tag">Hundeportraits</span>
+          <span class="tag">Katzenportraits</span>
+          <span class="tag">Vögel</span>
+          <span class="tag">Wildtiere</span>
+          <span class="tag">SW & Farbe</span>
+        </div>
+        <div class="reveal" data-delay="4" style="margin-top:1.5rem;">
+          <a href="kontakt.html" class="btn btn-red">Termin anfragen</a>
         </div>
       </div>
     </div>
+
+    <!-- Stil 02: Feineline -->
+    <div class="style-detail reverse" id="feineline">
+      <div class="style-detail-img reveal">
+        <img src="img/tattoo/rose-mandala-schulter.jpg" alt="Rose Mandala Schulter Feineline Tattoo" style="width:100%;height:100%;object-fit:cover;border-radius:4px;">
+      </div>
+      <div>
+        <div class="style-num reveal">02</div>
+        <div class="section-eyebrow reveal" data-delay="1">Spezialisierung</div>
+        <h2 class="section-title reveal" data-delay="1">Florales<br><span>Feineline</span></h2>
+        <p class="section-desc reveal" data-delay="2">
+          Hauchzarte Linienarbeiten, die wie mit einem Federkiel gezeichnet wirken. Botanik, Blüten, Ranken – filigran und zeitlos elegant. Als eigenständiges Motiv oder als dekorative Rahmung für ein realistisches Portrait. Feineline ist Geduld und Präzision.
+        </p>
+        <div class="about-tags reveal" data-delay="3">
+          <span class="tag">Botanik</span>
+          <span class="tag">Blüten</span>
+          <span class="tag">Ranken</span>
+          <span class="tag">Rahmung</span>
+          <span class="tag">Fineline</span>
+        </div>
+        <div class="reveal" data-delay="4" style="margin-top:1.5rem;">
+          <a href="kontakt.html" class="btn btn-red">Termin anfragen</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stil 03: Ornamental -->
+    <div class="style-detail" id="ornamental">
+      <div class="style-detail-img reveal">
+        <img src="img/tattoo/mandala-blumen-schulter.jpg" alt="Mandala Blumen Schulter Ornamental Tattoo" style="width:100%;height:100%;object-fit:cover;border-radius:4px;">
+      </div>
+      <div>
+        <div class="style-num reveal">03</div>
+        <div class="section-eyebrow reveal" data-delay="1">Spezialisierung</div>
+        <h2 class="section-title reveal" data-delay="1"><span>Ornamental</span><br>& Geometrisch</h2>
+        <p class="section-desc reveal" data-delay="2">
+          Symmetrie trifft Eleganz. Ornamentale Muster, die sich perfekt an den Körper anpassen und eine starke visuelle Wirkung entfalten. Mandala-inspiriert, geometrisch, architektonisch – mit klarer Struktur und hohem Wiedererkennungswert.
+        </p>
+        <div class="about-tags reveal" data-delay="3">
+          <span class="tag">Mandala</span>
+          <span class="tag">Geometrisch</span>
+          <span class="tag">Symmetrie</span>
+          <span class="tag">Dotwork</span>
+        </div>
+        <div class="reveal" data-delay="4" style="margin-top:1.5rem;">
+          <a href="kontakt.html" class="btn btn-red">Termin anfragen</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stil 04: Surrealismus & Farbe -->
+    <div class="style-detail reverse" id="surrealismus">
+      <div class="style-detail-img reveal">
+        <img src="img/tattoo/fledermaus-farbe-oberschenkel.jpeg" alt="Fledermaus bunt Surrealismus Tattoo" style="width:100%;height:100%;object-fit:cover;border-radius:4px;">
+      </div>
+      <div>
+        <div class="style-num reveal">04</div>
+        <div class="section-eyebrow reveal" data-delay="1">Spezialisierung</div>
+        <h2 class="section-title reveal" data-delay="1"><span>Surrealismus</span><br>& Farbe</h2>
+        <p class="section-desc reveal" data-delay="2">
+          Hier lebt das Unerwartete. Surreale Welten, unmögliche Kombinationen, Träume auf Haut. Mit satten Farben und hohem Kontrast entsteht etwas, das du nirgendwo sonst findest. Und natürlich: Dinosaurier. Immer.
+        </p>
+        <div class="about-tags reveal" data-delay="3">
+          <span class="tag">Surrealismus</span>
+          <span class="tag">Farbe</span>
+          <span class="tag">Hoher Kontrast</span>
+          <span class="tag">Dinosaurier</span>
+          <span class="tag">Einzigartig</span>
+        </div>
+        <div class="reveal" data-delay="4" style="margin-top:1.5rem;">
+          <a href="kontakt.html" class="btn btn-red">Termin anfragen</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-band">
+<!-- ══════════════════════════════════════════
+     ZITAT
+     ══════════════════════════════════════════ -->
+<div class="quote-band">
   <div class="container">
-    <div class="section-eyebrow reveal" style="justify-content:center;">Dein Tattoo</div>
-    <h2 class="reveal" data-delay="1" style="font-family:var(--font-h);font-size:clamp(2.2rem,5vw,4rem);font-weight:900;text-transform:uppercase;color:var(--text);line-height:1;margin-bottom:.8rem;">
-      Lass deine Idee <span style="color:var(--accent);">entstehen</span>
-    </h2>
-    <p class="reveal" data-delay="2" style="font-size:1rem;color:var(--text-mid);max-width:440px;margin:0 auto 2rem;line-height:1.75;">
-      Schick mir deine Vorstellung – gemeinsam schaffen wir dein persönliches Kunstwerk.
+    <p class="quote-band-text reveal">
+      EIN TATTOO IST DAS EINZIGE WAS DU DIR<br>
+      IN DEINEM LEBEN GÖNNST<br>
+      OHNE ES JE WIEDER ZU <em>VERLIEREN...</em>
     </p>
-    <div class="cta-band-actions reveal" data-delay="3">
-      <a href="kontakt.html" class="btn btn-gold">Termin anfragen</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     BUCHUNGSPROZESS
+     ══════════════════════════════════════════ -->
+<section class="section" id="prozess">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <div class="section-eyebrow reveal" style="justify-content:center;">So einfach geht's</div>
+      <h2 class="section-title reveal" data-delay="1">Dein Weg zum<br><span>Tattoo</span></h2>
+    </div>
+
+    <div class="prozess-grid">
+      <div class="prozess-step reveal">
+        <h4>Idee einschicken</h4>
+        <p>Füll das Kontaktformular aus – oder schick mir eine E-Mail. Beschreib deine Idee, die gewünschte Körperstelle und lade gerne Referenzbilder hoch.</p>
+      </div>
+      <div class="prozess-step reveal" data-delay="1">
+        <h4>Kostenloses Gespräch</h4>
+        <p>Wir besprechen deine Vorstellung, ich schätze Preis und Dauer ein – ganz unverbindlich. Erst wenn wir beide happy sind, geht es weiter.</p>
+      </div>
+      <div class="prozess-step reveal" data-delay="2">
+        <h4>Termin sichern</h4>
+        <p>Du buchst deinen Wunschtermin mit einer Anzahlung. Das Design wird final abgestimmt und du erhältst alle Infos zur Vorbereitung.</p>
+      </div>
+      <div class="prozess-step reveal" data-delay="3">
+        <h4>Für immer</h4>
+        <p>Komm ins Atelier, lehn dich zurück und lass Kunst entstehen. Dein Tattoo – handgefertigt, einzigartig, für immer ein Teil von dir.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:3rem;" class="reveal" data-delay="2">
+      <a href="kontakt.html" class="btn btn-red">
+        Jetzt Anfrage starten
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
 </section>
 
-<footer>
+<!-- ══════════════════════════════════════════
+     CTA BAND
+     ══════════════════════════════════════════ -->
+<section class="cta-band parallax-section" aria-label="Terminanfrage">
+  <div class="parallax-bg" data-speed="0.18" style="background-image:url('img/malerei/schaedel-blumen.jpeg')"></div>
+  <div class="parallax-overlay" style="background:rgba(10,10,10,.78)"></div>
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="cta-band-eyebrow reveal">Welcher Stil ist deiner?</div>
+    <h2 class="cta-band-title reveal" data-delay="1">
+      BEREIT FÜR<br>DEIN NÄCHSTES<br><span>TATTOO?</span>
+    </h2>
+    <p class="cta-band-quote reveal" data-delay="2">
+      Ich berate dich gerne – kostenlos und ohne Druck. Schick mir einfach deine Idee.
+    </p>
+    <div class="cta-band-actions reveal" data-delay="3">
+      <a href="kontakt.html" class="btn btn-red">Termin anfragen</a>
+      <a href="mailto:terminwunsch123@p-insel.de" class="btn btn-outline-white">Per Email schreiben</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════ -->
+<footer role="contentinfo">
   <div class="footer-main">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="footer-logo-text">
-            <img src="img/logo.png" alt="p-insel Tattoos" style="height:38px;width:auto;filter:drop-shadow(0 1px 4px rgba(0,0,0,.5));">
+            <img src="img/logo.png" alt="p-insel Tattoos" style="height:42px;width:auto;filter:drop-shadow(0 1px 4px rgba(0,0,0,.5));">
           </a>
-          <p>Tattoo Studio in Bad Lippspringe. Pia Insel – Tätowiererin & Malerin seit 2015.</p>
+          <p>Tattoo Studio in Bad Lippspringe – Wo Kunst entsteht und Momente für die Ewigkeit festgehalten werden. Pia Insel, Tätowiererin & Malerin.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/pia_insel_tattoos" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
+            </a>
+            <a href="https://www.facebook.com/PiaInselTattoo" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+          </div>
         </div>
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul>
             <li><a href="index.html">Startseite</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="portfolio.html">Portfolio & Stile</a></li>
             <li><a href="kuenstlerin.html">Über mich</a></li>
-            <li><a href="stile.html">Stile</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
           </ul>
@@ -419,16 +584,17 @@
         <div class="footer-col">
           <h4>Stile</h4>
           <ul>
-            <li><a href="stile.html#realismus">Realismus</a></li>
-            <li><a href="stile.html#feineline">Feineline</a></li>
-            <li><a href="stile.html#ornamental">Ornamental</a></li>
-            <li><a href="stile.html#surrealismus">Surrealismus</a></li>
+            <li><a href="portfolio.html#realismus">Realismus & Tierportraits</a></li>
+            <li><a href="portfolio.html#feineline">Florales Feineline</a></li>
+            <li><a href="portfolio.html#ornamental">Ornamental</a></li>
+            <li><a href="portfolio.html#surrealismus">Surrealismus & Farbe</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Kontakt</h4>
           <address>
-            Detmolder Strasse 119<br>33175 Bad Lippspringe<br><br>
+            Detmolder Strasse 119<br>
+            33175 Bad Lippspringe<br><br>
             <a href="mailto:terminwunsch123@p-insel.de" style="color:var(--accent);text-decoration:none;">terminwunsch123@p-insel.de</a>
           </address>
         </div>
@@ -461,16 +627,18 @@
   const drawer    = document.getElementById('mobile-drawer');
   const overlay   = document.getElementById('drawer-overlay');
   const closeBtn  = document.getElementById('drawer-close');
-  const open  = () => { const y=window.scrollY; drawer.classList.add('open'); overlay.classList.add('open'); hamburger.classList.add('open'); document.body.style.overflow='hidden'; document.body.style.position='fixed'; document.body.style.top=`-${y}px`; document.body.style.width='100%'; drawer._savedScroll=y; };
-  const close = () => { const y=drawer._savedScroll||0; drawer.classList.remove('open'); overlay.classList.remove('open'); hamburger.classList.remove('open'); document.body.style.overflow=''; document.body.style.position=''; document.body.style.top=''; document.body.style.width=''; window.scrollTo(0,y); };
-  hamburger.addEventListener('click', () => drawer.classList.contains('open') ? close() : open());
-  closeBtn.addEventListener('click', close);
-  overlay.addEventListener('click', close);
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  const openD  = () => { const y=window.scrollY; drawer.classList.add('open'); overlay.classList.add('open'); hamburger.classList.add('open'); hamburger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; document.body.style.position='fixed'; document.body.style.top=`-${y}px`; document.body.style.width='100%'; drawer._savedScroll=y; };
+  const closeD = () => { const y=drawer._savedScroll||0; drawer.classList.remove('open'); overlay.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; document.body.style.position=''; document.body.style.top=''; document.body.style.width=''; window.scrollTo(0,y); };
+  hamburger.addEventListener('click', () => drawer.classList.contains('open') ? closeD() : openD());
+  closeBtn.addEventListener('click', closeD);
+  overlay.addEventListener('click', closeD);
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeD));
 
+  /* Reveal */
   const io = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+  /* Float CTA */
   const floatCta = document.getElementById('float-cta');
   window.addEventListener('scroll', () => { floatCta.classList.toggle('visible', window.scrollY > 350); }, { passive: true });
 
@@ -488,23 +656,33 @@
       });
     });
   });
-  const _mob=window.matchMedia('(max-width:900px)').matches;
-  const heroBg=document.querySelector('.page-hero-bg');
-  const pageHero=document.querySelector('.page-hero');
-  if(heroBg&&_mob&&pageHero){function updH(){const r=pageHero.getBoundingClientRect();heroBg.style.transform=`translateY(${r.top*0.35}px)`;}window.addEventListener('scroll',updH,{passive:true});updH();}
 
-  /* ── Lightbox ── */
+  /* Parallax */
+  const pBgs = document.querySelectorAll('.parallax-bg');
+  if (pBgs.length) {
+    const _mob = window.matchMedia('(max-width: 900px)').matches;
+    function updateParallax() {
+      pBgs.forEach(bg => {
+        const section = bg.parentElement;
+        const rect = section.getBoundingClientRect();
+        const speed = parseFloat(bg.dataset.speed) || 0.15;
+        bg.style.transform = `translateY(${rect.top * (_mob ? speed * 0.6 : speed)}px)`;
+      });
+    }
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    updateParallax();
+  }
+
+  /* Lightbox */
   const lb=document.getElementById('lb');
   const lbImg=document.getElementById('lb-img');
   const lbCaption=document.getElementById('lb-caption');
   const lbCounter=document.getElementById('lb-counter');
   let lbItems=[]; let lbIdx=0;
 
-  // Make pf-items clickable
   document.querySelectorAll('.pf-item').forEach(item=>{
     item.style.cursor='zoom-in';
     item.addEventListener('click',()=>{
-      // Only show currently visible items in the lightbox navigation
       lbItems=Array.from(document.querySelectorAll('.pf-item')).filter(i=>i.style.display!=='none');
       lbIdx=lbItems.indexOf(item);
       showLb();
@@ -520,19 +698,13 @@
     const tag=item.querySelector('.pf-tag')?.textContent||'';
     lbImg.style.opacity='0';
     setTimeout(()=>{
-      lbImg.src=img.src;
-      lbImg.alt=img.alt;
+      lbImg.src=img.src; lbImg.alt=img.alt;
       lbCaption.textContent=name+(tag?' · '+tag:'');
       lbCounter.textContent=`${lbIdx+1} / ${lbItems.length}`;
       lbImg.style.opacity='1';
     },120);
   }
-
-  function closeLb(){
-    lb.classList.remove('lb-open');
-    document.body.style.overflow='';
-  }
-
+  function closeLb(){ lb.classList.remove('lb-open'); document.body.style.overflow=''; }
   document.getElementById('lb-close').addEventListener('click',closeLb);
   document.getElementById('lb-prev').addEventListener('click',()=>{lbIdx=(lbIdx-1+lbItems.length)%lbItems.length;showLb();});
   document.getElementById('lb-next').addEventListener('click',()=>{lbIdx=(lbIdx+1)%lbItems.length;showLb();});
