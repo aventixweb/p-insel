@@ -767,32 +767,47 @@
   counters.forEach(c => counterObserver.observe(c));
 
   /* ── Hero H1 Scramble Reveal ── */
-  function scrambleText(el, duration = 900) {
-    const finalHTML = el.innerHTML;          // save original markup (keeps <em> pink)
+  function scrambleText(el, duration = 1400) {
+    const finalHTML = el.innerHTML;
     const finalText = el.innerText;
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#@!?.·';
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ·—';
     const totalFrames = Math.round(duration / 16);
-    let frame = 0;
-    el.style.opacity = '1';
     const plain = finalText.replace(/\n/g, '');
+    let frame = 0;
+    let done = false;
 
     function finish() {
-      el.innerHTML = finalHTML;              // restore original HTML with <em> intact
+      if (done) return;
+      done = true;
+      el.innerHTML = finalHTML;
+      el.style.opacity = '1';
     }
 
+    // Fade in smoothly while scrambling
+    el.style.transition = 'opacity .45s ease';
+    el.style.opacity = '1';
+
     function tick() {
+      if (done) return;
       frame++;
       if (frame >= totalFrames) { finish(); return; }
+      // progress 0→1, chars settle left-to-right
+      const progress = frame / totalFrames;
       el.innerHTML = finalText.split('').map((ch, i) => {
         if (ch === '\n') return '<br>';
         if (ch === ' ') return ' ';
-        if (frame / totalFrames > i / plain.length) return ch;
-        return `<span style="color:var(--accent);opacity:.5">${chars[Math.floor(Math.random() * chars.length)]}</span>`;
+        const charProgress = i / plain.length;
+        if (progress > charProgress + 0.15) return ch;          // settled
+        if (progress > charProgress - 0.05) {                    // settling zone
+          return Math.random() > 0.4
+            ? ch
+            : `<span style="color:var(--accent);opacity:.4">${chars[Math.floor(Math.random()*chars.length)]}</span>`;
+        }
+        return `<span style="opacity:.25">${chars[Math.floor(Math.random()*chars.length)]}</span>`;
       }).join('');
       requestAnimationFrame(tick);
     }
 
-    // Garantie: wenn Tab unsichtbar wird, sofort finaler Text
     const onVisChange = () => { if (document.hidden) finish(); };
     document.addEventListener('visibilitychange', onVisChange, { once: true });
     requestAnimationFrame(tick);
@@ -801,20 +816,22 @@
   const heroH1 = document.getElementById('hero-h1');
   if (heroH1) {
     heroH1.style.opacity = '0';
-    // Auf Mobile: kein Scramble — direktes Fade-in (setInterval wird gedrosselt)
+
     if (window.matchMedia('(max-width: 768px), (hover: none)').matches) {
-      heroH1.style.transition = 'opacity .6s ease';
+      // Mobile: einfaches Fade-in
+      heroH1.style.transition = 'opacity .7s ease';
       heroH1.style.opacity = '1';
     } else {
-      // Höhe VORHER einfrieren: H1 kurz sichtbar messen, dann min-height setzen
-      // → verhindert dass das Logo während der Scramble-Animation mitwackelt
-      heroH1.style.visibility = 'hidden';
-      heroH1.style.opacity = '1';
-      const lockedHeight = heroH1.offsetHeight;
-      heroH1.style.minHeight = lockedHeight + 'px';
-      heroH1.style.visibility = '';
-      heroH1.style.opacity = '0';
-      setTimeout(() => scrambleText(heroH1, 900), 300);
+      // Desktop: warten bis Fonts geladen → Höhe exakt messen → einfrieren → scramble
+      document.fonts.ready.then(() => {
+        heroH1.style.visibility = 'hidden';
+        heroH1.style.opacity = '1';
+        const lockedHeight = heroH1.offsetHeight;
+        heroH1.style.minHeight = lockedHeight + 'px';
+        heroH1.style.visibility = '';
+        heroH1.style.opacity = '0';
+        setTimeout(() => scrambleText(heroH1, 1400), 200);
+      });
     }
   }
 

@@ -310,7 +310,7 @@
 <!-- ── HERO ── -->
 <header class="faq-hero">
   <div class="faq-hero-bg">
-    <img src="img/pia-flamingo-atelier.jpeg" alt="Pia Insel in ihrem Tattoo Atelier" fetchpriority="high">
+    <img src="img/tattoo/panther-cta.jpg" alt="Tattoo Maschine in Hand — p-insel Atelier" fetchpriority="high">
   </div>
   <div class="faq-hero-overlay"></div>
   <div class="faq-hero-content">
@@ -522,9 +522,9 @@
 </section>
 
 <!-- ── CTA ── -->
-<section class="section cta-band" style="text-align:center;">
-  <div class="cta-bg" style="background-image:url('img/malerei/schaedel-blumen.jpeg');"></div>
-  <div class="cta-overlay"></div>
+<section class="section cta-band parallax-section" style="text-align:center;">
+  <div class="parallax-bg" id="faq-cta-bg" data-speed="0.12" style="background-image:url('img/malerei/schaedel-blumen.jpeg');"></div>
+  <div class="parallax-overlay" style="background:rgba(10,10,10,.72);"></div>
   <div class="container" style="position:relative;z-index:2;">
     <div class="section-eyebrow reveal" style="color:rgba(255,255,255,.6);">Bereit?</div>
     <h2 class="section-title reveal" data-delay="1" style="color:#fff;font-size:clamp(2rem,5vw,3.8rem);">
@@ -646,6 +646,22 @@
       showLbImage();
     }
   }, { passive: true });
+
+  /* ── Parallax CTA ── */
+  const pBgs = document.querySelectorAll('.parallax-bg');
+  function updateParallax() {
+    pBgs.forEach(bg => {
+      const section = bg.closest('.parallax-section');
+      if (!section) return;
+      const rect = section.getBoundingClientRect();
+      const speed = parseFloat(bg.dataset.speed) || 0.12;
+      bg.style.transform = `translateY(${rect.top * speed}px)`;
+    });
+  }
+  if (!window.matchMedia('(max-width: 900px)').matches) {
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    updateParallax();
+  }
 
   /* ── Scroll reveal ── */
   const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}}),{threshold:0.08});

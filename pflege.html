@@ -312,6 +312,9 @@
 </main>
 
 <script>
+  // Auto-trigger print/save-as-PDF dialog when opened as standalone page
+  window.addEventListener('load', () => setTimeout(window.print, 600));
+
   const nav=document.getElementById('nav');
   window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50);},{passive:true});
   const hb=document.getElementById('hamburger'),dr=document.getElementById('mobile-drawer'),ov=document.getElementById('drawer-overlay'),cb=document.getElementById('drawer-close');
