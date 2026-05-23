@@ -63,7 +63,6 @@
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="kuenstlerin.html">Über mich</a></li>
-      <li><a href="stile.html">Stile</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
@@ -87,7 +86,6 @@
     <a href="index.html" class="active">Home</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="kuenstlerin.html">Über mich</a>
-    <a href="stile.html">Stile & Techniken</a>
     <a href="faq.html">FAQ</a>
     <a href="kontakt.html">Kontakt</a>
   </nav>
@@ -111,12 +109,12 @@
   </div>
 
   <div class="hero-fb-inner">
-    <!-- LEFT: Text content -->
-    <div class="hero-fb-left reveal">
+    <!-- LEFT: Text content — kein reveal, Hero ist immer sichtbar -->
+    <div class="hero-fb-left">
       <h1 class="hero-fb-h1" id="hero-h1">
-        DEIN<br>
-        TATTOO.<br>
-        <em style="color:var(--accent);">FÜR IMMER.</em>
+        <span class="h1-line">DEIN</span>
+        <span class="h1-line">TATTOO.</span>
+        <span class="h1-line"><em style="color:var(--accent);">FÜR IMMER.</em></span>
       </h1>
       <p class="hero-fb-sub">Surrealismus / Cover Up / Black &amp; Grey<br><span style="color:var(--accent);">Tattoo Atelier · Bad Lippspringe</span></p>
       <div class="hero-fb-actions">
@@ -125,8 +123,8 @@
       </div>
     </div>
 
-    <!-- RIGHT: Logo -->
-    <div class="hero-logo-panel reveal" data-delay="2">
+    <!-- RIGHT: Logo — kein reveal, sofort sichtbar und stabil -->
+    <div class="hero-logo-panel">
       <img src="img/logo-hires.png" alt="p-insel Atelier" class="hero-logo-large">
     </div>
 
@@ -259,7 +257,7 @@
     </div>
 
     <div class="style-cards">
-      <a href="stile.html#realismus" class="style-card reveal" data-delay="1">
+      <a href="portfolio.html#realismus" class="style-card reveal" data-delay="1">
         <div class="style-card-img-wrap">
           <img src="img/tattoo/hund-portrait-sw.jpeg" alt="Realismus Tierportrait Tattoo" class="style-card-img">
         </div>
@@ -274,7 +272,7 @@
         </div>
       </a>
 
-      <a href="stile.html#feineline" class="style-card reveal" data-delay="2">
+      <a href="portfolio.html#feineline" class="style-card reveal" data-delay="2">
         <div class="style-card-img-wrap">
           <img src="img/tattoo/rose-mandala-schulter.jpg" alt="Florales Feineline Tattoo" class="style-card-img">
         </div>
@@ -289,7 +287,7 @@
         </div>
       </a>
 
-      <a href="stile.html#surrealismus" class="style-card reveal" data-delay="3">
+      <a href="portfolio.html#surrealismus" class="style-card reveal" data-delay="3">
         <div class="style-card-img-wrap">
           <img src="img/tattoo/fledermaus-farbe-oberschenkel.jpeg" alt="Surrealismus Farb-Tattoo" class="style-card-img">
         </div>
@@ -624,7 +622,7 @@
             <li><a href="index.html">Startseite</a></li>
             <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="kuenstlerin.html">Über mich</a></li>
-            <li><a href="stile.html">Stile & Techniken</a></li>
+            <li><a href="portfolio.html">Stile & Techniken</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
           </ul>
         </div>
@@ -632,12 +630,12 @@
         <div class="footer-col">
           <h4>Stile</h4>
           <ul>
-            <li><a href="stile.html#realismus">Realismus</a></li>
-            <li><a href="stile.html#realismus">Tierportraits</a></li>
-            <li><a href="stile.html#feineline">Feineline</a></li>
-            <li><a href="stile.html#ornamental">Ornamental</a></li>
-            <li><a href="stile.html#surrealismus">Surrealismus</a></li>
-            <li><a href="stile.html#surrealismus">Farb-Tattoos</a></li>
+            <li><a href="portfolio.html#realismus">Realismus</a></li>
+            <li><a href="portfolio.html#realismus">Tierportraits</a></li>
+            <li><a href="portfolio.html#feineline">Feineline</a></li>
+            <li><a href="portfolio.html#ornamental">Ornamental</a></li>
+            <li><a href="portfolio.html#surrealismus">Surrealismus</a></li>
+            <li><a href="portfolio.html#surrealismus">Farb-Tattoos</a></li>
           </ul>
         </div>
 
@@ -766,74 +764,13 @@
   }, { threshold: 0.5 });
   counters.forEach(c => counterObserver.observe(c));
 
-  /* ── Hero H1 Scramble Reveal ── */
-  function scrambleText(el, duration = 1400) {
-    const finalHTML = el.innerHTML;
-    const finalText = el.innerText;
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ·—';
-    const totalFrames = Math.round(duration / 16);
-    const plain = finalText.replace(/\n/g, '');
-    let frame = 0;
-    let done = false;
-
-    function finish() {
-      if (done) return;
-      done = true;
-      el.innerHTML = finalHTML;
-      el.style.opacity = '1';
-    }
-
-    // Fade in smoothly while scrambling
-    el.style.transition = 'opacity .45s ease';
-    el.style.opacity = '1';
-
-    function tick() {
-      if (done) return;
-      frame++;
-      if (frame >= totalFrames) { finish(); return; }
-      // progress 0→1, chars settle left-to-right
-      const progress = frame / totalFrames;
-      el.innerHTML = finalText.split('').map((ch, i) => {
-        if (ch === '\n') return '<br>';
-        if (ch === ' ') return ' ';
-        const charProgress = i / plain.length;
-        if (progress > charProgress + 0.15) return ch;          // settled
-        if (progress > charProgress - 0.05) {                    // settling zone
-          return Math.random() > 0.4
-            ? ch
-            : `<span style="color:var(--accent);opacity:.4">${chars[Math.floor(Math.random()*chars.length)]}</span>`;
-        }
-        return `<span style="opacity:.25">${chars[Math.floor(Math.random()*chars.length)]}</span>`;
-      }).join('');
-      requestAnimationFrame(tick);
-    }
-
-    const onVisChange = () => { if (document.hidden) finish(); };
-    document.addEventListener('visibilitychange', onVisChange, { once: true });
-    requestAnimationFrame(tick);
-  }
-
-  const heroH1 = document.getElementById('hero-h1');
-  if (heroH1) {
-    heroH1.style.opacity = '0';
-
-    if (window.matchMedia('(max-width: 768px), (hover: none)').matches) {
-      // Mobile: einfaches Fade-in
-      heroH1.style.transition = 'opacity .7s ease';
-      heroH1.style.opacity = '1';
-    } else {
-      // Desktop: warten bis Fonts geladen → Höhe exakt messen → einfrieren → scramble
-      document.fonts.ready.then(() => {
-        heroH1.style.visibility = 'hidden';
-        heroH1.style.opacity = '1';
-        const lockedHeight = heroH1.offsetHeight;
-        heroH1.style.minHeight = lockedHeight + 'px';
-        heroH1.style.visibility = '';
-        heroH1.style.opacity = '0';
-        setTimeout(() => scrambleText(heroH1, 1400), 200);
-      });
-    }
-  }
+  /* ── Hero H1 — Zeile für Zeile einblenden ── */
+  document.fonts.ready.then(() => {
+    const lines = document.querySelectorAll('#hero-h1 .h1-line');
+    lines.forEach((line, i) => {
+      setTimeout(() => line.classList.add('in'), 180 + i * 240);
+    });
+  });
 
   /* ── Parallax scroll (desktop + mobile) ── */
   const pBgs = document.querySelectorAll('.parallax-bg');

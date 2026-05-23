@@ -969,8 +969,17 @@ footer .divider { border-top-color: #2a2a2a; }
   color: #ffffff;
   margin-bottom: 1.5rem;
   letter-spacing: -.01em;
-  /* Scramble mutiert innerHTML jedes Frame — isolieren damit Siblings nicht repainen */
-  contain: layout style;
+}
+/* Jede Zeile des Hero-H1 einzeln einblenden */
+.h1-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.h1-line.in {
+  opacity: 1;
+  transform: none;
 }
 .hero-fb-h1 em {
   color: var(--accent);

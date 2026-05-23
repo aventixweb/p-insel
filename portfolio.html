@@ -128,53 +128,6 @@
     }
     .quote-band-text em { color: var(--accent); font-style: normal; }
 
-    /* ── Prozess ── */
-    .prozess-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      counter-reset: step;
-    }
-    .prozess-step {
-      position: relative;
-      padding: 2rem 1.5rem;
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-    }
-    .prozess-step::before {
-      counter-increment: step;
-      content: "0" counter(step);
-      display: block;
-      font-family: var(--font-h);
-      font-size: 2.8rem;
-      font-weight: 900;
-      color: var(--accent);
-      opacity: .25;
-      line-height: 1;
-      margin-bottom: .8rem;
-    }
-    .prozess-step h4 {
-      font-family: var(--font-h);
-      font-size: 1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--text);
-      margin: 0 0 .6rem;
-    }
-    .prozess-step p {
-      font-size: .85rem;
-      line-height: 1.75;
-      color: var(--text-mid);
-      margin: 0;
-    }
-    @media (max-width: 900px) {
-      .prozess-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 480px) {
-      .prozess-grid { grid-template-columns: 1fr; }
-    }
   </style>
 </head>
 <body>
@@ -204,7 +157,6 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="portfolio.html" class="active">Portfolio</a></li>
       <li><a href="kuenstlerin.html">Über mich</a></li>
-      <li><a href="portfolio.html#stile">Stile</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
@@ -227,7 +179,6 @@
     <a href="index.html">Home</a>
     <a href="portfolio.html" class="active">Portfolio</a>
     <a href="kuenstlerin.html">Über mich</a>
-    <a href="portfolio.html#stile">Stile & Techniken</a>
     <a href="faq.html">FAQ</a>
     <a href="kontakt.html">Kontakt</a>
   </nav>
@@ -492,39 +443,40 @@
 </div>
 
 <!-- ══════════════════════════════════════════
-     BUCHUNGSPROZESS
+     DEIN WEG ZUM TATTOO (1:1 von Homepage)
      ══════════════════════════════════════════ -->
-<section class="section" id="prozess">
+<section class="section parallax-section" id="prozess" aria-label="Wie funktioniert eine Buchung">
+  <div class="parallax-bg" data-speed="0.20" style="background-image:url('img/tattoo/hund-blumen-oberschenkel.jpeg')"></div>
+  <div class="parallax-overlay" style="background:rgba(17,17,17,.84)"></div>
   <div class="container">
-    <div style="text-align:center;margin-bottom:3.5rem;">
-      <div class="section-eyebrow reveal" style="justify-content:center;">So einfach geht's</div>
-      <h2 class="section-title reveal" data-delay="1">Dein Weg zum<br><span>Tattoo</span></h2>
+    <div style="text-align:center; margin-bottom:3.5rem;">
+      <div class="section-eyebrow reveal" style="justify-content:center;">So funktioniert's</div>
+      <h2 class="section-title reveal" data-delay="1" style="font-size:clamp(2.2rem,4.5vw,3.5rem);">
+        Dein Weg zum <span>Tattoo</span>
+      </h2>
     </div>
 
-    <div class="prozess-grid">
-      <div class="prozess-step reveal">
+    <div class="process-steps">
+      <div class="process-step reveal" data-delay="1">
+        <div class="step-num">01</div>
         <h4>Idee einschicken</h4>
-        <p>Füll das Kontaktformular aus – oder schick mir eine E-Mail. Beschreib deine Idee, die gewünschte Körperstelle und lade gerne Referenzbilder hoch.</p>
+        <p>Beschreibe deine Idee per Email oder über das Kontaktformular. Bilder als Referenz helfen!</p>
       </div>
-      <div class="prozess-step reveal" data-delay="1">
-        <h4>Kostenloses Gespräch</h4>
-        <p>Wir besprechen deine Vorstellung, ich schätze Preis und Dauer ein – ganz unverbindlich. Erst wenn wir beide happy sind, geht es weiter.</p>
+      <div class="process-step reveal" data-delay="2">
+        <div class="step-num">02</div>
+        <h4>Beratung</h4>
+        <p>Kostenloses Gespräch über Motiv, Platzierung, Größe und Stil – Pia berät dich persönlich.</p>
       </div>
-      <div class="prozess-step reveal" data-delay="2">
-        <h4>Termin sichern</h4>
-        <p>Du buchst deinen Wunschtermin mit einer Anzahlung. Das Design wird final abgestimmt und du erhältst alle Infos zur Vorbereitung.</p>
+      <div class="process-step reveal" data-delay="3">
+        <div class="step-num">03</div>
+        <h4>Terminvereinbarung</h4>
+        <p>Gemeinsam finden wir einen passenden Termin – nach Vereinbarung.</p>
       </div>
-      <div class="prozess-step reveal" data-delay="3">
-        <h4>Für immer</h4>
-        <p>Komm ins Atelier, lehn dich zurück und lass Kunst entstehen. Dein Tattoo – handgefertigt, einzigartig, für immer ein Teil von dir.</p>
+      <div class="process-step reveal" data-delay="4">
+        <div class="step-num">04</div>
+        <h4>Dein Souvenir</h4>
+        <p>„Mach mal Urlaub auf der Insel." Dein Tattoo – ein Kunstwerk, das du ewig trägst.</p>
       </div>
-    </div>
-
-    <div style="text-align:center;margin-top:3rem;" class="reveal" data-delay="2">
-      <a href="kontakt.html" class="btn btn-red">
-        Jetzt Anfrage starten
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
     </div>
   </div>
 </section>
