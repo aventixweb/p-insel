@@ -176,7 +176,7 @@ body.has-dark-hero { padding-top: 0; }
   text-decoration: none;
   flex-shrink: 0;
   line-height: 1;
-  align-self: flex-end;
+  align-self: flex-start;
 }
 .nav-logo span { color: var(--accent); }
 .nav-logo-img {
