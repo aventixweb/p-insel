@@ -102,7 +102,7 @@
   --shadow-lg:    0 12px 48px rgba(0,0,0,.75);
   --font-h:       'Barlow Condensed', sans-serif;
   --font-b:       'Inter', sans-serif;
-  --nav-h:        110px;
+  --nav-h:        130px;
   --max-w:        1200px;
   --ease:         cubic-bezier(.25,.46,.45,.94);
 }
@@ -176,7 +176,7 @@ body.has-dark-hero { padding-top: 0; }
 }
 .nav-logo span { color: var(--accent); }
 .nav-logo-img {
-  height: 96px;
+  height: 118px;
   width: auto;
   display: block;
   filter: drop-shadow(0 2px 12px rgba(0,0,0,.8));
@@ -1424,7 +1424,7 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
    ======================================================== */
 .style-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
 .style-card {
