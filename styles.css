@@ -102,7 +102,7 @@
   --shadow-lg:    0 12px 48px rgba(0,0,0,.75);
   --font-h:       'Barlow Condensed', sans-serif;
   --font-b:       'Inter', sans-serif;
-  --nav-h:        80px;
+  --nav-h:        120px;
   --logo-h:       110px;
   --max-w:        1200px;
   --ease:         cubic-bezier(.25,.46,.45,.94);
@@ -176,7 +176,7 @@ body.has-dark-hero { padding-top: 0; }
   text-decoration: none;
   flex-shrink: 0;
   line-height: 1;
-  align-self: flex-start;
+  align-self: center;
 }
 .nav-logo span { color: var(--accent); }
 .nav-logo-img {

@@ -139,6 +139,14 @@
           <input type="hidden" name="from_name" value="p-insel Kontaktformular">
           <input type="hidden" name="replyto" id="replyto-field" value="">
           <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+          <div class="form-field" id="booking-field">
+            <label class="form-label">Buchungsfenster</label>
+            <div class="booking-status" id="booking-status">
+              <!-- JS befüllt diesen Block -->
+            </div>
+            <input type="hidden" name="wunschtermin" id="wunschtermin-hidden">
+          </div>
+
           <div class="form-row">
             <div class="form-field">
               <label class="form-label" for="name">Name *</label>
@@ -174,21 +182,19 @@
             </div>
             <div class="form-field">
               <label class="form-label" for="koerperstelle">Körperstelle</label>
-              <input class="form-input" type="text" id="koerperstelle" name="koerperstelle" placeholder="z.B. Unterarm, Rippen, Schulter">
+              <select class="form-select" id="koerperstelle" name="koerperstelle">
+                <option value="">– Bitte wählen –</option>
+                <option value="unterarm">Unterarm</option>
+                <option value="ruecken">Rücken</option>
+                <option value="schulter">Schulter</option>
+                <option value="wade">Wade</option>
+              </select>
             </div>
           </div>
 
           <div class="form-field">
             <label class="form-label" for="idee">Deine Idee *</label>
-            <textarea class="form-textarea" id="idee" name="idee" rows="5" placeholder="Beschreibe deine Tattoo-Idee so genau wie möglich. Was soll es darstellen? Welche Stimmung? Hast du Referenzbilder?" required></textarea>
-          </div>
-
-          <div class="form-field" id="booking-field">
-            <label class="form-label">Buchungsfenster</label>
-            <div class="booking-status" id="booking-status">
-              <!-- JS befüllt diesen Block -->
-            </div>
-            <input type="hidden" name="wunschtermin" id="wunschtermin-hidden">
+            <textarea class="form-textarea" id="idee" name="idee" rows="6" placeholder="Beschreibe deine Idee stichpunktartig:&#10;– Was soll es darstellen? Welche Stimmung?&#10;– 3 Wunschtermine nennen (z.B. „Mitte Oktober, Anfang November")&#10;– Referenzbilder unbedingt im Upload-Feld mitschicken!" required></textarea>
           </div>
 
           <div class="form-field">
