@@ -827,13 +827,19 @@
   const lbImg=document.getElementById('lb-img');
   const lbCaption=document.getElementById('lb-caption');
   const lbCounter=document.getElementById('lb-counter');
-  let lbItems=[]; let lbIdx=0;
+  let lbItems=[]; let lbIdx=0; let lbTimer=null;
 
   document.querySelectorAll('.pf-item').forEach(item=>{
     item.style.cursor='zoom-in';
     item.addEventListener('click',()=>{
-      lbItems=Array.from(document.querySelectorAll('.pf-item')).filter(i=>i.style.display!=='none');
+      // Navigate only within the same category — prevents malerei showing up in bunt etc.
+      const cat=item.dataset.category||'';
+      lbItems=Array.from(document.querySelectorAll('.pf-item')).filter(i=>{
+        if(i.style.display==='none') return false;
+        return !cat||(i.dataset.category||'')===cat;
+      });
       lbIdx=lbItems.indexOf(item);
+      if(lbIdx===-1)lbIdx=0;
       showLb();
       lb.classList.add('lb-open');
       document.body.style.overflow='hidden';
@@ -842,21 +848,29 @@
 
   function showLb(){
     const item=lbItems[lbIdx];
+    if(!item)return;
     const img=item.querySelector('img');
+    if(!img)return;
     const name=item.querySelector('.pf-name')?.textContent||'';
     const tag=item.querySelector('.pf-tag')?.textContent||'';
     lbImg.style.opacity='0';
-    setTimeout(()=>{
+    if(lbTimer)clearTimeout(lbTimer); // prevent race condition on rapid clicks
+    lbTimer=setTimeout(()=>{
       lbImg.src=img.src; lbImg.alt=img.alt;
       lbCaption.textContent=name+(tag?' · '+tag:'');
       lbCounter.textContent=`${lbIdx+1} / ${lbItems.length}`;
       lbImg.style.opacity='1';
+      lbTimer=null;
     },120);
   }
-  function closeLb(){ lb.classList.remove('lb-open'); document.body.style.overflow=''; }
+  function closeLb(){
+    lb.classList.remove('lb-open');
+    document.body.style.overflow='';
+    if(lbTimer){clearTimeout(lbTimer);lbTimer=null;}
+  }
   document.getElementById('lb-close').addEventListener('click',closeLb);
-  document.getElementById('lb-prev').addEventListener('click',()=>{lbIdx=(lbIdx-1+lbItems.length)%lbItems.length;showLb();});
-  document.getElementById('lb-next').addEventListener('click',()=>{lbIdx=(lbIdx+1)%lbItems.length;showLb();});
+  document.getElementById('lb-prev').addEventListener('click',(e)=>{e.stopPropagation();lbIdx=(lbIdx-1+lbItems.length)%lbItems.length;showLb();});
+  document.getElementById('lb-next').addEventListener('click',(e)=>{e.stopPropagation();lbIdx=(lbIdx+1)%lbItems.length;showLb();});
   lb.addEventListener('click',e=>{if(e.target===lb||e.target.classList.contains('lb-inner'))closeLb();});
   document.addEventListener('keydown',e=>{
     if(!lb.classList.contains('lb-open'))return;
