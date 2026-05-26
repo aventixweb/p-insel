@@ -1200,10 +1200,13 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
 
 /* ── RESPONSIVE dark hero ── */
 @media (max-width: 900px) {
-  /* iOS: height:100vh mit overflow:hidden friert das Bild ein → min-height nutzen */
+  /* Mobile: feste Höhe statt auto+min-height — verhindert Layout-Sprung beim ersten Paint.
+     100vh als Fallback (ältere Browser), 100svh überschreibt (stabil trotz iOS URL-Bar). */
   .home-hero.hero-dark-fullbleed {
-    height: auto;
-    min-height: 100svh;
+    height: 100vh;
+    height: 100svh;
+    min-height: 600px;
+    max-height: none;
   }
   .hero-fb-inner { flex-direction: column; justify-content: flex-end; padding-top: calc(var(--logo-h) + 1rem); padding-bottom: 5.5rem; column-gap: 0; row-gap: 0; }
   .hero-fb-right { width: 100%; }

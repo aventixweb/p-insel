@@ -647,21 +647,26 @@
     });
   });
 
-  /* ── Parallax scroll (desktop + mobile) ── */
+  /* ── Parallax scroll (desktop only) ── */
   const pBgs = document.querySelectorAll('.parallax-bg');
   if (pBgs.length) {
     const _mob = window.matchMedia('(max-width: 900px)').matches;
-    function updateParallax() {
-      pBgs.forEach(bg => {
-        const section = bg.parentElement;
-        const rect = section.getBoundingClientRect();
-        const speed = parseFloat(bg.dataset.speed) || 0.15;
-        /* Mobile: halbe Geschwindigkeit, kein will-change → kein iOS-Compositing-Bug */
-        bg.style.transform = `translateY(${rect.top * (_mob ? speed * 0.65 : speed)}px)`;
-      });
+    if (_mob) {
+      /* Mobile: kein JS-Parallax — verhindert translateY-Sprung beim ersten Scroll.
+         CSS background-attachment:scroll übernimmt, kein transform nötig. */
+      pBgs.forEach(bg => { bg.style.transform = 'none'; });
+    } else {
+      function updateParallax() {
+        pBgs.forEach(bg => {
+          const section = bg.parentElement;
+          const rect = section.getBoundingClientRect();
+          const speed = parseFloat(bg.dataset.speed) || 0.15;
+          bg.style.transform = `translateY(${rect.top * speed}px)`;
+        });
+      }
+      window.addEventListener('scroll', updateParallax, { passive: true });
+      updateParallax();
     }
-    window.addEventListener('scroll', updateParallax, { passive: true });
-    updateParallax();
   }
 
   /* ── Floating CTA visibility ── */
