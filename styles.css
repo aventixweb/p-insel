@@ -1216,7 +1216,15 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
   .hero-meta-strip { overflow-x: auto; }
   .hero-meta-item { min-width: 90px; }
   .hero-logo-panel { width: min(280px, 55vw); }
-  .hero-quote-text { font-size: clamp(1rem, 3.8vw, 1.3rem); padding: 0.5rem 1.2rem 1.5rem; bottom: 4rem; }
+  /* Quote: kein absolute mehr auf mobile — wird normaler flex-child.
+     margin-top:auto drückt es ans Ende des flex-columns, unabhängig von der Section-Höhe. */
+  .hero-quote-text {
+    position: relative;
+    bottom: auto; left: auto; right: auto;
+    margin-top: auto;
+    padding: 0.8rem 1.5rem 2.5rem;
+    font-size: clamp(1rem, 3.8vw, 1.25rem);
+  }
 }
 @media (max-width: 600px) {
   .hero-wm { font-size: 35vw; }
@@ -2528,7 +2536,7 @@ a.contact-value:hover { color: var(--accent); }
   .section-title { font-size: 1.7rem; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .stat-num { font-size: 2.2rem; }
-  .hero-quote-text { font-size: 1rem; padding: 0.5rem 1rem 1.5rem; letter-spacing: .04em; }
+  .hero-quote-text { font-size: 1rem; padding: 0.8rem 1rem 2rem; letter-spacing: .04em; }
 }
 
 /* ========================================================
