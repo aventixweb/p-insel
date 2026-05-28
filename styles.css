@@ -849,7 +849,7 @@ footer .divider { border-top-color: #2a2a2a; }
   margin-top: 1.3rem;
 }
 .footer-social a {
-  width: 46px; height: 46px;
+  width: 56px; height: 56px;
   border: 1px solid var(--border);
   border-radius: 4px;
   display: flex; align-items: center; justify-content: center;
@@ -1112,6 +1112,8 @@ footer .divider { border-top-color: #2a2a2a; }
   font-size: clamp(.95rem, 2vw, 1.65rem);
   font-weight: 700;
   font-style: italic;
+  overflow-wrap: break-word;
+  word-break: break-word;
   text-transform: uppercase;
   letter-spacing: .08em;
   color: rgba(255,255,255,.88);
@@ -1288,14 +1290,22 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
     font-size: clamp(1rem, 3.8vw, 1.25rem);
   }
 }
+@media (max-width: 768px) {
+  /* Hide logo panel on tablet — column layout leaves too little room for text */
+  .hero-logo-panel { display: none; }
+}
 @media (max-width: 600px) {
   .hero-wm { font-size: 35vw; }
   .hero-fb-h1 { font-size: clamp(3rem, 12vw, 5rem); }
   .hero-fb-right { display: none; }
-  .hero-logo-panel { display: none; }
   .hero-meta-strip { display: grid; grid-template-columns: 1fr 1fr; }
   .hero-meta-sep { display: none; }
   .scroll-indicator { display: none; }
+}
+@media (max-width: 480px) {
+  /* Full-width CTA buttons on small phones */
+  .hero-fb-actions { flex-direction: column; gap: .6rem; }
+  .hero-fb-actions .btn { width: 100%; justify-content: center; text-align: center; }
 }
 
 /* ========================================================
