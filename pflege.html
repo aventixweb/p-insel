@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tattoo Pflegeanleitung · p-insel Tattoos</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="lang.js" defer></script>
   <style>
     /* ── Screen layout ── */
     .pflege-wrap {
@@ -179,13 +180,13 @@
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="img/logo-hires.png" alt="p-insel Tattoos" class="nav-logo-img"></a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="kuenstlerin.html">Über mich</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+      <li><a href="kuenstlerin.html" data-i18n="nav.about">Über mich</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      <li><a href="kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
     </ul>
-    <a href="kontakt.html" class="nav-cta">Termin anfragen</a>
+    <a href="kontakt.html" class="nav-cta" data-i18n="nav.cta">Termin anfragen</a>
     <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -196,11 +197,11 @@
     <button class="drawer-close" id="drawer-close" aria-label="Menü schließen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
   </div>
   <nav class="drawer-nav">
-    <a href="index.html">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="kuenstlerin.html">Über mich</a>
-    <a href="faq.html">FAQ</a>
-    <a href="kontakt.html">Kontakt</a>
+    <a href="index.html" data-i18n="nav.home">Home</a>
+    <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
+    <a href="kuenstlerin.html" data-i18n="nav.about">Über mich</a>
+    <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+    <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
   </nav>
   <div class="drawer-footer">
     <div class="drawer-footer-contact">
@@ -212,24 +213,24 @@
       <span class="lang-sep">|</span>
       <button class="lang-btn" data-lang="en">EN</button>
     </div>
-    <a href="kontakt.html" class="drawer-cta-link">Termin anfragen</a>
+    <a href="kontakt.html" class="drawer-cta-link" data-i18n="drawer.cta">Termin anfragen</a>
   </div>
 </div>
 
 <header class="pflege-hero">
   <div class="container">
-    <div class="pflege-hero-eyebrow">p-insel Tattoos · Pia Insel</div>
-    <h1>Tattoo <em>Pflege</em>anleitung</h1>
-    <p>Dein Tattoo ist frisch — so sorgst du dafür, dass es perfekt abheilt.</p>
+    <div class="pflege-hero-eyebrow" data-i18n="pflege.eyebrow">p-insel Tattoos · Pia Insel</div>
+    <h1 data-i18n="pflege.h1">Tattoo <em>Pflege</em>anleitung</h1>
+    <p data-i18n="pflege.sub">Dein Tattoo ist frisch — so sorgst du dafür, dass es perfekt abheilt.</p>
   </div>
 </header>
 
 <div class="pflege-print-bar">
   <div class="container">
-    <p>Diese Seite als PDF speichern: Drucken → „Als PDF speichern" wählen</p>
+    <p data-i18n="pflege.printbar">Diese Seite als PDF speichern: Drucken → „Als PDF speichern" wählen</p>
     <button onclick="window.print()" class="btn btn-gold" style="padding:.55rem 1.4rem;font-size:.82rem;">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:.4rem;"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-      Als PDF speichern
+      <span data-i18n="pflege.printbtn">Als PDF speichern</span>
     </button>
   </div>
 </div>
@@ -246,61 +247,61 @@
     <div class="pflege-step">
       <div class="pflege-step-num">01</div>
       <div class="pflege-step-body">
-        <h3>Warum Pflege so wichtig ist</h3>
-        <p>Wer sein Tattoo bei der Heilung richtig unterstützt und pflegt, hat lange Freude daran. Diese Zeit und Geduld zahlen sich auf jeden Fall aus.</p>
-        <p>Dann bleibt die Haut geschmeidig und spannt weniger im Heilungsprozess. Außerdem besteht ein geringeres Risiko für Infektionen und es bilden sich <strong>keine Verkrustungen</strong>, bei denen Teile der Farbe mit abgetragen werden können. Dadurch profitiert das Tattoo, da keine Farblücken entstehen.</p>
-        <div class="pflege-warning"><strong>Das Ergebnis:</strong> Schöne, gleichmäßige und langanhaltend strahlende Farben.</div>
+        <h3 data-i18n="pflege.s1.h3">Warum Pflege so wichtig ist</h3>
+        <p data-i18n="pflege.s1.p1">Wer sein Tattoo bei der Heilung richtig unterstützt und pflegt, hat lange Freude daran. Diese Zeit und Geduld zahlen sich auf jeden Fall aus.</p>
+        <p data-i18n="pflege.s1.p2">Dann bleibt die Haut geschmeidig und spannt weniger im Heilungsprozess. Außerdem besteht ein geringeres Risiko für Infektionen und es bilden sich <strong>keine Verkrustungen</strong>, bei denen Teile der Farbe mit abgetragen werden können. Dadurch profitiert das Tattoo, da keine Farblücken entstehen.</p>
+        <div class="pflege-warning" data-i18n="pflege.s1.warn"><strong>Das Ergebnis:</strong> Schöne, gleichmäßige und langanhaltend strahlende Farben.</div>
       </div>
     </div>
 
     <div class="pflege-step">
       <div class="pflege-step-num">02</div>
       <div class="pflege-step-body">
-        <h3>Der Verband nach dem Tätowieren</h3>
-        <p>In aller Regel wird nach Vollendung ein <strong>Verband (Kompresse/Wickel)</strong> angelegt. Dieser schützt dein frisches Tattoo bis zum nächsten Tag.</p>
-        <p>Nicht erschrecken — es ist völlig normal, wenn sich unter dem Verband Farbe und Wundsekret angesammelt haben. Das ist normal und dafür ist er gedacht.</p>
+        <h3 data-i18n="pflege.s2.h3">Der Verband nach dem Tätowieren</h3>
+        <p data-i18n="pflege.s2.p1">In aller Regel wird nach Vollendung ein <strong>Verband (Kompresse/Wickel)</strong> angelegt. Dieser schützt dein frisches Tattoo bis zum nächsten Tag.</p>
+        <p data-i18n="pflege.s2.p2">Nicht erschrecken — es ist völlig normal, wenn sich unter dem Verband Farbe und Wundsekret angesammelt haben. Das ist normal und dafür ist er gedacht.</p>
       </div>
     </div>
 
     <div class="pflege-step">
       <div class="pflege-step-num">03</div>
       <div class="pflege-step-body">
-        <h3>3 Wochen Tattoobehandlung — die oberste Regel</h3>
-        <p>Nun beginnt für die nächsten <strong>3 Wochen</strong> die heilende Tattoobehandlung.</p>
-        <div class="pflege-warning" style="font-size:.95rem;"><strong>Die oberste Regel heißt: sauber halten!</strong></div>
-        <p style="margin-top:.8rem;"><strong>2–3× täglich</strong> mit einer pH-neutralen Seife das Tattoo abwaschen, bevor man es hauchdünn und mit sauberen Händen mit einer vorgesehenen Tattoo-Creme eincremt.</p>
+        <h3 data-i18n="pflege.s3.h3">3 Wochen Tattoobehandlung — die oberste Regel</h3>
+        <p data-i18n="pflege.s3.p1">Nun beginnt für die nächsten <strong>3 Wochen</strong> die heilende Tattoobehandlung.</p>
+        <div class="pflege-warning" style="font-size:.95rem;" data-i18n="pflege.s3.warn"><strong>Die oberste Regel heißt: sauber halten!</strong></div>
+        <p style="margin-top:.8rem;" data-i18n="pflege.s3.p2"><strong>2–3× täglich</strong> mit einer pH-neutralen Seife das Tattoo abwaschen, bevor man es hauchdünn und mit sauberen Händen mit einer vorgesehenen Tattoo-Creme eincremt.</p>
       </div>
     </div>
 
     <div class="pflege-step">
       <div class="pflege-step-num">04</div>
       <div class="pflege-step-body">
-        <h3>Was unbedingt vermieden werden soll</h3>
-        <p>Direkte Sonneneinstrahlung, Kratzen, Rasieren und andere Reize sollen vermieden werden. Übermäßiger Konsum von Alkohol und Drogen sowie extreme Diäten können die Abheilung zusätzlich beeinflussen.</p>
-        <p>Alles, was die Haut stark aufweicht, sollte vermieden werden:</p>
+        <h3 data-i18n="pflege.s4.h3">Was unbedingt vermieden werden soll</h3>
+        <p data-i18n="pflege.s4.p1">Direkte Sonneneinstrahlung, Kratzen, Rasieren und andere Reize sollen vermieden werden. Übermäßiger Konsum von Alkohol und Drogen sowie extreme Diäten können die Abheilung zusätzlich beeinflussen.</p>
+        <p data-i18n="pflege.s4.p2">Alles, was die Haut stark aufweicht, sollte vermieden werden:</p>
         <ul>
-          <li>Eine normale Duschlänge ist kein Problem</li>
-          <li><strong>Baden, Schwimmen, Saunieren</strong> kann dem Tattoo sehr schaden</li>
-          <li><strong>Beim Sport schwitzen</strong> in den ersten Wochen meiden</li>
-          <li><strong>Zu viel cremen</strong> ist genauso schädlich wie zu wenig</li>
+          <li data-i18n="pflege.s4.li1">Eine normale Duschlänge ist kein Problem</li>
+          <li data-i18n="pflege.s4.li2"><strong>Baden, Schwimmen, Saunieren</strong> kann dem Tattoo sehr schaden</li>
+          <li data-i18n="pflege.s4.li3"><strong>Beim Sport schwitzen</strong> in den ersten Wochen meiden</li>
+          <li data-i18n="pflege.s4.li4"><strong>Zu viel cremen</strong> ist genauso schädlich wie zu wenig</li>
         </ul>
-        <div class="pflege-warning">Nicht nur die <strong>Entzündungsgefahr</strong> ist bei solchen Situationen hoch — auch die <strong>Qualität des Tattoos</strong> kann in dieser kurzen Zeit dauerhaft leiden.</div>
+        <div class="pflege-warning" data-i18n="pflege.s4.warn">Nicht nur die <strong>Entzündungsgefahr</strong> ist bei solchen Situationen hoch — auch die <strong>Qualität des Tattoos</strong> kann in dieser kurzen Zeit dauerhaft leiden.</div>
       </div>
     </div>
 
     <div class="pflege-step">
       <div class="pflege-step-num">05</div>
       <div class="pflege-step-body">
-        <h3>Feine Linien brauchen Ruhe</h3>
-        <p>Die Tattoofarbe muss die Chance haben, in Ruhe und bester Qualität einzuwachsen. <strong>Feine Linien verlaufen eventuell</strong>, sobald die Haut zu sehr aufweicht und die Farbe noch nicht eingeheilt ist.</p>
-        <p>Gib deinem Tattoo die Zeit, die es braucht — es trägt dich ein Leben lang.</p>
+        <h3 data-i18n="pflege.s5.h3">Feine Linien brauchen Ruhe</h3>
+        <p data-i18n="pflege.s5.p1">Die Tattoofarbe muss die Chance haben, in Ruhe und bester Qualität einzuwachsen. <strong>Feine Linien verlaufen eventuell</strong>, sobald die Haut zu sehr aufweicht und die Farbe noch nicht eingeheilt ist.</p>
+        <p data-i18n="pflege.s5.p2">Gib deinem Tattoo die Zeit, die es braucht — es trägt dich ein Leben lang.</p>
       </div>
     </div>
 
     <div class="pflege-sig">
       <img src="img/logo.png" alt="p-insel Tattoos" style="height:80px;width:auto;filter:drop-shadow(0 2px 16px rgba(0,0,0,.7)) brightness(1.15);">
-      <p>Vielen Dank für dein Vertrauen — und nun wünsche ich dir ganz viel Freude an deinem neuen Tattoo 🖤</p>
-      <p style="margin-top:.3rem;">Pia Insel · p-insel.de · Bad Lippspringe</p>
+      <p data-i18n="pflege.sig.p1">Vielen Dank für dein Vertrauen — und nun wünsche ich dir ganz viel Freude an deinem neuen Tattoo 🖤</p>
+      <p style="margin-top:.3rem;" data-i18n="pflege.sig.p2">Pia Insel · p-insel.de · Bad Lippspringe</p>
     </div>
 
   </div>
