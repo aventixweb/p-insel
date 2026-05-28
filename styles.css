@@ -1100,14 +1100,15 @@ footer .divider { border-top-color: #2a2a2a; }
   filter: drop-shadow(0 8px 40px rgba(0,0,0,.8)) brightness(1.08);
 }
 
-/* Hero quote — volle Breite innerhalb hero-fb-inner */
+/* Hero quote — Flex-Kind von .home-hero (column), margin-top:auto → immer am Ende,
+   niemals overlap mit den Buttons egal bei welchem Viewport oder Zoom-Level */
 .hero-quote-text {
-  position: absolute;
-  bottom: 5rem;
-  left: 0; right: 0;
+  position: relative;   /* kein absolute mehr — wird normaler Flex-Child */
+  margin-top: auto;     /* schiebt Quote ans Ende der Flex-Spalte */
+  width: 100%;
   z-index: 5;
   text-align: center;
-  padding: 0 1.5rem;
+  padding: 0 1.5rem 5rem; /* padding-bottom ersetzt bottom: 5rem */
   font-family: var(--font-h);
   font-size: clamp(.95rem, 2vw, 1.65rem);
   font-weight: 700;
@@ -1279,20 +1280,13 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
   .hero-work-dots { display: none; }
   .hero-meta-strip { overflow-x: auto; }
   .hero-meta-item { min-width: 90px; }
-  .hero-logo-panel { width: min(280px, 55vw); }
-  /* Quote: kein absolute mehr auf mobile — wird normaler flex-child.
-     margin-top:auto drückt es ans Ende des flex-columns, unabhängig von der Section-Höhe. */
+  /* Logo-Panel in Column-Layout verstecken — zu wenig vertikaler Platz */
+  .hero-logo-panel { display: none; }
+  /* Quote: Padding und Schriftgröße für Mobile anpassen */
   .hero-quote-text {
-    position: relative;
-    bottom: auto; left: auto; right: auto;
-    margin-top: auto;
     padding: 0.8rem 1.5rem 2.5rem;
     font-size: clamp(1rem, 3.8vw, 1.25rem);
   }
-}
-@media (max-width: 768px) {
-  /* Hide logo panel on tablet — column layout leaves too little room for text */
-  .hero-logo-panel { display: none; }
 }
 @media (max-width: 600px) {
   .hero-wm { font-size: 35vw; }
