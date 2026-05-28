@@ -1084,31 +1084,36 @@ footer .divider { border-top-color: #2a2a2a; }
   width: min(340px, 38vw);
 }
 
-/* Right: Logo panel */
+/* Right: Logo panel — max-height verhindert dass das Hochformat-Logo (2480×3508, Aspekt 1.415)
+   hero-fb-inner überdehnt: bei 520px Breite wäre es 735px hoch → sprengt 900px Hero. */
 .hero-logo-panel {
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   width: min(520px, 50vw);
+  max-height: clamp(320px, 44vh, 460px);
+  overflow: hidden;
 }
 .hero-logo-large {
-  width: 100%;
-  height: auto;
-  max-width: 520px;
+  width: auto;
+  height: 100%;       /* füllt begrenzte Panel-Höhe, Breite proportional */
+  max-width: 100%;
+  object-fit: contain;
   /* Logo is black-on-transparent; slight brightness lift so oval reads on dark bg */
   filter: drop-shadow(0 8px 40px rgba(0,0,0,.8)) brightness(1.08);
 }
 
-/* Hero quote — Flex-Kind von .home-hero (column), margin-top:auto → immer am Ende,
-   niemals overlap mit den Buttons egal bei welchem Viewport oder Zoom-Level */
+/* Hero quote — absolut am unteren Rand.
+   Buttons sind in hero-fb-left (max-width:480px, links), Quote zentriert über volle Breite
+   → kein echter Textkonflikt, da verschiedene horizontale Zonen. */
 .hero-quote-text {
-  position: relative;   /* kein absolute mehr — wird normaler Flex-Child */
-  margin-top: auto;     /* schiebt Quote ans Ende der Flex-Spalte */
-  width: 100%;
-  z-index: 5;
+  position: absolute;
+  bottom: 5rem;
+  left: 0; right: 0;
+  z-index: 2;
   text-align: center;
-  padding: 0 1.5rem 5rem; /* padding-bottom ersetzt bottom: 5rem */
+  padding: 0 1.5rem;
   font-family: var(--font-h);
   font-size: clamp(.95rem, 2vw, 1.65rem);
   font-weight: 700;
@@ -1282,8 +1287,11 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
   .hero-meta-item { min-width: 90px; }
   /* Logo-Panel in Column-Layout verstecken — zu wenig vertikaler Platz */
   .hero-logo-panel { display: none; }
-  /* Quote: Padding und Schriftgröße für Mobile anpassen */
+  /* Quote: auf Mobile kein absolute mehr — normaler Flex-Child mit margin-top:auto */
   .hero-quote-text {
+    position: relative;
+    bottom: auto; left: auto; right: auto;
+    margin-top: auto;
     padding: 0.8rem 1.5rem 2.5rem;
     font-size: clamp(1rem, 3.8vw, 1.25rem);
   }
@@ -2603,6 +2611,20 @@ a.contact-value:hover { color: var(--accent); }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .stat-num { font-size: 2.2rem; }
   .hero-quote-text { font-size: 1rem; padding: 0.8rem 1rem 2rem; letter-spacing: .04em; }
+}
+
+/* ── Kurze Viewports (Desktop vergrößert, z.B. 125% Zoom auf MacBook) ──
+   Quote kleiner + tiefer → mehr Luft zu den Buttons */
+@media (max-height: 760px) {
+  .hero-quote-text {
+    bottom: 2.5rem;
+    font-size: clamp(.8rem, 1.6vw, 1.1rem);
+  }
+}
+/* ── Sehr kurze Viewports (≥150% Zoom oder sehr kleine Displays) ──
+   Quote ausblenden — zu wenig Platz für saubere Darstellung */
+@media (max-height: 650px) {
+  .hero-quote-text { display: none; }
 }
 
 /* ========================================================
