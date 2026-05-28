@@ -19,13 +19,18 @@
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="img/logo-hires.png" alt="p-insel Tattoos" class="nav-logo-img"></a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="kuenstlerin.html">Über mich</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="kontakt.html" class="active">Kontakt</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+      <li><a href="kuenstlerin.html" data-i18n="nav.about">Über mich</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      <li><a href="kontakt.html" class="active" data-i18n="nav.contact">Kontakt</a></li>
     </ul>
-    <a href="kontakt.html" class="nav-cta">Termin anfragen</a>
+    <a href="kontakt.html" class="nav-cta" data-i18n="nav.cta">Termin anfragen</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="de">DE</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
     <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -36,18 +41,23 @@
     <button class="drawer-close" id="drawer-close" aria-label="Menü schließen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
   </div>
   <nav class="drawer-nav">
-    <a href="index.html">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="kuenstlerin.html">Über mich</a>
-    <a href="faq.html">FAQ</a>
-    <a href="kontakt.html" class="active">Kontakt</a>
+    <a href="index.html" data-i18n="nav.home">Home</a>
+    <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
+    <a href="kuenstlerin.html" data-i18n="nav.about">Über mich</a>
+    <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+    <a href="kontakt.html" class="active" data-i18n="nav.contact">Kontakt</a>
   </nav>
   <div class="drawer-footer">
     <div class="drawer-footer-contact">
       <a href="mailto:terminwunsch123@p-insel.de">terminwunsch123@p-insel.de</a><br>
       Detmolder Str. 119 · Bad Lippspringe
     </div>
-    <a href="kontakt.html" class="drawer-cta-link">Termin anfragen</a>
+    <div class="drawer-lang-switcher">
+      <button class="lang-btn" data-lang="de">DE</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <a href="kontakt.html" class="drawer-cta-link" data-i18n="drawer.cta">Termin anfragen</a>
   </div>
 </div>
 
@@ -56,8 +66,8 @@
   <div class="page-hero-overlay"></div>
   <div class="container">
     <div class="page-hero-eyebrow">p-insel Tattoos</div>
-    <h1>Termin <span>anfragen</span></h1>
-    <p>Beschreib mir deine Idee – ich melde mich so schnell wie möglich zurück. Kostenlose Erstberatung inklusive.</p>
+    <h1 data-i18n="kon.hero.h1">Termin <span>anfragen</span></h1>
+    <p data-i18n="kon.hero.sub">Beschreib mir deine Idee – ich melde mich so schnell wie möglich zurück. Kostenlose Erstberatung inklusive.</p>
   </div>
 </header>
 <div class="container">
@@ -73,8 +83,8 @@
       <!-- Info -->
       <div class="contact-details">
         <div class="reveal">
-          <div class="section-eyebrow">So erreichst du mich</div>
-          <h2 class="section-title" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">Kontakt &amp;<br><span>Infos</span></h2>
+          <div class="section-eyebrow" data-i18n="kon.info.eyebrow">So erreichst du mich</div>
+          <h2 class="section-title" style="font-size:clamp(1.8rem,3.5vw,2.6rem);" data-i18n="kon.info.h2">Kontakt &amp;<br><span>Infos</span></h2>
         </div>
 
         <div class="contact-detail-item reveal" data-delay="2">
@@ -82,7 +92,7 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <div>
-            <div class="contact-label">Adresse</div>
+            <div class="contact-label" data-i18n="kon.label.address">Adresse</div>
             <span class="contact-value">Detmolder Strasse 119<br>33175 Bad Lippspringe</span>
           </div>
         </div>
@@ -92,8 +102,8 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <div>
-            <div class="contact-label">Öffnungszeiten</div>
-            <span class="contact-value">Nach Vereinbarung</span>
+            <div class="contact-label" data-i18n="kon.label.hours">Öffnungszeiten</div>
+            <span class="contact-value" data-i18n="kon.hours.val">Nach Vereinbarung</span>
           </div>
         </div>
 
@@ -124,8 +134,8 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
             </div>
             <div class="pdf-text">
-              <strong>Pflegeanleitung herunterladen</strong>
-              <span>PDF · Tattoo Nachsorge von Pia Insel</span>
+              <strong data-i18n="kon.pdf.title">Pflegeanleitung herunterladen</strong>
+              <span data-i18n="kon.pdf.sub">PDF · Tattoo Nachsorge von Pia Insel</span>
             </div>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:auto;flex-shrink:0;color:var(--accent);"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -142,7 +152,7 @@
           <input type="hidden" name="replyto" id="replyto-field" value="">
           <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
           <div class="form-field" id="booking-field">
-            <label class="form-label">Buchungsfenster</label>
+            <label class="form-label" data-i18n="kon.form.booking">Buchungsfenster</label>
             <div class="booking-status" id="booking-status">
               <!-- JS befüllt diesen Block -->
             </div>
@@ -161,52 +171,52 @@
           </div>
 
           <div class="form-field">
-            <label class="form-label" for="stil">Tattoo-Stil</label>
+            <label class="form-label" for="stil" data-i18n="kon.form.stil">Tattoo-Stil</label>
             <select class="form-select" id="stil" name="stil">
-              <option value="">– Bitte wählen –</option>
-              <option value="bunt">Bunt / Farbig</option>
-              <option value="sw">Schwarz-Weiß</option>
-              <option value="coverup">Cover-Up</option>
+              <option value="" data-i18n="kon.opt.please">– Bitte wählen –</option>
+              <option value="bunt" data-i18n="kon.stil.bunt">Bunt / Farbig</option>
+              <option value="sw" data-i18n="kon.stil.sw">Schwarz-Weiß</option>
+              <option value="coverup" data-i18n="kon.stil.coverup">Cover-Up</option>
             </select>
           </div>
 
           <div class="form-row">
             <div class="form-field">
-              <label class="form-label" for="groesse">Ungefähre Größe</label>
+              <label class="form-label" for="groesse" data-i18n="kon.form.groesse">Ungefähre Größe</label>
               <select class="form-select" id="groesse" name="groesse">
-                <option value="">– Bitte wählen –</option>
-                <option value="dina5">DIN A5 (ca. Handfläche)</option>
-                <option value="dina4">DIN A4 (ca. Unterarm)</option>
-                <option value="arm">Ganzer Arm / Sleeve</option>
-                <option value="bein">Ganzes Bein</option>
-                <option value="ruecken">Ganzer Rücken</option>
+                <option value="" data-i18n="kon.opt.please">– Bitte wählen –</option>
+                <option value="dina5" data-i18n="kon.size.a5">DIN A5 (ca. Handfläche)</option>
+                <option value="dina4" data-i18n="kon.size.a4">DIN A4 (ca. Unterarm)</option>
+                <option value="arm" data-i18n="kon.size.arm">Ganzer Arm / Sleeve</option>
+                <option value="bein" data-i18n="kon.size.bein">Ganzes Bein</option>
+                <option value="ruecken" data-i18n="kon.size.ruecken">Ganzer Rücken</option>
               </select>
             </div>
             <div class="form-field">
-              <label class="form-label" for="koerperstelle">Körperstelle</label>
+              <label class="form-label" for="koerperstelle" data-i18n="kon.form.koerper">Körperstelle</label>
               <select class="form-select" id="koerperstelle" name="koerperstelle">
-                <option value="">– Bitte wählen –</option>
-                <option value="unterarm">Unterarm</option>
-                <option value="ruecken">Rücken</option>
-                <option value="schulter">Schulter</option>
-                <option value="wade">Wade</option>
+                <option value="" data-i18n="kon.opt.please">– Bitte wählen –</option>
+                <option value="unterarm" data-i18n="kon.body.unterarm">Unterarm</option>
+                <option value="ruecken" data-i18n="kon.body.ruecken">Rücken</option>
+                <option value="schulter" data-i18n="kon.body.schulter">Schulter</option>
+                <option value="wade" data-i18n="kon.body.wade">Wade</option>
               </select>
             </div>
           </div>
 
           <div class="form-field">
-            <label class="form-label" for="idee">Deine Idee *</label>
+            <label class="form-label" for="idee" data-i18n="kon.form.idee">Deine Idee *</label>
             <textarea class="form-textarea" id="idee" name="idee" rows="6" placeholder="Beschreibe deine Idee stichpunktartig:&#10;– Was soll es darstellen? Welche Stimmung?&#10;– 3 Wunschtermine nennen (z.B. „Mitte Oktober, Anfang November")&#10;– Referenzbilder unbedingt im Upload-Feld mitschicken!" required></textarea>
           </div>
 
           <div class="form-field">
-            <label class="form-label" for="referenzbilder">Referenzbilder (optional)</label>
+            <label class="form-label" for="referenzbilder" data-i18n="kon.form.refs">Referenzbilder (optional)</label>
             <label class="file-upload-area" id="file-upload-area" for="referenzbilder">
               <input type="file" id="referenzbilder" name="referenzbilder" accept="image/*" multiple class="file-input">
               <div class="file-upload-ui" id="file-upload-ui">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                <span class="file-upload-text">Bilder hier ablegen oder <span style="color:var(--accent)">klicken</span></span>
-                <span class="file-upload-hint">JPG, PNG, HEIC — max. 5 MB pro Datei</span>
+                <span class="file-upload-text" data-i18n="kon.upload.text">Bilder hier ablegen oder <span style="color:var(--accent)">klicken</span></span>
+                <span class="file-upload-hint" data-i18n="kon.upload.hint">JPG, PNG, HEIC — max. 5 MB pro Datei</span>
               </div>
               <div class="file-list" id="file-list"></div>
             </label>
@@ -214,54 +224,101 @@
 
           <div style="display:flex;align-items:flex-start;gap:.75rem;padding:.4rem 0;">
             <input type="checkbox" id="dsgvo" name="dsgvo" required style="margin-top:3px;accent-color:var(--accent);width:16px;height:16px;flex-shrink:0;cursor:pointer;">
-            <label for="dsgvo" style="font-size:.84rem;color:var(--text-mid);line-height:1.6;cursor:pointer;">
+            <label for="dsgvo" style="font-size:.84rem;color:var(--text-mid);line-height:1.6;cursor:pointer;" data-i18n="kon.dsgvo">
               Ich habe die <a href="datenschutz.html" style="color:var(--accent);">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden. *
             </label>
           </div>
 
           <div style="padding:.9rem 1.1rem;background:var(--bg-raised);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:4px;margin-bottom:1rem;">
-            <p style="font-size:.82rem;color:var(--text-mid);line-height:1.65;">
+            <p style="font-size:.82rem;color:var(--text-mid);line-height:1.65;" data-i18n="kon.form.hint">
               <strong style="color:var(--text);">Kurzer Hinweis vor dem Absenden:</strong><br>
               Viele Fragen rund um Preise, Stile, Cover-Ups und Termine werden im <a href="faq.html" style="color:var(--accent);">FAQ</a> beantwortet. Schau dort gerne noch einmal rein – vielleicht ist deine Frage schon dabei!
             </p>
           </div>
 
           <button type="submit" id="submit-btn" class="btn btn-gold" style="width:100%;justify-content:center;padding:1rem;font-size:.95rem;">
-            <span id="submit-label">Anfrage absenden</span>
+            <span id="submit-label" data-i18n="kon.submit">Anfrage absenden</span>
             <svg id="submit-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             <svg id="submit-spinner" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;animation:spin .8s linear infinite"><path d="M12 2a10 10 0 0 1 10 10"/></svg>
           </button>
 
-          <p style="font-size:.78rem;color:var(--text-dim);text-align:center;">* Pflichtfelder · Keine Weitergabe deiner Daten an Dritte</p>
+          <p style="font-size:.78rem;color:var(--text-dim);text-align:center;" data-i18n="kon.mandatory">* Pflichtfelder · Keine Weitergabe deiner Daten an Dritte</p>
         </form>
 
         <!-- Success message (hidden) -->
         <div id="form-success" style="display:none;padding:2rem;background:var(--accent-dim);border:1px solid rgba(200,169,110,.3);border-radius:6px;text-align:center;">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" style="margin:0 auto .8rem;display:block;"><polyline points="20 6 9 17 4 12"/></svg>
-          <h3 style="font-family:var(--font-h);font-size:1.5rem;font-weight:800;text-transform:uppercase;color:var(--text);margin-bottom:.5rem;">Anfrage eingegangen!</h3>
-          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.7;">Danke für deine Nachricht. Ich melde mich innerhalb von 1–2 Werktagen bei dir.</p>
+          <h3 style="font-family:var(--font-h);font-size:1.5rem;font-weight:800;text-transform:uppercase;color:var(--text);margin-bottom:.5rem;" data-i18n="kon.success.h3">Anfrage eingegangen!</h3>
+          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.7;" data-i18n="kon.success.p">Danke für deine Nachricht. Ich melde mich innerhalb von 1–2 Werktagen bei dir.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="footer-main"><div class="container"><div class="footer-grid">
-    <div class="footer-brand"><a href="index.html" class="footer-logo-text"><img src="img/logo-hires.png" alt="p-insel Tattoos" style="height:110px;width:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.6));"></a><p>Tattoo Studio in Bad Lippspringe. Pia Insel – Tätowiererin & Malerin seit 2015.</p>
+<footer role="contentinfo">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-text">
+            <img src="img/logo-hires.png" alt="p-insel Tattoos" style="height:130px;width:auto;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));">
+          </a>
+          <p>Tattoo Studio in Bad Lippspringe – Wo Kunst entsteht und Momente für die Ewigkeit festgehalten werden. Pia Insel, Tätowiererin & Malerin.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/pia_insel_tattoos" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
             </a>
             <a href="https://www.facebook.com/PiaInselTattoo" target="_blank" rel="noopener" aria-label="Facebook">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
             </a>
-          </div></div>
-    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Startseite</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="kuenstlerin.html">Über mich</a></li><li><a href="faq.html">FAQ</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
-    <div class="footer-col"><h4>Stile</h4><ul><li><a href="portfolio.html#bunt">Bunt</a></li><li><a href="portfolio.html#sw">Schwarz-Weiß</a></li><li><a href="portfolio.html#surrealismus">Surrealismus &amp; Farbe</a></li><li><a href="portfolio.html#coverup">Cover-Ups</a></li></ul></div>
-    <div class="footer-col"><h4>Kontakt</h4><address>Detmolder Strasse 119<br>33175 Bad Lippspringe</address></div>
-  </div></div></div>
-  <div class="footer-bottom"><div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;width:100%;"><p>© 2026 p-insel Tattoos · Pia Insel</p><div class="footer-bottom-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></div></div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.nav.title">Navigation</h4>
+          <ul>
+            <li><a href="index.html" data-i18n="footer.nav.home">Startseite</a></li>
+            <li><a href="portfolio.html" data-i18n="footer.nav.portfolio">Portfolio</a></li>
+            <li><a href="kuenstlerin.html" data-i18n="footer.nav.about">Über mich</a></li>
+            <li><a href="portfolio.html" data-i18n="footer.nav.styles">Stile & Techniken</a></li>
+            <li><a href="kontakt.html" data-i18n="footer.nav.contact">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.styles.title">Stile</h4>
+          <ul>
+            <li><a href="portfolio.html#bunt" data-i18n="footer.s.colorful">Bunt</a></li>
+            <li><a href="portfolio.html#sw" data-i18n="footer.s.bw">Schwarz-Weiß</a></li>
+            <li><a href="portfolio.html#surrealismus" data-i18n="footer.s.surreal">Surrealismus &amp; Farbe</a></li>
+            <li><a href="portfolio.html#coverup" data-i18n="footer.s.coverup">Cover-Ups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contact.title">Kontakt</h4>
+          <address>
+            <strong>p-insel Tattoos</strong><br>
+            Detmolder Strasse 119<br>
+            33175 Bad Lippspringe
+          </address>
+          <div class="footer-hours">
+            <div class="footer-hours-row">
+              <span data-i18n="footer.hours.label">Termine</span>
+              <span data-i18n="footer.hours.val">Nach Vereinbarung</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;width:100%;">
+      <p>© 2026 p-insel Tattoos · Pia Insel · Bad Lippspringe</p>
+      <div class="footer-bottom-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script>
@@ -436,5 +493,6 @@
   const pageHero=document.querySelector('.page-hero');
   if(heroBg&&_mob&&pageHero){function updH(){const r=pageHero.getBoundingClientRect();heroBg.style.transform=`translateY(${r.top*0.35}px)`;}window.addEventListener('scroll',updH,{passive:true});updH();}
 </script>
+<script src="lang.js"></script>
 </body>
 </html>

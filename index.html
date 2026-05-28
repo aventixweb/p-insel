@@ -60,13 +60,18 @@
       <img src="img/logo-hires.png" alt="p-insel Tattoos" class="nav-logo-img">
     </a>
     <ul class="nav-links" role="list">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="kuenstlerin.html">Über mich</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="index.html" class="active" data-i18n="nav.home">Home</a></li>
+      <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+      <li><a href="kuenstlerin.html" data-i18n="nav.about">Über mich</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      <li><a href="kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
     </ul>
-    <a href="kontakt.html" class="nav-cta">Termin anfragen</a>
+    <a href="kontakt.html" class="nav-cta" data-i18n="nav.cta">Termin anfragen</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="de">DE</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
     <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -83,18 +88,23 @@
     </button>
   </div>
   <nav class="drawer-nav">
-    <a href="index.html" class="active">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="kuenstlerin.html">Über mich</a>
-    <a href="faq.html">FAQ</a>
-    <a href="kontakt.html">Kontakt</a>
+    <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+    <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
+    <a href="kuenstlerin.html" data-i18n="nav.about">Über mich</a>
+    <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+    <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
   </nav>
   <div class="drawer-footer">
     <div class="drawer-footer-contact">
       <a href="mailto:terminwunsch123@p-insel.de">terminwunsch123@p-insel.de</a><br>
       Detmolder Str. 119 · Bad Lippspringe
     </div>
-    <a href="kontakt.html" class="drawer-cta-link">Termin anfragen</a>
+    <div class="drawer-lang-switcher">
+      <button class="lang-btn" data-lang="de">DE</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <a href="kontakt.html" class="drawer-cta-link" data-i18n="drawer.cta">Termin anfragen</a>
   </div>
 </div>
 
@@ -112,14 +122,14 @@
     <!-- LEFT: Text content — kein reveal, Hero ist immer sichtbar -->
     <div class="hero-fb-left">
       <h1 class="hero-fb-h1" id="hero-h1">
-        <span class="h1-line">DEIN</span>
-        <span class="h1-line">TATTOO.</span>
-        <span class="h1-line"><em style="color:var(--accent);">FÜR IMMER.</em></span>
+        <span class="h1-line" data-i18n="hero.line1">DEIN</span>
+        <span class="h1-line" data-i18n="hero.line2">TATTOO.</span>
+        <span class="h1-line"><em style="color:var(--accent);" data-i18n="hero.line3">FÜR IMMER.</em></span>
       </h1>
-      <p class="hero-fb-sub">Surrealismus / Cover Up / Black &amp; Grey<br><span style="color:var(--accent);">Tattoo Atelier · Bad Lippspringe</span></p>
+      <p class="hero-fb-sub"><span data-i18n="hero.sub">Surrealismus / Cover Up / Black &amp; Grey</span><br><span style="color:var(--accent);" data-i18n="hero.location">Tattoo Atelier · Bad Lippspringe</span></p>
       <div class="hero-fb-actions">
-        <a href="kontakt.html" class="btn btn-red">Termin anfragen</a>
-        <a href="portfolio.html" class="btn btn-outline-white">Portfolio ansehen</a>
+        <a href="kontakt.html" class="btn btn-red" data-i18n="hero.cta1">Termin anfragen</a>
+        <a href="portfolio.html" class="btn btn-outline-white" data-i18n="hero.cta2">Portfolio ansehen</a>
       </div>
     </div>
 
@@ -131,7 +141,7 @@
   </div>
 
   <!-- Quote — absolut am unteren Rand des Heroes, immer sichtbar -->
-  <p class="hero-quote-text">EIN TATTOO IST <span style="color:var(--accent);">DAS EINZIGE</span> WAS DU<br>DIR <span style="color:var(--accent);">IN DEINEM LEBEN</span> GÖNNST OHNE ES<br>JE WIEDER ZU VERLIEREN...</p>
+  <p class="hero-quote-text" data-i18n="hero.quote">EIN TATTOO IST <span style="color:var(--accent);">DAS EINZIGE</span> WAS DU<br>DIR <span style="color:var(--accent);">IN DEINEM LEBEN</span> GÖNNST OHNE ES<br>JE WIEDER ZU VERLIEREN...</p>
 
   <!-- Scroll indicator -->
   <div class="scroll-indicator" aria-hidden="true">
@@ -144,22 +154,22 @@
 <div class="hero-meta-strip">
   <div class="hero-meta-item">
     <span class="hero-meta-num">16+</span>
-    <span class="hero-meta-lbl">Erfahrung</span>
+    <span class="hero-meta-lbl" data-i18n="stats.experience">Erfahrung</span>
   </div>
   <div class="hero-meta-sep"></div>
   <div class="hero-meta-item">
     <span class="hero-meta-num">SWR</span>
-    <span class="hero-meta-lbl">Im Fernsehen</span>
+    <span class="hero-meta-lbl" data-i18n="stats.tv">Im Fernsehen</span>
   </div>
   <div class="hero-meta-sep"></div>
   <div class="hero-meta-item">
     <span class="hero-meta-num">450+</span>
-    <span class="hero-meta-lbl">Unikate</span>
+    <span class="hero-meta-lbl" data-i18n="stats.unique">Unikate</span>
   </div>
   <div class="hero-meta-sep"></div>
   <div class="hero-meta-item">
     <span class="hero-meta-num">2015</span>
-    <span class="hero-meta-lbl">Selbstständig</span>
+    <span class="hero-meta-lbl" data-i18n="stats.since">Selbstständig</span>
   </div>
 </div>
 
@@ -172,29 +182,28 @@
   <div class="container">
     <div class="about-split">
       <div class="about-text">
-        <div class="section-eyebrow reveal">Die Künstlerin</div>
-        <h2 class="section-title reveal" data-delay="1">
-          Pia Insel –<br><span>Tätowiererin</span><br>& Malerin
+        <div class="section-eyebrow reveal" data-i18n="about.eyebrow">Die Künstlerin</div>
+        <h2 class="section-title reveal" data-delay="1" data-i18n="about.h2">
+          Pia Insel –<br><span>Tätowiererin</span><br>&amp; Malerin
         </h2>
         <blockquote class="about-quote reveal" data-delay="2">
-          <p>„Pia Insel ist eine außergewöhnlich talentierte Tätowiererin aus (…), die für ihre Fähigkeiten in den Stilen Aquarell, Illustration und Realismus bekannt ist. Ihre Arbeit ist ein Beweis für ihre Hingabe und Fähigkeit, die Vision jedes Kunden auf seiner Haut zum Leben zu erwecken."</p>
-          <cite>— Tattoo Wizard</cite>
+          <p data-i18n="about.quote">„Pia Insel ist eine außergewöhnlich talentierte Tätowiererin (…), die für ihre Fähigkeiten in den Stilen Aquarell, Illustration und Realismus bekannt ist. Ihre Arbeit ist ein Beweis für ihre Hingabe und Fähigkeit, die Vision jedes Kunden auf seiner Haut zum Leben zu erwecken."</p>
+          <cite data-i18n="about.cite">— Tattoo Wizard</cite>
         </blockquote>
 
         <div class="reveal" data-delay="3" style="margin-top:2rem;">
           <a href="kuenstlerin.html" class="btn btn-outline-gold">
-            Mehr über Pia
+            <span data-i18n="about.cta">Mehr über Pia</span>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
 
         <div class="about-tags reveal" data-delay="4">
-          <span class="tag">Realismus</span>
-          <span class="tag">Tierportraits</span>
-
-          <span class="tag">Surrealismus</span>
-          <span class="tag">Dinosaurier</span>
-          <span class="tag">Farbe & SW</span>
+          <span class="tag" data-i18n="tag.realismus">Realismus</span>
+          <span class="tag" data-i18n="tag.tierportraits">Tierportraits</span>
+          <span class="tag" data-i18n="tag.surrealismus">Surrealismus</span>
+          <span class="tag" data-i18n="tag.dino">Dinosaurier</span>
+          <span class="tag" data-i18n="tag.farbsw">Farbe &amp; SW</span>
         </div>
       </div>
 
@@ -215,25 +224,25 @@
         <div class="stat-num">
           <span class="counter" data-target="16">0</span><span class="suf">+</span>
         </div>
-        <div class="stat-label">Jahre Erfahrung</div>
+        <div class="stat-label" data-i18n="stats.label1">Jahre Erfahrung</div>
       </div>
       <div class="stat-cell reveal" data-delay="1">
         <div class="stat-num">
           <span class="counter" data-target="500">0</span><span class="suf">+</span>
         </div>
-        <div class="stat-label">Tattoos gestochen</div>
+        <div class="stat-label" data-i18n="stats.label2">Tattoos gestochen</div>
       </div>
       <div class="stat-cell reveal" data-delay="2">
         <div class="stat-num">
           <span class="counter" data-target="20">0</span><span class="suf">+</span>
         </div>
-        <div class="stat-label">Messen &amp; Events</div>
+        <div class="stat-label" data-i18n="stats.label3">Messen &amp; Events</div>
       </div>
       <div class="stat-cell reveal" data-delay="3">
         <div class="stat-num">
           5<span class="suf">★</span>
         </div>
-        <div class="stat-label">Google Bewertung</div>
+        <div class="stat-label" data-i18n="stats.label4">Google Bewertung</div>
       </div>
     </div>
   </div>
@@ -247,10 +256,10 @@
   <div class="container">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.5rem;flex-wrap:wrap;gap:1.5rem;">
       <div>
-        <div class="section-eyebrow reveal">Portfolio</div>
-        <h2 class="section-title reveal" data-delay="1">Ausgewählte <span>Arbeiten</span></h2>
+        <div class="section-eyebrow reveal" data-i18n="portfolio.eyebrow">Portfolio</div>
+        <h2 class="section-title reveal" data-delay="1" data-i18n="portfolio.title">Ausgewählte <span>Arbeiten</span></h2>
       </div>
-      <a href="portfolio.html" class="btn btn-outline reveal" data-delay="2">
+      <a href="portfolio.html" class="btn btn-outline reveal" data-delay="2" data-i18n="portfolio.all">
         Alle Arbeiten
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -259,27 +268,27 @@
     <div class="gallery-mini-grid">
       <div class="mini-item reveal" data-delay="1">
         <img src="img/tattoo/bunt-01.jpg" alt="Buntes Tattoo von Pia Insel">
-        <div class="mini-overlay"><span class="mini-tag">Bunt</span></div>
+        <div class="mini-overlay"><span class="mini-tag" data-i18n="tag.bunt">Bunt</span></div>
       </div>
       <div class="mini-item reveal" data-delay="2">
         <img src="img/tattoo/sw-02.jpg" alt="Schwarz-Weiß Tattoo von Pia Insel">
-        <div class="mini-overlay"><span class="mini-tag">Schwarz-Weiß</span></div>
+        <div class="mini-overlay"><span class="mini-tag" data-i18n="tag.sw">Schwarz-Weiß</span></div>
       </div>
       <div class="mini-item reveal" data-delay="3">
         <img src="img/tattoo/bunt-07.jpg" alt="Buntes Tattoo von Pia Insel">
-        <div class="mini-overlay"><span class="mini-tag">Bunt</span></div>
+        <div class="mini-overlay"><span class="mini-tag" data-i18n="tag.bunt">Bunt</span></div>
       </div>
       <div class="mini-item reveal" data-delay="1">
         <img src="img/tattoo/coverup-01.jpg" alt="Cover-Up Tattoo von Pia Insel">
-        <div class="mini-overlay"><span class="mini-tag">Cover-Up</span></div>
+        <div class="mini-overlay"><span class="mini-tag" data-i18n="tag.coverup">Cover-Up</span></div>
       </div>
       <div class="mini-item reveal" data-delay="2">
         <img src="img/tattoo/bunt-14.jpg" alt="Buntes Tattoo von Pia Insel">
-        <div class="mini-overlay"><span class="mini-tag">Bunt</span></div>
+        <div class="mini-overlay"><span class="mini-tag" data-i18n="tag.bunt">Bunt</span></div>
       </div>
       <div class="mini-item reveal" data-delay="3">
         <img src="img/malerei/flamingo-lotos-raum.jpeg" alt="Malerei von Pia Insel">
-        <div class="mini-overlay"><span class="mini-tag">Malerei</span></div>
+        <div class="mini-overlay"><span class="mini-tag" data-i18n="tag.malerei">Malerei</span></div>
       </div>
     </div>
   </div>
@@ -292,39 +301,39 @@
 <section class="section section-dark swr-section reveal">
   <div class="container">
     <div class="section-header" style="text-align:center; margin-bottom:3rem;">
-      <span class="section-eyebrow">Bekannt aus dem TV</span>
-      <h2 class="section-title">Pia Insel im <span>Fernsehen</span></h2>
-      <p class="section-desc" style="margin:0 auto; text-align:center;">Pia war gleich zweimal zu Gast beim SWR — im Frühstücksfernsehen begeisterte sie mit ihrer einzigartigen Kunst.</p>
+      <span class="section-eyebrow" data-i18n="swr.eyebrow">Bekannt aus dem TV</span>
+      <h2 class="section-title" data-i18n="swr.title">Pia Insel im <span>Fernsehen</span></h2>
+      <p class="section-desc" style="margin:0 auto; text-align:center;" data-i18n="swr.desc">Pia Insel gleich zwei mal zu Gast beim SWR – Bei Kaffee oder Tee sprach sie über das Thema Organspende und bei Pierre M. Krause sorgte sie für gute Unterhaltung.</p>
     </div>
 
     <div class="swr-grid">
       <div class="swr-card reveal" data-delay="1">
-        <a class="swr-video-wrap swr-thumb-link" href="https://www.youtube.com/watch?v=PPlXqpJY634" target="_blank" rel="noopener noreferrer" aria-label="Pia Insel beim SWR auf YouTube ansehen">
-          <img src="https://i.ytimg.com/vi/PPlXqpJY634/hqdefault.jpg" alt="Pia Insel beim SWR Frühstücksfernsehen — Thumbnail" loading="lazy">
+        <a class="swr-video-wrap swr-thumb-link" href="https://www.youtube.com/watch?v=RJDnmV7x3YQ" target="_blank" rel="noopener noreferrer" aria-label="Pia Insel beim SWR auf YouTube ansehen">
+          <img src="https://i.ytimg.com/vi/RJDnmV7x3YQ/hqdefault.jpg" alt="Pia Insel beim SWR — Thumbnail" loading="lazy">
           <div class="swr-play-btn" aria-hidden="true">
             <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff0000"/><path d="M45 24 27 14v20" fill="#fff"/></svg>
           </div>
-          <span class="swr-yt-label">Auf YouTube ansehen</span>
+          <span class="swr-yt-label" data-i18n="swr.yt.label">Auf YouTube ansehen</span>
         </a>
         <div class="swr-card-info">
           <span class="swr-badge">SWR Fernsehen</span>
-          <h3>Pia Insel beim SWR</h3>
-          <p>Tattoostudio und Kunstatelier — Pia erzählt über ihren Werdegang als Tätowiererin und Malerin im SWR Frühstücksfernsehen.</p>
+          <h3 data-i18n="swr.card1.title">Pia Insel beim SWR</h3>
+          <p data-i18n="swr.card1.desc">Der SWR stellt gern Persönlichkeiten vor die besonderes machen. Was Tattoos mit Organspende zu tun haben.</p>
         </div>
       </div>
 
       <div class="swr-card reveal" data-delay="2">
-        <a class="swr-video-wrap swr-thumb-link" href="https://www.youtube.com/watch?v=RJDnmV7x3YQ" target="_blank" rel="noopener noreferrer" aria-label="Pia Insel beim SWR — zweiter Auftritt auf YouTube ansehen">
-          <img src="https://i.ytimg.com/vi/RJDnmV7x3YQ/hqdefault.jpg" alt="Pia Insel beim SWR — Kunst und Tattoo Thumbnail" loading="lazy">
+        <a class="swr-video-wrap swr-thumb-link" href="https://www.youtube.com/watch?v=PPlXqpJY634" target="_blank" rel="noopener noreferrer" aria-label="Pia Insel beim SWR auf YouTube ansehen">
+          <img src="https://i.ytimg.com/vi/PPlXqpJY634/hqdefault.jpg" alt="Pia Insel beim SWR — Thumbnail" loading="lazy">
           <div class="swr-play-btn" aria-hidden="true">
             <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff0000"/><path d="M45 24 27 14v20" fill="#fff"/></svg>
           </div>
-          <span class="swr-yt-label">Auf YouTube ansehen</span>
+          <span class="swr-yt-label" data-i18n="swr.yt.label">Auf YouTube ansehen</span>
         </a>
         <div class="swr-card-info">
           <span class="swr-badge">SWR Fernsehen</span>
-          <h3>Pia Insel — Kunst & Tattoo</h3>
-          <p>Der zweite TV-Auftritt: Pia zeigt ihre Gemälde und erklärt, warum Tattoo-Kunst und Malerei für sie eine Einheit bilden.</p>
+          <h3 data-i18n="swr.card2.title">Pia Insel beim SWR</h3>
+          <p data-i18n="swr.card2.desc">Für gute Unterhaltung sorgte Pia als Überraschungsgast zum Thema Freundschaft.</p>
         </div>
       </div>
     </div>
@@ -337,8 +346,8 @@
 <section class="section" id="bewertungen" aria-label="Kundenstimmen">
   <div class="container">
     <div style="text-align:center; margin-bottom:3rem;">
-      <div class="section-eyebrow reveal" style="justify-content:center;">Kundenstimmen</div>
-      <h2 class="section-title reveal" data-delay="1" style="font-size:clamp(2.2rem,4.5vw,3.5rem);">
+      <div class="section-eyebrow reveal" style="justify-content:center;" data-i18n="reviews.eyebrow">Kundenstimmen</div>
+      <h2 class="section-title reveal" data-delay="1" style="font-size:clamp(2.2rem,4.5vw,3.5rem);" data-i18n="reviews.title">
         Was Kunden <span>sagen</span>
       </h2>
     </div>
@@ -346,42 +355,42 @@
     <div class="testimonials-grid">
       <div class="testimonial reveal" data-delay="1">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text">
+        <p class="testimonial-text" data-i18n="review1.text">
           Pia ist eine absolut tolle Künstlerin. Mega sympathisch, ich hatte sofort vollstes Vertrauen zu ihr. Das Atelier ist klein und fein, sauber und gemütlich. Und ihre Arbeit ist mega schön geworden.
         </p>
         <div class="testimonial-author">
           <div class="avatar">CS</div>
           <div>
-            <div class="author-name">Claudia S.</div>
-            <div class="author-meta">Google Bewertung · ★★★★★</div>
+            <div class="author-name" data-i18n="review1.name">Claudia S.</div>
+            <div class="author-meta" data-i18n="review1.meta">Google Bewertung · ★★★★★</div>
           </div>
         </div>
       </div>
 
       <div class="testimonial reveal" data-delay="2">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text">
+        <p class="testimonial-text" data-i18n="review2.text">
           Tattoostudio mit einzigartiger, zauberhafter Atmosphäre. Pia ist super nett, herzlich, offen und unterhaltsam, ihre Insel ist ein warmer Wohlfühlort. Ich freue mich schon auf das nächste Mal!
         </p>
         <div class="testimonial-author">
           <div class="avatar">KT</div>
           <div>
-            <div class="author-name">Katrin Tonollo</div>
-            <div class="author-meta">Google Bewertung · ★★★★★</div>
+            <div class="author-name" data-i18n="review2.name">Katrin Tonollo</div>
+            <div class="author-meta" data-i18n="review2.meta">Google Bewertung · ★★★★★</div>
           </div>
         </div>
       </div>
 
       <div class="testimonial reveal" data-delay="3">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text">
+        <p class="testimonial-text" data-i18n="review3.text">
           Pia hat sich da nicht einfach nur ein Studio, sondern einen Wohlfühl-Ort aufgebaut. Super schönes Ding. Pia wie immer sehr sympathisch und gut gelaunt!
         </p>
         <div class="testimonial-author">
           <div class="avatar">JB</div>
           <div>
-            <div class="author-name">Jacqueline Bischel</div>
-            <div class="author-meta">Google Bewertung · ★★★★★</div>
+            <div class="author-name" data-i18n="review3.name">Jacqueline Bischel</div>
+            <div class="author-meta" data-i18n="review3.meta">Google Bewertung · ★★★★★</div>
           </div>
         </div>
       </div>
@@ -396,31 +405,30 @@
   <div class="container">
     <div class="maps-grid reveal">
       <div class="maps-info">
-        <div class="section-eyebrow">Anfahrt</div>
-        <h2 class="section-title" style="font-size:clamp(2rem,5vw,3.2rem);margin-bottom:1rem;">
+        <div class="section-eyebrow" data-i18n="maps.eyebrow">Anfahrt</div>
+        <h2 class="section-title" style="font-size:clamp(2rem,5vw,3.2rem);margin-bottom:1rem;" data-i18n="maps.title">
           FINDE DAS TATTOO ATELIER <span>FÜR DEINE AUSZEIT</span>
         </h2>
-        <p class="maps-address-text">
+        <p class="maps-address-text" data-i18n="maps.desc">
           Das Atelier liegt mitten in Bad Lippspringe – direkt an der Detmolder Straße, gut erreichbar mit Auto und Bus.
         </p>
         <div class="maps-details">
           <div class="maps-detail-item">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <div>
-              <strong>Adresse</strong>
+              <strong data-i18n="maps.address">Adresse</strong>
               <span>Detmolder Str. 119<br>33175 Bad Lippspringe</span>
             </div>
           </div>
           <div class="maps-detail-item">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             <div>
-              <strong>Öffnungszeiten</strong>
-              <span>Nach Vereinbarung</span>
+              <strong data-i18n="maps.hours">Öffnungszeiten</strong>
+              <span data-i18n="maps.hours.val">Nach Vereinbarung</span>
             </div>
           </div>
         </div>
-        <a href="https://maps.google.com/?q=Detmolder+Str.+119,+33175+Bad+Lippspringe" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white maps-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <a href="https://maps.google.com/?q=Detmolder+Str.+119,+33175+Bad+Lippspringe" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white maps-btn" data-i18n="maps.gmaps">
           In Google Maps öffnen
         </a>
       </div>
@@ -442,31 +450,31 @@
 <section class="section section-dark" id="prozess" aria-label="Wie funktioniert eine Buchung" style="background:#0a0a0a;">
   <div class="container">
     <div style="text-align:center; margin-bottom:3.5rem;">
-      <div class="section-eyebrow reveal" style="justify-content:center;">So funktioniert's</div>
-      <h2 class="section-title reveal" data-delay="1" style="font-size:clamp(2.2rem,4.5vw,3.5rem);">
+      <div class="section-eyebrow reveal" style="justify-content:center;" data-i18n="process.eyebrow">So funktioniert's</div>
+      <h2 class="section-title reveal" data-delay="1" style="font-size:clamp(2.2rem,4.5vw,3.5rem);" data-i18n="process.title">
         Dein Weg zum <span>Tattoo</span>
       </h2>
     </div>
     <div class="process-steps">
       <div class="process-step reveal" data-delay="1">
         <div class="step-num">01</div>
-        <h4>Termin-Release abwarten</h4>
-        <p>Ich vergebe Termine nur einmal pro Quartal – die Plätze sind also heißer begehrt als der letzte Parkplatz vorm Supermarkt. Damit du den nächsten Drop nicht verpasst, findest du alle Infos im Menü unter <a href="kontakt.html" style="color:var(--accent);text-decoration:none;">Kontakt</a>&nbsp;(…)</p>
+        <h4 data-i18n="process.s1.title">Termin-Release abwarten</h4>
+        <p data-i18n="process.s1.desc">Ich vergebe Termine nur einmal pro Quartal – die Plätze sind also heißer begehrt als der letzte Parkplatz vorm Supermarkt. Damit du den nächsten Drop nicht verpasst, findest du alle Infos im Menü unter <a href="kontakt.html" style="color:var(--accent);text-decoration:none;">Kontakt</a>.</p>
       </div>
       <div class="process-step reveal" data-delay="2">
         <div class="step-num">02</div>
-        <h4>Inspiration sammeln</h4>
-        <p>Such dir vorab Referenzbilder raus, die deinen Wunschstil zeigen. Zum Beispiel Fotos vom Haustier, Blumen oder Actionfigur. Ich kopiere nichts aus dem Internet – aber Ideen sammeln darf man dort schon&nbsp;;)</p>
+        <h4 data-i18n="process.s2.title">Inspiration sammeln</h4>
+        <p data-i18n="process.s2.desc">Such dir vorab Referenzbilder raus, die deinen Wunschstil zeigen. Zum Beispiel Fotos vom Haustier, Blumen oder Actionfigur. Ich kopiere nichts aus dem Internet – aber Ideen sammeln darf man dort schon&nbsp;;)</p>
       </div>
       <div class="process-step reveal" data-delay="3">
         <div class="step-num">03</div>
-        <h4>Anfrage schicken</h4>
-        <p>Sobald die Termine online gehen, schickst du mir deine Anfrage über das <a href="kontakt.html" style="color:var(--accent);text-decoration:none;">Kontaktformular</a>.</p>
+        <h4 data-i18n="process.s3.title">Anfrage schicken</h4>
+        <p data-i18n="process.s3.desc">Sobald die Termine online gehen, schickst du mir deine Anfrage über das <a href="kontakt.html" style="color:var(--accent);text-decoration:none;">Kontaktformular</a>.</p>
       </div>
       <div class="process-step reveal" data-delay="4">
         <div class="step-num">04</div>
-        <h4>Termin sichern</h4>
-        <p>Wenn alles passt, bekommst du deinen Termin bestätigt. Dann heißt es nur noch: Vorfreude genießen und den Countdown starten.</p>
+        <h4 data-i18n="process.s4.title">Termin sichern</h4>
+        <p data-i18n="process.s4.desc">Wenn alles passt, bekommst du deinen Termin bestätigt. Dann heißt es nur noch: Vorfreude genießen und den Countdown starten.</p>
       </div>
     </div>
   </div>
@@ -486,37 +494,37 @@
           <p>Tattoo Studio in Bad Lippspringe – Wo Kunst entsteht und Momente für die Ewigkeit festgehalten werden. Pia Insel, Tätowiererin & Malerin.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/pia_insel_tattoos" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
             </a>
             <a href="https://www.facebook.com/PiaInselTattoo" target="_blank" rel="noopener" aria-label="Facebook">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
             </a>
           </div>
         </div>
 
         <div class="footer-col">
-          <h4>Navigation</h4>
+          <h4 data-i18n="footer.nav.title">Navigation</h4>
           <ul>
-            <li><a href="index.html">Startseite</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="kuenstlerin.html">Über mich</a></li>
-            <li><a href="portfolio.html">Stile & Techniken</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="index.html" data-i18n="footer.nav.home">Startseite</a></li>
+            <li><a href="portfolio.html" data-i18n="footer.nav.portfolio">Portfolio</a></li>
+            <li><a href="kuenstlerin.html" data-i18n="footer.nav.about">Über mich</a></li>
+            <li><a href="portfolio.html" data-i18n="footer.nav.styles">Stile & Techniken</a></li>
+            <li><a href="kontakt.html" data-i18n="footer.nav.contact">Kontakt</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Stile</h4>
+          <h4 data-i18n="footer.styles.title">Stile</h4>
           <ul>
-            <li><a href="portfolio.html#bunt">Bunt</a></li>
-            <li><a href="portfolio.html#sw">Schwarz-Weiß</a></li>
-            <li><a href="portfolio.html#surrealismus">Surrealismus & Farbe</a></li>
-            <li><a href="portfolio.html#coverup">Cover-Ups</a></li>
+            <li><a href="portfolio.html#bunt" data-i18n="footer.s.colorful">Bunt</a></li>
+            <li><a href="portfolio.html#sw" data-i18n="footer.s.bw">Schwarz-Weiß</a></li>
+            <li><a href="portfolio.html#surrealismus" data-i18n="footer.s.surreal">Surrealismus & Farbe</a></li>
+            <li><a href="portfolio.html#coverup" data-i18n="footer.s.coverup">Cover-Ups</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Kontakt</h4>
+          <h4 data-i18n="footer.contact.title">Kontakt</h4>
           <address>
             <strong>p-insel Tattoos</strong><br>
             Detmolder Strasse 119<br>
@@ -524,8 +532,8 @@
           </address>
           <div class="footer-hours">
             <div class="footer-hours-row">
-              <span>Termine</span>
-              <span>Nach Vereinbarung</span>
+              <span data-i18n="footer.hours.label">Termine</span>
+              <span data-i18n="footer.hours.val">Nach Vereinbarung</span>
             </div>
           </div>
         </div>
@@ -690,5 +698,6 @@
     document.getElementById('cookie-banner').classList.remove('show');
   });
 </script>
+<script src="lang.js"></script>
 </body>
 </html>

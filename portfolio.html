@@ -219,13 +219,18 @@
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="img/logo-hires.png" alt="p-insel Tattoos" class="nav-logo-img"></a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="portfolio.html" class="active">Portfolio</a></li>
-      <li><a href="kuenstlerin.html">Über mich</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="portfolio.html" class="active" data-i18n="nav.portfolio">Portfolio</a></li>
+      <li><a href="kuenstlerin.html" data-i18n="nav.about">Über mich</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      <li><a href="kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
     </ul>
-    <a href="kontakt.html" class="nav-cta">Termin anfragen</a>
+    <a href="kontakt.html" class="nav-cta" data-i18n="nav.cta">Termin anfragen</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="de">DE</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
     <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -241,18 +246,23 @@
     </button>
   </div>
   <nav class="drawer-nav">
-    <a href="index.html">Home</a>
-    <a href="portfolio.html" class="active">Portfolio</a>
-    <a href="kuenstlerin.html">Über mich</a>
-    <a href="faq.html">FAQ</a>
-    <a href="kontakt.html">Kontakt</a>
+    <a href="index.html" data-i18n="nav.home">Home</a>
+    <a href="portfolio.html" class="active" data-i18n="nav.portfolio">Portfolio</a>
+    <a href="kuenstlerin.html" data-i18n="nav.about">Über mich</a>
+    <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+    <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
   </nav>
   <div class="drawer-footer">
     <div class="drawer-footer-contact">
       <a href="mailto:terminwunsch123@p-insel.de">terminwunsch123@p-insel.de</a><br>
       Detmolder Str. 119 · Bad Lippspringe
     </div>
-    <a href="kontakt.html" class="drawer-cta-link">Termin anfragen</a>
+    <div class="drawer-lang-switcher">
+      <button class="lang-btn" data-lang="de">DE</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <a href="kontakt.html" class="drawer-cta-link" data-i18n="drawer.cta">Termin anfragen</a>
   </div>
 </div>
 
@@ -263,8 +273,8 @@
   <div class="page-hero-bg" style="background-image:url('img/tattoo/leopard-rosen-arm.jpeg'); background-position: center 35%;"></div>
   <div class="page-hero-overlay"></div>
   <div class="container">
-    <div class="page-hero-eyebrow">p-insel Tattoos · Pia Insel</div>
-    <h1>Portfolio &<br><span>Stile</span></h1>
+    <div class="page-hero-eyebrow" data-i18n="p.hero.eyebrow">Tattoo Portfolio</div>
+    <h1 data-i18n="p.hero.h1">Portfolio &amp;<br><span>Stile</span></h1>
     <p>Jeder Mensch ist einzigartig – sein Tattoo auch.<br>Hier findest du einen Überblick über meine Arbeiten und Spezialisierungen.</p>
   </div>
 </header>
@@ -283,17 +293,17 @@
 <section class="section" id="galerie">
   <div class="container">
     <div style="text-align:center;margin-bottom:3rem;">
-      <div class="section-eyebrow reveal" style="justify-content:center;">Galerie</div>
-      <h2 class="section-title reveal" data-delay="1">Ausgewählte<br><span>Arbeiten</span></h2>
+      <div class="section-eyebrow reveal" style="justify-content:center;" data-i18n="p.gallery.eyebrow">Galerie</div>
+      <h2 class="section-title reveal" data-delay="1" data-i18n="p.gallery.h2">Ausgewählte<br><span>Arbeiten</span></h2>
     </div>
 
     <!-- Filter Bar -->
     <div class="filter-bar">
-      <button class="filter-btn active" data-filter="all">Alle</button>
-      <button class="filter-btn" data-filter="bunt">Bunt</button>
-      <button class="filter-btn" data-filter="sw">Schwarz-Weiß</button>
-      <button class="filter-btn" data-filter="coverup">Cover-Up</button>
-      <button class="filter-btn" data-filter="malerei">Malerei</button>
+      <button class="filter-btn active" data-filter="all" data-i18n="p.filter.all">Alle</button>
+      <button class="filter-btn" data-filter="bunt" data-i18n="p.filter.bunt">Bunt</button>
+      <button class="filter-btn" data-filter="sw" data-i18n="p.filter.sw">Schwarz-Weiß</button>
+      <button class="filter-btn" data-filter="coverup" data-i18n="p.filter.coverup">Cover-Up</button>
+      <button class="filter-btn" data-filter="malerei" data-i18n="p.filter.malerei">Malerei</button>
     </div>
 
     <div class="portfolio-full-grid">
@@ -714,50 +724,57 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="footer-logo-text">
-            <img src="img/logo.png" alt="p-insel Tattoos" style="height:42px;width:auto;filter:drop-shadow(0 1px 4px rgba(0,0,0,.5));">
+            <img src="img/logo-hires.png" alt="p-insel Tattoos" style="height:130px;width:auto;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));">
           </a>
           <p>Tattoo Studio in Bad Lippspringe – Wo Kunst entsteht und Momente für die Ewigkeit festgehalten werden. Pia Insel, Tätowiererin & Malerin.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/pia_insel_tattoos" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
             </a>
             <a href="https://www.facebook.com/PiaInselTattoo" target="_blank" rel="noopener" aria-label="Facebook">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
             </a>
           </div>
         </div>
         <div class="footer-col">
-          <h4>Navigation</h4>
+          <h4 data-i18n="footer.nav.title">Navigation</h4>
           <ul>
-            <li><a href="index.html">Startseite</a></li>
-            <li><a href="portfolio.html">Portfolio & Stile</a></li>
-            <li><a href="kuenstlerin.html">Über mich</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="index.html" data-i18n="footer.nav.home">Startseite</a></li>
+            <li><a href="portfolio.html" data-i18n="footer.nav.portfolio">Portfolio</a></li>
+            <li><a href="kuenstlerin.html" data-i18n="footer.nav.about">Über mich</a></li>
+            <li><a href="portfolio.html" data-i18n="footer.nav.styles">Stile & Techniken</a></li>
+            <li><a href="kontakt.html" data-i18n="footer.nav.contact">Kontakt</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Stile</h4>
+          <h4 data-i18n="footer.styles.title">Stile</h4>
           <ul>
-            <li><a href="portfolio.html#bunt">Bunt</a></li>
-            <li><a href="portfolio.html#sw">Schwarz-Weiß</a></li>
-            <li><a href="portfolio.html#surrealismus">Surrealismus & Farbe</a></li>
-            <li><a href="portfolio.html#coverup">Cover-Ups</a></li>
+            <li><a href="portfolio.html#bunt" data-i18n="footer.s.colorful">Bunt</a></li>
+            <li><a href="portfolio.html#sw" data-i18n="footer.s.bw">Schwarz-Weiß</a></li>
+            <li><a href="portfolio.html#surrealismus" data-i18n="footer.s.surreal">Surrealismus &amp; Farbe</a></li>
+            <li><a href="portfolio.html#coverup" data-i18n="footer.s.coverup">Cover-Ups</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Kontakt</h4>
+          <h4 data-i18n="footer.contact.title">Kontakt</h4>
           <address>
+            <strong>p-insel Tattoos</strong><br>
             Detmolder Strasse 119<br>
             33175 Bad Lippspringe
           </address>
+          <div class="footer-hours">
+            <div class="footer-hours-row">
+              <span data-i18n="footer.hours.label">Termine</span>
+              <span data-i18n="footer.hours.val">Nach Vereinbarung</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;width:100%;">
-      <p>© 2026 p-insel Tattoos · Pia Insel</p>
+      <p>© 2026 p-insel Tattoos · Pia Insel · Bad Lippspringe</p>
       <div class="footer-bottom-links">
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
@@ -894,5 +911,6 @@
     }
   },{passive:true});
 </script>
+<script src="lang.js"></script>
 </body>
 </html>

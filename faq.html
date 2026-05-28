@@ -205,7 +205,7 @@
     }
     .price-imgs-5 {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 8px;
     }
     .price-imgs-3 {
@@ -237,6 +237,14 @@
       border-radius: 4px;
     }
     .lb-thumb:hover::after { background: rgba(255,45,120,.08); }
+
+    /* Price images — static display, no lightbox interaction */
+    .price-section .lb-thumb {
+      cursor: default;
+      pointer-events: none;
+    }
+    .price-section .lb-thumb:hover img { transform: none; }
+    .price-section .lb-thumb::after { display: none; }
 
     @media (max-width: 600px) {
       .price-imgs-5 { grid-template-columns: repeat(3, 1fr); }
@@ -273,13 +281,18 @@
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="img/logo-hires.png" alt="p-insel Tattoos" class="nav-logo-img"></a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="kuenstlerin.html">Über mich</a></li>
-      <li><a href="faq.html" class="active">FAQ</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+      <li><a href="kuenstlerin.html" data-i18n="nav.about">Über mich</a></li>
+      <li><a href="faq.html" class="active" data-i18n="nav.faq">FAQ</a></li>
+      <li><a href="kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
     </ul>
-    <a href="kontakt.html" class="nav-cta">Termin anfragen</a>
+    <a href="kontakt.html" class="nav-cta" data-i18n="nav.cta">Termin anfragen</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="de">DE</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
     <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -290,18 +303,23 @@
     <button class="drawer-close" id="drawer-close" aria-label="Menü schließen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
   </div>
   <nav class="drawer-nav">
-    <a href="index.html">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="kuenstlerin.html">Über mich</a>
-    <a href="faq.html" class="active">FAQ</a>
-    <a href="kontakt.html">Kontakt</a>
+    <a href="index.html" data-i18n="nav.home">Home</a>
+    <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
+    <a href="kuenstlerin.html" data-i18n="nav.about">Über mich</a>
+    <a href="faq.html" class="active" data-i18n="nav.faq">FAQ</a>
+    <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
   </nav>
   <div class="drawer-footer">
     <div class="drawer-footer-contact">
       <a href="mailto:terminwunsch123@p-insel.de">terminwunsch123@p-insel.de</a><br>
       Detmolder Str. 119 · Bad Lippspringe
     </div>
-    <a href="kontakt.html" class="drawer-cta-link">Termin anfragen</a>
+    <div class="drawer-lang-switcher">
+      <button class="lang-btn" data-lang="de">DE</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <a href="kontakt.html" class="drawer-cta-link" data-i18n="drawer.cta">Termin anfragen</a>
   </div>
 </div>
 
@@ -313,9 +331,9 @@
   <div class="faq-hero-overlay"></div>
   <div class="faq-hero-content">
     <div class="container">
-      <div class="faq-hero-eyebrow">Häufige Fragen</div>
-      <h1 class="faq-hero-h1">Alles was du<br><em>wissen musst</em></h1>
-      <p class="faq-hero-sub">Fragen zur Vorbereitung und dem Ablauf? Hier findest du Antworten.</p>
+      <div class="faq-hero-eyebrow" data-i18n="faq.hero.eyebrow">Häufige Fragen</div>
+      <h1 class="faq-hero-h1" data-i18n="faq.hero.h1">Alles was du<br><em>wissen musst</em></h1>
+      <p class="faq-hero-sub" data-i18n="faq.hero.sub">Fragen zur Vorbereitung und dem Ablauf? Hier findest du Antworten.</p>
     </div>
   </div>
 </header>
@@ -334,21 +352,21 @@
     <div class="faq-block reveal" data-delay="1">
       <button class="faq-trigger" aria-expanded="false">
         <span class="faq-trigger-num">01</span>
-        <span class="faq-trigger-text">Was kostet ein Tattoo von Pia Insel?</span>
+        <span class="faq-trigger-text" data-i18n="faq.q1">Was kostet ein Tattoo von Pia Insel?</span>
         <span class="faq-toggle-icon" aria-hidden="true">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
         </span>
       </button>
       <div class="faq-body">
         <div class="faq-body-inner">
-          <p><span style="color:#ffffff;font-weight:700;">Jedes Tattoo ist unterschiedlich</span> und hängt von einigen Faktoren ab: welche Körperstelle tätowiert wird, wie groß es ist und ob es sehr bunt oder nicht bunt werden soll.</p>
-          <p>Vor allem der Unterschied zwischen einem neuen Tattoowunsch und einem Cover-up (ein altes Tattoo überstechen) ist nicht zu unterschätzen. Ein Cover-up hat dementsprechend einen Mehraufwand.</p>
+          <p data-i18n="faq.a1.p1"><span style="color:#ffffff;font-weight:700;">Jedes Tattoo ist unterschiedlich</span> und hängt von einigen Faktoren ab: welche Körperstelle tätowiert wird, wie groß es ist und ob es sehr bunt oder nicht bunt werden soll.</p>
+          <p data-i18n="faq.a1.p2">Vor allem der Unterschied zwischen einem neuen Tattoowunsch und einem Cover-up (ein altes Tattoo überstechen) ist nicht zu unterschätzen. Ein Cover-up hat dementsprechend einen Mehraufwand.</p>
 
           <!-- Preisbeispiele -->
           <div class="price-section">
             <div class="price-cat">
               <div class="price-cat-head">
-                <span class="price-cat-name">Bunte Tattoos &amp; Surrealismus</span>
+                <span class="price-cat-name" data-i18n="faq.price.bunt">Bunte Tattoos &amp; Surrealismus</span>
                 <span class="price-pill">1.000 – 1.200 €</span>
               </div>
               <div class="price-imgs-5" data-lb-group="bunt">
@@ -361,7 +379,7 @@
             </div>
             <div class="price-cat">
               <div class="price-cat-head">
-                <span class="price-cat-name">Cover-up Arbeiten</span>
+                <span class="price-cat-name" data-i18n="faq.price.coverup">Cover-up Arbeiten</span>
                 <span class="price-pill">1.200 – 1.600 €</span>
               </div>
               <div class="price-imgs-3" data-lb-group="coverup">
@@ -372,7 +390,7 @@
             </div>
             <div class="price-cat">
               <div class="price-cat-head">
-                <span class="price-cat-name">Schwarzweiß­arbeiten</span>
+                <span class="price-cat-name" data-i18n="faq.price.sw">Schwarzweiß­arbeiten</span>
                 <span class="price-pill">800 – 1.000 €</span>
               </div>
               <div class="price-imgs-5" data-lb-group="sw">
@@ -392,15 +410,15 @@
     <div class="faq-block reveal" data-delay="1">
       <button class="faq-trigger" aria-expanded="false">
         <span class="faq-trigger-num">02</span>
-        <span class="faq-trigger-text">Lehnst du auch etwas ab?</span>
+        <span class="faq-trigger-text" data-i18n="faq.q2">Lehnst du auch etwas ab?</span>
         <span class="faq-toggle-icon" aria-hidden="true">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
         </span>
       </button>
       <div class="faq-body">
         <div class="faq-body-inner">
-          <p>Ich nehme nur Projekte an, die meinem Stil entsprechen. Also kommst du mit einer Pinterest-Vorlage und sagst: „ich will genau das" — wird das nicht passieren. <strong>Inspiration dürfen wir uns holen, aber wir betreiben keinen Kunstraub!</strong></p>
-          <p>Ich behalte mir vor, einzelne Schriften, Symbole und alle Motive, die mir keinen <span style="color:#ffffff;font-weight:700;">kreativen Freiraum</span> geben, abzulehnen. Auch Stellen wie Finger, hinter dem Ohr oder alles unterhalb des Fußknöchels tätowiere ich nicht.</p>
+          <p data-i18n="faq.a2.p1">Ich nehme nur Projekte an, die meinem Stil entsprechen. Also kommst du mit einer Pinterest-Vorlage und sagst: „ich will genau das" — wird das nicht passieren. <strong>Inspiration dürfen wir uns holen, aber wir betreiben keinen Kunstraub!</strong></p>
+          <p data-i18n="faq.a2.p2">Ich behalte mir vor, einzelne Schriften, Symbole und alle Motive, die mir keinen <span style="color:#ffffff;font-weight:700;">kreativen Freiraum</span> geben, abzulehnen. Auch Stellen wie Finger, hinter dem Ohr oder alles unterhalb des Fußknöchels tätowiere ich nicht.</p>
         </div>
       </div>
     </div>
@@ -409,21 +427,21 @@
     <div class="faq-block reveal" data-delay="1">
       <button class="faq-trigger" aria-expanded="false">
         <span class="faq-trigger-num">03</span>
-        <span class="faq-trigger-text">Wie finde ich heraus, ob du meinen Cover-up Wunsch erfüllst?</span>
+        <span class="faq-trigger-text" data-i18n="faq.q3">Wie finde ich heraus, ob du meinen Cover-up Wunsch erfüllst?</span>
         <span class="faq-toggle-icon" aria-hidden="true">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
         </span>
       </button>
       <div class="faq-body">
         <div class="faq-body-inner">
-          <p>Für solche besonderen Fälle biete ich außerhalb der Terminvergabe <strong>Online-Beratungen</strong> an. Nur die Beratung — der Termin folgt erst zur Quartalsvergabe.</p>
-          <p>Schreib mir dazu bitte eine E-Mail mit:</p>
+          <p data-i18n="faq.a3.p1">Für solche besonderen Fälle biete ich außerhalb der Terminvergabe <strong>Online-Beratungen</strong> an. Nur die Beratung — der Termin folgt erst zur Quartalsvergabe.</p>
+          <p data-i18n="faq.a3.p2">Schreib mir dazu bitte eine E-Mail mit:</p>
           <ul>
-            <li>einem Foto deines vorhandenen Tattoos</li>
-            <li>Bilder deiner Idee</li>
-            <li>einer kurzen Info, wie du es dir vorstellst</li>
+            <li data-i18n="faq.a3.li1">einem Foto deines vorhandenen Tattoos</li>
+            <li data-i18n="faq.a3.li2">Bilder deiner Idee</li>
+            <li data-i18n="faq.a3.li3">einer kurzen Info, wie du es dir vorstellst</li>
           </ul>
-          <p style="margin-top:.8rem;">Mail: <a href="mailto:terminwunsch123@p-insel.de">terminwunsch123@p-insel.de</a></p>
+          <p style="margin-top:.8rem;" data-i18n="faq.a3.mail">Mail: <a href="mailto:terminwunsch123@p-insel.de">terminwunsch123@p-insel.de</a></p>
         </div>
       </div>
     </div>
@@ -432,15 +450,15 @@
     <div class="faq-block reveal" data-delay="1">
       <button class="faq-trigger" aria-expanded="false">
         <span class="faq-trigger-num">04</span>
-        <span class="faq-trigger-text">Wie lange dauert ein Tattoo-Termin?</span>
+        <span class="faq-trigger-text" data-i18n="faq.q4">Wie lange dauert ein Tattoo-Termin?</span>
         <span class="faq-toggle-icon" aria-hidden="true">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
         </span>
       </button>
       <div class="faq-body">
         <div class="faq-body-inner">
-          <p>Für eine Tagessitzung planst du einen Aufenthalt von ca. <strong>6 Stunden</strong> — stressfreie Me-Time, ohne Unterbrechungen, damit ich mich voll und ganz auf deinen Tattootraum konzentrieren kann.</p>
-          <p>Ein Beispiel: Für einen kompletten Arm (Sleeve) brauche ich ca. <strong>4–6 Termine</strong>. Pro Tagestermin schaffe ich ca. eine <strong>DIN-A4-große Fläche</strong> als Orientierung.</p>
+          <p data-i18n="faq.a4.p1">Für eine Tagessitzung planst du einen Aufenthalt von ca. <strong>6 Stunden</strong> — stressfreie Me-Time, ohne Unterbrechungen, damit ich mich voll und ganz auf deinen Tattootraum konzentrieren kann.</p>
+          <p data-i18n="faq.a4.p2">Ein Beispiel: Für einen kompletten Arm (Sleeve) brauche ich ca. <strong>4–6 Termine</strong>. Pro Tagestermin schaffe ich ca. eine <strong>DIN-A4-große Fläche</strong> als Orientierung.</p>
         </div>
       </div>
     </div>
@@ -449,15 +467,15 @@
     <div class="faq-block reveal" data-delay="1">
       <button class="faq-trigger" aria-expanded="false">
         <span class="faq-trigger-num">05</span>
-        <span class="faq-trigger-text">Wie zahle ich?</span>
+        <span class="faq-trigger-text" data-i18n="faq.q5">Wie zahle ich?</span>
         <span class="faq-toggle-icon" aria-hidden="true">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
         </span>
       </button>
       <div class="faq-body">
         <div class="faq-body-inner">
-          <p>Es kann <strong>bar</strong> oder per <strong>Sofortüberweisung (Online-Banking)</strong> gezahlt werden. Ratenzahlung wird nicht akzeptiert.</p>
-          <p>Bezahlt wird am Ende jeden Termins. Brichst du deine Sitzung ungeplant ab, hast du keinen Anspruch auf einen reduzierten Preis.</p>
+          <p data-i18n="faq.a5.p1">Es kann <strong>bar</strong> oder per <strong>Sofortüberweisung (Online-Banking)</strong> gezahlt werden. Ratenzahlung wird nicht akzeptiert.</p>
+          <p data-i18n="faq.a5.p2">Bezahlt wird am Ende jeden Termins. Brichst du deine Sitzung ungeplant ab, hast du keinen Anspruch auf einen reduzierten Preis.</p>
         </div>
       </div>
     </div>
@@ -466,7 +484,7 @@
     <div class="faq-block reveal" data-delay="1">
       <button class="faq-trigger" aria-expanded="false">
         <span class="faq-trigger-num">06</span>
-        <span class="faq-trigger-text">Wie bereite ich mich auf den Termin vor?</span>
+        <span class="faq-trigger-text" data-i18n="faq.q6">Wie bereite ich mich auf den Termin vor?</span>
         <span class="faq-toggle-icon" aria-hidden="true">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
         </span>
@@ -474,16 +492,16 @@
       <div class="faq-body">
         <div class="faq-body-inner">
           <ul>
-            <li><span style="color:#ffffff;font-weight:700;">Freu dich drauf!</span></li>
-            <li>Komme ausgeruht und stressfrei zu deinem Termin</li>
-            <li>Gönn dir vorher etwas Leckeres und Gesundes — nichts Schweres</li>
-            <li>Bring bei längeren Sitzungen gerne einen Snack mit</li>
-            <li>Trage dunkle, bequeme Kleidung — z.B. einen Hoody, den man von vorne anziehen kann, bei rückenfreien Motiven</li>
-            <li><strong>Das Atelier ist eine schuhfreie Zone</strong> — dicke Socken oder Puschen mitbringen</li>
-            <li>Bring ein Handtuch mit</li>
-            <li>Bei Nervosität: Kopfhörer und Lieblingsmusik einpacken</li>
-            <li>Vertraue auf deine Künstlerin</li>
-            <li><strong>Quality-time-Modus an!</strong></li>
+            <li data-i18n="faq.a6.li1"><span style="color:#ffffff;font-weight:700;">Freu dich drauf!</span></li>
+            <li data-i18n="faq.a6.li2">Komme ausgeruht und stressfrei zu deinem Termin</li>
+            <li data-i18n="faq.a6.li3">Gönn dir vorher etwas Leckeres und Gesundes — nichts Schweres</li>
+            <li data-i18n="faq.a6.li4">Bring bei längeren Sitzungen gerne einen Snack mit</li>
+            <li data-i18n="faq.a6.li5">Trage dunkle, bequeme Kleidung — z.B. einen Hoody, den man von vorne anziehen kann, bei rückenfreien Motiven</li>
+            <li data-i18n="faq.a6.li6"><strong>Das Atelier ist eine schuhfreie Zone</strong> — dicke Socken oder Puschen mitbringen</li>
+            <li data-i18n="faq.a6.li7">Bring ein Handtuch mit</li>
+            <li data-i18n="faq.a6.li8">Bei Nervosität: Kopfhörer und Lieblingsmusik einpacken</li>
+            <li data-i18n="faq.a6.li9">Vertraue auf deine Künstlerin</li>
+            <li data-i18n="faq.a6.li10"><strong>Quality-time-Modus an!</strong></li>
           </ul>
         </div>
       </div>
@@ -493,22 +511,22 @@
     <div class="faq-block reveal" data-delay="1">
       <button class="faq-trigger" aria-expanded="false">
         <span class="faq-trigger-num">07</span>
-        <span class="faq-trigger-text">Wie pflege ich mein neues Tattoo?</span>
+        <span class="faq-trigger-text" data-i18n="faq.q7">Wie pflege ich mein neues Tattoo?</span>
         <span class="faq-toggle-icon" aria-hidden="true">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
         </span>
       </button>
       <div class="faq-body">
         <div class="faq-body-inner">
-          <p>Hast du endlich dein lang ersehntes Tattoo, erkläre ich dir alles Wichtige zur Wundversorgung. Ab diesem Moment bist du alleine für die Versorgung und Abheilung verantwortlich.</p>
-          <p>Die vollständige Pflegeanleitung kannst du hier als PDF herunterladen:</p>
+          <p data-i18n="faq.a7.p1">Hast du endlich dein lang ersehntes Tattoo, erkläre ich dir alles Wichtige zur Wundversorgung. Ab diesem Moment bist du alleine für die Versorgung und Abheilung verantwortlich.</p>
+          <p data-i18n="faq.a7.p2">Die vollständige Pflegeanleitung kannst du hier als PDF herunterladen:</p>
           <a href="pflege.html" target="_blank" class="pdf-download-card">
             <div class="pdf-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
             </div>
             <div class="pdf-text">
-              <strong>Pflegeanleitung herunterladen</strong>
-              <span>PDF · Tattoo Nachsorge von Pia Insel</span>
+              <strong data-i18n="faq.pdf.title">Pflegeanleitung herunterladen</strong>
+              <span data-i18n="faq.pdf.sub">PDF · Tattoo Nachsorge von Pia Insel</span>
             </div>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:auto;flex-shrink:0;color:var(--accent);"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -524,36 +542,83 @@
   <div class="parallax-bg" id="faq-cta-bg" data-speed="0.12" style="background-image:url('img/malerei/schaedel-blumen.jpeg');"></div>
   <div class="parallax-overlay" style="background:rgba(10,10,10,.72);"></div>
   <div class="container" style="position:relative;z-index:2;">
-    <div class="section-eyebrow reveal" style="color:rgba(255,255,255,.6);">Bereit?</div>
-    <h2 class="section-title reveal" data-delay="1" style="color:#fff;font-size:clamp(2rem,5vw,3.8rem);">
+    <div class="section-eyebrow reveal" style="color:rgba(255,255,255,.6);" data-i18n="faq.cta.eyebrow">Bereit?</div>
+    <h2 class="section-title reveal" data-delay="1" style="color:#fff;font-size:clamp(2rem,5vw,3.8rem);" data-i18n="faq.cta.title">
       Dein nächstes Tattoo<br><span>wartet auf dich</span>
     </h2>
-    <p class="reveal" data-delay="2" style="color:rgba(255,255,255,.7);max-width:520px;margin:0 auto 2.5rem;font-size:.95rem;line-height:1.75;">
+    <p class="reveal" data-delay="2" style="color:rgba(255,255,255,.7);max-width:520px;margin:0 auto 2.5rem;font-size:.95rem;line-height:1.75;" data-i18n="faq.cta.desc">
       Schick mir deine Idee – und wir erschaffen gemeinsam etwas,<br>das du ein Leben lang tragen wirst.
     </p>
-    <a href="kontakt.html" class="btn btn-gold reveal" data-delay="3">
+    <a href="kontakt.html" class="btn btn-gold reveal" data-delay="3" data-i18n="faq.cta.btn">
       Terminanfrage senden
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </div>
 </section>
 
-<footer>
-  <div class="footer-main"><div class="container"><div class="footer-grid">
-    <div class="footer-brand"><a href="index.html" class="footer-logo-text"><img src="img/logo-hires.png" alt="p-insel Tattoos" style="height:110px;width:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.6));"></a><p>Tattoo Studio in Bad Lippspringe. Pia Insel – Tätowiererin & Malerin seit 2015.</p>
+<footer role="contentinfo">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-text">
+            <img src="img/logo-hires.png" alt="p-insel Tattoos" style="height:130px;width:auto;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));">
+          </a>
+          <p>Tattoo Studio in Bad Lippspringe – Wo Kunst entsteht und Momente für die Ewigkeit festgehalten werden. Pia Insel, Tätowiererin & Malerin.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/pia_insel_tattoos" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
             </a>
             <a href="https://www.facebook.com/PiaInselTattoo" target="_blank" rel="noopener" aria-label="Facebook">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
             </a>
-          </div></div>
-    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Startseite</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="kuenstlerin.html">Über mich</a></li><li><a href="faq.html">FAQ</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
-    <div class="footer-col"><h4>Stile</h4><ul><li><a href="portfolio.html#bunt">Bunt</a></li><li><a href="portfolio.html#sw">Schwarz-Weiß</a></li><li><a href="portfolio.html#surrealismus">Surrealismus &amp; Farbe</a></li><li><a href="portfolio.html#coverup">Cover-Ups</a></li></ul></div>
-    <div class="footer-col"><h4>Kontakt</h4><address>Detmolder Strasse 119<br>33175 Bad Lippspringe</address></div>
-  </div></div></div>
-  <div class="footer-bottom"><div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;width:100%;"><p>© 2026 p-insel Tattoos · Pia Insel</p><div class="footer-bottom-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></div></div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.nav.title">Navigation</h4>
+          <ul>
+            <li><a href="index.html" data-i18n="footer.nav.home">Startseite</a></li>
+            <li><a href="portfolio.html" data-i18n="footer.nav.portfolio">Portfolio</a></li>
+            <li><a href="kuenstlerin.html" data-i18n="footer.nav.about">Über mich</a></li>
+            <li><a href="portfolio.html" data-i18n="footer.nav.styles">Stile & Techniken</a></li>
+            <li><a href="kontakt.html" data-i18n="footer.nav.contact">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.styles.title">Stile</h4>
+          <ul>
+            <li><a href="portfolio.html#bunt" data-i18n="footer.s.colorful">Bunt</a></li>
+            <li><a href="portfolio.html#sw" data-i18n="footer.s.bw">Schwarz-Weiß</a></li>
+            <li><a href="portfolio.html#surrealismus" data-i18n="footer.s.surreal">Surrealismus &amp; Farbe</a></li>
+            <li><a href="portfolio.html#coverup" data-i18n="footer.s.coverup">Cover-Ups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contact.title">Kontakt</h4>
+          <address>
+            <strong>p-insel Tattoos</strong><br>
+            Detmolder Strasse 119<br>
+            33175 Bad Lippspringe
+          </address>
+          <div class="footer-hours">
+            <div class="footer-hours-row">
+              <span data-i18n="footer.hours.label">Termine</span>
+              <span data-i18n="footer.hours.val">Nach Vereinbarung</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;width:100%;">
+      <p>© 2026 p-insel Tattoos · Pia Insel · Bad Lippspringe</p>
+      <div class="footer-bottom-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script>
@@ -592,7 +657,7 @@
   let lbIndex = 0;
 
   function collectImages() {
-    lbImages = Array.from(document.querySelectorAll('.lb-thumb'));
+    lbImages = Array.from(document.querySelectorAll('.lb-thumb')).filter(t => !t.closest('.price-section'));
   }
 
   function openLb(thumb) {
@@ -623,6 +688,7 @@
   }
 
   document.querySelectorAll('.lb-thumb').forEach(t => {
+    if (t.closest('.price-section')) return;
     t.addEventListener('click', () => openLb(t));
   });
   document.getElementById('lb-close').addEventListener('click', closeLb);
@@ -673,5 +739,6 @@
   const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}}),{threshold:0.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
+<script src="lang.js"></script>
 </body>
 </html>

@@ -19,13 +19,18 @@
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="img/logo-hires.png" alt="p-insel Tattoos" class="nav-logo-img"></a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="kuenstlerin.html">Über mich</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+      <li><a href="kuenstlerin.html" data-i18n="nav.about">Über mich</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      <li><a href="kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
     </ul>
-    <a href="kontakt.html" class="nav-cta">Termin anfragen</a>
+    <a href="kontakt.html" class="nav-cta" data-i18n="nav.cta">Termin anfragen</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="de">DE</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
     <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -36,31 +41,36 @@
     <button class="drawer-close" id="drawer-close" aria-label="Menü schließen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
   </div>
   <nav class="drawer-nav">
-    <a href="index.html">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="kuenstlerin.html">Über mich</a>
-    <a href="faq.html">FAQ</a>
-    <a href="kontakt.html">Kontakt</a>
+    <a href="index.html" data-i18n="nav.home">Home</a>
+    <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
+    <a href="kuenstlerin.html" data-i18n="nav.about">Über mich</a>
+    <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+    <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
   </nav>
   <div class="drawer-footer">
     <div class="drawer-footer-contact">
       <a href="mailto:terminwunsch123@p-insel.de">terminwunsch123@p-insel.de</a><br>
       Detmolder Str. 119 · Bad Lippspringe
     </div>
-    <a href="kontakt.html" class="drawer-cta-link">Termin anfragen</a>
+    <div class="drawer-lang-switcher">
+      <button class="lang-btn" data-lang="de">DE</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <a href="kontakt.html" class="drawer-cta-link" data-i18n="drawer.cta">Termin anfragen</a>
   </div>
 </div>
 
 <header class="page-hero">
   <div class="container">
     <div class="page-hero-eyebrow">p-insel Tattoos</div>
-    <h1>Anfahrt & <span>Lage</span></h1>
-    <p>Das Atelier liegt in Bad Lippspringe, direkt an der Detmolder Strasse 119 – gut erreichbar aus Paderborn und Umgebung.</p>
+    <h1 data-i18n="anfahrt.hero.h1">Anfahrt &amp; <span>Lage</span></h1>
+    <p data-i18n="anfahrt.hero.desc">Das Atelier liegt in Bad Lippspringe, direkt an der Detmolder Strasse 119 – gut erreichbar aus Paderborn und Umgebung.</p>
   </div>
 </header>
 <div class="container">
   <nav class="breadcrumb">
-    <a href="index.html">Home</a><span class="bc-sep">›</span><span class="bc-current">Anfahrt</span>
+    <a href="index.html">Home</a><span class="bc-sep">›</span><span class="bc-current" data-i18n="anfahrt.bc">Anfahrt</span>
   </nav>
 </div>
 
@@ -69,8 +79,8 @@
     <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start;" class="why-grid">
       <!-- Info -->
       <div>
-        <div class="section-eyebrow reveal">Finde das Tattoo Atelier für deine Auszeit</div>
-        <h2 class="section-title reveal" data-delay="1" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">
+        <div class="section-eyebrow reveal" data-i18n="anfahrt.eyebrow">Finde das Tattoo Atelier für deine Auszeit</div>
+        <h2 class="section-title reveal" data-delay="1" style="font-size:clamp(1.8rem,3.5vw,2.6rem);" data-i18n="anfahrt.h2">
           Adresse &amp; <span>Kontakt</span>
         </h2>
 
@@ -80,7 +90,7 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
             <div>
-              <div class="contact-label">Adresse</div>
+              <div class="contact-label" data-i18n="anfahrt.lbl.address">Adresse</div>
               <span class="contact-value">
                 p-insel Tattoos<br>
                 Detmolder Strasse 119<br>
@@ -94,7 +104,7 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </div>
             <div>
-              <div class="contact-label">E-Mail</div>
+              <div class="contact-label" data-i18n="anfahrt.lbl.email">E-Mail</div>
               <a href="mailto:terminwunsch123@p-insel.de" class="contact-value">terminwunsch123@p-insel.de</a>
             </div>
           </div>
@@ -104,28 +114,28 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
             <div>
-              <div class="contact-label">Öffnungszeiten</div>
-              <span class="contact-value">Nach Vereinbarung</span>
+              <div class="contact-label" data-i18n="anfahrt.lbl.hours">Öffnungszeiten</div>
+              <span class="contact-value" data-i18n="anfahrt.hours.val">Nach Vereinbarung</span>
             </div>
           </div>
         </div>
 
         <div style="margin-top:2rem;" class="reveal" data-delay="4">
-          <div class="section-eyebrow" style="margin-bottom:1rem;">Mit dem Auto</div>
-          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.75;">
+          <div class="section-eyebrow" style="margin-bottom:1rem;" data-i18n="anfahrt.car.title">Mit dem Auto</div>
+          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.75;" data-i18n="anfahrt.car.text">
             Bad Lippspringe liegt direkt an der B1, ca. 8 km östlich von Paderborn. Die Detmolder Strasse 119 ist gut ausgeschildert. Parkplätze sind in der Nähe vorhanden.
           </p>
         </div>
 
         <div style="margin-top:1.5rem;" class="reveal" data-delay="5">
-          <div class="section-eyebrow" style="margin-bottom:1rem;">Mit dem ÖPNV</div>
-          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.75;">
+          <div class="section-eyebrow" style="margin-bottom:1rem;" data-i18n="anfahrt.bus.title">Mit dem ÖPNV</div>
+          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.75;" data-i18n="anfahrt.bus.text">
             Vom Paderborner Hauptbahnhof mit dem Bus Richtung Bad Lippspringe. Haltestelle in der Nähe des Studios.
           </p>
         </div>
 
         <div style="margin-top:2rem;" class="reveal" data-delay="4">
-          <a href="https://maps.google.com/?q=Detmolder+Strasse+119,+33175+Bad+Lippspringe" target="_blank" rel="noopener" class="btn btn-gold">
+          <a href="https://maps.google.com/?q=Detmolder+Strasse+119,+33175+Bad+Lippspringe" target="_blank" rel="noopener" class="btn btn-gold" data-i18n="anfahrt.gmaps">
             In Google Maps öffnen
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -148,22 +158,69 @@
   </div>
 </section>
 
-<footer>
-  <div class="footer-main"><div class="container"><div class="footer-grid">
-    <div class="footer-brand"><a href="index.html" class="footer-logo-text"><img src="img/logo-hires.png" alt="p-insel Tattoos" style="height:110px;width:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.6));"></a><p>Tattoo Studio in Bad Lippspringe. Pia Insel – Tätowiererin & Malerin seit 2015.</p>
+<footer role="contentinfo">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-text">
+            <img src="img/logo-hires.png" alt="p-insel Tattoos" style="height:130px;width:auto;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));">
+          </a>
+          <p>Tattoo Studio in Bad Lippspringe – Wo Kunst entsteht und Momente für die Ewigkeit festgehalten werden. Pia Insel, Tätowiererin & Malerin.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/pia_insel_tattoos" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
             </a>
             <a href="https://www.facebook.com/PiaInselTattoo" target="_blank" rel="noopener" aria-label="Facebook">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
             </a>
-          </div></div>
-    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Startseite</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="kuenstlerin.html">Über mich</a></li><li><a href="faq.html">FAQ</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
-    <div class="footer-col"><h4>Stile</h4><ul><li><a href="portfolio.html#bunt">Bunt</a></li><li><a href="portfolio.html#sw">Schwarz-Weiß</a></li><li><a href="portfolio.html#surrealismus">Surrealismus &amp; Farbe</a></li><li><a href="portfolio.html#coverup">Cover-Ups</a></li></ul></div>
-    <div class="footer-col"><h4>Kontakt</h4><address>Detmolder Strasse 119<br>33175 Bad Lippspringe</address></div>
-  </div></div></div>
-  <div class="footer-bottom"><div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;width:100%;"><p>© 2026 p-insel Tattoos · Pia Insel</p><div class="footer-bottom-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></div></div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.nav.title">Navigation</h4>
+          <ul>
+            <li><a href="index.html" data-i18n="footer.nav.home">Startseite</a></li>
+            <li><a href="portfolio.html" data-i18n="footer.nav.portfolio">Portfolio</a></li>
+            <li><a href="kuenstlerin.html" data-i18n="footer.nav.about">Über mich</a></li>
+            <li><a href="portfolio.html" data-i18n="footer.nav.styles">Stile & Techniken</a></li>
+            <li><a href="kontakt.html" data-i18n="footer.nav.contact">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.styles.title">Stile</h4>
+          <ul>
+            <li><a href="portfolio.html#bunt" data-i18n="footer.s.colorful">Bunt</a></li>
+            <li><a href="portfolio.html#sw" data-i18n="footer.s.bw">Schwarz-Weiß</a></li>
+            <li><a href="portfolio.html#surrealismus" data-i18n="footer.s.surreal">Surrealismus &amp; Farbe</a></li>
+            <li><a href="portfolio.html#coverup" data-i18n="footer.s.coverup">Cover-Ups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contact.title">Kontakt</h4>
+          <address>
+            <strong>p-insel Tattoos</strong><br>
+            Detmolder Strasse 119<br>
+            33175 Bad Lippspringe
+          </address>
+          <div class="footer-hours">
+            <div class="footer-hours-row">
+              <span data-i18n="footer.hours.label">Termine</span>
+              <span data-i18n="footer.hours.val">Nach Vereinbarung</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;width:100%;">
+      <p>© 2026 p-insel Tattoos · Pia Insel · Bad Lippspringe</p>
+      <div class="footer-bottom-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script>
@@ -178,5 +235,6 @@
   const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}}),{threshold:0.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
+<script src="lang.js"></script>
 </body>
 </html>

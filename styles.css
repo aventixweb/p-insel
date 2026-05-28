@@ -175,8 +175,10 @@ body.has-dark-hero { padding-top: 0; }
   color: var(--text);
   text-decoration: none;
   flex-shrink: 0;
-  line-height: 1;
+  line-height: 0;
   align-self: center;
+  display: flex;
+  align-items: center;
 }
 .nav-logo span { color: var(--accent); }
 .nav-logo-img {
@@ -187,6 +189,7 @@ body.has-dark-hero { padding-top: 0; }
   z-index: 1001;
   filter: drop-shadow(0 2px 16px rgba(0,0,0,.85));
   transition: opacity .2s;
+  margin-top: 10px;
 }
 .nav-logo:hover .nav-logo-img { opacity: .8; }
 
@@ -240,6 +243,65 @@ body.has-dark-hero { padding-top: 0; }
   background: var(--accent-hover);
   border-color: var(--accent-hover);
   transform: translateY(-1px);
+}
+
+/* ── Language switcher ── */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: .2rem;
+  margin-left: .2rem;
+}
+.lang-btn {
+  background: none;
+  border: 1px solid transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-family: var(--font-h);
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  padding: .28rem .5rem;
+  text-transform: uppercase;
+  transition: color .2s, border-color .2s;
+  border-radius: 3px;
+  line-height: 1;
+}
+.lang-btn.active {
+  color: var(--accent);
+  border-color: rgba(255,45,120,.35);
+}
+.lang-btn:hover:not(.active) { color: var(--text); }
+.lang-sep {
+  color: var(--border);
+  font-size: .65rem;
+  pointer-events: none;
+  user-select: none;
+}
+@media (max-width: 900px) {
+  /* Hide from nav bar — lang picker lives inside the drawer on mobile */
+  .nav-inner .lang-switcher { display: none; }
+}
+
+/* Drawer lang-switcher */
+.drawer-lang-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .3rem;
+  padding: .9rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: .4rem 0 1rem;
+}
+.drawer-lang-switcher .lang-btn {
+  font-size: .75rem;
+  padding: .5rem 1.4rem;
+  border-radius: 4px;
+  letter-spacing: .12em;
+}
+.drawer-lang-switcher .lang-sep {
+  font-size: .7rem;
 }
 
 /* hamburger */
@@ -787,7 +849,7 @@ footer .divider { border-top-color: #2a2a2a; }
   margin-top: 1.3rem;
 }
 .footer-social a {
-  width: 36px; height: 36px;
+  width: 46px; height: 46px;
   border: 1px solid var(--border);
   border-radius: 4px;
   display: flex; align-items: center; justify-content: center;

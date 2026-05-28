@@ -36,13 +36,18 @@
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="img/logo-hires.png" alt="p-insel Tattoos" class="nav-logo-img"></a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="kuenstlerin.html" class="active">Über mich</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+      <li><a href="kuenstlerin.html" class="active" data-i18n="nav.about">Über mich</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      <li><a href="kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
     </ul>
-    <a href="kontakt.html" class="nav-cta">Termin anfragen</a>
+    <a href="kontakt.html" class="nav-cta" data-i18n="nav.cta">Termin anfragen</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="de">DE</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
     <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -53,18 +58,23 @@
     <button class="drawer-close" id="drawer-close" aria-label="Menü schließen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
   </div>
   <nav class="drawer-nav">
-    <a href="index.html">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="kuenstlerin.html" class="active">Über mich</a>
-    <a href="faq.html">FAQ</a>
-    <a href="kontakt.html">Kontakt</a>
+    <a href="index.html" data-i18n="nav.home">Home</a>
+    <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
+    <a href="kuenstlerin.html" class="active" data-i18n="nav.about">Über mich</a>
+    <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+    <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
   </nav>
   <div class="drawer-footer">
     <div class="drawer-footer-contact">
       <a href="mailto:terminwunsch123@p-insel.de">terminwunsch123@p-insel.de</a><br>
       Detmolder Str. 119 · Bad Lippspringe
     </div>
-    <a href="kontakt.html" class="drawer-cta-link">Termin anfragen</a>
+    <div class="drawer-lang-switcher">
+      <button class="lang-btn" data-lang="de">DE</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <a href="kontakt.html" class="drawer-cta-link" data-i18n="drawer.cta">Termin anfragen</a>
   </div>
 </div>
 
@@ -73,8 +83,8 @@
   <div class="page-hero-bg" style="background-image:url('img/pia-flamingo-atelier.jpeg'); background-position: 72% 12%;"></div>
   <div class="page-hero-overlay"></div>
   <div class="container">
-    <div class="page-hero-eyebrow">Die Künstlerin</div>
-    <h1>Wer ist <span>Pia Insel?</span></h1>
+    <div class="page-hero-eyebrow" data-i18n="k.hero.eyebrow">Die Künstlerin</div>
+    <h1 data-i18n="k.hero.h1">Wer ist <span>Pia Insel?</span></h1>
   </div>
 </header>
 <div class="container">
@@ -91,33 +101,33 @@
         <img src="img/pia-portrait-2.jpeg" alt="Pia Insel — Tätowiererin & Malerin" class="about-img" style="aspect-ratio:3/4;object-fit:cover;">
       </div>
       <div>
-        <div class="section-eyebrow reveal">Über mich</div>
-        <h2 class="section-title reveal" data-delay="1">PIA <span>INSEL</span></h2>
-        <p class="section-desc reveal" data-delay="1" style="font-size:.9rem;letter-spacing:.08em;color:var(--text-mid);margin-top:-.3rem;margin-bottom:1.4rem;">Tätowiererin · Bühnenmalerin · Träumerin mit Nadel.</p>
-        <p class="section-desc reveal" data-delay="2">
-          Ich mag echte Menschen, gute Gespräche und ehrliche Energie. Privat reise ich gern und verschieden, denn ich mag alle Jahreszeiten und nahezu jede Landschaft. Ich verbringe meine Freizeit genauso gern auf Konzerten wie zuhause mit Katastrophen Dokus oder komplett unnötigem aber spannenden Erdkunde Wissen.
+        <div class="section-eyebrow reveal" data-i18n="k.about.eyebrow">Über mich</div>
+        <h2 class="section-title reveal" data-delay="1" data-i18n="k.about.h2">PIA <span>INSEL</span></h2>
+        <p class="section-desc reveal" data-delay="1" style="font-size:.9rem;letter-spacing:.08em;color:var(--text-mid);margin-top:-.3rem;margin-bottom:1.4rem;" data-i18n="k.about.sub">Tätowiererin · Bühnenmalerin · Träumerin mit Nadel.</p>
+        <p class="section-desc reveal" data-delay="2" data-i18n="k.about.p1">
+          Ich mag <strong style="color:var(--text);">echte Menschen</strong>, gute Gespräche und <strong style="color:var(--text);">ehrliche Energie</strong>. Privat reise ich gern und verschieden, denn ich mag alle Jahreszeiten und nahezu jede Landschaft. Ich verbringe meine Freizeit genauso gern auf Konzerten wie zuhause mit Katastrophen Dokus oder komplett unnötigem aber spannenden Erdkunde Wissen.
         </p>
-        <p class="section-desc reveal" data-delay="2" style="margin-top:1rem;">
+        <p class="section-desc reveal" data-delay="2" style="margin-top:1rem;" data-i18n="k.about.p2">
           Durch meine Arbeit durfte ich bereits die Crew von Künstlern wie <strong style="color:var(--text);">Rammstein, Peter Maffay oder Jan Delay</strong> tätowieren — und genau diese Mischung aus Kreativität, Menschen und besonderer Atmosphäre erfüllt mich. Privat und Arbeit verbunden... Selbst- und ständig. So heißt es doch!
         </p>
-        <p class="section-desc reveal" data-delay="2" style="margin-top:1rem;">
-          Mein Kater <strong style="color:var(--text);">Balu</strong> lebt in der festen Überzeugung, ein Hund zu sein, was mich im Alltag regelmäßig an die frische Luft zwingt. Er ist mein Star und ich bin unendlich dankbar für ihn!
+        <p class="section-desc reveal" data-delay="2" style="margin-top:1rem;" data-i18n="k.about.p3">
+          Mein Kater <strong style="color:var(--text);">Balu</strong> lebt in der festen Überzeugung, ein Hund zu sein, was mich im Alltag regelmäßig an die frische Luft zwingt. Er ist <strong style="color:var(--text);">mein Star</strong> und ich bin unendlich dankbar für ihn!
         </p>
-        <p class="section-desc reveal" data-delay="2" style="margin-top:1rem;">
-          Und falls irgendwo Glitzer, laute Musik oder ein quietsch buntes Outfit auftaucht — die Wahrscheinlichkeit ist hoch, dass ich nicht weit weg bin.
+        <p class="section-desc reveal" data-delay="2" style="margin-top:1rem;" data-i18n="k.about.p4">
+          Und falls irgendwo <strong style="color:var(--text);">Glitzer</strong>, laute Musik oder ein quietsch buntes Outfit auftaucht — die Wahrscheinlichkeit ist hoch, dass ich nicht weit weg bin.
         </p>
         <div class="about-tags reveal" data-delay="3">
-          <span class="tag">Realismus</span>
-          <span class="tag">Tierportraits</span>
-          <span class="tag">Surrealismus</span>
-          <span class="tag">Dinosaurier</span>
-          <span class="tag">Farbe & SW</span>
-          <span class="tag">Cat Mom</span>
-          <span class="tag">On Tour</span>
-          <span class="tag">Pinsel</span>
+          <span class="tag" data-i18n="k.tag.realismus">Realismus</span>
+          <span class="tag" data-i18n="k.tag.tierportraits">Tierportraits</span>
+          <span class="tag" data-i18n="k.tag.surrealismus">Surrealismus</span>
+          <span class="tag" data-i18n="k.tag.dino">Dinosaurier</span>
+          <span class="tag" data-i18n="k.tag.farbsw">Farbe &amp; SW</span>
+          <span class="tag" data-i18n="k.tag.catmom">Cat Mom</span>
+          <span class="tag" data-i18n="k.tag.ontour">On Tour</span>
+          <span class="tag" data-i18n="k.tag.pinsel">Pinsel</span>
         </div>
         <div class="reveal" data-delay="4">
-          <a href="kontakt.html" class="btn btn-gold">Jetzt Termin anfragen
+          <a href="kontakt.html" class="btn btn-gold" data-i18n="k.about.cta">Jetzt Termin anfragen
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -129,40 +139,40 @@
 <!-- ZEITLEISTE / MEILENSTEINE -->
 <section class="section section-dark">
   <div class="container">
-    <div class="section-eyebrow reveal" style="justify-content:center;">Werdegang</div>
-    <h2 class="section-title reveal" data-delay="1" style="text-align:center;font-size:clamp(2rem,4vw,3rem);">Meilensteine</h2>
+    <div class="section-eyebrow reveal" style="justify-content:center;" data-i18n="k.milestones.eyebrow">Werdegang</div>
+    <h2 class="section-title reveal" data-delay="1" style="text-align:center;font-size:clamp(2rem,4vw,3rem);" data-i18n="k.milestones.title">Meilensteine</h2>
 
     <div style="max-width:680px;margin:2.5rem auto 0;display:flex;flex-direction:column;gap:0;">
       <div class="reveal" data-delay="1" style="display:flex;gap:1.5rem;padding-bottom:2rem;border-left:1px solid var(--border);padding-left:1.8rem;position:relative;">
         <div style="position:absolute;left:-6px;top:0;width:11px;height:11px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-soft);"></div>
         <div>
-          <div style="font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem;">2015</div>
-          <div style="font-family:var(--font-h);font-size:1.15rem;font-weight:800;text-transform:uppercase;color:var(--text);margin-bottom:.4rem;">Selbstständigkeit</div>
-          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.7;">Schritt in die Selbstständigkeit als Tätowiererin. Nach 12 Jahren Bühnenmalerei beginnt ein neues Kapitel.</p>
+          <div style="font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem;" data-i18n="k.m1.year">2015</div>
+          <div style="font-family:var(--font-h);font-size:1.15rem;font-weight:800;text-transform:uppercase;color:var(--text);margin-bottom:.4rem;" data-i18n="k.m1.title">Selbstständigkeit</div>
+          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.7;" data-i18n="k.m1.desc">Schritt in die Selbstständigkeit als Tätowiererin. Nach 12 Jahren Bühnenmalerei begann ein neues Kapitel.</p>
         </div>
       </div>
       <div class="reveal" data-delay="2" style="display:flex;gap:1.5rem;padding-bottom:2rem;border-left:1px solid var(--border);padding-left:1.8rem;position:relative;">
         <div style="position:absolute;left:-6px;top:0;width:11px;height:11px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-soft);"></div>
         <div>
-          <div style="font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem;">2016 – heute</div>
-          <div style="font-family:var(--font-h);font-size:1.15rem;font-weight:800;text-transform:uppercase;color:var(--text);margin-bottom:.4rem;">Tattoo-Messen europaweit</div>
-          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.7;">Regelmäßige Teilnahme an internationalen Tattoo-Conventions und Messen quer durch Europa.</p>
+          <div style="font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem;" data-i18n="k.m2.year">2016 – heute</div>
+          <div style="font-family:var(--font-h);font-size:1.15rem;font-weight:800;text-transform:uppercase;color:var(--text);margin-bottom:.4rem;" data-i18n="k.m2.title">Tattoo-Messen europaweit</div>
+          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.7;" data-i18n="k.m2.desc">Regelmäßige Teilnahme an internationalen Tattoo-Conventions und Messen quer durch Europa.</p>
         </div>
       </div>
       <div class="reveal" data-delay="3" style="display:flex;gap:1.5rem;padding-bottom:2rem;border-left:1px solid var(--border);padding-left:1.8rem;position:relative;">
         <div style="position:absolute;left:-6px;top:0;width:11px;height:11px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-soft);"></div>
         <div>
-          <div style="font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem;">2021</div>
-          <div style="font-family:var(--font-h);font-size:1.15rem;font-weight:800;text-transform:uppercase;color:var(--text);margin-bottom:.4rem;">Eigenes Atelier</div>
-          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.7;">Nach einigen Jahren im Austausch mit Kollegen in verschiedenen Tattoostudios eröffnete ich 2021 mein eigenes kleines Privat-Atelier — wegen dem Wortspiel liebevoll die Insel genannt.</p>
+          <div style="font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem;" data-i18n="k.m3.year">2021</div>
+          <div style="font-family:var(--font-h);font-size:1.15rem;font-weight:800;text-transform:uppercase;color:var(--text);margin-bottom:.4rem;" data-i18n="k.m3.title">Eigenes Atelier</div>
+          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.7;" data-i18n="k.m3.desc">Nach einigen Jahren im Austausch mit Kollegen in verschiedenen Tattoostudios eröffnete ich 2021 mein eigenes kleines Privat-Atelier — wegen dem Wortspiel liebevoll die Insel genannt.</p>
         </div>
       </div>
       <div class="reveal" data-delay="4" style="display:flex;gap:1.5rem;padding-left:1.8rem;position:relative;">
         <div style="position:absolute;left:-6px;top:0;width:11px;height:11px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-soft);"></div>
         <div>
-          <div style="font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem;">Heute</div>
-          <div style="font-family:var(--font-h);font-size:1.15rem;font-weight:800;text-transform:uppercase;color:var(--text);margin-bottom:.4rem;">Zurück in der Heimat</div>
-          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.7;">Glücklich wieder in der alten Heimat angekommen zu sein — und gespannt auf die tollen Projekte, die auf mich warten.</p>
+          <div style="font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem;" data-i18n="k.m4.year">Heute</div>
+          <div style="font-family:var(--font-h);font-size:1.15rem;font-weight:800;text-transform:uppercase;color:var(--text);margin-bottom:.4rem;" data-i18n="k.m4.title">Zurück in der Heimat</div>
+          <p style="font-size:.9rem;color:var(--text-mid);line-height:1.7;" data-i18n="k.m4.desc">Glücklich wieder in der alten Heimat angekommen zu sein und gespannt auf die tollen Projekte, die auf mich warten.</p>
         </div>
       </div>
     </div>
@@ -172,16 +182,16 @@
 <!-- USP CARDS -->
 <section class="section">
   <div class="container">
-    <div class="section-eyebrow reveal">Warum p-insel</div>
-    <h2 class="section-title reveal" data-delay="1">Was mich <span>auszeichnet</span></h2>
+    <div class="section-eyebrow reveal" data-i18n="k.usp.eyebrow">Warum p-insel</div>
+    <h2 class="section-title reveal" data-delay="1" data-i18n="k.usp.title">Was mich <span>auszeichnet</span></h2>
     <div class="usp-grid" style="margin-top:2.5rem;">
       <div class="usp-card reveal" data-delay="1">
         <div class="usp-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
         <div>
-          <h4>Künstlerischer Hintergrund</h4>
-          <p>12 Jahre als Bühnenmalerin prägen jedes meiner Tattoos – Komposition, Tiefe und Perspektive sind mein Fundament.</p>
+          <h4 data-i18n="k.usp1.title">Künstlerischer Hintergrund</h4>
+          <p data-i18n="k.usp1.desc">12 Jahre Bühnenmalerei prägen jedes meiner Tattoos. Komposition, Tiefe und Perspektive sind mein Fundament.</p>
         </div>
       </div>
       <div class="usp-card reveal" data-delay="2">
@@ -189,8 +199,8 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
         </div>
         <div>
-          <h4>Beratung mit Empathie</h4>
-          <p>Auch wenn wir uns erst an deinem großen Tag treffen, heißt das nicht, dass du vorab nur eine Nummer bist. Genau das macht deinen Termin und dein Tattoo am Ende so besonders.</p>
+          <h4 data-i18n="k.usp2.title">Beratung mit Empathie</h4>
+          <p data-i18n="k.usp2.desc">Auch wenn wir uns erst an deinem großen Tag treffen, heißt das nicht, dass du vorab nur eine Nummer bist. Genau das macht deinen Termin und dein Tattoo am Ende so besonders.</p>
         </div>
       </div>
       <div class="usp-card reveal" data-delay="3">
@@ -198,8 +208,8 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <div>
-          <h4>Hygiene & Sicherheit</h4>
-          <p>Sterile Einweg-Materialien, zertifizierte Farben und ein sauberes Studio – deine Gesundheit hat höchste Priorität.</p>
+          <h4 data-i18n="k.usp3.title">Hygiene &amp; Sicherheit</h4>
+          <p data-i18n="k.usp3.desc">Sterile Einwegmaterialien, zertifizierte Farben und ein sauberes Studio. Deine Gesundheit hat höchste Priorität.</p>
         </div>
       </div>
       <div class="usp-card reveal" data-delay="4">
@@ -207,8 +217,8 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <div>
-          <h4>Messen & Wettbewerbe</h4>
-          <p>Regelmäßig auf internationalen Tattoo-Conventions – dort wo die besten Artists der Szene zusammenkommen.</p>
+          <h4 data-i18n="k.usp4.title">Messen &amp; Wettbewerbe</h4>
+          <p data-i18n="k.usp4.desc">Regelmäßig auf internationalen Tattoo-Conventions. Dort wo die besten Artists der Szene zusammenkommen.</p>
         </div>
       </div>
     </div>
@@ -219,10 +229,10 @@
 <section style="background:linear-gradient(135deg,#0f0c07,#0a0a0a);border-top:1px solid rgba(200,169,110,.1);padding:5rem 0;text-align:center;">
   <div class="container">
     <div class="reveal" style="max-width:680px;margin:0 auto;">
-      <p style="font-family:var(--font-h);font-size:clamp(1.5rem,3.5vw,2.5rem);font-weight:700;font-style:italic;color:var(--text);line-height:1.3;margin-bottom:1.2rem;">
+      <p style="font-family:var(--font-h);font-size:clamp(1.5rem,3.5vw,2.5rem);font-weight:700;font-style:italic;color:var(--text);line-height:1.3;margin-bottom:1.2rem;" data-i18n="k.motto">
         „Heute ist Dein Tag. Mach mal Urlaub!<br>Dein Souvenir wirst du ewig tragen."
       </p>
-      <p style="font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);">— Pia Insel</p>
+      <p style="font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);" data-i18n="k.motto.attr">— Pia Insel</p>
     </div>
   </div>
 </section>
@@ -232,13 +242,13 @@
   <div class="parallax-bg" data-speed="0.25" style="background-image:url('img/tattoo/leopard-rosen-arm.jpeg')"></div>
   <div class="parallax-overlay" style="background:rgba(10,10,10,.78)"></div>
   <div class="container">
-    <div class="cta-band-eyebrow reveal">BEREIT FÜR DEIN SOUVENIR?</div>
-    <h2 class="cta-band-title reveal" data-delay="1">
+    <div class="cta-band-eyebrow reveal" data-i18n="k.cta.eyebrow">BEREIT FÜR DEIN SOUVENIR?</div>
+    <h2 class="cta-band-title reveal" data-delay="1" data-i18n="k.cta.title">
       DEIN NÄCHSTES<br>
       <span>TATTOO WARTET</span>
     </h2>
     <div class="cta-band-actions reveal" data-delay="2">
-      <a href="kontakt.html" class="btn btn-red" style="font-size:.9rem;padding:.9rem 2rem;">
+      <a href="kontakt.html" class="btn btn-red" style="font-size:.9rem;padding:.9rem 2rem;" data-i18n="k.cta.btn">
         TERMIN ANFRAGEN
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -246,47 +256,74 @@
   </div>
 </section>
 
-<footer>
-  <div class="footer-main"><div class="container"><div class="footer-grid">
-    <div class="footer-brand">
-      <a href="index.html" class="footer-logo-text">
-        <img src="img/logo-hires.png" alt="p-insel Tattoos" style="height:110px;width:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.6));">
-      </a>
-      <p>Tattoo Studio in Bad Lippspringe. Pia Insel – Tätowiererin & Malerin seit 2015.</p>
+<footer role="contentinfo">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-text">
+            <img src="img/logo-hires.png" alt="p-insel Tattoos" style="height:130px;width:auto;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));">
+          </a>
+          <p>Tattoo Studio in Bad Lippspringe – Wo Kunst entsteht und Momente für die Ewigkeit festgehalten werden. Pia Insel, Tätowiererin & Malerin.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/pia_insel_tattoos" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
             </a>
             <a href="https://www.facebook.com/PiaInselTattoo" target="_blank" rel="noopener" aria-label="Facebook">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
             </a>
           </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.nav.title">Navigation</h4>
+          <ul>
+            <li><a href="index.html" data-i18n="footer.nav.home">Startseite</a></li>
+            <li><a href="portfolio.html" data-i18n="footer.nav.portfolio">Portfolio</a></li>
+            <li><a href="kuenstlerin.html" data-i18n="footer.nav.about">Über mich</a></li>
+            <li><a href="portfolio.html" data-i18n="footer.nav.styles">Stile & Techniken</a></li>
+            <li><a href="kontakt.html" data-i18n="footer.nav.contact">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.styles.title">Stile</h4>
+          <ul>
+            <li><a href="portfolio.html#bunt" data-i18n="footer.s.colorful">Bunt</a></li>
+            <li><a href="portfolio.html#sw" data-i18n="footer.s.bw">Schwarz-Weiß</a></li>
+            <li><a href="portfolio.html#surrealismus" data-i18n="footer.s.surreal">Surrealismus &amp; Farbe</a></li>
+            <li><a href="portfolio.html#coverup" data-i18n="footer.s.coverup">Cover-Ups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contact.title">Kontakt</h4>
+          <address>
+            <strong>p-insel Tattoos</strong><br>
+            Detmolder Strasse 119<br>
+            33175 Bad Lippspringe
+          </address>
+          <div class="footer-hours">
+            <div class="footer-hours-row">
+              <span data-i18n="footer.hours.label">Termine</span>
+              <span data-i18n="footer.hours.val">Nach Vereinbarung</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="footer-col"><h4>Navigation</h4><ul>
-      <li><a href="index.html">Startseite</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="kuenstlerin.html">Über mich</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>Stile</h4><ul>
-      <li><a href="portfolio.html#bunt">Bunt</a></li>
-      <li><a href="portfolio.html#sw">Schwarz-Weiß</a></li>
-      <li><a href="portfolio.html#surrealismus">Surrealismus & Farbe</a></li>
-      <li><a href="portfolio.html#coverup">Cover-Ups</a></li>
-    </ul></div>
-    <div class="footer-col"><h4>Kontakt</h4>
-      <address>Detmolder Strasse 119<br>33175 Bad Lippspringe</address>
+  </div>
+  <div class="footer-bottom">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;width:100%;">
+      <p>© 2026 p-insel Tattoos · Pia Insel · Bad Lippspringe</p>
+      <div class="footer-bottom-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
     </div>
-  </div></div></div>
-  <div class="footer-bottom"><div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;width:100%;">
-    <p>© 2026 p-insel Tattoos · Pia Insel</p>
-    <div class="footer-bottom-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
-  </div></div>
+  </div>
 </footer>
 
 <div id="float-cta"><a href="kontakt.html" class="float-cta-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Termin anfragen</a></div>
 
+<script src="lang.js"></script>
 <script>
   const nav=document.getElementById('nav');
   window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50);},{passive:true});
