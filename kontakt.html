@@ -144,13 +144,13 @@
 
       <!-- Form -->
       <div class="reveal" data-delay="1">
-        <form class="form-grid" id="contact-form" novalidate enctype="multipart/form-data">
-          <!-- Web3Forms hidden fields -->
-          <input type="hidden" name="access_key" value="72edbcfd-608e-4aa2-a1f3-475b3be24e34">
-          <input type="hidden" name="subject" value="Neue Terminanfrage — p-insel Tattoos">
-          <input type="hidden" name="from_name" value="p-insel Kontaktformular">
-          <input type="hidden" name="replyto" id="replyto-field" value="">
-          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+        <form class="form-grid" id="contact-form" action="https://formsubmit.co/terminwunsch123@p-insel.de" method="POST" enctype="multipart/form-data" novalidate>
+          <!-- FormSubmit.co hidden fields -->
+          <input type="hidden" name="_subject" value="Neue Terminanfrage — p-insel Tattoos">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://www.p-insel.de/kontakt.html?sent=1">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <div class="form-field" id="booking-field">
             <label class="form-label" data-i18n="kon.form.booking">Buchungsfenster</label>
             <div class="booking-status" id="booking-status">
@@ -446,57 +446,40 @@
   renderBooking();
   setInterval(renderBooking, 30000); // aktualisiert alle 30 Sekunden
 
-  /* Form submission — Web3Forms */
-  document.getElementById('contact-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
+  /* Show success state after FormSubmit.co redirect (?sent=1) */
+  if (new URLSearchParams(window.location.search).get('sent') === '1') {
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+    if (form) form.style.display = 'none';
+    if (success) {
+      success.style.display = 'block';
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  /* Form submission — FormSubmit.co (native POST so file attachments work) */
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
     const name  = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const idee  = document.getElementById('idee').value.trim();
     const dsgvo = document.getElementById('dsgvo').checked;
     if (!name || !email || !idee || !dsgvo) {
+      e.preventDefault();
       alert('Bitte fülle alle Pflichtfelder aus und stimme der Datenschutzerklärung zu.');
       return;
     }
     if (getBookingState().status === 'closed') {
+      e.preventDefault();
       alert('Buchungsanfragen sind aktuell geschlossen. Bitte warte auf das nächste Buchungsfenster.');
       return;
     }
-    /* replyto = sender email so Pia can reply directly */
-    document.getElementById('replyto-field').value = email;
-    const btn     = document.getElementById('submit-btn');
+    /* valid → let the form POST natively to FormSubmit (uploads files, then redirects) */
     const label   = document.getElementById('submit-label');
     const arrow   = document.getElementById('submit-arrow');
     const spinner = document.getElementById('submit-spinner');
-    btn.disabled = true;
     label.textContent = 'Wird gesendet…';
     arrow.style.display = 'none';
     spinner.style.display = 'inline';
-    try {
-      /* Build FormData manually so multiple files get unique field names
-         (Web3Forms requires referenzbilder_1, referenzbilder_2, … for attachments) */
-      const fd = new FormData(this);
-      const fileInput = document.getElementById('referenzbilder');
-      if (fileInput && fileInput.files.length > 0) {
-        fd.delete('referenzbilder');
-        Array.from(fileInput.files).forEach((file, i) => {
-          fd.append('referenzbilder_' + (i + 1), file, file.name);
-        });
-      }
-      const res  = await fetch('https://api.web3forms.com/submit', { method:'POST', body: fd });
-      const data = await res.json();
-      if (data.success) {
-        this.style.display = 'none';
-        document.getElementById('form-success').style.display = 'block';
-      } else {
-        btn.disabled = false; label.textContent = 'Anfrage absenden';
-        arrow.style.display = 'inline'; spinner.style.display = 'none';
-        alert('Fehler beim Senden. Bitte schreib direkt an terminwunsch123@p-insel.de');
-      }
-    } catch {
-      btn.disabled = false; label.textContent = 'Anfrage absenden';
-      arrow.style.display = 'inline'; spinner.style.display = 'none';
-      alert('Verbindungsfehler. Bitte versuche es erneut.');
-    }
   });
   const _mob=window.matchMedia('(max-width:900px)').matches;
   const heroBg=document.querySelector('.page-hero-bg');
