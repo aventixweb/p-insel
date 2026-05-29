@@ -472,7 +472,17 @@
     arrow.style.display = 'none';
     spinner.style.display = 'inline';
     try {
-      const res  = await fetch('https://api.web3forms.com/submit', { method:'POST', body: new FormData(this) });
+      /* Build FormData manually so multiple files get unique field names
+         (Web3Forms requires referenzbilder_1, referenzbilder_2, … for attachments) */
+      const fd = new FormData(this);
+      const fileInput = document.getElementById('referenzbilder');
+      if (fileInput && fileInput.files.length > 0) {
+        fd.delete('referenzbilder');
+        Array.from(fileInput.files).forEach((file, i) => {
+          fd.append('referenzbilder_' + (i + 1), file, file.name);
+        });
+      }
+      const res  = await fetch('https://api.web3forms.com/submit', { method:'POST', body: fd });
       const data = await res.json();
       if (data.success) {
         this.style.display = 'none';
