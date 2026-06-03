@@ -984,16 +984,16 @@ footer .divider { border-top-color: #2a2a2a; }
 
 /* Inner layout */
 .hero-fb-inner {
-  flex: 0 0 auto;
+  flex: 1 1 auto;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   max-width: var(--max-w);
   width: 100%;
   margin: 0 auto;
-  /* Muss das Logo (--logo-h = 140px) freischießen */
-  padding: calc(var(--logo-h) + 2rem) 2rem 0;
+  /* Oben: Navbar freihalten / Unten: Quote-Zone freihalten */
+  padding: calc(var(--logo-h) + 2rem) 2rem 9rem;
   position: relative;
   z-index: 2;
   column-gap: 4rem;
@@ -1053,7 +1053,7 @@ footer .divider { border-top-color: #2a2a2a; }
   font-size: 1rem;
   line-height: 1.7;
   color: rgba(255,255,255,.6);
-  margin-bottom: 2.2rem;
+  margin-bottom: 0;
   max-width: 400px;
 }
 .hero-fb-actions { display: flex; gap: .8rem; flex-wrap: wrap; }
@@ -1112,7 +1112,7 @@ footer .divider { border-top-color: #2a2a2a; }
 /* Hero quote — volle Breite innerhalb hero-fb-inner */
 .hero-quote-text {
   position: absolute;
-  bottom: 5rem;
+  bottom: 7rem;
   left: 0; right: 0;
   z-index: 5;
   text-align: center;
@@ -1280,7 +1280,7 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
 @media (min-width: 769px) and (max-width: 1100px) {
   .hero-fb-inner {
     flex-wrap: nowrap;
-    align-items: flex-start;
+    align-items: center;
     column-gap: 2rem;
   }
   .hero-fb-left { flex: 1 1 auto; min-width: 0; }
@@ -1290,13 +1290,15 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
 /* PHONE (≤768px): zu schmal für nebeneinander — gestapeltes Layout, Logo ausgeblendet,
    Quote als normaler Flow-Child unten. */
 @media (max-width: 768px) {
+  /* Höhe wächst mit dem Inhalt (min-height statt fixed) — so wird die Quote
+     auf kurzen/gezoomten Handys (z.B. iPhone mit Display-Zoom) nicht abgeschnitten. */
   .home-hero.hero-dark-fullbleed {
-    height: 100vh;
-    height: 100svh;
-    min-height: 600px;
+    height: auto;
+    min-height: 100vh;
+    min-height: 100svh;
     max-height: none;
   }
-  .hero-fb-inner { flex-direction: column; justify-content: flex-end; padding-top: calc(var(--logo-h) + 1rem); padding-bottom: 5.5rem; column-gap: 0; row-gap: 0; }
+  .hero-fb-inner { flex-direction: column; justify-content: center; align-items: flex-start; padding-top: calc(var(--logo-h) + 1rem); padding-bottom: 9rem; column-gap: 0; row-gap: 0; }
   .hero-fb-right { width: 100%; }
   .hero-work-panel { flex-direction: row; align-items: center; }
   .hero-work-img-wrap { width: 100px; height: 130px; aspect-ratio: unset; flex-shrink: 0; }
@@ -1305,12 +1307,11 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
   .hero-meta-item { min-width: 90px; }
   /* Logo auf dem Handy ausgeblendet — zu wenig Platz neben dem Text */
   .hero-logo-panel { display: none; }
-  /* Quote: kein absolute mehr — normaler flex-child, margin-top:auto drückt ans Ende. */
+  /* Quote: absolute am unteren Rand, wie Desktop */
   .hero-quote-text {
-    position: relative;
-    bottom: auto; left: auto; right: auto;
-    margin-top: auto;
-    padding: 0.8rem 1.5rem 2.5rem;
+    position: absolute;
+    bottom: 7rem;
+    padding: 0 1.5rem;
     font-size: clamp(1rem, 3.8vw, 1.25rem);
   }
 }
@@ -2665,7 +2666,9 @@ a.contact-value:hover { color: var(--accent); }
 @media (max-height: 860px) {
   .hero-quote-text { bottom: 1.5rem; }
 }
-@media (max-height: 700px) {
+/* Nur auf kurzen DESKTOP-/Landscape-Fenstern ausblenden (min-width 769) —
+   auf Handys (inkl. iOS Display-Zoom, ~693px hoch) soll die Quote sichtbar bleiben. */
+@media (max-height: 700px) and (min-width: 769px) {
   .hero-quote-text { display: none; }
 }
 

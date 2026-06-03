@@ -49,7 +49,6 @@
   </nav>
   <div class="drawer-footer">
     <div class="drawer-footer-contact">
-      <a href="mailto:terminwunsch123@p-insel.de">terminwunsch123@p-insel.de</a><br>
       Detmolder Str. 119 · Bad Lippspringe
     </div>
     <div class="drawer-lang-switcher">
@@ -67,7 +66,6 @@
   <div class="container">
     <div class="page-hero-eyebrow">p-insel Tattoos</div>
     <h1 data-i18n="kon.hero.h1">Termin <span>anfragen</span></h1>
-    <p data-i18n="kon.hero.sub">Beschreib mir deine Idee – ich melde mich so schnell wie möglich zurück. Kostenlose Erstberatung inklusive.</p>
   </div>
 </header>
 <div class="container">
@@ -76,7 +74,40 @@
   </nav>
 </div>
 
-<section class="section">
+<section class="section section-dark" aria-label="Wie funktioniert eine Buchung" style="background:#0a0a0a;">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3.5rem;">
+      <div class="section-eyebrow reveal" style="justify-content:center;" data-i18n="process.eyebrow">So funktioniert's</div>
+      <h2 class="section-title reveal" data-delay="1" style="font-size:clamp(2.2rem,4.5vw,3.5rem);" data-i18n="process.title">
+        Dein Weg zum <span>Tattoo</span>
+      </h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal" data-delay="1">
+        <div class="step-num">01</div>
+        <h4 data-i18n="process.s1.title">Termin-Release abwarten</h4>
+        <p data-i18n="process.s1.desc">Ich vergebe Termine nur einmal pro Quartal – die Plätze sind also heißer begehrt als der letzte Parkplatz vorm Supermarkt. Damit du den nächsten Drop nicht verpasst, findest du alle Infos im Menü unter <a href="kontakt.html" style="color:var(--accent);text-decoration:none;">Kontakt</a>.</p>
+      </div>
+      <div class="process-step reveal" data-delay="2">
+        <div class="step-num">02</div>
+        <h4 data-i18n="process.s2.title">Inspiration sammeln</h4>
+        <p data-i18n="process.s2.desc">Such dir vorab Referenzbilder raus, die deinen Wunschstil zeigen. Zum Beispiel Fotos vom Haustier, Blumen oder Actionfigur. Ich kopiere nichts aus dem Internet – aber Ideen sammeln darf man dort schon&nbsp;;)</p>
+      </div>
+      <div class="process-step reveal" data-delay="3">
+        <div class="step-num">03</div>
+        <h4 data-i18n="process.s3.title">Anfrage schicken</h4>
+        <p data-i18n="process.s3.desc">Sobald die Termine online gehen, schickst du mir deine Anfrage über das <a href="#anfrage" style="color:var(--accent);text-decoration:none;">Kontaktformular</a>.</p>
+      </div>
+      <div class="process-step reveal" data-delay="4">
+        <div class="step-num">04</div>
+        <h4 data-i18n="process.s4.title">Termin sichern</h4>
+        <p data-i18n="process.s4.desc">Wenn alles passt, bekommst du deinen Termin bestätigt. Dann heißt es nur noch: Vorfreude genießen und den Countdown starten.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="anfrage">
   <div class="container">
     <div class="contact-split">
 
@@ -161,12 +192,12 @@
 
           <div class="form-row">
             <div class="form-field">
-              <label class="form-label" for="name">Name *</label>
-              <input class="form-input" type="text" id="name" name="name" placeholder="Dein Name" required>
+              <label class="form-label" for="name" data-i18n="kon.form.name">Name *</label>
+              <input class="form-input" type="text" id="name" name="name" data-i18n-placeholder="kon.ph.name" placeholder="Dein Name" required>
             </div>
             <div class="form-field">
-              <label class="form-label" for="email">E-Mail *</label>
-              <input class="form-input" type="email" id="email" name="email" placeholder="deine@email.de" required>
+              <label class="form-label" for="email" data-i18n="kon.form.email">E-Mail *</label>
+              <input class="form-input" type="email" id="email" name="email" data-i18n-placeholder="kon.ph.email" placeholder="deine@email.de" required>
             </div>
           </div>
 
@@ -194,13 +225,13 @@
             </div>
             <div class="form-field">
               <label class="form-label" for="koerperstelle" data-i18n="kon.form.koerper">Körperstelle</label>
-              <input class="form-input" type="text" id="koerperstelle" name="koerperstelle" placeholder="z.B. Rücken, Schulter, Wade, Unterarm …">
+              <input class="form-input" type="text" id="koerperstelle" name="koerperstelle" data-i18n-placeholder="kon.ph.koerper" placeholder="z.B. Rücken, Schulter, Wade, Unterarm …">
             </div>
           </div>
 
           <div class="form-field">
             <label class="form-label" for="idee" data-i18n="kon.form.idee">Deine Idee *</label>
-            <textarea class="form-textarea" id="idee" name="idee" rows="6" data-i18n-placeholder="kon.form.idee.ph" placeholder="Beschreibe deine Idee stichpunktartig:&#10;– Was soll es darstellen? Welche Stimmung?&#10;– 3 Wunschtermine nennen (z.B. „Mitte Oktober, Anfang November")&#10;– Referenzbilder unbedingt im Upload-Feld mitschicken!" required></textarea>
+            <textarea class="form-textarea" id="idee" name="idee" rows="6" data-i18n-placeholder="kon.form.idee.ph" placeholder="• Hauptmotiv&#10;• Wichtige Details oder Elemente&#10;• Gewünschte Stimmung/Wirkung&#10;• Was unbedingt enthalten sein soll&#10;• Was du nicht im Motiv haben möchtest&#10;• Wunschterminzeitraum" required></textarea>
           </div>
 
           <div class="form-field">
@@ -348,10 +379,9 @@
 
   /* ── QUARTALS-BUCHUNGSSYSTEM ── */
   const BOOKING_WINDOWS = [
-    { label: 'Frühling 2026', labelEn: 'Spring 2026', open: '2026-02-01', close: '2026-02-28', for: 'April – Mai 2026',        forEn: 'April – May 2026' },
-    { label: 'Sommer 2026',   labelEn: 'Summer 2026', open: '2026-05-01', close: '2026-05-31', for: 'Juli – August 2026',      forEn: 'July – August 2026' },
-    { label: 'Herbst 2026',   labelEn: 'Autumn 2026', open: '2026-08-01', close: '2026-08-31', for: 'Oktober – November 2026', forEn: 'October – November 2026' },
-    { label: 'Winter 2026',   labelEn: 'Winter 2026', open: '2026-11-01', close: '2026-11-30', for: 'Januar – Februar 2027',   forEn: 'January – February 2027' },
+    { label: 'Juni 2026',        labelEn: 'June 2026',        open: '2026-06-13', close: '2026-06-28', for: 'nach Vereinbarung', forEn: 'by arrangement' },
+    { label: 'Juli/August 2026', labelEn: 'July/August 2026', open: '2026-07-22', close: '2026-08-06', for: 'nach Vereinbarung', forEn: 'by arrangement' },
+    { label: 'Dezember 2026',    labelEn: 'December 2026',    open: '2026-12-19', close: '2026-12-31', for: 'nach Vereinbarung', forEn: 'by arrangement' },
   ];
 
   /* Sprach-Texte für das (per JS gerenderte) Buchungs-Widget */
@@ -389,6 +419,18 @@
     const h = Math.floor((totalSec % 86400) / 3600);
     const m = Math.floor((totalSec % 3600) / 60);
     return { d, h, m };
+  }
+
+  /* Offen-Zeitraum eines Fensters als "von – bis" formatieren */
+  function fmtRange(w, lang) {
+    const o = new Date(w.open + 'T00:00:00');
+    const c = new Date(w.close + 'T00:00:00');
+    const p = n => String(n).padStart(2, '0');
+    if (lang === 'en') {
+      const M = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      return `${M[o.getMonth()]} ${o.getDate()} – ${M[c.getMonth()]} ${c.getDate()}, ${c.getFullYear()}`;
+    }
+    return `${p(o.getDate())}.${p(o.getMonth()+1)}. – ${p(c.getDate())}.${p(c.getMonth()+1)}.${c.getFullYear()}`;
   }
 
   function renderBooking() {
@@ -449,7 +491,7 @@
             <span class="booking-badge-closed">${t.closed}</span>
           </div>
           <div class="booking-info">${t.notPossible}</div>
-          ${next ? `<div class="booking-next">${t.nextWindow}: <strong>${nextLabel}</strong></div>` : ''}
+          ${next ? `<div class="booking-next">${t.nextWindow}: <strong>${nextLabel}</strong><br><span style="opacity:.8;font-size:.92em;">${fmtRange(next.window, L)}</span></div>` : ''}
           ${countdownHtml}
         </div>`;
     }
