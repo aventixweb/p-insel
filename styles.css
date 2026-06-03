@@ -1097,6 +1097,14 @@ footer .divider { border-top-color: #2a2a2a; }
   width: 100%;
   height: auto;
   max-width: 520px;
+  /* Höhe deckeln, damit das hohe Logo auf kurzen Viewports (Laptop 1366x768,
+     1280x800) nicht in den unten verankerten Quote-Text läuft oder abgeschnitten
+     wird. object-fit:contain hält dabei das Seitenverhältnis (keine Verzerrung). */
+  /* min(100svh,1000px) entspricht der tatsächlichen Hero-Höhe (height:100vh,
+     gedeckelt durch max-height:1000px), damit das Logo auch auf großen Screens
+     (1920x1080) sauber über dem Quote bleibt. */
+  max-height: calc(min(100svh, 1000px) - 380px);
+  object-fit: contain;
   /* Logo is black-on-transparent; slight brightness lift so oval reads on dark bg */
   filter: drop-shadow(0 8px 40px rgba(0,0,0,.8)) brightness(1.08);
 }
@@ -1264,9 +1272,24 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
 }
 
 /* ── RESPONSIVE dark hero ── */
-@media (max-width: 900px) {
-  /* Mobile: feste Höhe statt auto+min-height — verhindert Layout-Sprung beim ersten Paint.
-     100vh als Fallback (ältere Browser), 100svh überschreibt (stabil trotz iOS URL-Bar). */
+
+/* TABLET (769–1100px): gleiche Anordnung wie Desktop — Text links, Logo rechts
+   daneben, Quote zentriert darunter am unteren Rand. Das Logo wird verkleinert und
+   das Umbrechen mit nowrap unterbunden, damit Text + Logo immer nebeneinander passen
+   (sonst sprang das Logo unter den Text und die Quote lag mitten drin). */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .hero-fb-inner {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    column-gap: 2rem;
+  }
+  .hero-fb-left { flex: 1 1 auto; min-width: 0; }
+  .hero-logo-panel { width: min(340px, 36vw); flex: 0 1 auto; min-width: 0; }
+}
+
+/* PHONE (≤768px): zu schmal für nebeneinander — gestapeltes Layout, Logo ausgeblendet,
+   Quote als normaler Flow-Child unten. */
+@media (max-width: 768px) {
   .home-hero.hero-dark-fullbleed {
     height: 100vh;
     height: 100svh;
@@ -1280,9 +1303,9 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
   .hero-work-dots { display: none; }
   .hero-meta-strip { overflow-x: auto; }
   .hero-meta-item { min-width: 90px; }
-  .hero-logo-panel { width: min(280px, 55vw); }
-  /* Quote: kein absolute mehr auf mobile — wird normaler flex-child.
-     margin-top:auto drückt es ans Ende des flex-columns, unabhängig von der Section-Höhe. */
+  /* Logo auf dem Handy ausgeblendet — zu wenig Platz neben dem Text */
+  .hero-logo-panel { display: none; }
+  /* Quote: kein absolute mehr — normaler flex-child, margin-top:auto drückt ans Ende. */
   .hero-quote-text {
     position: relative;
     bottom: auto; left: auto; right: auto;
@@ -1290,10 +1313,6 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
     padding: 0.8rem 1.5rem 2.5rem;
     font-size: clamp(1rem, 3.8vw, 1.25rem);
   }
-}
-@media (max-width: 768px) {
-  /* Hide logo panel on tablet — column layout leaves too little room for text */
-  .hero-logo-panel { display: none; }
 }
 @media (max-width: 600px) {
   .hero-wm { font-size: 35vw; }
@@ -1965,6 +1984,45 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
 .maps-embed:hover iframe {
   filter: grayscale(0%) invert(0%) hue-rotate(0deg) brightness(1) saturate(1);
 }
+
+/* Google-Maps Klick-zum-Laden (DSGVO: kein Datentransfer vor Einwilligung) */
+.map-consent {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.6rem;
+  background: var(--bg-surface);
+}
+.map-box .map-consent { min-height: 0; }
+.map-consent-inner { max-width: 360px; }
+.map-consent-icon { color: var(--accent); margin-bottom: .9rem; opacity: .9; }
+.map-consent-text {
+  font-size: .9rem;
+  line-height: 1.6;
+  color: var(--text-mid);
+  margin-bottom: 1.1rem;
+}
+.map-consent-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: .7rem 1.5rem;
+  border-radius: 4px;
+  font-family: var(--font-b);
+  font-weight: 600;
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .2s;
+}
+.map-consent-btn:hover { background: var(--accent-hover); }
+.map-consent-note { font-size: .7rem; color: var(--text-dim); margin-top: .9rem; line-height: 1.5; }
+.map-consent-note a { color: var(--accent); }
 
 @media (max-width: 768px) {
   .maps-grid {

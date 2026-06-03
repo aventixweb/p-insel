@@ -213,6 +213,11 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 8px;
     }
+    .price-imgs-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
     .lb-thumb {
       display: block;
       aspect-ratio: 3/4;
@@ -220,6 +225,11 @@
       border-radius: 6px;
       cursor: zoom-in;
       position: relative;
+    }
+    /* Cover-up Arbeiten — square thumbnails */
+    .price-imgs-3[data-lb-group="coverup"] .lb-thumb,
+    .price-imgs-4[data-lb-group="coverup"] .lb-thumb {
+      aspect-ratio: 1/1;
     }
     .lb-thumb img {
       width: 100%; height: 100%;
@@ -249,6 +259,7 @@
     @media (max-width: 600px) {
       .price-imgs-5 { grid-template-columns: repeat(3, 1fr); }
       .price-imgs-3 { grid-template-columns: repeat(2, 1fr); }
+      .price-imgs-4 { grid-template-columns: repeat(2, 1fr); }
       .faq-body-inner { padding-left: 0; }
       .faq-hero { min-height: 55vh; }
     }
@@ -379,17 +390,6 @@
             </div>
             <div class="price-cat">
               <div class="price-cat-head">
-                <span class="price-cat-name" data-i18n="faq.price.coverup">Cover-up Arbeiten</span>
-                <span class="price-pill">1.200 – 1.600 €</span>
-              </div>
-              <div class="price-imgs-3" data-lb-group="coverup">
-                <div class="lb-thumb" data-lb-src="img/faq/coverup-sonnenblume.jpg" data-lb-alt="Cover-up – Sonnenblume vorher/nachher"><img src="img/faq/coverup-sonnenblume.jpg" alt="Cover-up – Sonnenblume vorher/nachher" loading="lazy"></div>
-                <div class="lb-thumb" data-lb-src="img/faq/coverup-kolibri.jpg" data-lb-alt="Cover-up – Kolibri vorher/nachher"><img src="img/faq/coverup-kolibri.jpg" alt="Cover-up – Kolibri vorher/nachher" loading="lazy"></div>
-                <div class="lb-thumb" data-lb-src="img/faq/coverup-schildkroete.jpg" data-lb-alt="Cover-up – Schildkröte vorher/nachher"><img src="img/faq/coverup-schildkroete.jpg" alt="Cover-up – Schildkröte vorher/nachher" loading="lazy"></div>
-              </div>
-            </div>
-            <div class="price-cat">
-              <div class="price-cat-head">
                 <span class="price-cat-name" data-i18n="faq.price.sw">Schwarzweiß­arbeiten</span>
                 <span class="price-pill">800 – 1.000 €</span>
               </div>
@@ -399,6 +399,18 @@
                 <div class="lb-thumb" data-lb-src="img/faq/sw-tiger-blumen.jpeg" data-lb-alt="SW Tattoo – Tiger mit Blumen"><img src="img/faq/sw-tiger-blumen.jpeg" alt="SW Tattoo – Tiger mit Blumen" loading="lazy"></div>
                 <div class="lb-thumb" data-lb-src="img/faq/sw-sleeve.jpeg" data-lb-alt="SW Tattoo – Full Sleeve"><img src="img/faq/sw-sleeve.jpeg" alt="SW Tattoo – Full Sleeve" loading="lazy"></div>
                 <div class="lb-thumb" data-lb-src="img/faq/sw-loewe-architektur.jpeg" data-lb-alt="SW Tattoo – Löwe & Architektur"><img src="img/faq/sw-loewe-architektur.jpeg" alt="SW Tattoo – Löwe & Architektur" loading="lazy"></div>
+              </div>
+            </div>
+            <div class="price-cat">
+              <div class="price-cat-head">
+                <span class="price-cat-name" data-i18n="faq.price.coverup">Cover-up Arbeiten</span>
+                <span class="price-pill">1.200 – 1.600 €</span>
+              </div>
+              <div class="price-imgs-4" data-lb-group="coverup">
+                <div class="lb-thumb" data-lb-src="img/faq/cu-sonnenblume.jpg" data-lb-alt="Cover-up – Sonnenblume vorher/nachher"><img src="img/faq/cu-sonnenblume.jpg" alt="Cover-up – Sonnenblume vorher/nachher" loading="lazy"></div>
+                <div class="lb-thumb" data-lb-src="img/faq/cu-kolibri.jpg" data-lb-alt="Cover-up – Kolibri vorher/nachher"><img src="img/faq/cu-kolibri.jpg" alt="Cover-up – Kolibri vorher/nachher" loading="lazy"></div>
+                <div class="lb-thumb" data-lb-src="img/faq/cu-schildkroete.jpg" data-lb-alt="Cover-up – Schildkröte vorher/nachher"><img src="img/faq/cu-schildkroete.jpg" alt="Cover-up – Schildkröte vorher/nachher" loading="lazy"></div>
+                <div class="lb-thumb" data-lb-src="img/faq/cu-flamingo.jpg" data-lb-alt="Cover-up – Flamingo vorher/nachher"><img src="img/faq/cu-flamingo.jpg" alt="Cover-up – Flamingo vorher/nachher" loading="lazy"></div>
               </div>
             </div>
           </div>
@@ -564,7 +576,7 @@
           <a href="index.html" class="footer-logo-text">
             <img src="img/logo-hires.png" alt="p-insel Tattoos" style="height:200px;width:auto;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));">
           </a>
-          <p>Tattoo Studio in Bad Lippspringe – Wo Kunst entsteht und Momente für die Ewigkeit festgehalten werden. Pia Insel, Tätowiererin & Malerin.</p>
+          <p data-i18n="footer.about">Tattoo Studio in Bad Lippspringe – Wo Kunst entsteht und Momente für die Ewigkeit festgehalten werden. Pia Insel, Tätowiererin & Malerin.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/pia_insel_tattoos" target="_blank" rel="noopener" aria-label="Instagram">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>

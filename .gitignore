@@ -15,3 +15,11 @@ node_modules/
 .claude/
 .gstack/
 logo.png
+
+# Original-Quellfotos (unkomprimiert) — nur lokal, nicht deployen
+IMG_*.JPG
+IMG_*.jpg
+Unbenanntes_Projekt*
+/coverup/
+/schwarz weiß/
+/bilder bunt HP/

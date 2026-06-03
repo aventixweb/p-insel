@@ -53,7 +53,7 @@
 
       /* Stats section (index) */
       'stats.label1':   'Jahre Erfahrung',
-      'stats.label2':   'Tattoos gestochen',
+      'stats.label2':   'Unikate',
       'stats.label3':   'Messen &amp; Events',
       'stats.label4':   'Google Bewertung',
 
@@ -111,6 +111,7 @@
       'process.s4.desc':  'Wenn alles passt, bekommst du deinen Termin bestätigt. Dann heißt es nur noch: Vorfreude genießen und den Countdown starten.',
 
       /* Footer */
+      'footer.about':        'Tattoo Studio in Bad Lippspringe – Wo Kunst entsteht und Momente für die Ewigkeit festgehalten werden. Pia Insel, Tätowiererin &amp; Malerin.',
       'footer.nav.title':    'Navigation',
       'footer.styles.title': 'Stile',
       'footer.contact.title':'Kontakt',
@@ -257,13 +258,14 @@
       'kon.form.groesse': 'Ungefähre Größe',
       'kon.form.koerper': 'Körperstelle',
       'kon.form.idee':    'Deine Idee *',
+      'kon.form.idee.ph': 'Beschreibe deine Idee stichpunktartig:\n– Was soll es darstellen? Welche Stimmung?\n– 3 Wunschtermine nennen (z.B. „Mitte Oktober, Anfang November")\n– Referenzbilder unbedingt im Upload-Feld mitschicken!',
       'kon.form.refs':    'Referenzbilder (optional)',
       'kon.opt.please':   '– Bitte wählen –',
       'kon.stil.bunt':    'Bunt / Farbig',
       'kon.stil.sw':      'Schwarz-Weiß',
       'kon.stil.coverup': 'Cover-Up',
       'kon.size.a5':      'DIN A5 (ca. Handfläche)',
-      'kon.size.a4':      'DIN A4 (ca. Unterarm)',
+      'kon.size.a4':      'DIN A4 (ca. Oberarm)',
       'kon.size.arm':     'Ganzer Arm / Sleeve',
       'kon.size.bein':    'Ganzes Bein',
       'kon.size.ruecken': 'Ganzer Rücken',
@@ -372,6 +374,74 @@
       'pflege.s5.p2':      'Gib deinem Tattoo die Zeit, die es braucht — es trägt dich ein Leben lang.',
       'pflege.sig.p1':     'Vielen Dank für dein Vertrauen — und nun wünsche ich dir ganz viel Freude an deinem neuen Tattoo 🖤',
       'pflege.sig.p2':     'Pia Insel · p-insel.de · Bad Lippspringe',
+
+      /* ── Google-Maps Consent (Klick-zum-Laden) ── */
+      'map.consent.text':  'Hier wird eine Karte von Google Maps geladen. Dabei werden Daten an Google (USA) übertragen.',
+      'map.consent.btn':   'Karte laden',
+      'map.consent.note':  'Mit dem Laden akzeptierst du die <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Google</a>.',
+
+      /* ── LEGAL PAGES (Impressum / Datenschutz) ── */
+      'legal.back':        '← Zurück zur Startseite',
+
+      'imp.title':         'Impressum',
+      'imp.h.tmg':         'Angaben gemäß § 5 DDG',
+      'imp.addr':          'Pia Insel<br>p-insel<br>Detmolder Strasse 119<br>33175 Bad Lippspringe<br>Deutschland',
+      'imp.h.contact':     'Kontakt',
+      'imp.p.contact':     'E-Mail: <a href="mailto:info@p-insel.de">info@p-insel.de</a><br><small style="color:var(--text-dim);">(Diese Adresse ist ausschließlich für allgemeine Anfragen. Für Terminwünsche bitte das <a href="kontakt.html" style="color:var(--accent);">Kontaktformular</a> nutzen.)</small>',
+      'imp.h.vat':         'Umsatzsteuer',
+      'imp.p.vat':         'Entfällt gemäß § 19 Abs. 1 UStG (Kleinunternehmerregelung).',
+      'imp.h.job':         'Berufsbezeichnung',
+      'imp.p.job':         'Tätowiererin (selbstständig tätig in Deutschland)',
+      'imp.h.responsible': 'Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV',
+      'imp.p.responsible': 'Pia Insel<br>Detmolder Strasse 119<br>33175 Bad Lippspringe',
+      'imp.h.liability':   'Haftungsausschluss',
+      'imp.p.liability':   'Obwohl ich mich um die Aktualität, Vollständigkeit und Richtigkeit der Inhalte dieser Website bemühe, kann ich hierfür keine Garantie übernehmen. Gemäß § 7 Abs. 1 DDG bin ich als Dienstleisterin für eigene Inhalte nach den allgemeinen Gesetzen verantwortlich. Eine Verpflichtung zur Überwachung übermittelter oder gespeicherter fremder Informationen besteht jedoch nicht (§§ 8–10 DDG). Sobald mir Rechtsverstöße bekannt werden, werde ich die entsprechenden Inhalte umgehend entfernen.',
+      'imp.h.links':       'Haftung für Links',
+      'imp.p.links':       'Diese Website enthält ggf. Links auf externe Webseiten Dritter. Auf die Inhalte dieser verlinkten Webseiten habe ich keinen Einfluss. Für die Richtigkeit der Inhalte ist immer der jeweilige Anbieter oder Betreiber verantwortlich. Zum Zeitpunkt der Verlinkung waren keinerlei Rechtsverletzungen erkennbar. Falls mir Rechtsverletzungen bekannt werden, werde ich die entsprechenden Links sofort entfernen.',
+      'imp.h.copyright':   'Urheberrecht',
+      'imp.p.copyright':   'Die durch die Betreiberin dieser Seite erstellten Inhalte und Bilder unterliegen dem deutschen Urheberrecht. Sämtliche Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung der Betreiberin und sind nur für den privaten Bereich gestattet, nicht jedoch für kommerzielle Zwecke. Gleiches gilt für das Logo.',
+      'imp.h.dispute':     'Verbraucherstreitbeilegung',
+      'imp.p.dispute':     'Ich bin nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.',
+      'imp.h.credits':     'Bildnachweis',
+      'imp.p.credits':     'Einige auf dieser Website verwendete Fotos stammen von <a href="https://pixabay.com" target="_blank" rel="noopener noreferrer">Pixabay</a> und stehen unter der freien Pixabay-Lizenz:<br>– Panthertattoo-Motiv: <a href="https://pixabay.com/de/photos/tätowierung-tinte-tattoo-stift-7027595/" target="_blank" rel="noopener noreferrer">pixabay.com · ID 7027595</a><br>Alle Tattoo- und Atelierfotografien sind Eigentum von Pia Insel und urheberrechtlich geschützt.',
+
+      'ds.title':          'Datenschutzerklärung',
+      'ds.h1':             '1. Verantwortliche Stelle',
+      'ds.p1':             'Pia Insel · p-insel Tattoos<br>Detmolder Strasse 119<br>33175 Bad Lippspringe<br>E-Mail: <a href="mailto:info@p-insel.de">info@p-insel.de</a>',
+      'ds.h2':             '2. Erhebung und Verarbeitung personenbezogener Daten',
+      'ds.p2':             'Personenbezogene Daten werden auf dieser Website nur im technisch notwendigen Umfang erhoben. In keinem Fall werden die erhobenen Daten verkauft oder aus anderen Gründen an Dritte weitergegeben, außer wie in dieser Datenschutzerklärung beschrieben.',
+      'ds.h3':             '3. Server-Logfiles',
+      'ds.p3':             'Der Hosting-Anbieter dieser Website erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt. Dies sind: Browsertyp und Browserversion, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage sowie IP-Adresse. Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der technischen Bereitstellung der Website).',
+      'ds.h4':             '4. Hosting',
+      'ds.p4':             'Diese Website wird bei Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, USA gehostet. Beim Abruf der Website werden technisch bedingt Daten (u. a. IP-Adresse) an die Server von Netlify übertragen. Netlify ist unter dem EU-US Data Privacy Framework zertifiziert. Weitere Informationen finden Sie in der Datenschutzerklärung von Netlify unter: <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer">https://www.netlify.com/privacy/</a>.',
+      'ds.h5':             '5. Kontaktformular',
+      'ds.p5':             'Wenn Sie uns über das Kontaktformular eine Anfrage senden, werden Ihre Angaben (Name, E-Mail-Adresse, Nachricht sowie ggf. hochgeladene Referenzbilder) zur Bearbeitung der Anfrage und für etwaige Anschlussfragen gespeichert. Der Versand des Formulars erfolgt technisch über den Dienst FormSubmit (betrieben in den USA), der die Formulardaten verarbeitet und als E-Mail an uns weiterleitet; dabei werden die übermittelten Daten an Server in den USA übertragen. Weitere Informationen: <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">formsubmit.co</a>. Darüber hinaus geben wir diese Daten nicht ohne Ihre Einwilligung weiter. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer effizienten Bearbeitung). Die Daten werden gelöscht, sobald sie für die Erreichung des Zwecks nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.',
+      'ds.h6':             '6. Schriftarten (lokal gehostet)',
+      'ds.p6':             'Diese Website verwendet Schriftarten (Barlow Condensed, Inter), die lokal auf unserem Server gespeichert sind. Eine Verbindung zu Servern von Google oder anderen externen Anbietern findet nicht statt.',
+      'ds.h7':             '7. YouTube (Verlinkung)',
+      'ds.p7':             'Diese Website enthält Links zu Videos auf YouTube (YouTube LLC, 901 Cherry Ave., San Bruno, CA 94066, USA; ein Dienst von Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland). Die Videos sind nicht direkt eingebettet – es werden erst dann Daten an YouTube bzw. Google übertragen, wenn Sie auf einen solchen Link klicken und die YouTube-Seite öffnen. Solange Sie nicht klicken, werden keine Daten an YouTube übermittelt. Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a>.',
+      'ds.h8':             '8. Google Maps',
+      'ds.p8':             'Auf dieser Website ist Google Maps der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland eingebettet. Durch die Nutzung von Google Maps können Informationen über Ihre Nutzung dieser Website (einschließlich Ihrer IP-Adresse) an einen Server von Google in den USA übertragen und dort gespeichert werden. Google Maps wird zur Darstellung unseres Standorts eingesetzt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Standortdarstellung). Weitere Informationen zum Datenschutz bei Google finden Sie unter: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a>. Wenn Sie der Datenverarbeitung durch Google Maps widersprechen möchten, deaktivieren Sie JavaScript in Ihrem Browser oder nutzen Sie den Link „In Google Maps öffnen" statt der eingebetteten Karte.',
+      'ds.h9':             '9. Instagram (Verlinkung)',
+      'ds.p9':             'Diese Website enthält einen Link zum Instagram-Profil der Betreiberin. Durch Klicken auf den Link verlassen Sie diese Website und werden zu Instagram (Meta Platforms Ireland Limited, 4 Grand Canal Square, Dublin 2, Irland) weitergeleitet. Die Datenverarbeitung durch Instagram erfolgt nach dem Klick auf den jeweiligen Link. Es werden keine Daten an Instagram übertragen, solange Sie nicht auf den Link klicken. Weitere Informationen finden Sie in der Datenschutzerklärung von Instagram: <a href="https://privacycenter.instagram.com/policy" target="_blank" rel="noopener noreferrer">https://privacycenter.instagram.com/policy</a>.',
+      'ds.h10':            '10. Cookies',
+      'ds.p10':            'Diese Website verwendet ausschließlich technisch notwendige Cookies (z.B. für den Cookie-Hinweis/Cookie-Einwilligung). Es werden keine Tracking- oder Analyse-Cookies eingesetzt, solange Sie kein Video abspielen (siehe Abschnitt YouTube).',
+      'ds.h11':            '11. Ihre Rechte als betroffene Person',
+      'ds.p11':            'Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:',
+      'ds.r1':             '<strong>Recht auf Auskunft</strong> (Art. 15 DSGVO)',
+      'ds.r2':             '<strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO)',
+      'ds.r3':             '<strong>Recht auf Löschung</strong> (Art. 17 DSGVO)',
+      'ds.r4':             '<strong>Recht auf Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)',
+      'ds.r5':             '<strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)',
+      'ds.r6':             '<strong>Recht auf Widerspruch gegen die Verarbeitung</strong> (Art. 21 DSGVO)',
+      'ds.r7':             '<strong>Recht auf Widerruf</strong> einer erteilten Einwilligung (Art. 7 Abs. 3 DSGVO)',
+      'ds.p11b':           'Zur Ausübung Ihrer Rechte wenden Sie sich an: <a href="mailto:info@p-insel.de">info@p-insel.de</a>',
+      'ds.h12':            '12. Beschwerderecht bei der Aufsichtsbehörde',
+      'ds.p12':            'Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren. Zuständige Aufsichtsbehörde für Nordrhein-Westfalen ist:',
+      'ds.p12b':           'Landesbeauftragte für Datenschutz und Informationsfreiheit NRW<br>Postfach 20 04 44, 40102 Düsseldorf<br><a href="https://www.ldi.nrw.de" target="_blank" rel="noopener noreferrer">www.ldi.nrw.de</a>',
+      'ds.h13':            '13. Aktualität dieser Datenschutzerklärung',
+      'ds.p13':            'Diese Datenschutzerklärung ist aktuell gültig und datiert vom Mai 2025. Durch die Weiterentwicklung unserer Website kann eine Anpassung dieser Datenschutzerklärung notwendig werden.',
+      'ds.note':           'Hinweis: Diese Texte sind eine solide Grundlage. Zur weiteren Absicherung empfehlen wir einen Check über eRecht24.de oder einen Rechtsanwalt.',
     },
 
     en: {
@@ -414,7 +484,7 @@
 
       /* Stats section */
       'stats.label1':   'Years Experience',
-      'stats.label2':   'Tattoos Done',
+      'stats.label2':   'Unique Pieces',
       'stats.label3':   'Conventions &amp; Events',
       'stats.label4':   'Google Rating',
 
@@ -472,6 +542,7 @@
       'process.s4.desc':  'If everything fits, your appointment will be confirmed. Then all that\'s left is to enjoy the anticipation and start the countdown.',
 
       /* Footer */
+      'footer.about':        'Tattoo studio in Bad Lippspringe – where art is created and moments are captured for eternity. Pia Insel, tattoo artist &amp; painter.',
       'footer.nav.title':    'Navigation',
       'footer.styles.title': 'Styles',
       'footer.contact.title':'Contact',
@@ -618,13 +689,14 @@
       'kon.form.groesse': 'Approximate Size',
       'kon.form.koerper': 'Body Placement',
       'kon.form.idee':    'Your Idea *',
+      'kon.form.idee.ph': 'Describe your idea in bullet points:\n– What should it depict? What mood?\n– Suggest 3 preferred dates (e.g. "mid-October, early November")\n– Be sure to attach reference images in the upload field!',
       'kon.form.refs':    'Reference Images (optional)',
       'kon.opt.please':   '– Please select –',
       'kon.stil.bunt':    'Colorful',
       'kon.stil.sw':      'Black &amp; White',
       'kon.stil.coverup': 'Cover-Up',
       'kon.size.a5':      'A5 size (approx. palm)',
-      'kon.size.a4':      'A4 size (approx. forearm)',
+      'kon.size.a4':      'A4 size (approx. upper arm)',
       'kon.size.arm':     'Full Arm / Sleeve',
       'kon.size.bein':    'Full Leg',
       'kon.size.ruecken': 'Full Back',
@@ -733,6 +805,74 @@
       'pflege.s5.p2':      'Give your tattoo the time it needs — it will carry you for a lifetime.',
       'pflege.sig.p1':     'Thank you for your trust — and I wish you so much joy with your new tattoo 🖤',
       'pflege.sig.p2':     'Pia Insel · p-insel.de · Bad Lippspringe',
+
+      /* ── Google Maps consent (click-to-load) ── */
+      'map.consent.text':  'A Google Maps map will be loaded here. In doing so, data is transferred to Google (USA).',
+      'map.consent.btn':   'Load map',
+      'map.consent.note':  'By loading the map you accept Google\'s <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>.',
+
+      /* ── LEGAL PAGES (Imprint / Privacy Policy) ── */
+      'legal.back':        '← Back to homepage',
+
+      'imp.title':         'Legal Notice',
+      'imp.h.tmg':         'Information pursuant to § 5 DDG',
+      'imp.addr':          'Pia Insel<br>p-insel<br>Detmolder Strasse 119<br>33175 Bad Lippspringe<br>Germany',
+      'imp.h.contact':     'Contact',
+      'imp.p.contact':     'Email: <a href="mailto:info@p-insel.de">info@p-insel.de</a><br><small style="color:var(--text-dim);">(This address is for general enquiries only. For appointment requests, please use the <a href="kontakt.html" style="color:var(--accent);">contact form</a>.)</small>',
+      'imp.h.vat':         'VAT',
+      'imp.p.vat':         'Not applicable under § 19 (1) UStG (small business regulation).',
+      'imp.h.job':         'Professional title',
+      'imp.p.job':         'Tattoo artist (self-employed in Germany)',
+      'imp.h.responsible': 'Responsible for the content pursuant to § 18 (2) MStV',
+      'imp.p.responsible': 'Pia Insel<br>Detmolder Strasse 119<br>33175 Bad Lippspringe',
+      'imp.h.liability':   'Disclaimer',
+      'imp.p.liability':   'Although I strive to keep the content of this website current, complete and accurate, I cannot guarantee this. Pursuant to § 7 (1) DDG, as a service provider I am responsible for my own content under the general laws. However, I am not obliged to monitor transmitted or stored third-party information (§§ 8–10 DDG). As soon as I become aware of any legal violations, I will remove the relevant content immediately.',
+      'imp.h.links':       'Liability for links',
+      'imp.p.links':       'This website may contain links to external third-party websites. I have no influence over the content of these linked websites. The respective provider or operator is always responsible for the accuracy of the content. No legal violations were apparent at the time the links were created. Should I become aware of any legal violations, I will remove the relevant links immediately.',
+      'imp.h.copyright':   'Copyright',
+      'imp.p.copyright':   'The content and images created by the operator of this site are subject to German copyright law. All third-party contributions are marked as such. Reproduction, editing, distribution and any kind of use beyond the limits of copyright require the written consent of the operator and are permitted for private use only, not for commercial purposes. The same applies to the logo.',
+      'imp.h.dispute':     'Consumer dispute resolution',
+      'imp.p.dispute':     'I am neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board.',
+      'imp.h.credits':     'Image credits',
+      'imp.p.credits':     'Some photos used on this website are from <a href="https://pixabay.com" target="_blank" rel="noopener noreferrer">Pixabay</a> and are subject to the free Pixabay licence:<br>– Panther tattoo motif: <a href="https://pixabay.com/de/photos/tätowierung-tinte-tattoo-stift-7027595/" target="_blank" rel="noopener noreferrer">pixabay.com · ID 7027595</a><br>All tattoo and studio photographs are the property of Pia Insel and protected by copyright.',
+
+      'ds.title':          'Privacy Policy',
+      'ds.h1':             '1. Controller',
+      'ds.p1':             'Pia Insel · p-insel Tattoos<br>Detmolder Strasse 119<br>33175 Bad Lippspringe<br>Email: <a href="mailto:info@p-insel.de">info@p-insel.de</a>',
+      'ds.h2':             '2. Collection and processing of personal data',
+      'ds.p2':             'Personal data is collected on this website only to the extent technically necessary. Under no circumstances is the collected data sold or passed on to third parties for any other reason, except as described in this privacy policy.',
+      'ds.h3':             '3. Server log files',
+      'ds.p3':             'The hosting provider of this website automatically collects and stores information in so-called server log files, which your browser automatically transmits. These are: browser type and version, operating system used, referrer URL, hostname of the accessing computer, time of the server request and IP address. This data is not merged with other data sources. The legal basis is Art. 6 (1) (f) GDPR (legitimate interest in the technical provision of the website).',
+      'ds.h4':             '4. Hosting',
+      'ds.p4':             'This website is hosted by Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, USA. When the website is accessed, technical data (including the IP address) is transmitted to Netlify\'s servers. Netlify is certified under the EU-US Data Privacy Framework. For more information, please see Netlify\'s privacy policy at: <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer">https://www.netlify.com/privacy/</a>.',
+      'ds.h5':             '5. Contact form',
+      'ds.p5':             'If you send us an enquiry via the contact form, your details (name, email address, message and any uploaded reference images) will be stored for the purpose of processing the enquiry and for any follow-up questions. The form is technically sent via the service FormSubmit (operated in the USA), which processes the form data and forwards it to us by email; in doing so, the transmitted data is transferred to servers in the USA. Further information: <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">formsubmit.co</a>. Beyond this, we do not pass on this data without your consent. The legal basis is Art. 6 (1) (b) GDPR (pre-contractual measures) and Art. 6 (1) (f) GDPR (legitimate interest in efficient processing). The data is deleted as soon as it is no longer required to achieve the purpose and no statutory retention obligations prevent this.',
+      'ds.h6':             '6. Fonts (hosted locally)',
+      'ds.p6':             'This website uses fonts (Barlow Condensed, Inter) that are stored locally on our server. No connection is made to servers of Google or other external providers.',
+      'ds.h7':             '7. YouTube (links)',
+      'ds.p7':             'This website contains links to videos on YouTube (YouTube LLC, 901 Cherry Ave., San Bruno, CA 94066, USA; a service of Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland). The videos are not embedded directly – data is only transmitted to YouTube or Google once you click such a link and open the YouTube page. As long as you do not click, no data is transmitted to YouTube. Further information: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a>.',
+      'ds.h8':             '8. Google Maps',
+      'ds.p8':             'This website embeds Google Maps provided by Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland. By using Google Maps, information about your use of this website (including your IP address) may be transmitted to and stored on a Google server in the USA. Google Maps is used to display our location. The legal basis is Art. 6 (1) (f) GDPR (legitimate interest in displaying the location). Further information on data protection at Google can be found at: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a>. If you wish to object to data processing by Google Maps, disable JavaScript in your browser or use the “Open in Google Maps” link instead of the embedded map.',
+      'ds.h9':             '9. Instagram (link)',
+      'ds.p9':             'This website contains a link to the operator\'s Instagram profile. By clicking the link, you leave this website and are redirected to Instagram (Meta Platforms Ireland Limited, 4 Grand Canal Square, Dublin 2, Ireland). Data processing by Instagram takes place after you click the respective link. No data is transmitted to Instagram unless you click the link. For more information, please see Instagram\'s privacy policy: <a href="https://privacycenter.instagram.com/policy" target="_blank" rel="noopener noreferrer">https://privacycenter.instagram.com/policy</a>.',
+      'ds.h10':            '10. Cookies',
+      'ds.p10':            'This website uses exclusively technically necessary cookies (e.g. for the cookie notice/cookie consent). No tracking or analytics cookies are used unless you play a video (see the YouTube section).',
+      'ds.h11':            '11. Your rights as a data subject',
+      'ds.p11':            'You have the following rights with regard to the personal data concerning you:',
+      'ds.r1':             '<strong>Right of access</strong> (Art. 15 GDPR)',
+      'ds.r2':             '<strong>Right to rectification</strong> (Art. 16 GDPR)',
+      'ds.r3':             '<strong>Right to erasure</strong> (Art. 17 GDPR)',
+      'ds.r4':             '<strong>Right to restriction of processing</strong> (Art. 18 GDPR)',
+      'ds.r5':             '<strong>Right to data portability</strong> (Art. 20 GDPR)',
+      'ds.r6':             '<strong>Right to object to processing</strong> (Art. 21 GDPR)',
+      'ds.r7':             '<strong>Right to withdraw</strong> consent given (Art. 7 (3) GDPR)',
+      'ds.p11b':           'To exercise your rights, please contact: <a href="mailto:info@p-insel.de">info@p-insel.de</a>',
+      'ds.h12':            '12. Right to lodge a complaint with a supervisory authority',
+      'ds.p12':            'You have the right to lodge a complaint with a data protection supervisory authority about the processing of your personal data by us. The competent supervisory authority for North Rhine-Westphalia is:',
+      'ds.p12b':           'Landesbeauftragte für Datenschutz und Informationsfreiheit NRW<br>Postfach 20 04 44, 40102 Düsseldorf<br><a href="https://www.ldi.nrw.de" target="_blank" rel="noopener noreferrer">www.ldi.nrw.de</a>',
+      'ds.h13':            '13. Validity of this privacy policy',
+      'ds.p13':            'This privacy policy is currently valid and dated May 2025. As our website develops further, it may become necessary to amend this privacy policy.',
+      'ds.note':           'Note: These texts provide a solid basis. For further legal certainty, we recommend a check via eRecht24.de or a lawyer.',
     }
   };
 
@@ -754,6 +894,14 @@
       }
     });
 
+    /* Placeholder-Übersetzung (Inputs / Textareas) */
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.dataset.i18nPlaceholder;
+      if (t[key] !== undefined) {
+        el.setAttribute('placeholder', t[key]);
+      }
+    });
+
     /* Update <html lang="…"> */
     document.documentElement.lang = lang;
 
@@ -764,6 +912,10 @@
     });
 
     localStorage.setItem(LANG_KEY, lang);
+
+    /* Andere Skripte (z.B. das Buchungs-Widget auf der Kontaktseite) über den
+       Sprachwechsel informieren, damit sie ihren dynamischen Inhalt neu rendern. */
+    document.dispatchEvent(new CustomEvent('pi-langchange', { detail: lang }));
   }
 
   function init() {

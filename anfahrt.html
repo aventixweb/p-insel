@@ -145,13 +145,14 @@
       <!-- Map -->
       <div class="reveal" data-delay="2">
         <div class="map-box" style="height:420px;">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2467.8!2d8.826!3d51.780!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ba3f9e5c2d!2sDetmolder+Str.+119%2C+33175+Bad+Lippspringe!5e0!3m2!1sde!2sde!4v1699999999"
-            width="100%" height="100%"
-            style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Karte: p-insel Tattoos, Bad Lippspringe">
-          </iframe>
+          <div class="map-consent" data-map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2467.8!2d8.826!3d51.780!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ba3f9e5c2d!2sDetmolder+Str.+119%2C+33175+Bad+Lippspringe!5e0!3m2!1sde!2sde!4v1699999999" data-map-title="Karte: p-insel Tattoos, Bad Lippspringe">
+            <div class="map-consent-inner">
+              <svg class="map-consent-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <p class="map-consent-text" data-i18n="map.consent.text">Hier wird eine Karte von Google Maps geladen. Dabei werden Daten an Google (USA) übertragen.</p>
+              <button type="button" class="map-consent-btn" data-i18n="map.consent.btn">Karte laden</button>
+              <p class="map-consent-note" data-i18n="map.consent.note">Mit dem Laden akzeptierst du die <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Google</a>.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -166,7 +167,7 @@
           <a href="index.html" class="footer-logo-text">
             <img src="img/logo-hires.png" alt="p-insel Tattoos" style="height:200px;width:auto;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));">
           </a>
-          <p>Tattoo Studio in Bad Lippspringe – Wo Kunst entsteht und Momente für die Ewigkeit festgehalten werden. Pia Insel, Tätowiererin & Malerin.</p>
+          <p data-i18n="footer.about">Tattoo Studio in Bad Lippspringe – Wo Kunst entsteht und Momente für die Ewigkeit festgehalten werden. Pia Insel, Tätowiererin & Malerin.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/pia_insel_tattoos" target="_blank" rel="noopener" aria-label="Instagram">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
@@ -234,6 +235,23 @@
   dr.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
   const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}}),{threshold:0.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* Google Maps Klick-zum-Laden — lädt den iframe erst nach Einwilligung */
+  document.querySelectorAll('.map-consent').forEach(function(box){
+    var btn = box.querySelector('.map-consent-btn');
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+      var ifr = document.createElement('iframe');
+      ifr.src = box.getAttribute('data-map-src');
+      ifr.width = '100%'; ifr.height = '100%';
+      ifr.style.border = '0';
+      ifr.loading = 'lazy';
+      ifr.setAttribute('allowfullscreen','');
+      ifr.setAttribute('referrerpolicy','no-referrer-when-downgrade');
+      ifr.title = box.getAttribute('data-map-title') || 'Google Maps';
+      box.parentNode.replaceChild(ifr, box);
+    });
+  });
 </script>
 <script src="lang.js"></script>
 </body>

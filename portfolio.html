@@ -37,40 +37,52 @@
     }
     .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
     .filter-btn.active { background: var(--accent); border-color: var(--accent); color: var(--bg); }
-    .portfolio-full-grid {
+    /* ── Mosaik-Galerie (explizites 3-Spalten-Raster, exakt nach Kundenskizze) ──
+       Quadrat = 1 Zelle · Querformat (.land) = 2 Spalten breit · Hochkant (.port) = 2 Reihen hoch.
+       grid-auto-rows wird per JS auf die Spaltenbreite gesetzt -> quadratische Basiszellen.
+       grid-auto-flow: dense füllt entstehende Lücken automatisch. */
+    .portfolio-masonry {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
+      grid-auto-rows: 1fr;     /* per JS auf px (= Spaltenbreite) gesetzt */
+      grid-auto-flow: row dense;
+      gap: 6px;                /* enge Lücken wie Referenz */
     }
     .pf-item {
       position: relative;
       overflow: hidden;
-      border-radius: 4px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
+      border-radius: 8px;
       cursor: pointer;
-      aspect-ratio: 1;
+      transition: box-shadow .3s var(--ease);
+      background: var(--bg-surface);
     }
-    .pf-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
-    .pf-item.tall { grid-row: span 2; aspect-ratio: 1/2; }
-    .pf-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); display: block; }
-    .pf-item:hover img { transform: scale(1.06); }
+    .pf-item.land { grid-column: span 2; }   /* Querformat: zwei Spalten breit */
+    .pf-item.port { grid-row: span 2; }      /* Hochkant: zwei Reihen hoch */
+    .pf-item img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform .4s var(--ease);
+    }
+    .pf-item:hover {
+      box-shadow: 0 10px 30px rgba(0,0,0,.55);
+    }
+    .pf-item:hover img {
+      transform: scale(1.04);
+    }
     .pf-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,.9) 0%, transparent 55%);
+      background: linear-gradient(to top, rgba(0,0,0,.85) 0%, transparent 50%);
       opacity: 0; transition: opacity .3s;
-      display: flex; align-items: flex-end; padding: 1.2rem;
+      display: flex; align-items: flex-end; padding: 1rem;
     }
     .pf-item:hover .pf-overlay { opacity: 1; }
-    .pf-tag { font-size: .65rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: .2rem; }
+    .pf-tag { font-size: .6rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: .2rem; }
     .pf-name { font-family: var(--font-h); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; color: var(--text); }
-    @media (max-width: 768px) {
-      .portfolio-full-grid { grid-template-columns: repeat(2, 1fr); }
-      .pf-item.wide { grid-column: span 1; aspect-ratio: 1; }
-      .pf-item.tall { grid-row: span 1; aspect-ratio: 1; }
-    }
-    @media (max-width: 480px) {
-      .portfolio-full-grid { grid-template-columns: 1fr; }
+    @media (max-width: 560px) {
+      .portfolio-masonry { grid-template-columns: repeat(2, 1fr); gap: 6px; }
     }
 
     /* ── Stile Section ── */
@@ -88,10 +100,22 @@
     .style-detail-img {
       position: relative;
       width: 100%;
-      aspect-ratio: 4/3;
+      aspect-ratio: 1/1;
       border-radius: 4px;
       overflow: hidden;
       background: var(--bg-surface);
+      border: 2px solid var(--accent);
+      box-shadow:
+        0 0 0 1px rgba(255,45,120,.4),
+        0 0 18px rgba(255,45,120,.55),
+        0 0 38px rgba(255,45,120,.30);
+      transition: box-shadow .35s ease, border-color .35s ease;
+    }
+    .style-detail-img:hover {
+      box-shadow:
+        0 0 0 1px rgba(255,45,120,.6),
+        0 0 26px rgba(255,45,120,.75),
+        0 0 55px rgba(255,45,120,.45);
     }
     .style-num {
       font-family: var(--font-h);
@@ -306,224 +330,171 @@
       <button class="filter-btn" data-filter="malerei" data-i18n="p.filter.malerei">Malerei</button>
     </div>
 
-    <div class="portfolio-full-grid">
+    <div class="portfolio-masonry">
 
-      <div class="pf-item wide reveal" data-category="bunt">
-        <img src="img/tattoo/bunt-01.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
+      <!-- Reihe 1: Hund (Querformat) + Tiger/Leopard (Hochkant) -->
+      <div class="pf-item land" data-category="bunt">
+        <img src="img/tattoo/hund-portrait.jpg" alt="Hundeportrait — buntes Tattoo von Pia Insel" loading="eager" style="object-position:center 70%;">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      </div>
+      <div class="pf-item port" data-category="bunt">
+        <img src="img/tattoo/leopard-bein-gespiegelt.jpg" alt="Leopard mit Blumen am Bein — buntes Tattoo von Pia Insel" loading="eager" style="object-position:center top;">
         <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
       </div>
 
-      <div class="pf-item reveal" data-delay="1" data-category="sw">
-        <img src="img/tattoo/sw-01.jpg" alt="Schwarz-Weiß Tattoo von Pia Insel" loading="lazy">
+      <!-- Reihe 2: brauner Hund (Hochkant) + bunter Colibri (Quadrat) -->
+      <div class="pf-item port" data-category="bunt">
+        <img src="img/tattoo/bunt-01.jpg" alt="Realistischer Hund mit Mandala — buntes Tattoo von Pia Insel" loading="eager">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      </div>
+      <div class="pf-item" data-category="bunt">
+        <img src="img/tattoo/bunt-17.jpg" alt="Bunter Kolibri mit Blumen — Tattoo von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      </div>
+
+      <!-- Reihe 3: bunte Vögel (Quadrat) + gemalte Katze im Schwimmreif (Querformat) -->
+      <div class="pf-item" data-category="bunt">
+        <img src="img/tattoo/bunt-07.jpg" alt="Bunte Vögel mit Blumen am Arm — buntes Tattoo von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      </div>
+      <div class="pf-item" data-category="malerei">
+        <img src="img/malerei/katze-pool.jpeg" alt="Katze im Schwimmreif — Malerei von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.malerei">Malerei</span></div></div>
+      </div>
+
+      <!-- Reihe 4: SW-Vogel (Quadrat) + Katze mit Blumen (Querformat) -->
+      <div class="pf-item" data-category="sw">
+        <img src="img/tattoo/sw-papagei.jpg" alt="Schwarz-weiß Vogel-Tattoo von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.sw">Schwarz-Weiß</span></div></div>
+      </div>
+      <div class="pf-item land" data-category="bunt">
+        <img src="img/tattoo/bunt-13.jpg" alt="Katze mit Blumen — buntes Tattoo von Pia Insel" loading="lazy" style="object-position:center center;">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      </div>
+
+      <!-- Reihe 5: Blumen am Arm (Querformat) + zersplittertes Herz (Quadrat) -->
+      <div class="pf-item land" data-category="bunt">
+        <img src="img/tattoo/bunt-16-gespiegelt.jpg" alt="Blumen am Arm — buntes Tattoo von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      </div>
+      <div class="pf-item" data-category="bunt">
+        <img src="img/tattoo/bunt-02.jpg" alt="Zersplittertes Herz mit Blumen — Tattoo von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      </div>
+
+      <!-- Reihe 6: Dino im Schwimmreif (Quadrat) + bunter Papagei am Bein (Hochkant) + Blumen Oberschenkel (Quadrat) -->
+      <div class="pf-item" data-category="bunt">
+        <img src="img/tattoo/bunt-05.jpg" alt="Dino im Schwimmreif — Tattoo von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      </div>
+      <div class="pf-item port" data-category="bunt">
+        <img src="img/tattoo/bunt-04.jpg" alt="Papagei mit Blumen am Bein — buntes Tattoo von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      </div>
+      <div class="pf-item" data-category="bunt">
+        <img src="img/tattoo/bunt-03.jpg" alt="Bunte Blumen am Oberschenkel — Tattoo von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      </div>
+
+      <!-- Reihe 7: schwarz-weiß Schildkröte (Hochkant) + schwarz-weiß Tiger am Arm (Quadrat) -->
+      <div class="pf-item port" data-category="sw">
+        <img src="img/tattoo/sw-schildkroete.jpg" alt="Schildkröte — schwarz-weiß Tattoo von Pia Insel" loading="lazy" style="object-position:center center;">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.sw">Schwarz-Weiß</span></div></div>
+      </div>
+      <div class="pf-item" data-category="sw">
+        <img src="img/tattoo/sw-01.jpg" alt="Tiger mit Blumen am Arm — schwarz-weiß Tattoo von Pia Insel" loading="lazy">
         <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.sw">Schwarz-Weiß</span></div></div>
       </div>
 
-      <div class="pf-item reveal" data-delay="2" data-category="bunt">
-        <img src="img/tattoo/bunt-02.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
+      <!-- Reihe 8: zwei Vögel (Quadrat) + Tier im Schwimmreif (Quadrat) -->
+      <div class="pf-item" data-category="bunt">
+        <img src="img/tattoo/bunt-09.jpg" alt="Zwei Vögel mit Krönchen — buntes Tattoo von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      </div>
+      <div class="pf-item" data-category="bunt">
+        <img src="img/tattoo/katze-pflanzen-arm.jpeg" alt="Katze mit Pflanzen am Arm — buntes Tattoo von Pia Insel" loading="lazy">
         <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
       </div>
 
-      <div class="pf-item tall reveal" data-delay="1" data-category="bunt">
-        <img src="img/tattoo/bunt-03.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
+      <!-- Reihe 9: Astronauten-Häschen (Quadrat) + Flamingo am Arm (Hochkant) + Drache (Quadrat) -->
+      <div class="pf-item" data-category="bunt">
+        <img src="img/tattoo/bunt-06.jpg" alt="Astronauten-Häschen — buntes Tattoo von Pia Insel" loading="lazy">
         <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
       </div>
-
-      <div class="pf-item reveal" data-delay="2" data-category="sw">
-        <img src="img/tattoo/sw-02.jpg" alt="Schwarz-Weiß Tattoo von Pia Insel" loading="lazy">
+      <div class="pf-item port" data-category="bunt">
+        <img src="img/tattoo/bunt-14.jpg" alt="Flamingo am Arm — buntes Tattoo von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      </div>
+      <div class="pf-item" data-category="sw">
+        <img src="img/tattoo/sw-04.jpg" alt="Drache am Arm — schwarz-weiß Tattoo von Pia Insel" loading="lazy">
         <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.sw">Schwarz-Weiß</span></div></div>
       </div>
 
-      <div class="pf-item reveal" data-delay="3" data-category="bunt">
-        <img src="img/tattoo/bunt-04.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
-        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      <!-- Reihe 10: schwarz-weiß Mann mit Bart (Quadrat) + gemalter Dino im Schwimmreif (Quadrat) -->
+      <div class="pf-item" data-category="sw">
+        <img src="img/tattoo/sw-05.jpg" alt="Mann mit Bart — schwarz-weiß Tattoo von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.sw">Schwarz-Weiß</span></div></div>
+      </div>
+      <div class="pf-item" data-category="malerei">
+        <img src="img/malerei/dino-pool.jpeg" alt="Dino im Schwimmreif blau/pink — Malerei von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.malerei">Malerei</span></div></div>
       </div>
 
-      <div class="pf-item reveal" data-delay="1" data-category="coverup">
-        <img src="img/tattoo/coverup-01.jpg" alt="Cover-Up Tattoo von Pia Insel" loading="lazy">
+      <!-- Reihe 11: Löwe mit Blumen (Querformat, 2 Spalten) + Sonnenblumen-Rücken (Quadrat) -->
+      <div class="pf-item land" data-category="bunt">
+        <img src="img/tattoo/bunt-15.jpg" alt="Löwe mit Blumen — buntes Tattoo von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      </div>
+      <div class="pf-item" data-category="coverup">
+        <img src="img/tattoo/cu-sonnenblume.jpg" alt="Sonnenblumen auf dem Rücken — Cover-Up von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.coverup">Cover-Up</span></div></div>
+      </div>
+      <div class="pf-item" data-category="coverup">
+        <img src="img/tattoo/cu-schildkroete.jpg" alt="Schildkröte mit Blumen — Cover-Up von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.coverup">Cover-Up</span></div></div>
+      </div>
+      <div class="pf-item" data-category="coverup">
+        <img src="img/tattoo/cu-flamingo.jpg" alt="Flamingo Las Vegas — Cover-Up von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.coverup">Cover-Up</span></div></div>
+      </div>
+      <div class="pf-item" data-category="coverup">
+        <img src="img/tattoo/cu-kolibri.jpg" alt="Kolibri auf dem Rücken — Cover-Up von Pia Insel" loading="lazy">
         <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.coverup">Cover-Up</span></div></div>
       </div>
 
-      <div class="pf-item wide reveal" data-delay="2" data-category="bunt">
-        <img src="img/tattoo/bunt-05.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
+      <!-- ── Neue Arbeiten (Anordnung tilt lückenlos: 1 Land + 3 Hochkant + 4 Quadrate = 4 volle Reihen) ── -->
+      <div class="pf-item land" data-category="bunt">
+        <img src="img/tattoo/wolf-aquarell-arm.jpg" alt="Wolf in Aquarell am Arm — buntes Tattoo von Pia Insel" loading="lazy" style="object-position:center 40%;">
         <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
       </div>
-
-      <div class="pf-item reveal" data-delay="3" data-category="sw">
-        <img src="img/tattoo/sw-03.jpg" alt="Schwarz-Weiß Tattoo von Pia Insel" loading="lazy">
-        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.sw">Schwarz-Weiß</span></div></div>
-      </div>
-
-      <div class="pf-item reveal" data-delay="1" data-category="bunt">
-        <img src="img/tattoo/bunt-06.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
+      <div class="pf-item port" data-category="bunt">
+        <img src="img/tattoo/voegel-ruecken.jpg" alt="Buntes Rücken-Tattoo von Pia Insel" loading="lazy">
         <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
       </div>
-
-      <div class="pf-item reveal" data-delay="2" data-category="bunt">
-        <img src="img/tattoo/bunt-07.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
+      <div class="pf-item port" data-category="bunt">
+        <img src="img/tattoo/blumen-arm-aquarell.jpg" alt="Buntes Arm-Tattoo mit Blumen von Pia Insel" loading="lazy">
         <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
       </div>
-
-      <div class="pf-item reveal" data-delay="3" data-category="coverup">
-        <img src="img/tattoo/coverup-02.jpg" alt="Cover-Up Tattoo von Pia Insel" loading="lazy">
-        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.coverup">Cover-Up</span></div></div>
-      </div>
-
-      <div class="pf-item tall reveal" data-delay="1" data-category="bunt">
-        <img src="img/tattoo/bunt-08.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
+      <div class="pf-item" data-category="bunt">
+        <img src="img/tattoo/frangipani-arm.jpg" alt="Frangipani-Blüten am Arm — buntes Tattoo von Pia Insel" loading="lazy">
         <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
       </div>
-
-      <div class="pf-item reveal" data-delay="2" data-category="sw">
-        <img src="img/tattoo/sw-04.jpg" alt="Schwarz-Weiß Tattoo von Pia Insel" loading="lazy">
-        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.sw">Schwarz-Weiß</span></div></div>
-      </div>
-
-      <div class="pf-item reveal" data-delay="3" data-category="bunt">
-        <img src="img/tattoo/bunt-09.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
+      <div class="pf-item port" data-category="bunt">
+        <img src="img/tattoo/blumen-mandala-arm.jpg" alt="Blumen mit Mandala am Arm — buntes Tattoo von Pia Insel" loading="lazy">
         <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
       </div>
-
-      <div class="pf-item wide reveal" data-delay="1" data-category="bunt">
-        <img src="img/tattoo/bunt-10.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
-        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
-      </div>
-
-      <div class="pf-item reveal" data-delay="2" data-category="sw">
-        <img src="img/tattoo/sw-05.jpg" alt="Schwarz-Weiß Tattoo von Pia Insel" loading="lazy">
-        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.sw">Schwarz-Weiß</span></div></div>
-      </div>
-
-      <div class="pf-item reveal" data-delay="3" data-category="bunt">
-        <img src="img/tattoo/bunt-11.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
-        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
-      </div>
-
-      <div class="pf-item reveal" data-delay="1" data-category="coverup">
-        <img src="img/tattoo/coverup-03.jpg" alt="Cover-Up Tattoo von Pia Insel" loading="lazy">
-        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.coverup">Cover-Up</span></div></div>
-      </div>
-
-      <div class="pf-item reveal" data-delay="2" data-category="bunt">
-        <img src="img/tattoo/bunt-12.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
-        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
-      </div>
-
-      <div class="pf-item reveal" data-delay="3" data-category="bunt">
-        <img src="img/tattoo/bunt-13.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
-        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
-      </div>
-
-      <div class="pf-item reveal" data-delay="1" data-category="bunt">
-        <img src="img/tattoo/bunt-14.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
-        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
-      </div>
-
-      <div class="pf-item wide reveal" data-delay="2" data-category="bunt">
-        <img src="img/tattoo/bunt-15.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
-        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
-      </div>
-
-      <div class="pf-item reveal" data-delay="3" data-category="bunt">
-        <img src="img/tattoo/bunt-16.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
-        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
-      </div>
-
-      <div class="pf-item reveal" data-delay="1" data-category="bunt">
-        <img src="img/tattoo/bunt-17.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
-        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
-      </div>
-
-      <div class="pf-item reveal" data-delay="2" data-category="bunt">
-        <img src="img/tattoo/bunt-18.jpg" alt="Buntes Tattoo von Pia Insel" loading="lazy">
-        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
-      </div>
-
-      <div class="pf-item wide reveal" data-delay="2" data-category="malerei">
-        <img src="img/malerei/flamingo-lotos-raum.jpeg" alt="Flamingo mit Lotos — Malerei von Pia Insel" loading="lazy">
+      <div class="pf-item" data-category="malerei">
+        <img src="img/malerei/portrait-gemaelde.jpg" alt="Portrait-Gemälde — Malerei von Pia Insel" loading="lazy">
         <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.malerei">Malerei</span></div></div>
       </div>
-
-      <div class="pf-item reveal" data-delay="3" data-category="malerei">
-        <img src="img/malerei/schaedel-blumen.jpeg" alt="Schädel mit Blumen — Malerei von Pia Insel" loading="lazy">
+      <div class="pf-item" data-category="bunt">
+        <img src="img/tattoo/pfingstrosen-ruecken.jpg" alt="Pfingstrosen am Rücken — buntes Tattoo von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      </div>
+      <div class="pf-item" data-category="malerei">
+        <img src="img/malerei/gemaelde-bunt.jpg" alt="Buntes Gemälde — Malerei von Pia Insel" loading="lazy">
         <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.malerei">Malerei</span></div></div>
       </div>
-
-      <div class="pf-item wide reveal" data-delay="1" data-category="malerei">
-        <img src="img/malerei/dino-pool.jpeg" alt="T-Rex im Pool — Malerei von Pia Insel" loading="lazy">
-        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.malerei">Malerei</span></div></div>
-      </div>
-
-      <div class="pf-item reveal" data-delay="2" data-category="malerei">
-        <img src="img/malerei/katze-pool.jpeg" alt="Katze im Pool — Malerei von Pia Insel" loading="lazy">
-        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.malerei">Malerei</span></div></div>
-      </div>
-
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     SPEZIALISIERUNGEN (3 Cards)
-     ══════════════════════════════════════════ -->
-<section class="section parallax-section" aria-label="Spezialisierungen Übersicht">
-  <div class="parallax-bg" data-speed="0.20" style="background-image:url('img/tattoo/heissluftballon-blumen-arm.jpg')"></div>
-  <div class="parallax-overlay" style="background:rgba(17,17,17,.82)"></div>
-  <div class="container">
-    <div style="text-align:center; margin-bottom:3rem;">
-      <div class="section-eyebrow reveal" style="justify-content:center;" data-i18n="p.spec.eyebrow">Spezialisierungen</div>
-      <h2 class="section-title reveal" data-delay="1" style="font-size:clamp(2.2rem,4.5vw,3.5rem);" data-i18n="p.spec.h2">
-        Kunst, die <span>Eindruck macht!</span>
-      </h2>
-      <p class="section-desc reveal" data-delay="2" style="margin:0 auto;" data-i18n="p.spec.desc">
-        Jedes Werk ein Unikat. Ich arbeite immer mit dem Anspruch, dass es dein persönliches Tattoo-Kunstwerk wird.
-      </p>
-    </div>
-    <div class="style-cards">
-      <a href="#bunt" class="style-card reveal" data-delay="1">
-        <div class="style-card-img-wrap">
-          <img src="img/tattoo/bunt-03.jpg" alt="Buntes Farb-Tattoo" class="style-card-img">
-        </div>
-        <div class="style-card-body">
-          <div class="style-card-tag" data-i18n="p.card1.tag">Stil 01</div>
-          <h3 data-i18n="p.card1.h3">Bunt</h3>
-          <p data-i18n="p.card1.desc">Lebendige Farben, die auf der Haut leuchten – Aquarell, Vollfarbe, florale Motive und Tierportraits in satter Brillanz.</p>
-          <div class="style-card-link" data-i18n="p.card.more">Mehr erfahren <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        </div>
-      </a>
-      <a href="#sw" class="style-card reveal" data-delay="2">
-        <div class="style-card-img-wrap">
-          <img src="img/tattoo/sw-04.jpg" alt="Schwarz-Weiß Tattoo" class="style-card-img">
-        </div>
-        <div class="style-card-body">
-          <div class="style-card-tag" data-i18n="p.card2.tag">Stil 02</div>
-          <h3 data-i18n="p.card2.h3">Schwarz-Weiß</h3>
-          <p data-i18n="p.card2.desc">Realismus, Feineline und Dotwork in Schwarz und Grau – präzise, zeitlos und ausdrucksstark.</p>
-          <div class="style-card-link" data-i18n="p.card.more">Mehr erfahren <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        </div>
-      </a>
-      <a href="#surrealismus" class="style-card reveal" data-delay="3">
-        <div class="style-card-img-wrap">
-          <img src="img/tattoo/bunt-18.jpg" alt="Surrealismus Farb-Tattoo" class="style-card-img">
-        </div>
-        <div class="style-card-body">
-          <div class="style-card-tag" data-i18n="p.card3.tag">Stil 03</div>
-          <h3 data-i18n="p.card3.h3">Surrealismus &amp; Farbe</h3>
-          <p data-i18n="p.card3.desc">Das Unmögliche, das durch Tinte real wird – surreale Welten, Dinos, Träume in satten Farben.</p>
-          <div class="style-card-link" data-i18n="p.card.more">Mehr erfahren <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        </div>
-      </a>
-      <a href="#coverup" class="style-card reveal" data-delay="4">
-        <div class="style-card-img-wrap">
-          <img src="img/tattoo/coverup-01.jpg" alt="Cover-Up Tattoo vorher nachher" class="style-card-img">
-        </div>
-        <div class="style-card-body">
-          <div class="style-card-tag" data-i18n="p.card4.tag">Stil 04</div>
-          <h3 data-i18n="p.card4.h3">Cover-Ups</h3>
-          <p data-i18n="p.card4.desc">Altes Tattoo? Kein Problem. Mit Kreativität und Technik entsteht an seiner Stelle etwas völlig Neues.</p>
-          <div class="style-card-link" data-i18n="p.card.more">Mehr erfahren <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        </div>
-      </a>
     </div>
   </div>
 </section>
@@ -538,6 +509,9 @@
         <div class="stile-editorial-left">
           <div class="stile-eyebrow reveal" data-i18n="p.stile.eyebrow">Spezialisierungen</div>
           <h2 class="stile-headline reveal" data-delay="1" data-i18n="p.stile.h2">STILE &amp;<br><span>TECHNIKEN</span></h2>
+          <p class="section-desc reveal" data-delay="2" style="margin-top:1.6rem;max-width:520px;" data-i18n="p.spec.desc">
+            Jedes Werk ein Unikat. Ich arbeite immer mit dem Anspruch, dass es dein persönliches Tattoo-Kunstwerk wird.
+          </p>
         </div>
       </div>
     </div>
@@ -622,7 +596,7 @@
     <!-- Stil 04: Cover-Ups -->
     <div class="style-detail reverse" id="coverup">
       <div class="style-detail-img reveal">
-        <img src="img/tattoo/coverup-02.jpg" alt="Cover-Up Tattoo von Pia Insel" style="width:100%;height:100%;object-fit:cover;border-radius:4px;">
+        <img src="img/tattoo/cu-kolibri.jpg" alt="Cover-Up Tattoo von Pia Insel" style="width:100%;height:100%;object-fit:cover;border-radius:4px;">
       </div>
       <div>
         <div class="style-num reveal">04</div>
@@ -726,7 +700,7 @@
           <a href="index.html" class="footer-logo-text">
             <img src="img/logo-hires.png" alt="p-insel Tattoos" style="height:200px;width:auto;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));">
           </a>
-          <p>Tattoo Studio in Bad Lippspringe – Wo Kunst entsteht und Momente für die Ewigkeit festgehalten werden. Pia Insel, Tätowiererin & Malerin.</p>
+          <p data-i18n="footer.about">Tattoo Studio in Bad Lippspringe – Wo Kunst entsteht und Momente für die Ewigkeit festgehalten werden. Pia Insel, Tätowiererin & Malerin.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/pia_insel_tattoos" target="_blank" rel="noopener" aria-label="Instagram">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
@@ -813,7 +787,22 @@
   const floatCta = document.getElementById('float-cta');
   window.addEventListener('scroll', () => { floatCta.classList.toggle('visible', window.scrollY > 350); }, { passive: true });
 
-  /* Filter */
+  /* ── Mosaik-Raster: quadratische Basiszellen (grid-auto-rows = Spaltenbreite) ── */
+  const grid = document.querySelector('.portfolio-masonry');
+  function sizeGrid(){
+    if(!grid) return;
+    const cols = window.innerWidth <= 560 ? 2 : 3;
+    const gap  = parseFloat(getComputedStyle(grid).gap) || 6;
+    const w    = grid.getBoundingClientRect().width;
+    const cell = Math.floor((w - (cols - 1) * gap) / cols);
+    grid.style.gridAutoRows = cell + 'px';
+  }
+  window.addEventListener('load', sizeGrid);
+  let mResize;
+  window.addEventListener('resize', () => { clearTimeout(mResize); mResize = setTimeout(sizeGrid, 120); }, { passive: true });
+  sizeGrid();
+
+  /* Filter — CSS-Grid (dense) packt automatisch um, kein Re-Layout nötig */
   const filterBtns = document.querySelectorAll('.filter-btn');
   const pfItems    = document.querySelectorAll('.pf-item');
   filterBtns.forEach(btn => {
@@ -849,7 +838,7 @@
   const lbImg=document.getElementById('lb-img');
   const lbCaption=document.getElementById('lb-caption');
   const lbCounter=document.getElementById('lb-counter');
-  let lbItems=[]; let lbIdx=0; let lbTimer=null;
+  let lbItems=[]; let lbIdx=0; let lbReq=0;
 
   document.querySelectorAll('.pf-item').forEach(item=>{
     item.style.cursor='zoom-in';
@@ -875,20 +864,23 @@
     if(!img)return;
     const name=item.querySelector('.pf-name')?.textContent||'';
     const tag=item.querySelector('.pf-tag')?.textContent||'';
+    const myReq=++lbReq; // token: invalidates any in-flight previous navigation
+    // Text + counter sofort aktualisieren
+    lbCaption.textContent=[name,tag].filter(Boolean).join(' · ');
+    lbCounter.textContent=`${lbIdx+1} / ${lbItems.length}`;
+    // Aktuelles Bild ausblenden, neues laden, erst nach load wieder einblenden
     lbImg.style.opacity='0';
-    if(lbTimer)clearTimeout(lbTimer); // prevent race condition on rapid clicks
-    lbTimer=setTimeout(()=>{
-      lbImg.src=img.src; lbImg.alt=img.alt;
-      lbCaption.textContent=name+(tag?' · '+tag:'');
-      lbCounter.textContent=`${lbIdx+1} / ${lbItems.length}`;
-      lbImg.style.opacity='1';
-      lbTimer=null;
-    },120);
+    const reveal=()=>{ if(myReq===lbReq) lbImg.style.opacity='1'; };
+    lbImg.onload=reveal;
+    lbImg.onerror=reveal;
+    lbImg.src=img.src; lbImg.alt=img.alt;
+    // Aus dem Cache feuert onload evtl. nicht -> direkt prüfen
+    if(lbImg.complete && lbImg.naturalWidth) reveal();
   }
   function closeLb(){
     lb.classList.remove('lb-open');
     document.body.style.overflow='';
-    if(lbTimer){clearTimeout(lbTimer);lbTimer=null;}
+    lbReq++; // bricht eventuell laufendes Laden ab
   }
   document.getElementById('lb-close').addEventListener('click',closeLb);
   document.getElementById('lb-prev').addEventListener('click',(e)=>{e.stopPropagation();lbIdx=(lbIdx-1+lbItems.length)%lbItems.length;showLb();});

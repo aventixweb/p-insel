@@ -186,7 +186,7 @@
               <select class="form-select" id="groesse" name="groesse">
                 <option value="" data-i18n="kon.opt.please">– Bitte wählen –</option>
                 <option value="dina5" data-i18n="kon.size.a5">DIN A5 (ca. Handfläche)</option>
-                <option value="dina4" data-i18n="kon.size.a4">DIN A4 (ca. Unterarm)</option>
+                <option value="dina4" data-i18n="kon.size.a4">DIN A4 (ca. Oberarm)</option>
                 <option value="arm" data-i18n="kon.size.arm">Ganzer Arm / Sleeve</option>
                 <option value="bein" data-i18n="kon.size.bein">Ganzes Bein</option>
                 <option value="ruecken" data-i18n="kon.size.ruecken">Ganzer Rücken</option>
@@ -194,19 +194,13 @@
             </div>
             <div class="form-field">
               <label class="form-label" for="koerperstelle" data-i18n="kon.form.koerper">Körperstelle</label>
-              <select class="form-select" id="koerperstelle" name="koerperstelle">
-                <option value="" data-i18n="kon.opt.please">– Bitte wählen –</option>
-                <option value="unterarm" data-i18n="kon.body.unterarm">Unterarm</option>
-                <option value="ruecken" data-i18n="kon.body.ruecken">Rücken</option>
-                <option value="schulter" data-i18n="kon.body.schulter">Schulter</option>
-                <option value="wade" data-i18n="kon.body.wade">Wade</option>
-              </select>
+              <input class="form-input" type="text" id="koerperstelle" name="koerperstelle" placeholder="z.B. Rücken, Schulter, Wade, Unterarm …">
             </div>
           </div>
 
           <div class="form-field">
             <label class="form-label" for="idee" data-i18n="kon.form.idee">Deine Idee *</label>
-            <textarea class="form-textarea" id="idee" name="idee" rows="6" placeholder="Beschreibe deine Idee stichpunktartig:&#10;– Was soll es darstellen? Welche Stimmung?&#10;– 3 Wunschtermine nennen (z.B. „Mitte Oktober, Anfang November")&#10;– Referenzbilder unbedingt im Upload-Feld mitschicken!" required></textarea>
+            <textarea class="form-textarea" id="idee" name="idee" rows="6" data-i18n-placeholder="kon.form.idee.ph" placeholder="Beschreibe deine Idee stichpunktartig:&#10;– Was soll es darstellen? Welche Stimmung?&#10;– 3 Wunschtermine nennen (z.B. „Mitte Oktober, Anfang November")&#10;– Referenzbilder unbedingt im Upload-Feld mitschicken!" required></textarea>
           </div>
 
           <div class="form-field">
@@ -264,7 +258,7 @@
           <a href="index.html" class="footer-logo-text">
             <img src="img/logo-hires.png" alt="p-insel Tattoos" style="height:200px;width:auto;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));">
           </a>
-          <p>Tattoo Studio in Bad Lippspringe – Wo Kunst entsteht und Momente für die Ewigkeit festgehalten werden. Pia Insel, Tätowiererin & Malerin.</p>
+          <p data-i18n="footer.about">Tattoo Studio in Bad Lippspringe – Wo Kunst entsteht und Momente für die Ewigkeit festgehalten werden. Pia Insel, Tätowiererin & Malerin.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/pia_insel_tattoos" target="_blank" rel="noopener" aria-label="Instagram">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
@@ -354,11 +348,24 @@
 
   /* ── QUARTALS-BUCHUNGSSYSTEM ── */
   const BOOKING_WINDOWS = [
-    { label: 'Frühling 2026', open: '2026-02-01', close: '2026-02-28', for: 'April – Mai 2026' },
-    { label: 'Sommer 2026',   open: '2026-05-01', close: '2026-05-31', for: 'Juli – August 2026' },
-    { label: 'Herbst 2026',   open: '2026-08-01', close: '2026-08-31', for: 'Oktober – November 2026' },
-    { label: 'Winter 2026',   open: '2026-11-01', close: '2026-11-30', for: 'Januar – Februar 2027' },
+    { label: 'Frühling 2026', labelEn: 'Spring 2026', open: '2026-02-01', close: '2026-02-28', for: 'April – Mai 2026',        forEn: 'April – May 2026' },
+    { label: 'Sommer 2026',   labelEn: 'Summer 2026', open: '2026-05-01', close: '2026-05-31', for: 'Juli – August 2026',      forEn: 'July – August 2026' },
+    { label: 'Herbst 2026',   labelEn: 'Autumn 2026', open: '2026-08-01', close: '2026-08-31', for: 'Oktober – November 2026', forEn: 'October – November 2026' },
+    { label: 'Winter 2026',   labelEn: 'Winter 2026', open: '2026-11-01', close: '2026-11-30', for: 'Januar – Februar 2027',   forEn: 'January – February 2027' },
   ];
+
+  /* Sprach-Texte für das (per JS gerenderte) Buchungs-Widget */
+  const BK_T = {
+    de: { open: 'OFFEN', closed: 'GESCHLOSSEN', dates: 'Termine',
+          closesIn: d => `Buchungsfenster schließt in <strong>${d} Tag${d !== 1 ? 'en' : ''}</strong>`,
+          notPossible: 'Anfragen sind aktuell nicht möglich.', nextWindow: 'Nächstes Fenster',
+          opensIn: 'Öffnet in', days: 'Tage', hrs: 'Std', mins: 'Min' },
+    en: { open: 'OPEN', closed: 'CLOSED', dates: 'Dates',
+          closesIn: d => `Booking window closes in <strong>${d} day${d !== 1 ? 's' : ''}</strong>`,
+          notPossible: 'Requests are currently not possible.', nextWindow: 'Next window',
+          opensIn: 'Opens in', days: 'Days', hrs: 'Hrs', mins: 'Min' },
+  };
+  const bkLang = () => (localStorage.getItem('pi-lang') === 'en' ? 'en' : 'de');
 
   function getBookingState() {
     const now = new Date();
@@ -390,8 +397,13 @@
     const submitBtn = document.getElementById('submit-btn');
     if (!statusEl) return;
 
+    const L = bkLang();
+    const t = BK_T[L];
+
     if (state.status === 'open') {
       const w = state.window;
+      const wLabel = L === 'en' ? w.labelEn : w.label;
+      const wFor   = L === 'en' ? w.forEn : w.for;
       const closesMs = new Date(w.close + 'T23:59:59') - new Date();
       const { d } = formatCountdown(closesMs);
       document.getElementById('wunschtermin-hidden').value = w.label + ' — Termine: ' + w.for;
@@ -401,12 +413,12 @@
         <div class="booking-open">
           <div class="booking-header">
             <span class="booking-dot open"></span>
-            <span class="booking-badge-open">OFFEN</span>
+            <span class="booking-badge-open">${t.open}</span>
           </div>
           <div class="booking-info">
-            <strong>${w.label}</strong> — Termine: ${w.for}
+            <strong>${wLabel}</strong> — ${t.dates}: ${wFor}
           </div>
-          <div class="booking-closes">Buchungsfenster schließt in <strong>${d} Tag${d !== 1 ? 'en' : ''}</strong></div>
+          <div class="booking-closes">${t.closesIn(d)}</div>
         </div>`;
     } else {
       const next = state.next;
@@ -419,29 +431,31 @@
       if (next) {
         const ms = next.opens - new Date();
         const { d, h, m } = formatCountdown(ms);
-        nextLabel = next.window.label;
+        nextLabel = L === 'en' ? next.window.labelEn : next.window.label;
         countdownHtml = `
-          <div class="booking-countdown-label">Öffnet in</div>
+          <div class="booking-countdown-label">${t.opensIn}</div>
           <div class="booking-countdown">
-            <div class="booking-count-unit"><div class="booking-count-num">${String(d).padStart(2,'0')}</div><div class="booking-count-label">Tage</div></div>
+            <div class="booking-count-unit"><div class="booking-count-num">${String(d).padStart(2,'0')}</div><div class="booking-count-label">${t.days}</div></div>
             <div class="booking-count-sep">:</div>
-            <div class="booking-count-unit"><div class="booking-count-num">${String(h).padStart(2,'0')}</div><div class="booking-count-label">Std</div></div>
+            <div class="booking-count-unit"><div class="booking-count-num">${String(h).padStart(2,'0')}</div><div class="booking-count-label">${t.hrs}</div></div>
             <div class="booking-count-sep">:</div>
-            <div class="booking-count-unit"><div class="booking-count-num">${String(m).padStart(2,'0')}</div><div class="booking-count-label">Min</div></div>
+            <div class="booking-count-unit"><div class="booking-count-num">${String(m).padStart(2,'0')}</div><div class="booking-count-label">${t.mins}</div></div>
           </div>`;
       }
       statusEl.innerHTML = `
         <div class="booking-closed">
           <div class="booking-header">
             <span class="booking-dot closed"></span>
-            <span class="booking-badge-closed">GESCHLOSSEN</span>
+            <span class="booking-badge-closed">${t.closed}</span>
           </div>
-          <div class="booking-info">Anfragen sind aktuell nicht möglich.</div>
-          ${next ? `<div class="booking-next">Nächstes Fenster: <strong>${nextLabel}</strong></div>` : ''}
+          <div class="booking-info">${t.notPossible}</div>
+          ${next ? `<div class="booking-next">${t.nextWindow}: <strong>${nextLabel}</strong></div>` : ''}
           ${countdownHtml}
         </div>`;
     }
   }
+  /* Bei Sprachwechsel das Widget neu rendern */
+  document.addEventListener('pi-langchange', renderBooking);
 
   renderBooking();
   setInterval(renderBooking, 30000); // aktualisiert alle 30 Sekunden
