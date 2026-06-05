@@ -667,9 +667,12 @@
 
   /* ── FAQ Accordion ── */
   document.querySelectorAll('.faq-trigger').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
       const block = btn.closest('.faq-block');
       const isOpen = block.classList.contains('open');
+      // Freeze scroll position before DOM change
+      const scrollY = window.scrollY;
       document.querySelectorAll('.faq-block.open').forEach(b => {
         b.classList.remove('open');
         b.querySelector('.faq-trigger').setAttribute('aria-expanded','false');
@@ -678,6 +681,8 @@
         block.classList.add('open');
         btn.setAttribute('aria-expanded','true');
       }
+      // Restore scroll position immediately — prevents browser jump
+      window.scrollTo({ top: scrollY, behavior: 'instant' });
     });
   });
 
