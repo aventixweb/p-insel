@@ -209,39 +209,6 @@
   </div>
 </section>
 
-<!-- ================================================
-     STATS
-     ================================================ -->
-<section class="section-sm stats-section" aria-label="Zahlen & Fakten">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-cell reveal">
-        <div class="stat-num">
-          <span class="counter" data-target="16">0</span><span class="suf">+</span>
-        </div>
-        <div class="stat-label" data-i18n="stats.label1">Jahre Erfahrung</div>
-      </div>
-      <div class="stat-cell reveal" data-delay="1">
-        <div class="stat-num">
-          <span class="counter" data-target="450">0</span><span class="suf">+</span>
-        </div>
-        <div class="stat-label" data-i18n="stats.label2">Unikate</div>
-      </div>
-      <div class="stat-cell reveal" data-delay="2">
-        <div class="stat-num">
-          <span class="counter" data-target="20">0</span><span class="suf">+</span>
-        </div>
-        <div class="stat-label" data-i18n="stats.label3">Messen &amp; Events</div>
-      </div>
-      <div class="stat-cell reveal" data-delay="3">
-        <div class="stat-num">
-          5<span class="suf">★</span>
-        </div>
-        <div class="stat-label" data-i18n="stats.label4">Google Bewertung</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <!-- ================================================
@@ -298,7 +265,7 @@
     <div class="section-header" style="text-align:center; margin-bottom:3rem;">
       <span class="section-eyebrow" data-i18n="swr.eyebrow">Bekannt aus dem TV</span>
       <h2 class="section-title" data-i18n="swr.title">Pia Insel im <span>Fernsehen</span></h2>
-      <p class="section-desc" style="margin:0 auto; text-align:center;" data-i18n="swr.desc">Pia Insel gleich zwei mal zu Gast beim SWR – Bei Kaffee oder Tee sprach sie über das Thema Organspende und bei Pierre M. Krause sorgte sie für gute Unterhaltung.</p>
+      <p class="section-desc" style="margin:0 auto; text-align:center;" data-i18n="swr.desc">Pia Insel gleich zwei mal zu Gast beim SWR – Bei „Kaffee oder Tee" sprach sie über das Thema Organspende und bei Pierre M. Krause sorgte sie für „gute Unterhaltung".</p>
     </div>
 
     <div class="swr-grid">
@@ -312,7 +279,7 @@
         </a>
         <div class="swr-card-info">
           <span class="swr-badge">SWR Fernsehen</span>
-          <h3 data-i18n="swr.card1.title">„Kaffee oder Tee"</h3>
+          <h3 data-i18n="swr.card1.title">Pia Insel beim SWR</h3>
           <p data-i18n="swr.card1.desc">Der SWR stellt gern Persönlichkeiten vor die besonderes machen. Was Tattoos mit Organspende zu tun haben.</p>
         </div>
       </div>
@@ -327,7 +294,7 @@
         </a>
         <div class="swr-card-info">
           <span class="swr-badge">SWR Fernsehen</span>
-          <h3 data-i18n="swr.card2.title">„Gute Unterhaltung"</h3>
+          <h3 data-i18n="swr.card2.title">Pia Insel beim SWR</h3>
           <p data-i18n="swr.card2.desc">Für gute Unterhaltung sorgte Pia als Überraschungsgast zum Thema Freundschaft.</p>
         </div>
       </div>
@@ -662,11 +629,13 @@
       pBgs.forEach(bg => { bg.style.transform = 'none'; });
     } else {
       function updateParallax() {
+        const vh = window.innerHeight;
         pBgs.forEach(bg => {
           const section = bg.parentElement;
           const rect = section.getBoundingClientRect();
           const speed = parseFloat(bg.dataset.speed) || 0.15;
-          bg.style.transform = `translateY(${rect.top * speed}px)`;
+          const off = (rect.top - vh / 2 + section.offsetHeight / 2) * speed;
+          bg.style.transform = `translateY(${off}px)`;
         });
       }
       window.addEventListener('scroll', updateParallax, { passive: true });

@@ -786,6 +786,28 @@ body.has-dark-hero .hamburger span {
   pointer-events: none;
 }
 .parallax-section > .container { position: relative; z-index: 2; }
+
+/* ── Quote Band ── */
+.quote-band {
+  position: relative;
+  overflow: hidden;
+  padding: 7rem 0;
+  text-align: center;
+}
+.quote-band-text {
+  font-family: var(--font-h);
+  font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  line-height: 1.25;
+  color: #fff;
+  max-width: 820px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+.quote-band-text em { color: var(--accent); font-style: normal; }
 @media (max-width: 900px) {
   .parallax-bg {
     /* inset bleibt bei -20% 0 für Bewegungsspielraum */
@@ -1192,6 +1214,21 @@ footer .divider { border-top-color: #2a2a2a; }
   padding: 1.6rem 1rem;
   gap: .35rem;
   text-align: center;
+  cursor: default;
+  transition: background .25s ease;
+  border-radius: 4px;
+}
+.hero-meta-item:hover {
+  background: transparent;
+}
+.hero-meta-item:hover .hero-meta-num {
+  color: #fff;
+  text-shadow: 0 0 18px rgba(255,45,120,.7), 0 0 6px rgba(255,45,120,.4);
+  transition: color .25s ease, text-shadow .25s ease;
+}
+.hero-meta-item:hover .hero-meta-lbl {
+  color: rgba(255,255,255,.8);
+  transition: color .25s ease;
 }
 .hero-meta-num {
   font-family: var(--font-h);
@@ -1199,6 +1236,7 @@ footer .divider { border-top-color: #2a2a2a; }
   font-weight: 900;
   color: var(--accent);
   letter-spacing: .02em;
+  transition: color .25s ease, text-shadow .25s ease;
 }
 .hero-meta-lbl {
   font-size: .75rem;
@@ -1206,6 +1244,7 @@ footer .divider { border-top-color: #2a2a2a; }
   letter-spacing: .12em;
   text-transform: uppercase;
   color: rgba(255,255,255,.5);
+  transition: color .25s ease;
 }
 .hero-meta-sep {
   width: 1px;

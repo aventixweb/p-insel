@@ -482,6 +482,18 @@
         <img src="img/tattoo/blumen-mandala-arm.jpg" alt="Blumen mit Mandala am Arm — buntes Tattoo von Pia Insel" loading="lazy">
         <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
       </div>
+      <div class="pf-item" data-category="bunt">
+        <img src="img/malerei/gemaelde-portrait-2.jpg" alt="Portrait-Gemälde — Malerei von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      </div>
+      <div class="pf-item" data-category="bunt">
+        <img src="img/malerei/gemaelde-bunt-3.jpg" alt="Gemälde — Malerei von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      </div>
+      <div class="pf-item" data-category="bunt">
+        <img src="img/malerei/gemaelde-bunt-2.jpg" alt="Gemälde — Malerei von Pia Insel" loading="lazy">
+        <div class="pf-overlay"><div class="pf-info"><span class="pf-tag" data-i18n="tag.bunt">Bunt</span></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -599,7 +611,7 @@
      ZITAT
      ══════════════════════════════════════════ -->
 <div class="quote-band parallax-section">
-  <div class="parallax-bg" data-speed="0.18" style="background-image:url('img/tattoo/hund-blumen-oberschenkel.jpeg')"></div>
+  <div class="parallax-bg" data-speed="0.18" style="background-image:url('img/tattoo/hund-blumen-oberschenkel.jpeg');inset:-200px 0;"></div>
   <div class="parallax-overlay" style="background:rgba(10,10,10,.72)"></div>
   <div class="container">
     <p class="quote-band-text reveal" data-i18n="p.quote">
@@ -656,11 +668,8 @@
   <div class="container" style="position:relative;z-index:2;">
     <div class="cta-band-eyebrow reveal" data-i18n="p.cta.eyebrow">Welcher Stil ist deiner?</div>
     <h2 class="cta-band-title reveal" data-delay="1" data-i18n="p.cta.title">
-      BEREIT FÜR<br>DEIN NÄCHSTES<br><span>TATTOO?</span>
+      BEREIT FÜR<br>DEIN<br><span>TATTOO?</span>
     </h2>
-    <div class="cta-band-actions reveal" data-delay="2">
-      <a href="kontakt.html" class="btn btn-red" data-i18n="p.cta.btn">Termin anfragen</a>
-    </div>
   </div>
 </section>
 
@@ -797,11 +806,13 @@
   if (pBgs.length) {
     const _mob = window.matchMedia('(max-width: 900px)').matches;
     function updateParallax() {
+      const vh = window.innerHeight;
       pBgs.forEach(bg => {
         const section = bg.parentElement;
         const rect = section.getBoundingClientRect();
         const speed = parseFloat(bg.dataset.speed) || 0.15;
-        bg.style.transform = `translateY(${rect.top * (_mob ? speed * 0.6 : speed)}px)`;
+        const off = (rect.top - vh / 2 + section.offsetHeight / 2) * (_mob ? speed * 0.6 : speed);
+        bg.style.transform = `translateY(${off}px)`;
       });
     }
     window.addEventListener('scroll', updateParallax, { passive: true });
