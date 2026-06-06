@@ -38,6 +38,8 @@
       'stats.tv':          'Im Fernsehen',
       'stats.unique':      'Unikate',
       'stats.since':       'Selbstständig',
+      'stats.events':      'Events',
+      'stats.rating':      'Bewertung',
 
       /* About section (index) */
       'about.eyebrow':  'Die Künstlerin',
@@ -220,7 +222,7 @@
       'faq.a4.p1': 'Für eine Tagessitzung planst du einen Aufenthalt von ca. <strong>6 Stunden</strong> — stressfreie Me-Time, ohne Unterbrechungen, damit ich mich voll und ganz auf deinen Tattootraum konzentrieren kann.',
       'faq.a4.p2': 'Ein Beispiel: Für einen kompletten Arm (Sleeve) brauche ich ca. <strong>4–6 Termine</strong>. Pro Tagestermin schaffe ich ca. eine <strong>DIN-A4-große Fläche</strong> als Orientierung.',
       'faq.a5.p1': 'Es kann <strong>bar</strong> oder per <strong>Sofortüberweisung (Online-Banking)</strong> gezahlt werden. Ratenzahlung wird nicht akzeptiert.',
-      'faq.a5.p2': 'Bezahlt wird am Ende <u>des Termines</u>. Brichst du deine Sitzung ungeplant ab, hast du keinen Anspruch auf einen reduzierten Preis.',
+      'faq.a5.p2': 'Bezahlt wird am Ende des Termines. Brichst du deine Sitzung ungeplant ab, hast du keinen Anspruch auf einen reduzierten Preis.',
       'faq.a6.li1':  '<span style="color:#ffffff;font-weight:700;">Freu dich drauf!</span>',
       'faq.a6.li2':  'Komme ausgeruht und stressfrei zu deinem Termin',
       'faq.a6.li3':  'Gönn dir vorher etwas Leckeres und Gesundes — nichts Schweres',
@@ -489,6 +491,8 @@
       'stats.tv':          'On TV',
       'stats.unique':      'Unique Pieces',
       'stats.since':       'Self-employed',
+      'stats.events':      'Events',
+      'stats.rating':      'Rating',
 
       /* About section (index) */
       'about.eyebrow':  'The Artist',

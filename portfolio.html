@@ -829,12 +829,8 @@
   document.querySelectorAll('.pf-item').forEach(item=>{
     item.style.cursor='zoom-in';
     item.addEventListener('click',()=>{
-      // Navigate only within the same category — prevents malerei showing up in bunt etc.
-      const cat=item.dataset.category||'';
-      lbItems=Array.from(document.querySelectorAll('.pf-item')).filter(i=>{
-        if(i.style.display==='none') return false;
-        return !cat||(i.dataset.category||'')===cat;
-      });
+      // Navigate all visible items (respects active filter, ignores category boundaries)
+      lbItems=Array.from(document.querySelectorAll('.pf-item')).filter(i=>i.style.display!=='none');
       lbIdx=lbItems.indexOf(item);
       if(lbIdx===-1)lbIdx=0;
       showLb();

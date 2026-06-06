@@ -60,21 +60,13 @@
   </div>
 </div>
 
-<header class="page-hero">
-  <div class="page-hero-bg" style="background-image:url('img/tattoo/hund-blumen-oberschenkel.jpeg'); background-position: center 30%;"></div>
-  <div class="page-hero-overlay"></div>
-  <div class="container">
-    <div class="page-hero-eyebrow">p-insel Tattoos</div>
-    <h1 data-i18n="kon.hero.h1">Termin <span>anfragen</span></h1>
-  </div>
-</header>
-<div class="container">
-  <nav class="breadcrumb">
+<div class="container" style="padding-top:1rem; padding-bottom:0;">
+  <nav class="breadcrumb" style="margin-bottom:0;">
     <a href="index.html">Home</a><span class="bc-sep">›</span><span class="bc-current">Kontakt</span>
   </nav>
 </div>
 
-<section class="section section-dark" aria-label="Wie funktioniert eine Buchung" style="background:#0a0a0a;">
+<section class="section section-dark" aria-label="Wie funktioniert eine Buchung" style="background:#0a0a0a; padding-top:1.5rem;">
   <div class="container">
     <div style="text-align:center; margin-bottom:3.5rem;">
       <div class="section-eyebrow reveal" style="justify-content:center;" data-i18n="process.eyebrow">So funktioniert's</div>
@@ -400,11 +392,11 @@
   const BK_T = {
     de: { open: 'OFFEN', closed: 'GESCHLOSSEN', dates: 'Termine',
           closesIn: d => `Buchungsfenster schließt in <strong>${d} Tag${d !== 1 ? 'en' : ''}</strong>`,
-          notPossible: 'Anfragen sind aktuell nicht möglich.', nextWindow: 'Nächstes Fenster',
+          reopens: 'Anfragen wieder möglich im', nextWindow: 'Nächstes Fenster',
           opensIn: 'Öffnet in', days: 'Tage', hrs: 'Std', mins: 'Min' },
     en: { open: 'OPEN', closed: 'CLOSED', dates: 'Dates',
           closesIn: d => `Booking window closes in <strong>${d} day${d !== 1 ? 's' : ''}</strong>`,
-          notPossible: 'Requests are currently not possible.', nextWindow: 'Next window',
+          reopens: 'Requests possible again in', nextWindow: 'Next window',
           opensIn: 'Opens in', days: 'Days', hrs: 'Hrs', mins: 'Min' },
   };
   const bkLang = () => (localStorage.getItem('pi-lang') === 'en' ? 'en' : 'de');
@@ -502,8 +494,7 @@
             <span class="booking-dot closed"></span>
             <span class="booking-badge-closed">${t.closed}</span>
           </div>
-          <div class="booking-info">${t.notPossible}</div>
-          ${next ? `<div class="booking-next">${t.nextWindow}: <strong>${nextLabel}</strong><br><span style="opacity:.8;font-size:.92em;">${fmtRange(next.window, L)}</span></div>` : ''}
+          ${next ? `<div class="booking-info">${t.reopens} <strong>${nextLabel}</strong><br><span style="opacity:.8;font-size:.92em;">${fmtRange(next.window, L)}</span></div>` : ''}
           ${countdownHtml}
         </div>`;
     }
