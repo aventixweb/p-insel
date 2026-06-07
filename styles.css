@@ -806,6 +806,7 @@ body.has-dark-hero .hamburger span {
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  text-shadow: 0 2px 20px rgba(0,0,0,.95), 0 0 10px rgba(0,0,0,.85), 0 1px 3px rgba(0,0,0,1);
 }
 .quote-band-text em { color: var(--accent); font-style: normal; }
 @media (max-width: 900px) {
@@ -1134,7 +1135,7 @@ footer .divider { border-top-color: #2a2a2a; }
 /* Hero quote — volle Breite innerhalb hero-fb-inner */
 .hero-quote-text {
   position: absolute;
-  bottom: 7rem;
+  bottom: 9rem;
   left: 0; right: 0;
   z-index: 5;
   text-align: center;
@@ -2702,9 +2703,9 @@ a.contact-value:hover { color: var(--accent); }
   * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
 
-/* ── Mac-Zoom: kurze Viewports — Quote tiefer → mehr Abstand zu Buttons ── */
+/* ── Kurze Viewports (Laptops/Mac-Zoom): Quote etwas tiefer, aber genug Abstand zur Trustbar ── */
 @media (max-height: 860px) {
-  .hero-quote-text { bottom: 1.5rem; }
+  .hero-quote-text { bottom: 4.5rem; }
 }
 /* Nur auf kurzen DESKTOP-/Landscape-Fenstern ausblenden (min-width 769) —
    auf Handys (inkl. iOS Display-Zoom, ~693px hoch) soll die Quote sichtbar bleiben. */

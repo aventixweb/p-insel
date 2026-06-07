@@ -242,8 +242,8 @@
       'faq.a8.li3': 'Tattoos in der <strong>Schwangerschaft und Stillzeit</strong> sind tabu',
       'faq.a8.li4': '<strong style="color:var(--text);">Verzichte</strong> vor deinem Termin auf <strong>blutverdünnende und immunschwächende Medikamente oder Lebensmittel</strong> (z.B. Aspirin / Alkohol), <strong>Betäubungsalben</strong> und <strong>Sonnenbaden</strong>',
       'faq.q9':      'Bekomme ich vorher mein Motiv geschickt?',
-      'faq.a9.p1':   'Den endgültigen Entwurf zeige ich an dem Tag, an dem es auch gestochen wird. Es ist immer genügend Zeit eingeplant, um Änderungswünsche vorzunehmen! Niemand setzt dich unter Druck – und bitte scheu dich nicht, etwas anzusprechen.',
-      'faq.a9.p2':   'Dieses Vorgehen hat sich in mehr als 12 Jahren sehr bewährt. Deine genaue Beschreibung und mein künstlerisches Sehen sind das beste Zusammenspiel.',
+      'faq.a9.p1':   'Den endgültigen Entwurf zeige ich an dem Tag, an dem es auch gestochen wird. Es ist immer <strong>genügend Zeit</strong> eingeplant, um Änderungswünsche vorzunehmen! Niemand setzt dich unter Druck – und bitte scheu dich nicht, etwas anzusprechen.',
+      'faq.a9.p2':   'Dieses Vorgehen hat sich in mehr als 12 Jahren sehr bewährt. Deine genaue Beschreibung und mein künstlerisches Sehen sind das <strong>beste Zusammenspiel</strong>.',
       'faq.pdf.title': 'Pflegeanleitung herunterladen',
       'faq.pdf.sub':   'PDF · Tattoo Nachsorge von Pia Insel',
 
@@ -695,8 +695,8 @@
       'faq.a8.li3': 'Tattoos during <strong>pregnancy and breastfeeding</strong> are not possible',
       'faq.a8.li4': 'Before your appointment, please avoid <strong>blood-thinning and immune-weakening medication or foods</strong> (e.g. aspirin / alcohol), <strong>numbing creams</strong> and <strong>sunbathing</strong>',
       'faq.q9':      'Will I see my design before the appointment?',
-      'faq.a9.p1':   'I show the final design on the day it gets tattooed. There is always enough time planned to make adjustments! No one is putting you under pressure – please don\'t hesitate to speak up.',
-      'faq.a9.p2':   'This approach has proven itself over more than 12 years. Your detailed description and my artistic vision are the perfect combination.',
+      'faq.a9.p1':   'I show the final design on the day it gets tattooed. There is always <strong>enough time</strong> planned to make adjustments! No one is putting you under pressure – please don\'t hesitate to speak up.',
+      'faq.a9.p2':   'This approach has proven itself over more than 12 years. Your detailed description and my artistic vision are the <strong>perfect combination</strong>.',
       'faq.pdf.title': 'Download Aftercare Guide',
       'faq.pdf.sub':   'PDF · Tattoo Aftercare by Pia Insel',
 
