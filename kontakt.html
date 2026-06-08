@@ -70,7 +70,7 @@
      CTA BAND (Hero)
      ══════════════════════════════════════════ -->
 <section class="cta-band parallax-section" aria-label="Terminanfrage">
-  <div class="parallax-bg" data-speed="0.18" style="background-image:url('img/haendetattoo.jpg');background-position:center 45%;"></div>
+  <div class="parallax-bg" data-speed="0.16" style="background-image:url('img/haendetattoo.jpg');inset:-180px 0;background-position:center 45%;"></div>
   <div class="parallax-overlay" style="background:rgba(10,10,10,.60)"></div>
   <div class="container" style="position:relative;z-index:2;">
     <div class="cta-band-eyebrow reveal" data-i18n="p.cta.eyebrow">Welcher Stil ist deiner?</div>
@@ -552,6 +552,22 @@
   const heroBg=document.querySelector('.page-hero-bg');
   const pageHero=document.querySelector('.page-hero');
   if(heroBg&&_mob&&pageHero){function updH(){const r=pageHero.getBoundingClientRect();heroBg.style.transform=`translateY(${r.top*0.35}px)`;}window.addEventListener('scroll',updH,{passive:true});updH();}
+
+  /* Sauberes Parallax für CTA-Band (viewport-zentriert, kein schwarzer Rand) */
+  const pBgs=document.querySelectorAll('.parallax-bg');
+  if(pBgs.length && !_mob){
+    function updP(){
+      const vh=window.innerHeight;
+      pBgs.forEach(bg=>{
+        const s=bg.parentElement, r=s.getBoundingClientRect();
+        const speed=parseFloat(bg.dataset.speed)||0.15;
+        const off=(r.top - vh/2 + s.offsetHeight/2)*speed;
+        bg.style.transform=`translateY(${off}px)`;
+      });
+    }
+    window.addEventListener('scroll',updP,{passive:true});
+    updP();
+  }
 </script>
 <script src="lang.js"></script>
 </body>

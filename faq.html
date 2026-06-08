@@ -705,8 +705,8 @@
       e.preventDefault();
       const block = btn.closest('.faq-block');
       const isOpen = block.classList.contains('open');
-      // Freeze scroll position before DOM change
-      const scrollY = window.scrollY;
+      // Viewport-Position des geklickten Triggers VOR der Änderung merken
+      const anchorTop = btn.getBoundingClientRect().top;
       document.querySelectorAll('.faq-block.open').forEach(b => {
         b.classList.remove('open');
         b.querySelector('.faq-trigger').setAttribute('aria-expanded','false');
@@ -715,8 +715,14 @@
         block.classList.add('open');
         btn.setAttribute('aria-expanded','true');
       }
-      // Restore scroll position immediately — prevents browser jump
-      window.scrollTo({ top: scrollY, behavior: 'instant' });
+      // Geklickten Trigger über die gesamte Auf-/Zu-Animation an Ort und Stelle halten,
+      // damit nichts springt, wenn ein Block darüber zuklappt (Höhe ändert sich animiert).
+      let frames = 0;
+      (function pin() {
+        const delta = btn.getBoundingClientRect().top - anchorTop;
+        if (Math.abs(delta) > 0.5) window.scrollBy(0, delta);
+        if (++frames < 38) requestAnimationFrame(pin); // ~0.6s, deckt die 0.45s Transition ab
+      })();
     });
   });
 

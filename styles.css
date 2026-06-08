@@ -1135,7 +1135,7 @@ footer .divider { border-top-color: #2a2a2a; }
 /* Hero quote — volle Breite innerhalb hero-fb-inner */
 .hero-quote-text {
   position: absolute;
-  bottom: 9rem;
+  bottom: 6rem;
   left: 0; right: 0;
   z-index: 5;
   text-align: center;
@@ -1338,7 +1338,7 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
     min-height: 100svh;
     max-height: none;
   }
-  .hero-fb-inner { flex-direction: column; justify-content: center; align-items: flex-start; padding-top: calc(var(--logo-h) + 1rem); padding-bottom: 9rem; column-gap: 0; row-gap: 0; }
+  .hero-fb-inner { flex-direction: column; justify-content: center; align-items: flex-start; padding-top: calc(var(--nav-h) + 2rem); padding-bottom: 11rem; column-gap: 0; row-gap: 0; }
   .hero-fb-sub { font-size: .82rem; }
   .hero-fb-right { width: 100%; }
   .hero-work-panel { flex-direction: row; align-items: center; }
