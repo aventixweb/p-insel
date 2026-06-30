@@ -174,7 +174,7 @@
       </div>
 
       <!-- Form -->
-      <div class="reveal" data-delay="1">
+      <div class="reveal contact-form-col" data-delay="1">
         <form class="form-grid" id="contact-form" action="https://formsubmit.co/terminwunsch123@p-insel.de" method="POST" enctype="multipart/form-data" novalidate>
           <!-- FormSubmit.co hidden fields -->
           <input type="hidden" name="_subject" value="Neue Terminanfrage — p-insel Tattoos">
@@ -252,6 +252,7 @@
               <input type="file" id="referenzbilder" name="referenzbilder" accept="image/*" multiple class="file-input">
               <div class="file-upload-ui" id="file-upload-ui">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span class="file-upload-guide" data-i18n="kon.upload.guide">• <strong>Wichtig!</strong> Foto von der Körperstelle, wo das Tattoo platziert werden soll<br>• Foto vom Wunschmotiv (Tier / Actionfigur / Portraitfotos etc.)<br>• Beispielfoto für die Stilrichtung<br>• Foto vom Wannado</span>
                 <span class="file-upload-text" data-i18n="kon.upload.text">Bilder hier ablegen oder <span style="color:var(--accent)">klicken</span></span>
                 <span class="file-upload-hint" data-i18n="kon.upload.hint">JPG, PNG, HEIC — max. 5 Bilder, je max. 5 MB</span>
               </div>
@@ -370,27 +371,82 @@
   const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}}),{threshold:0.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  /* File upload preview */
+  /* File upload — Vorschau + clientseitige Komprimierung.
+     Grund: FormSubmit verschickt die E-Mail lautlos OHNE Anhänge (oder gar nicht),
+     wenn die Bilder zusammen zu groß sind. iPhone-Fotos (2–5 MB/Stück) sprengen das
+     schnell → genau Pias Problem. Darum jedes Bild vor dem Anhängen verkleinern,
+     damit auch mehrere Bilder zuverlässig in der Mail ankommen. */
   const fileInput = document.getElementById('referenzbilder');
   const fileList  = document.getElementById('file-list');
   const uploadUI  = document.getElementById('file-upload-ui');
-  const MAX_FILE_BYTES = 5 * 1024 * 1024;  // 5 MB pro Datei
-  const MAX_FILES = 5;                       // max. 5 Bilder
-  if (fileInput) {
-    fileInput.addEventListener('change', () => {
-      const files = Array.from(fileInput.files);
-      if (files.length === 0) { fileList.innerHTML = ''; uploadUI.style.display = 'flex'; return; }
-      uploadUI.style.display = 'none';
-      const en = (localStorage.getItem('pi-lang') === 'en');
-      const tooMany = files.length > MAX_FILES;
-      fileList.innerHTML = files.map(f => {
-        const over = f.size > MAX_FILE_BYTES;
-        return `<div class="file-chip"${over ? ' style="border-color:#ff4d4d;color:#ff9a9a;"' : ''}>
+  const MAX_FILE_BYTES  = 5 * 1024 * 1024;   // 5 MB pro Datei (Sicherheitsnetz/Anzeige)
+  const MAX_TOTAL_BYTES = 8 * 1024 * 1024;   // 8 MB Summe (Puffer unter FormSubmit-Limit)
+  const MAX_FILES = 5;                        // max. 5 Bilder
+  let filesCompressing = false;
+
+  /* Bild auf max. 1600 px herunterskalieren, als JPEG (~72 %) ausgeben.
+     Nicht dekodierbare Formate (z. B. HEIC) oder Fehler → Originaldatei behalten. */
+  function compressImage(file) {
+    return new Promise(resolve => {
+      if (!file.type || !file.type.startsWith('image/')) { resolve(file); return; }
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        try {
+          const MAXDIM = 1600;
+          let w = img.naturalWidth, h = img.naturalHeight;
+          if (Math.max(w, h) > MAXDIM) { const s = MAXDIM / Math.max(w, h); w = Math.round(w*s); h = Math.round(h*s); }
+          const canvas = document.createElement('canvas');
+          canvas.width = w; canvas.height = h;
+          canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+          URL.revokeObjectURL(url);
+          canvas.toBlob(blob => {
+            if (!blob || blob.size >= file.size) { resolve(file); return; }   // kein Gewinn → Original
+            resolve(new File([blob], file.name.replace(/\.[^.]+$/, '') + '.jpg', { type: 'image/jpeg', lastModified: Date.now() }));
+          }, 'image/jpeg', 0.72);
+        } catch (_) { URL.revokeObjectURL(url); resolve(file); }
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); resolve(file); };
+      img.src = url;
+    });
+  }
+
+  function renderChips(files, en) {
+    let total = 0;
+    const chips = files.map(f => {
+      total += f.size;
+      const over = f.size > MAX_FILE_BYTES;
+      return `<div class="file-chip"${over ? ' style="border-color:#ff4d4d;color:#ff9a9a;"' : ''}>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
           <span>${f.name}</span>
           <span class="file-size">(${(f.size/1024/1024).toFixed(1)} MB${over ? (en ? ' – too big!' : ' – zu groß!') : ''})</span>
         </div>`;
-      }).join('') + (tooMany ? `<p style="color:#ff9a9a;font-size:.8rem;margin:.5rem 0 0;">${en ? `Please attach a maximum of ${MAX_FILES} images.` : `Bitte höchstens ${MAX_FILES} Bilder anhängen.`}</p>` : '');
+    }).join('');
+    let warn = '';
+    if (files.length > MAX_FILES)
+      warn += `<p style="color:#ff9a9a;font-size:.8rem;margin:.5rem 0 0;">${en ? `Please attach a maximum of ${MAX_FILES} images.` : `Bitte höchstens ${MAX_FILES} Bilder anhängen.`}</p>`;
+    if (total > MAX_TOTAL_BYTES)
+      warn += `<p style="color:#ff9a9a;font-size:.8rem;margin:.5rem 0 0;">${en ? 'Total size too large — please remove an image.' : 'Gesamtgröße zu groß — bitte ein Bild entfernen.'}</p>`;
+    fileList.innerHTML = chips + warn;
+  }
+
+  if (fileInput) {
+    fileInput.addEventListener('change', async () => {
+      const files = Array.from(fileInput.files);
+      if (files.length === 0) { fileList.innerHTML = ''; uploadUI.style.display = 'flex'; return; }
+      uploadUI.style.display = 'none';
+      const en = (localStorage.getItem('pi-lang') === 'en');
+      filesCompressing = true;
+      fileList.innerHTML = `<p style="color:var(--text-mid);font-size:.85rem;margin:.3rem 0;">${en ? 'Optimizing images…' : 'Bilder werden optimiert…'}</p>`;
+      const out = [];
+      for (const f of files) out.push(await compressImage(f));
+      try {                                   // komprimierte Dateien zurück ins Input schreiben
+        const dt = new DataTransfer();
+        out.forEach(f => dt.items.add(f));
+        fileInput.files = dt.files;
+      } catch (_) { /* sehr alte Browser: Originaldateien bleiben im Input */ }
+      filesCompressing = false;
+      renderChips(Array.from(fileInput.files), en);
     });
   }
 
@@ -545,6 +601,15 @@
       alert('Buchungsanfragen sind aktuell geschlossen. Bitte warte auf das nächste Buchungsfenster.');
       return;
     }
+    /* Bilder werden gerade noch verkleinert → kurz warten, sonst gingen Originale (zu groß) raus */
+    if (filesCompressing) {
+      e.preventDefault();
+      const en = (localStorage.getItem('pi-lang') === 'en');
+      alert(en
+        ? 'Your images are still being optimized — please send again in a moment.'
+        : 'Deine Bilder werden noch optimiert — bitte einen Moment später erneut senden.');
+      return;
+    }
     /* Datei-Prüfung: zu große/zu viele Anhänge würden die FormSubmit-E-Mail lautlos scheitern lassen */
     const fInput = document.getElementById('referenzbilder');
     if (fInput && fInput.files.length) {
@@ -554,7 +619,9 @@
         alert(en ? 'Please attach a maximum of 5 images.' : 'Bitte höchstens 5 Bilder anhängen.');
         return;
       }
+      let total = 0;
       for (const f of fInput.files) {
+        total += f.size;
         if (f.size > 5 * 1024 * 1024) {
           e.preventDefault();
           alert(en
@@ -562,6 +629,13 @@
             : `Das Bild „${f.name}" ist größer als 5 MB. Bitte ein kleineres wählen, damit deine Anfrage sicher ankommt.`);
           return;
         }
+      }
+      if (total > 8 * 1024 * 1024) {
+        e.preventDefault();
+        alert(en
+          ? 'The images are too large in total. Please remove one or two so your request arrives reliably.'
+          : 'Die Bilder sind insgesamt zu groß. Bitte ein bis zwei entfernen, damit deine Anfrage sicher ankommt.');
+        return;
       }
     }
     /* valid → let the form POST natively to FormSubmit (uploads files, then redirects) */

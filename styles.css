@@ -2161,10 +2161,12 @@ body.has-dark-hero #nav.scrolled .nav-links > li > a:hover {
    ======================================================== */
 .contact-split {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
+  grid-template-columns: 1.3fr 1fr;
   gap: 5rem;
   align-items: start;
 }
+.contact-form-col { order: 1; }   /* Buchungsfenster + Formular → links */
+.contact-details  { order: 2; }   /* Kontakt & Infos → rechts */
 .contact-details { display: flex; flex-direction: column; gap: 1.5rem; }
 .contact-detail-item {
   display: flex;
@@ -2221,7 +2223,7 @@ a.contact-value:hover { color: var(--accent); }
   font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--text-dim);
+  color: var(--text);
 }
 .form-input, .form-select, .form-textarea {
   width: 100%;
@@ -2265,6 +2267,15 @@ a.contact-value:hover { color: var(--accent); }
 }
 .file-upload-text { font-size: .88rem; color: var(--text-mid); }
 .file-upload-hint { font-size: .72rem; color: var(--text-dim); letter-spacing: .04em; }
+.file-upload-guide {
+  align-self: stretch;
+  text-align: left;
+  font-size: .82rem;
+  color: var(--text-mid);
+  line-height: 1.55;
+  margin-bottom: .3rem;
+}
+.file-upload-guide strong { color: var(--text); font-weight: 600; }
 .file-list { padding: .6rem .8rem; display: flex; flex-direction: column; gap: .35rem; }
 .file-chip {
   display: flex; align-items: center; gap: .5rem;
@@ -2641,6 +2652,9 @@ a.contact-value:hover { color: var(--accent); }
   .hamburger     { display: flex; }
   .testimonials-grid { grid-template-columns: 1fr 1fr; }
   .contact-split { grid-template-columns: 1fr; gap: 3rem; }
+  /* mobil: Buchungsfenster + Formular zuerst, Kontakt & Infos darunter */
+  .contact-form-col { order: 1; }
+  .contact-details  { order: 2; }
   .process-steps { grid-template-columns: repeat(2, 1fr); }
   .process-steps::before { display: none; }
   .p-item        { grid-column: span 1 !important; grid-row: span 1 !important; }
