@@ -541,12 +541,22 @@
       submitBtn.style.opacity = '0.45';
       document.getElementById('wunschtermin-hidden').value = '';
 
+      /* Neuer Satz: "Terminanfragen für <Monate> sind möglich ab <von> bis <bis>" + Countdown bleibt */
+      let infoHtml = '';
       let countdownHtml = '';
-      let nextLabel = '';
       if (next) {
-        const ms = next.opens - new Date();
-        const { d, h, m } = formatCountdown(ms);
-        nextLabel = L === 'en' ? next.window.labelEn : next.window.label;
+        const w = next.window;
+        const months = (L === 'en' ? w.labelEn : w.label).replace(/\//g, ', ');
+        const o = new Date(w.open + 'T00:00:00');
+        const c = new Date(w.close + 'T00:00:00');
+        const p = n => String(n).padStart(2, '0');
+        const startShort = `${p(o.getDate())}.${p(o.getMonth() + 1)}`;
+        const endFull    = `${p(c.getDate())}.${p(c.getMonth() + 1)}.${c.getFullYear()}`;
+        infoHtml = (L === 'en')
+          ? `Requests for <strong>${months}</strong> are possible from <strong>${startShort}</strong> to <strong>${endFull}</strong>.`
+          : `Terminanfragen für <strong>${months}</strong> sind möglich ab <strong>${startShort}</strong> bis <strong>${endFull}</strong>.`;
+
+        const { d, h, m } = formatCountdown(next.opens - new Date());
         countdownHtml = `
           <div class="booking-countdown-label">${t.opensIn}</div>
           <div class="booking-countdown">
@@ -563,7 +573,7 @@
             <span class="booking-dot closed"></span>
             <span class="booking-badge-closed">${t.closed}</span>
           </div>
-          ${next ? `<div class="booking-info">${t.reopens} <strong>${nextLabel}</strong><br><span style="opacity:.8;font-size:.92em;">${fmtRange(next.window, L)}</span></div>` : ''}
+          ${infoHtml ? `<div class="booking-info">${infoHtml}</div>` : ''}
           ${countdownHtml}
         </div>`;
     }
