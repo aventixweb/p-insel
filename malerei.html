@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malerei · p-insel Kunstmalerei · Pia Insel</title>
+  <meta name="description" content="Kunstmalerei von Pia Insel – Bad Lippspringe. Handgemalte Unikate: surreale Tierportraits, Skulls, florale Werke. Zum Erwerben oder als Tattooinspiration.">
+  <meta property="og:title" content="Kunstmalerei · Pia Insel">
+  <meta property="og:description" content="Handgemalte Unikate von Pia Insel – zum Erwerben oder als Tattooinspiration.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.p-insel.de/malerei.html">
+  <meta property="og:image" content="https://www.p-insel.de/img/og-preview.jpg">
+  <link rel="canonical" href="https://www.p-insel.de/malerei.html">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Malerei-Galerie: 4 Spalten, rechteckige Kacheln ── */
+    .malerei-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .mal-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: zoom-in;
+      background: var(--bg-surface);
+      aspect-ratio: 4 / 5;
+      margin: 0;
+    }
+    .mal-item img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform .45s var(--ease);
+    }
+    .mal-item:hover img { transform: scale(1.05); }
+    .mal-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,0) 55%);
+      opacity: 0; transition: opacity .3s;
+      display: flex; align-items: flex-end; padding: .85rem;
+    }
+    .mal-item:hover .mal-overlay { opacity: 1; }
+    .mal-title {
+      font-family: var(--font-h); font-size: .92rem; font-weight: 700;
+      letter-spacing: .03em; color: var(--text); line-height: 1.2;
+    }
+    @media (max-width: 900px) { .malerei-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; } }
+    @media (max-width: 560px) { .malerei-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; } }
+
+    /* Lightbox-Caption (mehrzeilig, für Malerei) */
+    #lb .lb-caption {
+      white-space: normal; text-align: center;
+      bottom: 3.1rem; max-width: 92vw;
+    }
+    #lb .lb-caption .lb-t {
+      display: block; font-family: var(--font-h);
+      font-size: 1.05rem; font-weight: 700; letter-spacing: .05em;
+      text-transform: uppercase; color: #fff; margin-bottom: .25rem;
+    }
+    #lb .lb-caption .lb-m { display: block; font-size: .86rem; color: rgba(255,255,255,.72); }
+    #lb .lb-caption .lb-m .sold { color: var(--accent); font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<!-- ── LIGHTBOX ── -->
+<div class="lb-overlay" id="lb" role="dialog" aria-modal="true" aria-label="Bildansicht">
+  <div class="lb-inner">
+    <button class="lb-close" id="lb-close" aria-label="Schließen">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <button class="lb-btn lb-prev" id="lb-prev" aria-label="Vorheriges Bild">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <img class="lb-img" id="lb-img" src="" alt="">
+    <button class="lb-btn lb-next" id="lb-next" aria-label="Nächstes Bild">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div class="lb-caption" id="lb-caption"></div>
+    <div class="lb-counter" id="lb-counter"></div>
+  </div>
+</div>
+
+<nav id="nav" role="navigation" aria-label="Hauptnavigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="img/logo-hires.png" alt="p-insel Tattoos" class="nav-logo-img"></a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="portfolio.html" data-i18n="nav.portfolio">Tattoo</a></li>
+      <li><a href="malerei.html" class="active" data-i18n="nav.malerei">Malerei</a></li>
+      <li><a href="kuenstlerin.html" data-i18n="nav.about">Über mich</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      <li><a href="kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
+    </ul>
+    <a href="kontakt.html" class="nav-cta" data-i18n="nav.cta">Termin anfragen</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="de">DE</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div id="drawer-overlay" aria-hidden="true"></div>
+<div id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation">
+  <div class="drawer-header">
+    <img src="img/logo-hires.png" alt="p-insel Tattoos" class="drawer-logo-img">
+    <button class="drawer-close" id="drawer-close" aria-label="Menü schließen">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="index.html" data-i18n="nav.home">Home</a>
+    <a href="portfolio.html" data-i18n="nav.portfolio">Tattoo</a>
+    <a href="malerei.html" class="active" data-i18n="nav.malerei">Malerei</a>
+    <a href="kuenstlerin.html" data-i18n="nav.about">Über mich</a>
+    <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+    <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
+  </nav>
+  <div class="drawer-footer">
+    <div class="drawer-footer-contact">
+      Detmolder Str. 119 · Bad Lippspringe
+    </div>
+    <div class="drawer-lang-switcher">
+      <button class="lang-btn" data-lang="de">DE</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <a href="kontakt.html" class="drawer-cta-link" data-i18n="drawer.cta">Termin anfragen</a>
+  </div>
+</div>
+
+<!-- Breadcrumb -->
+<div class="container" style="padding-top:1rem; padding-bottom:1rem;">
+  <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:0;">
+    <a href="index.html">Home</a>
+    <span class="bc-sep">›</span>
+    <span class="bc-current" data-i18n="mal.bc">Malerei</span>
+  </nav>
+</div>
+
+<!-- HERO -->
+<header class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('img/malerei/malerei-31.jpg'); background-position: center 40%;"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="container">
+    <div class="page-hero-eyebrow" data-i18n="mal.hero.eyebrow">p-insel Kunstmalerei</div>
+    <h1 data-i18n="mal.hero.h1">Kunst<br><span>malerei</span></h1>
+    <p data-i18n="mal.hero.sub">Weil Farben und Formen für mich etwas Besonderes sind.<br>Diese Unikate können erworben werden oder als Tattooinspiration dienen.</p>
+  </div>
+</header>
+
+<!-- GALERIE -->
+<section class="section" id="galerie">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div class="section-eyebrow reveal" style="justify-content:center;" data-i18n="mal.gallery.eyebrow">Galerie</div>
+      <h2 class="section-title reveal" data-delay="1" data-i18n="mal.gallery.h2">Ausgewählte<br><span>Werke</span></h2>
+    </div>
+
+    <div class="malerei-grid" id="malerei-grid"><!-- per JS befüllt --></div>
+
+    <p class="reveal" style="text-align:center;margin-top:2.5rem;color:var(--text-mid);font-size:.9rem;" data-i18n="mal.gallery.hint">
+      Klick auf ein Werk für Titel, Größe und Preis.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-text">
+            <img src="img/logo-hires.png" alt="p-insel Tattoos" style="height:200px;width:auto;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));">
+          </a>
+          <p data-i18n="footer.about">Tattoo Studio in Bad Lippspringe – Wo Kunst entsteht und Momente für die Ewigkeit festgehalten werden. Pia Insel, Tätowiererin & Malerin.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/pia_insel_tattoos" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
+            </a>
+            <a href="https://www.facebook.com/PiaInselTattoo" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.nav.title">Navigation</h4>
+          <ul>
+            <li><a href="index.html" data-i18n="footer.nav.home">Startseite</a></li>
+            <li><a href="portfolio.html" data-i18n="footer.nav.portfolio">Tattoo</a></li>
+            <li><a href="malerei.html" data-i18n="footer.nav.malerei">Malerei</a></li>
+            <li><a href="kuenstlerin.html" data-i18n="footer.nav.about">Über mich</a></li>
+            <li><a href="portfolio.html" data-i18n="footer.nav.styles">Stile & Techniken</a></li>
+            <li><a href="kontakt.html" data-i18n="footer.nav.contact">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.styles.title">Stile</h4>
+          <ul>
+            <li><a href="portfolio.html#bunt" data-i18n="footer.s.colorful">Bunt</a></li>
+            <li><a href="portfolio.html#sw" data-i18n="footer.s.bw">Schwarz-Weiß</a></li>
+            <li><a href="portfolio.html#surrealismus" data-i18n="footer.s.surreal">Surrealismus &amp; Farbe</a></li>
+            <li><a href="portfolio.html#coverup" data-i18n="footer.s.coverup">Cover-Ups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contact.title">Kontakt</h4>
+          <address>
+            <strong>p-insel Tattoos</strong><br>
+            Detmolder Strasse 119<br>
+            33175 Bad Lippspringe
+          </address>
+          <div class="footer-hours">
+            <div class="footer-hours-row">
+              <span data-i18n="footer.hours.label">Termine</span>
+              <span data-i18n="footer.hours.val">Nach Vereinbarung</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;width:100%;">
+      <p>© 2026 p-insel Tattoos · Pia Insel · Bad Lippspringe</p>
+      <div class="footer-bottom-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="float-cta">
+  <a href="kontakt.html" class="float-cta-btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    Termin anfragen
+  </a>
+</div>
+
+<script>
+  /* Nav scrolled */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
+
+  /* Mobile drawer */
+  const hamburger = document.getElementById('hamburger');
+  const drawer    = document.getElementById('mobile-drawer');
+  const overlay   = document.getElementById('drawer-overlay');
+  const closeBtn  = document.getElementById('drawer-close');
+  const openD  = () => { const y=window.scrollY; drawer.classList.add('open'); overlay.classList.add('open'); hamburger.classList.add('open'); hamburger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; document.body.style.position='fixed'; document.body.style.top=`-${y}px`; document.body.style.width='100%'; drawer._savedScroll=y; };
+  const closeD = () => { const y=drawer._savedScroll||0; drawer.classList.remove('open'); overlay.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; document.body.style.position=''; document.body.style.top=''; document.body.style.width=''; window.scrollTo(0,y); };
+  hamburger.addEventListener('click', () => drawer.classList.contains('open') ? closeD() : openD());
+  closeBtn.addEventListener('click', closeD);
+  overlay.addEventListener('click', closeD);
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeD));
+
+  /* Reveal */
+  const io = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } }), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* Float CTA */
+  const floatCta = document.getElementById('float-cta');
+  window.addEventListener('scroll', () => { floatCta.classList.toggle('visible', window.scrollY > 350); }, { passive: true });
+
+  /* ── GALERIE-DATEN (Titel / Größe / Preis pro Bild) ──
+     Reihenfolge = Anzeige-Reihenfolge. Bildnummer n → img/malerei/malerei-NN.jpg
+     p:null + sold:false  => "Preis auf Anfrage" · sold:true => "Verkauft" */
+  const GALLERY = [
+    {n:44, t:"Toniccoon", s:"20 × 30 cm", p:"319 €", sold:false},
+    {n:48, t:"Toniccoon", s:"20 × 30 cm", p:"319 €", sold:false},
+    {n:47, t:"Toniccoon", s:"20 × 30 cm", p:"319 €", sold:false},
+    {n:49, t:"Toniccoon", s:"20 × 30 cm", p:"319 €", sold:false},
+    {n:46, t:"Slowtini", s:"Ø 30 cm", p:"319 €", sold:false},
+    {n:42, t:"Dino Daiquiri", s:"36 × 48 cm", p:null, sold:true},
+    {n:43, t:"Schnurrlaub", s:"Ø 30 cm", p:null, sold:true},
+    {n:45, t:"Sip happens", s:"24 × 30 cm", p:"419 €", sold:false},
+    {n:38, t:"Triptichon der Eiszeit", s:"50 × 100 / 30 × 40 / 50 × 70 cm", p:"1.719 €", sold:false},
+    {n:39, t:"Triptichon der Eiszeit", s:"50 × 100 / 30 × 40 / 50 × 70 cm", p:"1.719 €", sold:false},
+    {n:40, t:"Triptichon der Eiszeit", s:"50 × 100 / 30 × 40 / 50 × 70 cm", p:"1.719 €", sold:false},
+    {n:41, t:"Triptichon der Eiszeit", s:"50 × 100 / 30 × 40 / 50 × 70 cm", p:"1.719 €", sold:false},
+    {n:34, t:"Butterfly Effect", s:"50 × 70 cm", p:null, sold:false},
+    {n:35, t:"Butterfly Effect", s:"50 × 70 cm", p:null, sold:false},
+    {n:36, t:"Butterfly Effect", s:"50 × 70 cm", p:null, sold:false},
+    {n:37, t:"Butterfly Effect", s:"50 × 70 cm", p:null, sold:false},
+    {n:30, t:"Sir Fossil", s:"165 × 105 cm", p:null, sold:false},
+    {n:31, t:"Sir Fossil", s:"165 × 105 cm", p:null, sold:false},
+    {n:33, t:"Sir Fossil", s:"165 × 105 cm", p:null, sold:false},
+    {n:32, t:"Sir Fossil", s:"165 × 105 cm", p:null, sold:false},
+    {n:26, t:"Skull 2", s:"105 × 165 cm", p:null, sold:false},
+    {n:27, t:"Skull 2", s:"105 × 165 cm", p:null, sold:false},
+    {n:28, t:"Skull 2", s:"105 × 165 cm", p:null, sold:false},
+    {n:29, t:"Skull 2", s:"105 × 165 cm", p:null, sold:false},
+    {n:23, t:"Skull 1", s:"165 × 105 cm", p:null, sold:false},
+    {n:22, t:"Skull 1", s:"165 × 105 cm", p:null, sold:false},
+    {n:25, t:"Skull 1", s:"165 × 105 cm", p:null, sold:false},
+    {n:24, t:"Skull 1", s:"165 × 105 cm", p:null, sold:false},
+    {n:20, t:"Metamorphose der Beziehung", s:"220 × 150 cm", p:"6.819 €", sold:false},
+    {n:18, t:"Metamorphose der Beziehung", s:"220 × 150 cm", p:"6.819 €", sold:false},
+    {n:19, t:"Metamorphose der Beziehung", s:"220 × 150 cm", p:"6.819 €", sold:false},
+    {n:21, t:"Metamorphose der Beziehung", s:"220 × 150 cm", p:"6.819 €", sold:false},
+    {n:14, t:"Unikat", s:"", p:null, sold:false},
+    {n:15, t:"Unikat", s:"", p:null, sold:false},
+    {n:16, t:"Unikat", s:"", p:null, sold:false},
+    {n:17, t:"Unikat", s:"", p:null, sold:false},
+    {n:10, t:"Strelizie", s:"240 × 200 cm", p:"2.919 €", sold:false},
+    {n:11, t:"Strelizie", s:"240 × 200 cm", p:"2.919 €", sold:false},
+    {n:12, t:"Strelizie", s:"240 × 200 cm", p:"2.919 €", sold:false},
+    {n:13, t:"Strelizie", s:"240 × 200 cm", p:"2.919 €", sold:false},
+    {n:9, t:"Flamingo", s:"105 × 165 cm", p:null, sold:true},
+    {n:8, t:"Flamingo", s:"105 × 165 cm", p:null, sold:true},
+    {n:7, t:"Flamingo", s:"105 × 165 cm", p:null, sold:true},
+    {n:6, t:"Flamingo", s:"105 × 165 cm", p:null, sold:true},
+  ];
+
+  const pad = n => String(n).padStart(2, '0');
+  const grid = document.getElementById('malerei-grid');
+  grid.innerHTML = GALLERY.map((w, i) => `
+    <figure class="mal-item" data-i="${i}">
+      <img src="img/malerei/malerei-${pad(w.n)}.jpg" alt="${w.t} — Kunstwerk von Pia Insel" loading="${i < 8 ? 'eager' : 'lazy'}">
+      <figcaption class="mal-overlay"><span class="mal-title">${w.t}</span></figcaption>
+    </figure>`).join('');
+
+  /* ── Lightbox mit Titel / Größe / Preis ── */
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lb-img');
+  const lbCaption = document.getElementById('lb-caption');
+  const lbCounter = document.getElementById('lb-counter');
+  let lbIdx = 0, lbReq = 0;
+  const items = Array.from(grid.querySelectorAll('.mal-item'));
+
+  const L = () => (localStorage.getItem('pi-lang') === 'en' ? 'en' : 'de');
+  const LBL = { de:{groesse:'Größe', preis:'Preis', sold:'Verkauft', req:'Preis auf Anfrage'},
+                en:{groesse:'Size',  preis:'Price', sold:'Sold',     req:'Price on request'} };
+
+  function priceText(w) {
+    const t = LBL[L()];
+    if (w.sold) return `<span class="sold">${t.sold}</span>`;
+    if (!w.p)   return t.req;
+    return w.p;
+  }
+
+  function showLb() {
+    const w = GALLERY[lbIdx];
+    if (!w) return;
+    const myReq = ++lbReq;
+    const metaText = w.s ? `${w.s} · ${priceText(w)}` : priceText(w);
+    lbCaption.innerHTML = `<span class="lb-t">${w.t}</span><span class="lb-m">${metaText}</span>`;
+    lbCounter.textContent = `${lbIdx + 1} / ${GALLERY.length}`;
+    lbImg.style.opacity = '0';
+    const reveal = () => { if (myReq === lbReq) lbImg.style.opacity = '1'; };
+    lbImg.onload = reveal; lbImg.onerror = reveal;
+    lbImg.src = `img/malerei/malerei-${pad(w.n)}.jpg`;
+    lbImg.alt = `${w.t} — Kunstwerk von Pia Insel`;
+    if (lbImg.complete && lbImg.naturalWidth) reveal();
+  }
+  function openLb(i) { lbIdx = i; showLb(); lb.classList.add('lb-open'); document.body.style.overflow = 'hidden'; }
+  function closeLb() { lb.classList.remove('lb-open'); document.body.style.overflow = ''; lbReq++; }
+
+  items.forEach(it => it.addEventListener('click', () => openLb(+it.dataset.i)));
+  document.getElementById('lb-close').addEventListener('click', closeLb);
+  document.getElementById('lb-prev').addEventListener('click', e => { e.stopPropagation(); lbIdx = (lbIdx - 1 + GALLERY.length) % GALLERY.length; showLb(); });
+  document.getElementById('lb-next').addEventListener('click', e => { e.stopPropagation(); lbIdx = (lbIdx + 1) % GALLERY.length; showLb(); });
+  lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('lb-inner')) closeLb(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('lb-open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft')  { lbIdx = (lbIdx - 1 + GALLERY.length) % GALLERY.length; showLb(); }
+    if (e.key === 'ArrowRight') { lbIdx = (lbIdx + 1) % GALLERY.length; showLb(); }
+  });
+  let txStart = 0;
+  lb.addEventListener('touchstart', e => { txStart = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - txStart;
+    if (Math.abs(dx) > 50) { lbIdx = dx < 0 ? (lbIdx + 1) % GALLERY.length : (lbIdx - 1 + GALLERY.length) % GALLERY.length; showLb(); }
+  }, { passive: true });
+
+  /* Caption bei Sprachwechsel neu aufbauen, falls Lightbox offen */
+  document.addEventListener('pi-langchange', () => { if (lb.classList.contains('lb-open')) showLb(); });
+</script>
+<script src="lang.js"></script>
+</body>
+</html>

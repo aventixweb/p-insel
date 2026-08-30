@@ -16,7 +16,8 @@
     de: {
       /* Nav & drawer */
       'nav.home':        'Home',
-      'nav.portfolio':   'Portfolio',
+      'nav.portfolio':   'Tattoo',
+      'nav.malerei':     'Malerei',
       'nav.about':       'Über mich',
       'nav.faq':         'FAQ',
       'nav.contact':     'Kontakt',
@@ -25,7 +26,7 @@
 
       /* Hero */
       'hero.line1':      'DEIN',
-      'hero.line2':      'TATTOO.',
+      'hero.line2':      'UNIKAT.',
       'hero.line3':      'FÜR IMMER.',
       'hero.sub':        'Surrealismus / Cover Up / Black &amp; Grey',
       'hero.location':   'Tattoo Atelier · Bad Lippspringe',
@@ -118,7 +119,8 @@
       'footer.styles.title': 'Stile',
       'footer.contact.title':'Kontakt',
       'footer.nav.home':     'Startseite',
-      'footer.nav.portfolio':'Portfolio',
+      'footer.nav.portfolio':'Tattoo',
+      'footer.nav.malerei':  'Malerei',
       'footer.nav.about':    'Über mich',
       'footer.nav.styles':   'Stile &amp; Techniken',
       'footer.nav.contact':  'Kontakt',
@@ -303,8 +305,8 @@
       'kon.success.p':    'Danke für deine Nachricht. Ich melde mich innerhalb von 1–2 Werktagen bei dir.',
 
       /* ── PORTFOLIO PAGE ── */
-      'p.hero.eyebrow':  'Tattoo Portfolio',
-      'p.hero.h1':       'Portfolio &amp; <span>Stile</span>',
+      'p.hero.eyebrow':  'Tattoo Galerie',
+      'p.hero.h1':       'Tattoo &amp; <span>Stile</span>',
       'p.gallery.eyebrow': 'Galerie',
       'p.gallery.h2':    'Ausgewählte<br><span>Arbeiten</span>',
       'p.filter.all':    'Alle',
@@ -331,7 +333,14 @@
 
       /* ── PORTFOLIO PAGE (extended) ── */
       'p.hero.sub':        'Jeder Mensch ist einzigartig – sein Tattoo auch.<br>Hier findest du einen Überblick über meine Arbeiten und Spezialisierungen.',
-      'p.bc':              'Portfolio &amp; Stile',
+      'p.bc':              'Tattoo &amp; Stile',
+      'mal.bc':            'Malerei',
+      'mal.hero.eyebrow':  'p-insel Kunstmalerei',
+      'mal.hero.h1':       'Kunst<br><span>malerei</span>',
+      'mal.hero.sub':      'Weil Farben und Formen für mich etwas Besonderes sind.<br>Diese Unikate können erworben werden oder als Tattooinspiration dienen.',
+      'mal.gallery.eyebrow':'Galerie',
+      'mal.gallery.h2':    'Ausgewählte<br><span>Werke</span>',
+      'mal.gallery.hint':  'Klick auf ein Werk für Titel, Größe und Preis.',
       'p.spec.eyebrow':    'Spezialisierungen',
       'p.spec.h2':         'Kunst, die <span>Eindruck macht!</span>',
       'p.spec.desc':       'Jedes Werk ein Unikat. Ich arbeite immer mit dem Anspruch, dass es dein persönliches Tattoo-Kunstwerk wird.',
@@ -470,7 +479,8 @@
     en: {
       /* Nav & drawer */
       'nav.home':        'Home',
-      'nav.portfolio':   'Portfolio',
+      'nav.portfolio':   'Tattoo',
+      'nav.malerei':     'Paintings',
       'nav.about':       'About',
       'nav.faq':         'FAQ',
       'nav.contact':     'Contact',
@@ -479,7 +489,7 @@
 
       /* Hero */
       'hero.line1':      'YOUR',
-      'hero.line2':      'TATTOO.',
+      'hero.line2':      'ONE OF A KIND.',
       'hero.line3':      'FOREVER.',
       'hero.sub':        'Surrealism / Cover Up / Black &amp; Grey',
       'hero.location':   'Tattoo Studio · Bad Lippspringe',
@@ -572,7 +582,8 @@
       'footer.styles.title': 'Styles',
       'footer.contact.title':'Contact',
       'footer.nav.home':     'Home',
-      'footer.nav.portfolio':'Portfolio',
+      'footer.nav.portfolio':'Tattoo',
+      'footer.nav.malerei':  'Paintings',
       'footer.nav.about':    'About',
       'footer.nav.styles':   'Styles &amp; Techniques',
       'footer.nav.contact':  'Contact',
@@ -757,8 +768,8 @@
       'kon.success.p':    'Thanks for your message. I\'ll get back to you within 1–2 business days.',
 
       /* ── PORTFOLIO PAGE ── */
-      'p.hero.eyebrow':  'Tattoo Portfolio',
-      'p.hero.h1':       'Portfolio &amp; <span>Styles</span>',
+      'p.hero.eyebrow':  'Tattoo Gallery',
+      'p.hero.h1':       'Tattoo &amp; <span>Styles</span>',
       'p.gallery.eyebrow': 'Gallery',
       'p.gallery.h2':    'Selected<br><span>Works</span>',
       'p.filter.all':    'All',
@@ -785,7 +796,14 @@
 
       /* ── PORTFOLIO PAGE (extended) ── */
       'p.hero.sub':        'Every person is unique – so is their tattoo.<br>Browse my work and specialisations below.',
-      'p.bc':              'Portfolio &amp; Styles',
+      'p.bc':              'Tattoo &amp; Styles',
+      'mal.bc':            'Paintings',
+      'mal.hero.eyebrow':  'p-insel Fine Art',
+      'mal.hero.h1':       'Fine <br><span>Art</span>',
+      'mal.hero.sub':      'Because colours and shapes mean something special to me.<br>These unique pieces can be purchased or serve as tattoo inspiration.',
+      'mal.gallery.eyebrow':'Gallery',
+      'mal.gallery.h2':    'Selected<br><span>Works</span>',
+      'mal.gallery.hint':  'Click a piece for title, size and price.',
       'p.spec.eyebrow':    'Specialisations',
       'p.spec.h2':         'Art that <span>Makes an Impression!</span>',
       'p.spec.desc':       'Every piece is one of a kind. I always aim for your tattoo to be your own personal work of art.',
