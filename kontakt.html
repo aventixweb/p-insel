@@ -461,10 +461,14 @@
   }
 
   /* ── QUARTALS-BUCHUNGSSYSTEM ── */
+  /* Buchungsfenster öffnen jeweils den GANZEN Monat (4 Wochen): März, Juni, September, Dezember.
+     Jedes Fenster bucht das jeweils folgende Quartal. */
   const BOOKING_WINDOWS = [
-    { label: 'Juli/August/September 2026', labelEn: 'July/August/September 2026', open: '2026-06-13', close: '2026-06-28', for: 'nach Vereinbarung', forEn: 'by arrangement' },
-    { label: 'Oktober/November/Dezember 2026', labelEn: 'October/November/December 2026', open: '2026-08-22', close: '2026-09-06', for: 'nach Vereinbarung', forEn: 'by arrangement' },
-    { label: 'Januar/Februar/März 2027', labelEn: 'January/February/March 2027', open: '2026-12-19', close: '2026-12-31', for: 'nach Vereinbarung', forEn: 'by arrangement' },
+    { label: 'Januar/Februar/März 2027', labelEn: 'January/February/March 2027', open: '2026-12-01', close: '2026-12-31', for: 'nach Vereinbarung', forEn: 'by arrangement' },
+    { label: 'April/Mai/Juni 2027', labelEn: 'April/May/June 2027', open: '2027-03-01', close: '2027-03-31', for: 'nach Vereinbarung', forEn: 'by arrangement' },
+    { label: 'Juli/August/September 2027', labelEn: 'July/August/September 2027', open: '2027-06-01', close: '2027-06-30', for: 'nach Vereinbarung', forEn: 'by arrangement' },
+    { label: 'Oktober/November/Dezember 2027', labelEn: 'October/November/December 2027', open: '2027-09-01', close: '2027-09-30', for: 'nach Vereinbarung', forEn: 'by arrangement' },
+    { label: 'Januar/Februar/März 2028', labelEn: 'January/February/March 2028', open: '2027-12-01', close: '2027-12-31', for: 'nach Vereinbarung', forEn: 'by arrangement' },
   ];
 
   /* Sprach-Texte für das (per JS gerenderte) Buchungs-Widget */
